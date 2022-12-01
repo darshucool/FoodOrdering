@@ -1,0 +1,17 @@
+﻿@using AlfasiWeb
+@model int
+@{
+    var login = (Dinota.Security.Login.Login)ViewData[ViewDataKeys.Login];
+    var groups = login.Groups;
+    var random = new Random();
+}
+
+<div id="grp-@Model">
+@if (groups.Any(group => group.Id == Model)) { 
+    @Ajax.ActionLink("Remove", "RemoveFromGroup", new { loginId = login.Id, groupId = Model, rand = random.Next() }, new AjaxOptions() { OnFailure = "serverError();", UpdateTargetId = "grp-" + Model.ToString(), LoadingElementId = "ajax-loading" })
+}
+else
+{
+    @Ajax.ActionLink("Add", "AddToGroup", new { loginId = login.Id, groupId = Model, rand = random.Next() }, new AjaxOptions() { OnFailure = "serverError();", UpdateTargetId = "grp-" + Model.ToString(), LoadingElementId = "ajax-loading" })
+}
+</div>

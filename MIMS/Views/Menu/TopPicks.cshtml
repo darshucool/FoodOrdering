@@ -1,0 +1,62 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.MenuCategory
+@using Dinota.Domain.MenuOrder
+@using AlfasiWeb.Models
+@model List<MenuOrder>
+@{
+    ViewBag.Title = "MenuOrderList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Top Picks</h4>
+    </div>
+</div>
+<section class="py-4 osahan-main-body">
+    <div class="container">
+        <div class="row">
+
+            <div class="tab-content col-md-12" id="myTabContent">
+                <div class="tab-pane fade show active" id="progress" role="tabpanel" aria-labelledby="progress-tab">
+                    <div class="order-body">
+                        <div class="container">
+                            <div class="row">
+                        @foreach (MenuOrder ord in Model.GroupBy(p => p.MenuItem.Name).Select(g => g.First()))
+                        {
+                            
+                            <div class="col-md-4 mb-3">
+                                <div class="d-flex align-items-center list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                                    <div class="list-card-image">
+                                        <a href="restaurant.html">
+                                            <img alt="#" src="@Url.Content("~/Asset/img/menu/" + ord.MenuItem.ImgName + ".jpg")" class="img-fluid item-img w-100">
+                                        </a>
+                                    </div>
+                                    <div class="p-3 position-relative">
+                                        <div class="list-card-body">
+                                            <h6 class="mb-1"><a href="#" class="text-black">@ord.MenuItem.Name
+</a>
+                                            </h6>
+                                            </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        }
+    </div>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

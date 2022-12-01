@@ -1,0 +1,64 @@
+﻿@using AlfasiWeb
+@using AlfasiWeb.Helpers
+@using AlfasiWeb.Models
+@using Dinota.Security
+@model ListModel
+@{
+    ViewBag.Title = "Group Permissions";
+    var group = (Dinota.Security.Group.Group)ViewData[ViewDataKeys.Group];
+}
+<div id="group_table" style="height: auto">
+    <legend>
+        <h4>
+            User Group - @group.Name</h4>
+    </legend>
+    <div style="height: auto">
+        @{
+            var rolePermission = ViewData.ContainsKey(ViewDataKeys.Permission)
+                                     ? (RolePermission)ViewData[ViewDataKeys.Permission]
+                                     : new RolePermission(false);
+
+            var fas = (IEnumerable<Dinota.Security.FunctionalArea.FunctionalArea>)ViewData[ViewDataKeys.List];
+            Html.Custom().Grid(fas, "GridPermissions", false)
+                .Columns(column =>
+                             {
+                                 column.For(fa => fa.Name).Attributes(a => new Dictionary<string, object> { { "class", "span8 g_links" } }).Sortable(false);
+                                 column.For(fa => Html.Partial("_GrantRole", new GrantRoleModel(group, fa.Id))).Attributes(a => new Dictionary<string, object> { { "class", "span8 g_links" } }).Encode(false)
+                                     .Visible(rolePermission.CanEdit).Named("Permission").Sortable(false);
+                                 column.For(fa => Html.Partial("_Roles", new GrantRoleModel(group, fa.Id))).Attributes(a => new Dictionary<string, object> { { "class", "span8 g_links" } }).Encode(false)
+                                     .Visible(!rolePermission.CanEdit).Named("Permission").Sortable(false);
+
+                             }).Render();
+        }
+        <!-- /.table-responsive -->
+    </div>
+</div>
+<script type="text/javascript">
+    setTimeout(function () {
+        $('#GridPermissions').dataTable({
+            "aoColumns": [null, { "bSortable": false}],
+            "bPaginate": false,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bSort": true,
+            "bInfo": false,
+            "bAutoWidth": false,
+            "sScrollY": "250px",
+            "bScrollCollapse": false
+        });
+
+        if ($.browser.msie && $.browser.version == 9) {
+            //left it if we can come up with a fix
+        } else {
+            $(".dataTables_scrollBody").mCustomScrollbar({
+                theme: "dark-thick",
+                advanced: {
+                    updateOnBrowserResize: true,
+                    updateOnContentResize: true
+                }
+            });
+        }
+
+
+    }, 500);
+</script>

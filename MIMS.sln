@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinotaCore", "DinotaCore\DinotaCore.csproj", "{EBCC0061-E222-462A-BE49-7C1FFEAC582D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinotaDataAccess", "DinotaDataAccess\DinotaDataAccess.csproj", "{C321CE4E-F28F-4FAF-98B8-F04C38FEC3B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinotaDomain", "DinotaDomain\DinotaDomain.csproj", "{91F363ED-8175-4F44-8856-3E9EB7B205E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinotaSecurity", "DinotaSecurity\DinotaSecurity.csproj", "{8F19A64B-460E-41B9-9B01-0B59E940B3D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MIMS", "MIMS\MIMS.csproj", "{44C2AA32-9B1A-403F-833F-963B5F763E72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBCC0061-E222-462A-BE49-7C1FFEAC582D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBCC0061-E222-462A-BE49-7C1FFEAC582D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBCC0061-E222-462A-BE49-7C1FFEAC582D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBCC0061-E222-462A-BE49-7C1FFEAC582D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C321CE4E-F28F-4FAF-98B8-F04C38FEC3B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C321CE4E-F28F-4FAF-98B8-F04C38FEC3B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C321CE4E-F28F-4FAF-98B8-F04C38FEC3B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C321CE4E-F28F-4FAF-98B8-F04C38FEC3B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91F363ED-8175-4F44-8856-3E9EB7B205E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91F363ED-8175-4F44-8856-3E9EB7B205E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91F363ED-8175-4F44-8856-3E9EB7B205E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91F363ED-8175-4F44-8856-3E9EB7B205E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F19A64B-460E-41B9-9B01-0B59E940B3D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F19A64B-460E-41B9-9B01-0B59E940B3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F19A64B-460E-41B9-9B01-0B59E940B3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F19A64B-460E-41B9-9B01-0B59E940B3D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44C2AA32-9B1A-403F-833F-963B5F763E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44C2AA32-9B1A-403F-833F-963B5F763E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44C2AA32-9B1A-403F-833F-963B5F763E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44C2AA32-9B1A-403F-833F-963B5F763E72}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D54DA0C6-07FC-4EF4-B81A-F7C6BF61814F}
+	EndGlobalSection
+EndGlobal

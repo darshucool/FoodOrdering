@@ -1,0 +1,17 @@
+C:\Users\yasithas\Documents\Visual Studio 2010\Projects\DocToHTML\SampleBusinessObject\bin\Debug\SampleBusinessObject.dll
+C:\Users\yasithas\Documents\Visual Studio 2010\Projects\DocToHTML\SampleBusinessObject\bin\Debug\SampleBusinessObject.pdb
+C:\Users\yasithas\Documents\Visual Studio 2010\Projects\DocToHTML\SampleBusinessObject\bin\Debug\BusinessObjectFramework.dll
+C:\Users\yasithas\Documents\Visual Studio 2010\Projects\DocToHTML\SampleBusinessObject\obj\Debug\SampleBusinessObject.csprojResolveAssemblyReference.cache
+C:\Users\yasithas\Documents\Visual Studio 2010\Projects\DocToHTML\SampleBusinessObject\obj\Debug\SampleBusinessObject.dll
+C:\Users\yasithas\Documents\Visual Studio 2010\Projects\DocToHTML\SampleBusinessObject\obj\Debug\SampleBusinessObject.pdb
+D:\Sudesh\muditha\DocToHTML\DocToHTML\SampleBusinessObject\bin\Debug\SampleBusinessObject.dll
+D:\Sudesh\muditha\DocToHTML\DocToHTML\SampleBusinessObject\bin\Debug\SampleBusinessObject.pdb
+D:\Sudesh\muditha\DocToHTML\DocToHTML\SampleBusinessObject\bin\Debug\BusinessObjectFramework.dll
+D:\Sudesh\muditha\DocToHTML\DocToHTML\SampleBusinessObject\obj\Debug\ResolveAssemblyReference.cache
+D:\Sudesh\muditha\DocToHTML\DocToHTML\SampleBusinessObject\obj\Debug\SampleBusinessObject.dll
+D:\Sudesh\muditha\DocToHTML\DocToHTML\SampleBusinessObject\obj\Debug\SampleBusinessObject.pdb
+D:\Denota\MySource\Local\AlfasiWeb\SampleBusinessObject\bin\Debug\SampleBusinessObject.dll
+D:\Denota\MySource\Local\AlfasiWeb\SampleBusinessObject\bin\Debug\SampleBusinessObject.pdb
+D:\Denota\MySource\Local\AlfasiWeb\SampleBusinessObject\obj\Debug\ResolveAssemblyReference.cache
+D:\Denota\MySource\Local\AlfasiWeb\SampleBusinessObject\obj\Debug\SampleBusinessObject.dll
+D:\Denota\MySource\Local\AlfasiWeb\SampleBusinessObject\obj\Debug\SampleBusinessObject.pdb

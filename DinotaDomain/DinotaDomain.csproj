@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{91F363ED-8175-4F44-8856-3E9EB7B205E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dinota.Domain</RootNamespace>
+    <AssemblyName>DinotaDomain</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=2.4.5.724, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\Libs\Autofac\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Libs\EF\4.1\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <HintPath>C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\System.ComponentModel.DataAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminUser\AdminUser.cs" />
+    <Compile Include="AdminUser\AdminUserService.cs" />
+    <Compile Include="AdminUser\IAdminUserRepo.cs" />
+    <Compile Include="CommonEnums.cs" />
+    <Compile Include="MeasurementUnit\MeasurementUnit.cs" />
+    <Compile Include="MeasurementUnit\MeasurementUnitService.cs" />
+    <Compile Include="MeasurementUnit\IMeasurementUnitRepo.cs" />
+    <Compile Include="MenuMultiOption\IMenuMultiOptionRepo.cs" />
+    <Compile Include="MenuMultiOption\MenuMultiOption.cs" />
+    <Compile Include="MenuMultiOption\MenuMultiOptionService.cs" />
+    <Compile Include="MenuOption\IMenuOptionRepo.cs" />
+    <Compile Include="MenuOption\MenuOption.cs" />
+    <Compile Include="MenuOption\MenuOptionService.cs" />
+    <Compile Include="MenuFavorite\MenuFavorite.cs" />
+    <Compile Include="MenuFavorite\MenuFavoriteService.cs" />
+    <Compile Include="MenuFavorite\IMenuFavoriteRepo.cs" />
+    <Compile Include="News\News.cs" />
+    <Compile Include="News\NewsService.cs" />
+    <Compile Include="News\INewsRepo.cs" />
+    <Compile Include="RoomInfo\RoomInfo.cs" />
+    <Compile Include="RoomInfo\RoomInfoService.cs" />
+    <Compile Include="RoomInfo\IRoomInfoRepo.cs" />
+    <Compile Include="RoomNo\RoomNo.cs" />
+    <Compile Include="RoomNo\RoomNoService.cs" />
+    <Compile Include="RoomNo\IRoomNoRepo.cs" />
+    <Compile Include="EventAttendance\EventAttendance.cs" />
+    <Compile Include="EventAttendance\EventAttendanceService.cs" />
+    <Compile Include="EventAttendance\EventAttendanceRepo.cs" />
+    <Compile Include="EventParticipationKid\EventParticipationKid.cs" />
+    <Compile Include="EventParticipationKid\EventParticipationKidService.cs" />
+    <Compile Include="EventParticipationKid\EventParticipationKidRepo.cs" />
+    <Compile Include="Event\IEventRepo.cs" />
+    <Compile Include="Event\Event.cs" />
+    <Compile Include="Event\EventService.cs" />
+    <Compile Include="EventParticipation\IEventParticipationRepo.cs" />
+    <Compile Include="EventParticipation\EventParticipation.cs" />
+    <Compile Include="EventParticipation\EventParticipationService.cs" />
+    <Compile Include="MenuOrder\IMenuOrderRepo.cs" />
+    <Compile Include="MenuOrder\MenuOrder.cs" />
+    <Compile Include="MenuOrder\MenuOrderService.cs" />
+    <Compile Include="MenuItem\IMenuItemRepo.cs" />
+    <Compile Include="MenuItem\MenuItem.cs" />
+    <Compile Include="MenuItem\MenuItemService.cs" />
+    <Compile Include="MenuCategory\MenuCategory.cs" />
+    <Compile Include="MenuCategory\MenuCategoryService.cs" />
+    <Compile Include="MenuCategory\IMenuCategoryRepo.cs" />
+    <Compile Include="Town\Town.cs" />
+    <Compile Include="Town\TownService.cs" />
+    <Compile Include="Town\ITownRepo.cs" />
+    <Compile Include="Rank\Rank.cs" />
+    <Compile Include="Rank\RankService.cs" />
+    <Compile Include="Rank\IRankRepo.cs" />
+    <Compile Include="FuelType\FuelType.cs" />
+    <Compile Include="FuelType\FuelTypeService.cs" />
+    <Compile Include="FuelType\IFuelTypeRepo.cs" />
+    <Compile Include="SLAFLocation\SLAFLocation.cs" />
+    <Compile Include="SLAFLocation\SLAFLocationService.cs" />
+    <Compile Include="SLAFLocation\ISLAFLocationRepo.cs" />
+    <Compile Include="Filter\FilterBuilder.cs" />
+    <Compile Include="Filter\IFilterable.cs" />
+    <Compile Include="PageObject\PageObject.cs" />
+    <Compile Include="PageObject\PageObjectRepo.cs" />
+    <Compile Include="PageObject\PageObjectService.cs" />
+    <Compile Include="UserPermission\UserPermission.cs" />
+    <Compile Include="UserPermission\UserPermissionRepo.cs" />
+    <Compile Include="UserPermission\UserPermissionService.cs" />
+    <Compile Include="UserType\UserType.cs" />
+    <Compile Include="UserType\UserTypeService.cs" />
+    <Compile Include="UserType\IUserTypeRepo.cs" />
+    <Compile Include="Division\Division.cs" />
+    <Compile Include="Division\DivisionService.cs" />
+    <Compile Include="Division\IDivisionRepo.cs" />
+    <Compile Include="District\IDistrictRepo.cs" />
+    <Compile Include="District\District.cs" />
+    <Compile Include="District\DistrictService.cs" />
+    <Compile Include="DateCompareAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ErrorMessage.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="AutofacModule.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="IDomainContext.cs" />
+    <Compile Include="IdTypes.cs" />
+    <Compile Include="LookUpEntity.cs" />
+    <Compile Include="QuantityExceedException.cs" />
+    <Compile Include="SyncEntity.cs" />
+    <Compile Include="TxnHeaderBase.cs" />
+    <Compile Include="User\ExternalUser.cs" />
+    <Compile Include="User\ISystemUserInfoRepo.cs" />
+    <Compile Include="User\IUserAccountRepo.cs" />
+    <Compile Include="User\IUserBaseRepo.cs" />
+    <Compile Include="User\SystemUserInfo.cs" />
+    <Compile Include="User\SystemUserInfoService.cs" />
+    <Compile Include="User\UserAccount.cs" />
+    <Compile Include="User\UserAccountService.cs" />
+    <Compile Include="User\UserBase.cs" />
+    <Compile Include="User\UserBaseService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DinotaCore\DinotaCore.csproj">
+      <Project>{EBCC0061-E222-462A-BE49-7C1FFEAC582D}</Project>
+      <Name>DinotaCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

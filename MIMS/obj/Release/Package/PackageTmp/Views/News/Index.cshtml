@@ -1,0 +1,54 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.News
+@using Dinota.Domain.Event
+@using AlfasiWeb.Models
+@model List<News>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">News List</h4>
+    </div>
+</div>
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+
+        <div class="col-md-12 mb-3">
+            @Html.Message()
+            <table  class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Heading</th>
+                        <th>Description</th>
+                        <th>News Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (News info in Model)
+                    {
+                        <tr>
+                            <td>@info.NewsHeader</td>
+                            <td>@Html.Raw(info.Description)</td>
+                            <td>@info.CreationDate.ToString("dd/MM/yyyy")</td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Asset/js/jquery-3.5.1.js"></script>
+<script src="~/Asset/js/jquery.dataTables.min.js"></script>
+<script src="~/Asset/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+    
+</script>

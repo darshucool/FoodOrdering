@@ -1,0 +1,57 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.MenuCategory
+@using Dinota.Domain.MenuItem
+@using AlfasiWeb.Models
+@model List<MenuItem>
+    @{
+        ViewBag.Title = "MenuOrderList";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    <div class="d-none">
+        <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+            <a class="toggle togglew toggle-2" href="#"><span></span></a>
+            <h4 class="font-weight-bold m-0 text-white">Menu List</h4>
+        </div>
+    </div>
+    <section class="py-4 osahan-main-body">
+        <div class="container">
+            <div class="row">
+
+                <div class="tab-content col-md-12" id="myTabContent">
+                    <div class="tab-pane fade show active" id="progress" role="tabpanel" aria-labelledby="progress-tab">
+                        <div class="order-body">
+                            @foreach (MenuItem ord in Model)
+                            {
+                                <div class="pb-3">
+                                    <div class="p-3 rounded shadow-sm bg-white">
+
+                                        <div class="d-flex border-bottom pb-3">
+                                            <div class="text-muted mr-3">
+                                                <img alt="#" src="@Url.Content("~/Asset/img/menu/" + ord.ImgName + ".jpg")" class="img-fluid order_img rounded">
+                                            </div>
+                                            <div>
+                                                
+                                                    <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.Name</a></p>
+                                               
+                                            </div>
+
+                                            <div class="ml-auto">
+                                                <a href="@Url.Content("~/Menu/MenuDetail/")@ord.UId" class="btn btn-primary px-3" style="float:right">Detail</a>
+                                               
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>

@@ -1,0 +1,263 @@
+C:\ASC-PT-AU\Project\DinotaDomain\bin\Release\DinotaDomain.dll
+C:\ASC-PT-AU\Project\DinotaDomain\bin\Release\DinotaDomain.pdb
+C:\ASC-PT-AU\Project\DinotaDomain\bin\Release\Autofac.dll
+C:\ASC-PT-AU\Project\DinotaDomain\bin\Release\DinotaCore.dll
+C:\ASC-PT-AU\Project\DinotaDomain\bin\Release\EntityFramework.dll
+C:\ASC-PT-AU\Project\DinotaDomain\bin\Release\DinotaCore.pdb
+C:\ASC-PT-AU\Project\DinotaDomain\bin\Release\Autofac.xml
+C:\ASC-PT-AU\Project\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+C:\ASC-PT-AU\Project\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+C:\ASC-PT-AU\Project\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+C:\ASC-PT-AU\Project\DinotaDomain\obj\Release\DinotaDomain.dll
+C:\ASC-PT-AU\Project\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\Peramune\Project\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\Peramune\Project\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\Peramune\Project\DinotaDomain\bin\Release\Autofac.dll
+D:\Peramune\Project\DinotaDomain\bin\Release\DinotaCore.dll
+D:\Peramune\Project\DinotaDomain\bin\Release\EntityFramework.dll
+D:\Peramune\Project\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\Peramune\Project\DinotaDomain\bin\Release\Autofac.xml
+D:\Peramune\Project\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\Peramune\Project\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\Peramune\Project\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+D:\Peramune\Project\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\Peramune\Project\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\Darshaka\22-02-2014\new\peramune\Peramune\Project\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\Darshaka\22-02-2014\new\peramune\Peramune\Project\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\Darshaka\22-02-2014\new\peramune\Peramune\Project\DinotaDomain\bin\Release\Autofac.dll
+D:\Darshaka\22-02-2014\new\peramune\Peramune\Project\DinotaDomain\bin\Release\DinotaCore.dll
+D:\Darshaka\22-02-2014\new\peramune\Peramune\Project\DinotaDomain\bin\Release\EntityFramework.dll
+D:\Darshaka\22-02-2014\new\peramune\Peramune\Project\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\Darshaka\22-02-2014\new\peramune\Peramune\Project\DinotaDomain\bin\Release\Autofac.xml
+D:\Darshaka\22-02-2014\new\peramune\Peramune\Project\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\Darshaka\22-02-2014\new\peramune\Peramune\Project\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\Darshaka\22-02-2014\new\peramune\Peramune\Project\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+D:\Darshaka\22-02-2014\new\peramune\Peramune\Project\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\Darshaka\22-02-2014\new\peramune\Peramune\Project\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\Peramune\Project\Project\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\Peramune\Project\Project\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\Peramune\Project\Project\DinotaDomain\bin\Release\Autofac.dll
+D:\Peramune\Project\Project\DinotaDomain\bin\Release\DinotaCore.dll
+D:\Peramune\Project\Project\DinotaDomain\bin\Release\EntityFramework.dll
+D:\Peramune\Project\Project\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\Peramune\Project\Project\DinotaDomain\bin\Release\Autofac.xml
+D:\Peramune\Project\Project\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\Peramune\Project\Project\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\Peramune\Project\Project\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+D:\Peramune\Project\Project\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\Peramune\Project\Project\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\Darshaka\25-02-2014\Project\Project\Project\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\Darshaka\25-02-2014\Project\Project\Project\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\Darshaka\25-02-2014\Project\Project\Project\DinotaDomain\bin\Release\Autofac.dll
+D:\Darshaka\25-02-2014\Project\Project\Project\DinotaDomain\bin\Release\DinotaCore.dll
+D:\Darshaka\25-02-2014\Project\Project\Project\DinotaDomain\bin\Release\EntityFramework.dll
+D:\Darshaka\25-02-2014\Project\Project\Project\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\Darshaka\25-02-2014\Project\Project\Project\DinotaDomain\bin\Release\Autofac.xml
+D:\Darshaka\25-02-2014\Project\Project\Project\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\Darshaka\25-02-2014\Project\Project\Project\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\Darshaka\25-02-2014\Project\Project\Project\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+D:\Darshaka\25-02-2014\Project\Project\Project\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\Darshaka\25-02-2014\Project\Project\Project\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\Sudesh\Project\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\Sudesh\Project\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\Sudesh\Project\DinotaDomain\bin\Release\Autofac.dll
+D:\Sudesh\Project\DinotaDomain\bin\Release\DinotaCore.dll
+D:\Sudesh\Project\DinotaDomain\bin\Release\EntityFramework.dll
+D:\Sudesh\Project\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\Sudesh\Project\DinotaDomain\bin\Release\Autofac.xml
+D:\Sudesh\Project\DinotaDomain\obj\Release\ResolveAssemblyReference.cache
+D:\Sudesh\Project\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\Sudesh\Project\DinotaDomain\obj\Release\GenerateResource.read.1.tlog
+D:\Sudesh\Project\DinotaDomain\obj\Release\GenerateResource.write.1.tlog
+D:\Sudesh\Project\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\Sudesh\Project\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaDomain\bin\Release\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaDomain\bin\Release\Autofac.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaDomain\bin\Release\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaDomain\bin\Release\Autofac.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaDomain\bin\Release\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaDomain\bin\Release\Autofac.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaDomain\bin\Release\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaDomain\bin\Release\Autofac.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaDomain\bin\Release\DinotaCore.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaDomain\bin\Release\Autofac.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaDomain\bin\Release\DinotaCore.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaDomain\bin\Release\Autofac.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaDomain\bin\Release\DinotaCore.dll
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaDomain\bin\Release\Autofac.xml
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\03200\SOURCE\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\03200\SOURCE\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\03200\SOURCE\DinotaDomain\bin\Release\DinotaCore.dll
+D:\03200\SOURCE\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\03200\SOURCE\DinotaDomain\bin\Release\Autofac.xml
+D:\03200\SOURCE\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\03200\SOURCE\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\03200\SOURCE\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+D:\03200\SOURCE\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\03200\SOURCE\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\AF\FDMS\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\AF\FDMS\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\AF\FDMS\DinotaDomain\bin\Release\DinotaCore.dll
+D:\AF\FDMS\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\AF\FDMS\DinotaDomain\bin\Release\Autofac.xml
+D:\AF\FDMS\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\AF\FDMS\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\AF\FDMS\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+D:\AF\FDMS\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\AF\FDMS\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaDomain\bin\Release\DinotaCore.dll
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaDomain\bin\Release\System.ComponentModel.DataAnnotations.dll
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaDomain\bin\Release\Autofac.xml
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaDomain\obj\Release\DinotaDomain.csprojAssemblyReference.cache
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.cache
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaDomain\obj\Release\DinotaDomain.csproj.CopyComplete
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\03200\MIMS\MIMS\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\03200\MIMS\MIMS\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\03200\MIMS\MIMS\DinotaDomain\bin\Release\DinotaCore.dll
+D:\03200\MIMS\MIMS\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\03200\MIMS\MIMS\DinotaDomain\bin\Release\Autofac.xml
+D:\03200\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\03200\MIMS\MIMS\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\03200\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+D:\03200\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\03200\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\03200\MIMS\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\03200\MIMS\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\03200\MIMS\DinotaDomain\bin\Release\DinotaCore.dll
+D:\03200\MIMS\DinotaDomain\bin\Release\System.ComponentModel.DataAnnotations.dll
+D:\03200\MIMS\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\03200\MIMS\DinotaDomain\bin\Release\Autofac.xml
+D:\03200\MIMS\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\03200\MIMS\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+D:\03200\MIMS\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\03200\MIMS\DinotaDomain\obj\Release\DinotaDomain.pdb
+C:\MIMS\MIMS\DinotaDomain\bin\Release\DinotaDomain.dll
+C:\MIMS\MIMS\DinotaDomain\bin\Release\DinotaDomain.pdb
+C:\MIMS\MIMS\DinotaDomain\bin\Release\DinotaCore.dll
+C:\MIMS\MIMS\DinotaDomain\bin\Release\DinotaCore.pdb
+C:\MIMS\MIMS\DinotaDomain\bin\Release\Autofac.xml
+C:\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+C:\MIMS\MIMS\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+C:\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+C:\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.dll
+C:\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\MIMS\MIMS\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\MIMS\MIMS\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\MIMS\MIMS\DinotaDomain\bin\Release\DinotaCore.dll
+D:\MIMS\MIMS\DinotaDomain\bin\Release\System.ComponentModel.DataAnnotations.dll
+D:\MIMS\MIMS\DinotaDomain\bin\Release\System.Web.Razor.dll
+D:\MIMS\MIMS\DinotaDomain\bin\Release\System.Web.WebPages.Razor.dll
+D:\MIMS\MIMS\DinotaDomain\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\MIMS\MIMS\DinotaDomain\bin\Release\System.Web.WebPages.Deployment.dll
+D:\MIMS\MIMS\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\MIMS\MIMS\DinotaDomain\bin\Release\Autofac.xml
+D:\MIMS\MIMS\DinotaDomain\bin\Release\System.Web.Mvc.xml
+D:\MIMS\MIMS\DinotaDomain\bin\Release\System.Web.WebPages.xml
+D:\MIMS\MIMS\DinotaDomain\bin\Release\System.Web.Razor.xml
+D:\MIMS\MIMS\DinotaDomain\bin\Release\System.Web.WebPages.Razor.xml
+D:\MIMS\MIMS\DinotaDomain\bin\Release\Microsoft.Web.Infrastructure.xml
+D:\MIMS\MIMS\DinotaDomain\bin\Release\System.Web.WebPages.Deployment.xml
+D:\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.csprojAssemblyReference.cache
+D:\MIMS\MIMS\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.cache
+D:\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.csproj.CopyComplete
+D:\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.pdb
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\bin\Release\DinotaDomain.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\bin\Release\DinotaDomain.pdb
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\bin\Release\DinotaCore.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\bin\Release\System.ComponentModel.DataAnnotations.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\bin\Release\System.Web.Razor.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\bin\Release\System.Web.WebPages.Razor.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\bin\Release\System.Web.WebPages.Deployment.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\bin\Release\DinotaCore.pdb
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\bin\Release\Autofac.xml
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\bin\Release\System.Web.Mvc.xml
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\bin\Release\System.Web.WebPages.xml
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\bin\Release\System.Web.Razor.xml
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\bin\Release\System.Web.WebPages.Razor.xml
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\bin\Release\Microsoft.Web.Infrastructure.xml
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\bin\Release\System.Web.WebPages.Deployment.xml
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\03200\MIMS\DinotaDomain\obj\Release\DinotaDomain.csproj.AssemblyReference.cache
+D:\03200\MIMS\DinotaDomain\obj\Release\DinotaDomain.csproj.CoreCompileInputs.cache
+D:\03200\MIMS\DinotaDomain\obj\Release\DinotaDomain.csproj.CopyComplete
+D:\MY PROJECT\MIMS\MIMS\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\MY PROJECT\MIMS\MIMS\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\MY PROJECT\MIMS\MIMS\DinotaDomain\bin\Release\DinotaCore.dll
+D:\MY PROJECT\MIMS\MIMS\DinotaDomain\bin\Release\System.ComponentModel.DataAnnotations.dll
+D:\MY PROJECT\MIMS\MIMS\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\MY PROJECT\MIMS\MIMS\DinotaDomain\bin\Release\Autofac.xml
+D:\MY PROJECT\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.csprojAssemblyReference.cache
+D:\MY PROJECT\MIMS\MIMS\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\MY PROJECT\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.cache
+D:\MY PROJECT\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.csproj.CopyComplete
+D:\MY PROJECT\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\MY PROJECT\MIMS\MIMS\DinotaDomain\obj\Release\DinotaDomain.pdb

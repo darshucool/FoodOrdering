@@ -1,0 +1,148 @@
+D:\Projects\Alfasi-ProjectTracking\Project\ASC-PT-AU\Project\DinotaCore\bin\Debug\DinotaCore.dll
+D:\Projects\Alfasi-ProjectTracking\Project\ASC-PT-AU\Project\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\Projects\Alfasi-ProjectTracking\Project\ASC-PT-AU\Project\DinotaCore\bin\Debug\Autofac.dll
+D:\Projects\Alfasi-ProjectTracking\Project\ASC-PT-AU\Project\DinotaCore\bin\Debug\EntityFramework.dll
+D:\Projects\Alfasi-ProjectTracking\Project\ASC-PT-AU\Project\DinotaCore\bin\Debug\Autofac.xml
+D:\Projects\Alfasi-ProjectTracking\Project\ASC-PT-AU\Project\DinotaCore\obj\Debug\DinotaCore.dll
+D:\Projects\Alfasi-ProjectTracking\Project\ASC-PT-AU\Project\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\Projects\Alfasi-ProjectTracking\Project\ASC-PT-AU\Project\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+C:\ASC-PT-AU\Project\DinotaCore\bin\Debug\DinotaCore.dll
+C:\ASC-PT-AU\Project\DinotaCore\bin\Debug\DinotaCore.pdb
+C:\ASC-PT-AU\Project\DinotaCore\bin\Debug\Autofac.dll
+C:\ASC-PT-AU\Project\DinotaCore\bin\Debug\EntityFramework.dll
+C:\ASC-PT-AU\Project\DinotaCore\bin\Debug\Autofac.xml
+C:\ASC-PT-AU\Project\DinotaCore\obj\Debug\DinotaCore.dll
+C:\ASC-PT-AU\Project\DinotaCore\obj\Debug\DinotaCore.pdb
+C:\ASC-PT-AU\Project\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+D:\Denota\MySource\Local\AlfasiWeb\DinotaCore\bin\Debug\DinotaCore.dll
+D:\Denota\MySource\Local\AlfasiWeb\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\Denota\MySource\Local\AlfasiWeb\DinotaCore\obj\Debug\ResolveAssemblyReference.cache
+D:\Denota\MySource\Local\AlfasiWeb\DinotaCore\obj\Debug\DinotaCore.dll
+D:\Denota\MySource\Local\AlfasiWeb\DinotaCore\obj\Debug\DinotaCore.pdb
+F:\ABC\FuelStation\FuelStation\DinotaCore\bin\Debug\DinotaCore.dll
+F:\ABC\FuelStation\FuelStation\DinotaCore\bin\Debug\DinotaCore.pdb
+F:\ABC\FuelStation\FuelStation\DinotaCore\obj\Debug\ResolveAssemblyReference.cache
+F:\ABC\FuelStation\FuelStation\DinotaCore\obj\Debug\DinotaCore.dll
+F:\ABC\FuelStation\FuelStation\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaCore\bin\Debug\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaCore\obj\Debug\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaCore\bin\Debug\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaCore\obj\Debug\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\DinotaCore\bin\Debug\DinotaCore.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\DinotaCore\obj\Debug\DinotaCore.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaCore\bin\Debug\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaCore\obj\Debug\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\DinotaCore\bin\Debug\DinotaCore.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\DinotaCore\obj\Debug\DinotaCore.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaCore\bin\Debug\DinotaCore.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaCore\obj\Debug\DinotaCore.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaCore\bin\Debug\DinotaCore.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaCore\obj\Debug\DinotaCore.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaCore\bin\Debug\DinotaCore.dll
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaCore\obj\Debug\DinotaCore.dll
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaCore\obj\Debug\DinotaCore.pdb
+C:\Users\Administrator\Desktop\POLITIC\SOURCE\SOURCE\DinotaCore\bin\Debug\DinotaCore.dll
+C:\Users\Administrator\Desktop\POLITIC\SOURCE\SOURCE\DinotaCore\bin\Debug\DinotaCore.pdb
+C:\Users\Administrator\Desktop\POLITIC\SOURCE\SOURCE\DinotaCore\bin\Debug\System.ComponentModel.DataAnnotations.dll
+C:\Users\Administrator\Desktop\POLITIC\SOURCE\SOURCE\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\POLITIC\SOURCE\SOURCE\DinotaCore\obj\Debug\DinotaCore.dll
+C:\Users\Administrator\Desktop\POLITIC\SOURCE\SOURCE\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\03200\SOURCE\DinotaCore\bin\Debug\DinotaCore.dll
+D:\03200\SOURCE\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\03200\SOURCE\DinotaCore\obj\Debug\DinotaCore.dll
+D:\03200\SOURCE\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\03200\SOURCE\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+E:\AF Programming\FDMS\DinotaCore\bin\Debug\DinotaCore.dll
+E:\AF Programming\FDMS\DinotaCore\bin\Debug\DinotaCore.pdb
+E:\AF Programming\FDMS\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+E:\AF Programming\FDMS\DinotaCore\obj\Debug\DinotaCore.dll
+E:\AF Programming\FDMS\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\AF\FDMS\DinotaCore\bin\Debug\DinotaCore.dll
+D:\AF\FDMS\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\AF\FDMS\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+D:\AF\FDMS\DinotaCore\obj\Debug\DinotaCore.dll
+D:\AF\FDMS\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\bin\Debug\DinotaCore.dll
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\bin\Debug\System.ComponentModel.DataAnnotations.dll
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\obj\Debug\DinotaCore.csproj.CopyComplete
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\obj\Debug\DinotaCore.dll
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\obj\Debug\DinotaCore.csprojAssemblyReference.cache
+D:\03200\MIMS\MIMS\DinotaCore\bin\Debug\DinotaCore.dll
+D:\03200\MIMS\MIMS\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\03200\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+D:\03200\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.dll
+D:\03200\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\bin\Debug\DinotaCore.dll
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\bin\Debug\System.ComponentModel.DataAnnotations.dll
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.csprojAssemblyReference.cache
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.csproj.CopyComplete
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.dll
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\03200\MIMS\DinotaCore\bin\Debug\DinotaCore.dll
+D:\03200\MIMS\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\03200\MIMS\DinotaCore\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\03200\MIMS\DinotaCore\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\03200\MIMS\DinotaCore\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\03200\MIMS\DinotaCore\bin\Debug\System.ComponentModel.DataAnnotations.dll
+D:\03200\MIMS\DinotaCore\obj\Debug\DinotaCore.dll
+D:\03200\MIMS\DinotaCore\obj\Debug\DinotaCore.pdb
+C:\MIMS\MIMS\DinotaCore\bin\Debug\DinotaCore.dll
+C:\MIMS\MIMS\DinotaCore\bin\Debug\DinotaCore.pdb
+C:\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+C:\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.dll
+C:\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.pdb
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\bin\Debug\DinotaCore.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\bin\Debug\DinotaCore.pdb
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\bin\Debug\System.ComponentModel.DataAnnotations.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.pdb
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+E:\Project\MIMS\MIMS\DinotaCore\bin\Debug\DinotaCore.dll
+E:\Project\MIMS\MIMS\DinotaCore\bin\Debug\DinotaCore.pdb
+E:\Project\MIMS\MIMS\DinotaCore\bin\Debug\Microsoft.ReportViewer.Common.dll
+E:\Project\MIMS\MIMS\DinotaCore\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+E:\Project\MIMS\MIMS\DinotaCore\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+E:\Project\MIMS\MIMS\DinotaCore\bin\Debug\System.ComponentModel.DataAnnotations.dll
+E:\Project\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.csproj.AssemblyReference.cache
+E:\Project\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.csproj.CoreCompileInputs.cache
+E:\Project\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.csproj.CopyComplete
+E:\Project\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.dll
+E:\Project\MIMS\MIMS\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\03200\MIMS\DinotaCore\obj\Debug\DinotaCore.csproj.AssemblyReference.cache
+D:\03200\MIMS\DinotaCore\obj\Debug\DinotaCore.csproj.CoreCompileInputs.cache
+D:\03200\MIMS\DinotaCore\obj\Debug\DinotaCore.csproj.CopyComplete

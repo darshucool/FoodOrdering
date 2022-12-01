@@ -1,0 +1,155 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.FuelDrawInfo
+@using AlfasiWeb.Models
+@model ReportModel
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+<div id="content_wrapper" class="card-overlay">
+    <div id="header_wrapper" class="header-md ">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <header id="header">
+                        <h1>Fuel Draw Summary</h1>
+                        <ol class="breadcrumb">
+                            <li><a href="@Url.Content("~/Home/Index")">Dashboard</a></li>
+                            <li><a href="javascript:void(0)">Fuel Draw Summary</a></li>
+                        </ol>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content" class="container">
+
+        <div class="content-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <header class="card-heading ">
+                            <h2 class="card-title">Fuel Draw Summary</h2>
+                        </header>
+                        <div class="card-body">
+                            @Html.Message()
+                            @using (Html.BeginForm("SLAFLocationSummary", "Report", null, FormMethod.Post, new { @class = "form-horizontal" }))
+                            {
+                                <div class="form-group">
+                                    <label for="nameInput" class="col-sm-4 control-label">SLAF Establishment</label>
+                                    <div class="col-sm-8">
+
+                                        @Html.DropDownListFor(model => model.SLAFLocationUId, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.SLAFLocationList], "-- Select SLAF Establishment  --", new { @class = "form-control", @aria_required = "true", @required = "" })
+                                        @Html.ValidationMessageFor(m => m.SLAFLocationUId, null, new { @class = "help-inline" })
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="emailInput" class="col-sm-4 control-label">Date</label>
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(m => m.date, new {   @class = "form-control",@type="date" })
+                                        @Html.ValidationMessageFor(m => m.date, "")
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-4 col-sm-8">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+
+
+                            }
+
+                            @if (Model.FuelDrawInfoList != null)
+                            {
+                                <br />
+                                <center>Count : <b>@Model.FuelDrawInfoList.Count</b> </center> <br />
+                                <center>Total Ltrs : <b>@Model.FuelDrawInfoList.Sum(p => p.DrawQty) L</b> </center>
+                                <table cellspacing="10" cellpadding="5">
+                                    <tr>
+                                        <td>Car</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;@Model.FuelDrawInfoList.Where(p => p.VehicleInfo.VehicleCategoryUId == 1).ToList().Count()</td>
+                                        <td><b>&nbsp;&nbsp;&nbsp;&nbsp;@Model.FuelDrawInfoList.Where(p => p.VehicleInfo.VehicleCategoryUId == 1).Sum(p => p.DrawQty) L</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bike</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;@Model.FuelDrawInfoList.Where(p => p.VehicleInfo.VehicleCategoryUId == 2).ToList().Count()</td>
+                                        <td><b>&nbsp;&nbsp;&nbsp;&nbsp;@Model.FuelDrawInfoList.Where(p => p.VehicleInfo.VehicleCategoryUId == 2).Sum(p => p.DrawQty) L</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Three Wheeler</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;@Model.FuelDrawInfoList.Where(p => p.VehicleInfo.VehicleCategoryUId == 3).ToList().Count()</td>
+                                        <td><b>&nbsp;&nbsp;&nbsp;&nbsp;@Model.FuelDrawInfoList.Where(p => p.VehicleInfo.VehicleCategoryUId == 3).Sum(p => p.DrawQty) L</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Van</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;@Model.FuelDrawInfoList.Where(p => p.VehicleInfo.VehicleCategoryUId == 4).ToList().Count()</td>
+                                        <td><b>&nbsp;&nbsp;&nbsp;&nbsp;@Model.FuelDrawInfoList.Where(p => p.VehicleInfo.VehicleCategoryUId == 4).Sum(p => p.DrawQty) L</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jeep</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;@Model.FuelDrawInfoList.Where(p => p.VehicleInfo.VehicleCategoryUId == 6).ToList().Count()</td>
+                                        <td><b>&nbsp;&nbsp;&nbsp;&nbsp;@Model.FuelDrawInfoList.Where(p => p.VehicleInfo.VehicleCategoryUId == 6).Sum(p => p.DrawQty) L</b></td>
+                                    </tr>
+                                </table>
+                                <br />
+                                <div class="table-responsive">
+                                    <table id="productsTable" class="mdl-data-table product-table m-t-30" cellspacing="0" width="100%" border="1" style="font-size:13px !important">
+                                        <thead>
+                                            <tr>
+
+
+                                                <th>Service No</th>
+                                                <th>Vehicle No</th>
+                                                <th>Vehicle Category</th>
+                                                <th>Fuel Type</th>
+                                                <th>Draw Quantity</th>
+                                                <th>Date</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (Model.FuelDrawInfoList.Count > 0)
+                                            {
+                                                foreach (FuelDrawInfo info in Model.FuelDrawInfoList)
+                                                {
+
+                                                    <tr>
+                                                        <td>
+                                                            @if (info.VehicleInfo != null)
+                                                            {
+                                                                @info.VehicleInfo.ServiceNo
+                                                            }
+                                                        </td>
+                                                        <td>@info.VehicleNo</td>
+                                                        <td>
+                                                            @if (info.VehicleInfo != null)
+                                                            {
+                                                                @info.VehicleInfo.VehicleCategory.Name
+                                                            }
+                                                        </td>
+                                                        <td>@info.FuelType.Name</td>
+                                                        <td>@info.DrawQty L</td>
+                                                        <td>@info.EffectiveDate.ToString("dd/MM/yyyy")</td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+

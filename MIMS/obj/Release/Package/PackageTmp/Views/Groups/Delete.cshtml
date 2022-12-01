@@ -1,0 +1,8 @@
+﻿@model int
+@using (Html.BeginForm("DeleteConfirm", "Groups", new { id = Model }, FormMethod.Post))
+{
+    <div>
+        Are you sure you want to delete?</div>
+    <input type="submit" class="btn" value="Yes" />
+    <input type="button" class="btn" value="No" onclick="CloseDeleteDialog();" />
+}

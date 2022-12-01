@@ -1,0 +1,176 @@
+C:\ASC-PT-AU\Project\DinotaSecurity\bin\Release\DinotaSecurity.dll
+C:\ASC-PT-AU\Project\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+C:\ASC-PT-AU\Project\DinotaSecurity\bin\Release\Autofac.dll
+C:\ASC-PT-AU\Project\DinotaSecurity\bin\Release\DinotaCore.dll
+C:\ASC-PT-AU\Project\DinotaSecurity\bin\Release\DinotaDomain.dll
+C:\ASC-PT-AU\Project\DinotaSecurity\bin\Release\DinotaCore.pdb
+C:\ASC-PT-AU\Project\DinotaSecurity\bin\Release\DinotaDomain.pdb
+C:\ASC-PT-AU\Project\DinotaSecurity\bin\Release\Autofac.xml
+C:\ASC-PT-AU\Project\DinotaSecurity\obj\Release\DinotaSecurity.csprojResolveAssemblyReference.cache
+C:\ASC-PT-AU\Project\DinotaSecurity\obj\Release\DinotaSecurity.dll
+C:\ASC-PT-AU\Project\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+D:\Sudesh\Project\DinotaSecurity\bin\Release\DinotaSecurity.dll
+D:\Sudesh\Project\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+D:\Sudesh\Project\DinotaSecurity\bin\Release\Autofac.dll
+D:\Sudesh\Project\DinotaSecurity\bin\Release\DinotaCore.dll
+D:\Sudesh\Project\DinotaSecurity\bin\Release\DinotaDomain.dll
+D:\Sudesh\Project\DinotaSecurity\bin\Release\DinotaCore.pdb
+D:\Sudesh\Project\DinotaSecurity\bin\Release\DinotaDomain.pdb
+D:\Sudesh\Project\DinotaSecurity\bin\Release\Autofac.xml
+D:\Sudesh\Project\DinotaSecurity\obj\Release\ResolveAssemblyReference.cache
+D:\Sudesh\Project\DinotaSecurity\obj\Release\DinotaSecurity.dll
+D:\Sudesh\Project\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaSecurity\bin\Release\DinotaSecurity.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaSecurity\bin\Release\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaSecurity\bin\Release\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaSecurity\bin\Release\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaSecurity\bin\Release\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaSecurity\bin\Release\Autofac.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaSecurity\obj\Release\DinotaSecurity.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaSecurity\obj\Release\DinotaSecurity.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaSecurity\bin\Release\DinotaSecurity.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaSecurity\bin\Release\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaSecurity\bin\Release\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaSecurity\bin\Release\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaSecurity\bin\Release\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaSecurity\bin\Release\Autofac.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaSecurity\obj\Release\DinotaSecurity.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaSecurity\obj\Release\DinotaSecurity.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaSecurity\bin\Release\DinotaSecurity.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaSecurity\bin\Release\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaSecurity\bin\Release\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaSecurity\bin\Release\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaSecurity\bin\Release\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaSecurity\bin\Release\Autofac.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaSecurity\obj\Release\DinotaSecurity.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaSecurity\obj\Release\DinotaSecurity.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaSecurity\bin\Release\DinotaSecurity.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaSecurity\bin\Release\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaSecurity\bin\Release\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaSecurity\bin\Release\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaSecurity\bin\Release\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaSecurity\bin\Release\Autofac.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaSecurity\obj\Release\DinotaSecurity.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaSecurity\obj\Release\DinotaSecurity.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaSecurity\bin\Release\DinotaSecurity.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaSecurity\bin\Release\DinotaCore.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaSecurity\bin\Release\DinotaDomain.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaSecurity\bin\Release\DinotaCore.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaSecurity\bin\Release\DinotaDomain.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaSecurity\bin\Release\Autofac.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaSecurity\obj\Release\DinotaSecurity.csprojResolveAssemblyReference.cache
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaSecurity\obj\Release\DinotaSecurity.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaSecurity\bin\Release\DinotaSecurity.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaSecurity\bin\Release\DinotaCore.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaSecurity\bin\Release\DinotaDomain.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaSecurity\bin\Release\DinotaCore.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaSecurity\bin\Release\DinotaDomain.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaSecurity\bin\Release\Autofac.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaSecurity\obj\Release\DinotaSecurity.csprojResolveAssemblyReference.cache
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaSecurity\obj\Release\DinotaSecurity.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaSecurity\bin\Release\DinotaSecurity.dll
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaSecurity\bin\Release\DinotaCore.dll
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaSecurity\bin\Release\DinotaDomain.dll
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaSecurity\bin\Release\DinotaCore.pdb
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaSecurity\bin\Release\DinotaDomain.pdb
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaSecurity\bin\Release\Autofac.xml
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaSecurity\obj\Release\DinotaSecurity.csprojResolveAssemblyReference.cache
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaSecurity\obj\Release\DinotaSecurity.dll
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+D:\03200\SOURCE\DinotaSecurity\bin\Release\DinotaSecurity.dll
+D:\03200\SOURCE\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+D:\03200\SOURCE\DinotaSecurity\bin\Release\DinotaCore.dll
+D:\03200\SOURCE\DinotaSecurity\bin\Release\DinotaDomain.dll
+D:\03200\SOURCE\DinotaSecurity\bin\Release\DinotaCore.pdb
+D:\03200\SOURCE\DinotaSecurity\bin\Release\DinotaDomain.pdb
+D:\03200\SOURCE\DinotaSecurity\bin\Release\Autofac.xml
+D:\03200\SOURCE\DinotaSecurity\obj\Release\DinotaSecurity.csprojResolveAssemblyReference.cache
+D:\03200\SOURCE\DinotaSecurity\obj\Release\DinotaSecurity.dll
+D:\03200\SOURCE\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+D:\AF\FDMS\DinotaSecurity\bin\Release\DinotaSecurity.dll
+D:\AF\FDMS\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+D:\AF\FDMS\DinotaSecurity\bin\Release\DinotaCore.dll
+D:\AF\FDMS\DinotaSecurity\bin\Release\DinotaDomain.dll
+D:\AF\FDMS\DinotaSecurity\bin\Release\DinotaCore.pdb
+D:\AF\FDMS\DinotaSecurity\bin\Release\DinotaDomain.pdb
+D:\AF\FDMS\DinotaSecurity\bin\Release\Autofac.xml
+D:\AF\FDMS\DinotaSecurity\obj\Release\DinotaSecurity.csprojResolveAssemblyReference.cache
+D:\AF\FDMS\DinotaSecurity\obj\Release\DinotaSecurity.dll
+D:\AF\FDMS\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaSecurity\bin\Release\DinotaSecurity.dll
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaSecurity\bin\Release\DinotaCore.dll
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaSecurity\bin\Release\DinotaDomain.dll
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaSecurity\bin\Release\DinotaCore.pdb
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaSecurity\bin\Release\DinotaDomain.pdb
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaSecurity\bin\Release\Autofac.xml
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaSecurity\obj\Release\DinotaSecurity.csprojAssemblyReference.cache
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaSecurity\obj\Release\DinotaSecurity.csproj.CopyComplete
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaSecurity\obj\Release\DinotaSecurity.dll
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+D:\03200\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaSecurity.dll
+D:\03200\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+D:\03200\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaCore.dll
+D:\03200\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaDomain.dll
+D:\03200\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaCore.pdb
+D:\03200\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaDomain.pdb
+D:\03200\MIMS\MIMS\DinotaSecurity\bin\Release\Autofac.xml
+D:\03200\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.csprojResolveAssemblyReference.cache
+D:\03200\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.dll
+D:\03200\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+D:\03200\MIMS\DinotaSecurity\bin\Release\DinotaSecurity.dll
+D:\03200\MIMS\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+D:\03200\MIMS\DinotaSecurity\bin\Release\DinotaCore.dll
+D:\03200\MIMS\DinotaSecurity\bin\Release\DinotaDomain.dll
+D:\03200\MIMS\DinotaSecurity\bin\Release\DinotaCore.pdb
+D:\03200\MIMS\DinotaSecurity\bin\Release\DinotaDomain.pdb
+D:\03200\MIMS\DinotaSecurity\bin\Release\Autofac.xml
+D:\03200\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.dll
+D:\03200\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+C:\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaSecurity.dll
+C:\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+C:\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaCore.dll
+C:\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaDomain.dll
+C:\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaCore.pdb
+C:\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaDomain.pdb
+C:\MIMS\MIMS\DinotaSecurity\bin\Release\Autofac.xml
+C:\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.csprojResolveAssemblyReference.cache
+C:\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.dll
+C:\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+C:\03200\MIMS\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaSecurity.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+C:\03200\MIMS\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaCore.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaDomain.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaCore.pdb
+C:\03200\MIMS\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaDomain.pdb
+C:\03200\MIMS\MIMS\MIMS\DinotaSecurity\bin\Release\Autofac.xml
+C:\03200\MIMS\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.csprojResolveAssemblyReference.cache
+C:\03200\MIMS\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+D:\03200\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.csproj.AssemblyReference.cache
+D:\03200\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.csproj.CoreCompileInputs.cache
+D:\03200\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.csproj.CopyComplete
+D:\MY PROJECT\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaSecurity.dll
+D:\MY PROJECT\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+D:\MY PROJECT\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaCore.dll
+D:\MY PROJECT\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaDomain.dll
+D:\MY PROJECT\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaCore.pdb
+D:\MY PROJECT\MIMS\MIMS\DinotaSecurity\bin\Release\DinotaDomain.pdb
+D:\MY PROJECT\MIMS\MIMS\DinotaSecurity\bin\Release\Autofac.xml
+D:\MY PROJECT\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.csprojAssemblyReference.cache
+D:\MY PROJECT\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.csproj.CopyComplete
+D:\MY PROJECT\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.dll
+D:\MY PROJECT\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.pdb

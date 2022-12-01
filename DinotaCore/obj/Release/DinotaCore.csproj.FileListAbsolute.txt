@@ -1,0 +1,127 @@
+C:\ASC-PT-AU\Project\DinotaCore\bin\Release\DinotaCore.dll
+C:\ASC-PT-AU\Project\DinotaCore\bin\Release\DinotaCore.pdb
+C:\ASC-PT-AU\Project\DinotaCore\bin\Release\Autofac.dll
+C:\ASC-PT-AU\Project\DinotaCore\bin\Release\EntityFramework.dll
+C:\ASC-PT-AU\Project\DinotaCore\bin\Release\Autofac.xml
+C:\ASC-PT-AU\Project\DinotaCore\obj\Release\DinotaCore.dll
+C:\ASC-PT-AU\Project\DinotaCore\obj\Release\DinotaCore.pdb
+C:\ASC-PT-AU\Project\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
+D:\Sudesh\Project\DinotaCore\bin\Release\DinotaCore.dll
+D:\Sudesh\Project\DinotaCore\bin\Release\DinotaCore.pdb
+D:\Sudesh\Project\DinotaCore\bin\Release\Autofac.dll
+D:\Sudesh\Project\DinotaCore\bin\Release\EntityFramework.dll
+D:\Sudesh\Project\DinotaCore\bin\Release\Autofac.xml
+D:\Sudesh\Project\DinotaCore\obj\Release\ResolveAssemblyReference.cache
+D:\Sudesh\Project\DinotaCore\obj\Release\DinotaCore.dll
+D:\Sudesh\Project\DinotaCore\obj\Release\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaCore\bin\Release\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaCore\bin\Release\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaCore\bin\Release\Autofac.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaCore\obj\Release\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\DinotaCore\obj\Release\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaCore\bin\Release\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaCore\bin\Release\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaCore\bin\Release\Autofac.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaCore\obj\Release\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\DinotaCore\obj\Release\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaCore\bin\Release\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaCore\bin\Release\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaCore\bin\Release\Autofac.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaCore\obj\Release\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\DinotaCore\obj\Release\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaCore\bin\Release\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaCore\bin\Release\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaCore\bin\Release\Autofac.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaCore\obj\Release\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\DinotaCore\obj\Release\DinotaCore.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaCore\bin\Release\DinotaCore.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaCore\bin\Release\DinotaCore.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaCore\bin\Release\Autofac.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaCore\obj\Release\DinotaCore.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\DinotaCore\obj\Release\DinotaCore.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaCore\bin\Release\DinotaCore.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaCore\bin\Release\DinotaCore.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaCore\bin\Release\Autofac.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaCore\obj\Release\DinotaCore.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\DinotaCore\obj\Release\DinotaCore.pdb
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaCore\bin\Release\DinotaCore.dll
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaCore\bin\Release\DinotaCore.pdb
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaCore\bin\Release\Autofac.xml
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaCore\obj\Release\DinotaCore.dll
+D:\my PROJECT\RUSHAN\PoliticsMember\SOURCE\DinotaCore\obj\Release\DinotaCore.pdb
+D:\03200\SOURCE\DinotaCore\bin\Release\DinotaCore.dll
+D:\03200\SOURCE\DinotaCore\bin\Release\DinotaCore.pdb
+D:\03200\SOURCE\DinotaCore\bin\Release\Autofac.xml
+D:\03200\SOURCE\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
+D:\03200\SOURCE\DinotaCore\obj\Release\DinotaCore.dll
+D:\03200\SOURCE\DinotaCore\obj\Release\DinotaCore.pdb
+D:\AF\FDMS\DinotaCore\bin\Release\DinotaCore.dll
+D:\AF\FDMS\DinotaCore\bin\Release\DinotaCore.pdb
+D:\AF\FDMS\DinotaCore\bin\Release\Autofac.xml
+D:\AF\FDMS\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
+D:\AF\FDMS\DinotaCore\obj\Release\DinotaCore.dll
+D:\AF\FDMS\DinotaCore\obj\Release\DinotaCore.pdb
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\bin\Release\DinotaCore.dll
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\bin\Release\DinotaCore.pdb
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\bin\Release\Microsoft.ReportViewer.Common.dll
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\bin\Release\System.ComponentModel.DataAnnotations.dll
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\bin\Release\Autofac.xml
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\obj\Release\DinotaCore.csprojAssemblyReference.cache
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\obj\Release\DinotaCore.csproj.CopyComplete
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\obj\Release\DinotaCore.dll
+D:\MY PROJECT\VIMS\FDMS-main\FDMS-main\DinotaCore\obj\Release\DinotaCore.pdb
+D:\03200\MIMS\MIMS\DinotaCore\bin\Release\DinotaCore.dll
+D:\03200\MIMS\MIMS\DinotaCore\bin\Release\DinotaCore.pdb
+D:\03200\MIMS\MIMS\DinotaCore\bin\Release\Autofac.xml
+D:\03200\MIMS\MIMS\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
+D:\03200\MIMS\MIMS\DinotaCore\obj\Release\DinotaCore.dll
+D:\03200\MIMS\MIMS\DinotaCore\obj\Release\DinotaCore.pdb
+D:\03200\MIMS\DinotaCore\bin\Release\DinotaCore.dll
+D:\03200\MIMS\DinotaCore\bin\Release\DinotaCore.pdb
+D:\03200\MIMS\DinotaCore\bin\Release\Microsoft.ReportViewer.Common.dll
+D:\03200\MIMS\DinotaCore\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\03200\MIMS\DinotaCore\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+D:\03200\MIMS\DinotaCore\bin\Release\System.ComponentModel.DataAnnotations.dll
+D:\03200\MIMS\DinotaCore\bin\Release\Autofac.xml
+D:\03200\MIMS\DinotaCore\obj\Release\DinotaCore.dll
+D:\03200\MIMS\DinotaCore\obj\Release\DinotaCore.pdb
+C:\MIMS\MIMS\DinotaCore\bin\Release\DinotaCore.dll
+C:\MIMS\MIMS\DinotaCore\bin\Release\DinotaCore.pdb
+C:\MIMS\MIMS\DinotaCore\bin\Release\Autofac.xml
+C:\MIMS\MIMS\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
+C:\MIMS\MIMS\DinotaCore\obj\Release\DinotaCore.dll
+C:\MIMS\MIMS\DinotaCore\obj\Release\DinotaCore.pdb
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\bin\Release\DinotaCore.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\bin\Release\DinotaCore.pdb
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\bin\Release\System.ComponentModel.DataAnnotations.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\bin\Release\Microsoft.SqlServer.Types.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\bin\Release\Autofac.xml
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\obj\Release\DinotaCore.dll
+C:\03200\MIMS\MIMS\MIMS\DinotaCore\obj\Release\DinotaCore.pdb
+D:\03200\MIMS\DinotaCore\obj\Release\DinotaCore.csproj.AssemblyReference.cache
+D:\03200\MIMS\DinotaCore\obj\Release\DinotaCore.csproj.CoreCompileInputs.cache
+D:\03200\MIMS\DinotaCore\obj\Release\DinotaCore.csproj.CopyComplete
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\bin\Release\DinotaCore.dll
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\bin\Release\DinotaCore.pdb
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\bin\Release\Microsoft.ReportViewer.Common.dll
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\bin\Release\System.ComponentModel.DataAnnotations.dll
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\bin\Release\Autofac.xml
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\obj\Release\DinotaCore.csprojAssemblyReference.cache
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\obj\Release\DinotaCore.csproj.CopyComplete
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\obj\Release\DinotaCore.dll
+D:\MY PROJECT\MIMS\MIMS\DinotaCore\obj\Release\DinotaCore.pdb

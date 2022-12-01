@@ -1,0 +1,338 @@
+﻿@using AlfasiWeb.Helpers
+@using AlfasiWeb.Models
+@using AlfasiWeb
+
+@model DrawingRegsitryFormatModel
+
+<!doctype html>
+<html>
+<head>
+  
+  <title>Handsontable</title>
+
+  <!--
+  Loading Handsontable (full distribution that includes all dependencies apart from jQuery)
+  -->
+  <script type="text/javascript" src="~/Scripts/handsontable/jquery.min.js"></script>
+  <script type="text/javascript" src="~/Scripts/handsontable/jquery.handsontable.full.js"></script>
+  <link  rel="stylesheet" media="screen" href="~/Scripts/handsontable/jquery.handsontable.full.css" />
+  <script type="text/javascript" src="~/Scripts/handsontable/jquery-ui.custom.min.js"></script>
+  <link  rel="stylesheet" media="screen" href="~/Scripts/handsontable/jquery-ui.custom.css" />
+
+  <!--
+  Loading demo dependencies. They are used here only to enhance the examples on this page
+  -->
+  <link  rel="stylesheet" media="screen" href="~/Scripts/handsontable/samples.css" />
+  <script type="text/javascript" src="~/Scripts/handsontable/samples.js"></script>
+  <script type="text/javascript" src="~/Scripts/handsontable/highlight.pack.js"></script>
+  <link rel="stylesheet" media="screen" href="~/Scripts/handsontable/github.css" />
+  <link rel="stylesheet" href="~/Scripts/handsontable/font-awesome.min.css" />
+  
+  <script type="text/javascript">
+      
+  </script>
+  
+</head>
+
+<body class="home">
+
+<div id="container"> 
+              <!--input id='search_field' type="text" placeholder="Search" / -->   
+                <p>
+            <button name="load">Load</button>
+            <button name="save">Save</button>
+            <label><input type="checkbox" name="autosave" checked="checked" autocomplete="off" /> Autosave</label>
+          </p>
+
+          <pre id="example1console" class="console">Click "Load" to load data from server</pre>
+
+          <div id="example1"></div>
+          @Html.HiddenFor(Model => Model.InitialCIColumn, new { @id="hdnCI" })
+          @Html.HiddenFor(Model => Model.InitialIssueColumn, new { @id="hdnIC" })
+          @Html.HiddenFor(Model => Model.InitialRecivedColumn, new { @id="hdnRC" })
+</div>
+
+			 <script  type="text/javascript">
+
+			     var hdnCI = document.getElementById["hdnCI"];
+
+			     var greenRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+			         Handsontable.renderers.TextRenderer.apply(this, arguments);
+			         $(td).css({
+			             background: 'green',
+			             fontWeight: 'bold',
+			             textAlign: 'center'
+			         });
+			     };
+
+			     function MainTopicCell(instance, td, row, col, prop, value, cellProperties) {
+			         Handsontable.TextCell.renderer.apply(this, arguments);
+			         td.style.fontWeight = 'bold';
+			         td.style.textAlign = 'center';
+			         td.style.verticalAlign = 'middle';
+			         td.setAttribute("rowSpan", "2");
+			     }
+
+			     function RecievedCellArchEngr(instance, td, row, col, prop, value, cellProperties) {
+			         Handsontable.TextCell.renderer.apply(this, arguments);
+			         td.style.textAlign = 'center';
+			         //td.style.background = 'yellow';
+			         td.setAttribute("colSpan", "2");
+			     }
+
+			     function ApproveIssuemergeCell(instance, td, row, col, prop, value, cellProperties) {
+			         Handsontable.TextCell.renderer.apply(this, arguments);
+			         td.style.fontWeight = 'bold';
+			         td.style.textAlign = 'center';
+			         td.style.background = 'silver';
+			         td.setAttribute("colSpan", "3");
+			     }
+
+			     function ApprovalBackRecievedMergeCell(instance, td, row, col, prop, value, cellProperties) {
+			         Handsontable.TextCell.renderer.apply(this, arguments);
+			         td.style.fontWeight = 'bold';
+			         td.style.textAlign = 'center';
+			         td.style.background = 'yellow';
+			         td.setAttribute("colSpan", "2");
+			     }
+
+			     function ConstructionIssueMergeCell(instance, td, row, col, prop, value, cellProperties) {
+			         Handsontable.TextCell.renderer.apply(this, arguments);
+			         td.style.fontWeight = 'bold';
+			         td.style.textAlign = 'center';
+			         td.style.background = 'green';
+			         td.setAttribute("colSpan", "3");
+			     }
+
+			     var $container = $("#example1");
+			     var $console = $("#example1console");
+			     var $parent = $container.parent();
+			     var autosaveNotification;
+			     $container.handsontable({
+			         startRows: 7,
+			         startCols: 8,
+			         colHeaders: true,
+			         columnSorting: true,
+			         contextMenu: true,
+			         colWidths: [120, 120, 80, 90, 90, 90, 90, 90, 90, 90, 90, 90],
+			         afterChange: function (change, source) {
+			             if (source === 'loadData') {
+			                 return; //don't save this change
+			             }
+			             if ($parent.find('input[name=autosave]').is(':checked')) {
+			                 clearTimeout(autosaveNotification);
+			                 $.ajax({
+			                     type: "POST",
+			                     url: "/ReferenceData/Test",
+			                     data: { changes: change.toString() }, //contains changed cells' data			                     
+			                    // dataType: "json",			                    
+			                     complete: function (data) {
+			                         alert(change.toString())
+			                         $console.text('Autosaved (' + change.length + ' cell' + (change.length > 1 ? 's' : '') + ')');
+			                         autosaveNotification = setTimeout(function () {
+			                             $console.text('Changes will be autosaved');
+			                         }, 1000);
+			                     }
+			                 });
+			             }
+			         },
+			         columns: [
+                        {},
+                        {},
+                        {},
+                        { type: 'date', dateFormat: 'mm/dd/yy' },
+				        { type: 'date', dateFormat: 'mm/dd/yy' },
+				        { type: 'date', dateFormat: 'mm/dd/yy' },
+				        { type: 'date', dateFormat: 'mm/dd/yy' },
+                        { type: 'date', dateFormat: 'mm/dd/yy' },
+				        { type: 'date', dateFormat: 'mm/dd/yy' },
+				        { type: 'date', dateFormat: 'mm/dd/yy' },
+                        { type: 'date', dateFormat: 'mm/dd/yy' },
+
+                    ],
+			         cells: function (row, col, prop) {
+			             var cellProperties = {};
+			             if (row === 0 && col <= 2) {
+			                 cellProperties.renderer = MainTopicCell;
+			             }
+			             if (row === 0 && col === 3) {
+			                 cellProperties.renderer = ApproveIssuemergeCell;
+			             }
+			             if (row === 0 && col === 4) {
+			                 cellProperties.renderer = ApprovalBackRecievedMergeCell;
+			             }
+			             if (row === 0 && col === 5) {
+			                 cellProperties.renderer = ConstructionIssueMergeCell;
+			             }
+			             if (row === 1 && col === 3) {
+			                 cellProperties.renderer = RecievedCellArchEngr;
+			             }
+			             return cellProperties;
+			         }
+			     });
+
+			     var handsontable = $container.data('handsontable');
+
+			     $parent.find('button[name=load]').click(function () {
+			        
+			         $.ajax({
+			             url: "/ReferenceData/GridData",
+			             dataType: 'json',
+			             type: 'GET',
+			             success: function (res) {
+			                 	                 
+			                 handsontable.loadData(res);
+			                 $console.text('Data loaded');
+			             }
+			         });
+			     });
+
+			     $parent.find('button[name=save]').click(function () {
+			         $.ajax({
+			             url: "/ReferenceData/SaveAll",
+			             data: { "data": handsontable.getData() }, //returns all cells' data
+			             dataType: 'json',
+			             type: 'POST',
+			             success: function (res) {
+			                 if (res.result === 'ok') {
+			                     $console.text('Data saved');
+			                 }
+			                 else {
+			                     $console.text('Save error');
+			                 }
+			             },
+			             error: function () {
+			                 debugger;
+			                 $console.text('Save error. POST method is not allowed on GitHub Pages. Run this example on your own server to see the success message.');
+			             }
+			         });
+			     });
+
+			     $parent.find('input[name=autosave]').click(function () {
+			         if ($(this).is(':checked')) {
+			             $console.text('Changes will be autosaved');
+			         }
+			         else {
+			             $console.text('Changes will not be autosaved');
+			         }
+			     });
+
+			    /*
+
+			     var greenRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+			         Handsontable.renderers.TextRenderer.apply(this, arguments);
+			         $(td).css({
+			             background: 'green',
+                         fontWeight :'bold',
+                         textAlign:'center'
+			         });
+                 };
+
+                 function DefaultCell(instance, td, row, col, prop, value, cellProperties) {
+                     Handsontable.TextCell.renderer.apply(this, arguments);
+                     td.style.fontWeight = 'bold';
+                     td.style.textAlign = 'center';
+                     td.style.verticalAlign = 'middle';
+                     td.setAttribute("rowSpan", "2");                   
+                 }
+
+                 function SilvermergeCell(instance, td, row, col, prop, value, cellProperties) {
+                     Handsontable.TextCell.renderer.apply(this, arguments);
+                     td.style.fontWeight = 'bold';
+                     td.style.textAlign = 'center';
+                     td.style.background = 'silver';
+                     td.setAttribute("colSpan", "3");
+                 }
+
+                 function YellowmergeCell(instance, td, row, col, prop, value, cellProperties) {
+                     Handsontable.TextCell.renderer.apply(this, arguments);
+                     td.style.fontWeight = 'bold';
+                     td.style.textAlign = 'center';
+                     td.style.background = 'yellow';
+                     td.setAttribute("colSpan", "3");
+                 }
+
+                 function GreenmergeCell(instance, td, row, col, prop, value, cellProperties) {
+                     Handsontable.TextCell.renderer.apply(this, arguments);
+                     td.style.fontWeight = 'bold';
+                     td.style.textAlign = 'center';
+                     td.style.background = 'green';
+                     td.setAttribute("colSpan", "3");
+                 }
+
+            
+
+                 var data = [
+                   ["Drawing No", "Title", "Current Rev", "Approval Issue", "Approval Back Recieved", "Construction Issue"],
+                   ["1st Issue", "2nd Issue", "3rd Issue", "1st Recved", "2nd Recved", "3rd Recved", "Rev 1", "Rev 2", "Rev 3"],
+                    ["Mercedes", "A 160", "1", "01/14/2006", 6999.9999, "", "", ""],
+                    ["Citroen", "C4 Coupe", "1", "12/01/2008", 8330],
+                    ["Audi", "A4 Avant", "1", "11/19/2011", 33900],
+                    ["Opel", "Astra", "1", "02/02/2004", 7000],
+                    ["BMW", "320i Coupe", "1", "07/24/2011", 30500]
+                    ], example = $("#example");
+
+			     $("#example").handsontable({
+			         data: data,
+			         startRows: 7,
+			         startCols: 12,
+			         colHeaders: true,
+			         columnSorting: true,
+			         contextMenu: true,
+			         colWidths: [120, 120, 80,90,90,90,90,90,90,90,90,90],
+			         columns: [
+                        {  },
+                        {  },
+                        { },
+                        { type: 'date', dateFormat: 'mm/dd/yy' },
+				        { type: 'date', dateFormat: 'mm/dd/yy' },
+				        { type: 'date', dateFormat: 'mm/dd/yy' },
+				        { type: 'date', dateFormat: 'mm/dd/yy' },
+                        { type: 'date', dateFormat: 'mm/dd/yy' },
+				        { type: 'date', dateFormat: 'mm/dd/yy' },
+				        { type: 'date', dateFormat: 'mm/dd/yy' },
+                        { type: 'date', dateFormat: 'mm/dd/yy' },
+                        { type: 'date', dateFormat: 'mm/dd/yy' }
+                    ],
+                        cells: function (row, col, prop) {
+                            var cellProperties = {};
+                            if (row === 0 && col <= 2 ) {
+                                cellProperties.renderer = DefaultCell;
+                            }
+                            if (row === 0 && col === 3) {                               
+                                cellProperties.renderer = SilvermergeCell;
+                            }
+                            if (row === 0 && col === 4) {
+                                cellProperties.renderer = YellowmergeCell;
+                            }
+                            if (row === 0 && col === 5) {
+                                cellProperties.renderer = GreenmergeCell;
+                            }
+                            return cellProperties;
+                        }
+                    });*/
+
+                   /* $('#search_field').on('keyup', function (event) {
+                        var value = ('' + this.value).toLowerCase(), row, col, r_len, c_len, td;
+
+                        if (value) {
+                            for (row = 0, r_len = data.length; row < r_len; row++) {
+                                for (col = 0, c_len = data[row].length; col < c_len; col++) {
+
+                                    td = example.handsontable('getCell', row, col);
+
+                                    if (('' + data[row][col]).toLowerCase().match(value,'') > -1) {
+                                        td.style.background = '#CEC'
+                                    }
+                                    else {
+                                        td.className = '';
+                                    }
+
+                                }
+                            }
+                        }
+                    });*/
+          </script>
+
+</body>
+</html>

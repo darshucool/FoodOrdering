@@ -1,0 +1,54 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using AlfasiWeb.Models
+@using Dinota.Domain.UserType
+@model UserType
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+<div id="content_wrapper" class="card-overlay">
+    <div id="header_wrapper" class="header-md ">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <header id="header">
+                        <h1>Edit User Type</h1>
+                        <ol class="breadcrumb">
+                            <li><a href="@Url.Content("~/Home/Index")">Dashboard</a></li>
+                            <li><a href="javascript:void(0)">User Type</a></li>
+                        </ol>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content" class="container">
+
+        <div class="content-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <header class="card-heading ">
+                            <h2 class="card-title">Edit User Type</h2>
+                        </header>
+                        <div class="card-body">
+                            @Html.Message()
+                            @using (Html.BeginForm("EditUserType", "DivisionInfo", new { id = Model.UId }, FormMethod.Post, new { @class = "form-horizontal" }))
+                            {
+                                @Html.Partial("_CreateEditUserType", Model)
+                                        
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

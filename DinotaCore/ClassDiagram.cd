@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Dinota.Core.Configuration" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAQAEAAAAAAAA=</HashCode>
+      <FileName>Configuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dinota.Core.Data.Entity" BaseTypeListCollapsed="true">
+    <Position X="3" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>YAAEAAQAAACAAAAAAAAAgAAAAAAAgAAAAAAAAEAAEAA=</HashCode>
+      <FileName>Data\Entity.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dinota.Core.Data.EntityCrudService&lt;TEntity, TRepository&gt;">
+    <Position X="5.25" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\EntityCrudService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dinota.Core.Data.EntityService&lt;TEntity, TRepository&gt;">
+    <Position X="5.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAACAAACAQAAAAIAAAAAAAACEAAAAA=</HashCode>
+      <FileName>Data\EntityService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dinota.Core.Extensions.CoreExtensions" Collapsed="true">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAEAA=</HashCode>
+      <FileName>Extensions\CoreExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dinota.Core.Extensions.ParameterRebinder" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Extensions\ParameterRebinder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dinota.Core.Extensions.PredicateExtensions" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\PredicateExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dinota.Core.Extensions.QueryableExtensions" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\QueryableExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dinota.Core.Ioc.AutofacContainerAdapter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAECAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Ioc\AutofacContainerAdapter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dinota.Core.Specification.AndSpecification&lt;TEntity&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Specification\AndSpecification.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dinota.Core.Specification.NotExpired&lt;TEntity&gt;" Collapsed="true">
+    <Position X="13.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Specification\NotExpired.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dinota.Core.Specification.NotSpecification&lt;TEntity&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Specification\NotSpecification.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dinota.Core.Specification.OrSpecification&lt;TEntity&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Specification\OrSpecification.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Dinota.Core.Specification.Specification&lt;TEntity&gt;" Collapsed="true">
+    <Position X="13.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Specification\Specification.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dinota.Core.Specification.SpecificationExtensions" Collapsed="true">
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAACAAAAACAAAAAgAAAAAAAAAAE=</HashCode>
+      <FileName>Specification\SpecificationExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Dinota.Core.Data.Context.IDeletionContext" Collapsed="true">
+    <Position X="4.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Context\IDeletionContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dinota.Core.Data.Context.IEntityContext">
+    <Position X="3" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAEA=</HashCode>
+      <FileName>Data\Context\IEntityContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dinota.Core.Data.Context.IInsertionContext" Collapsed="true">
+    <Position X="2" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Context\IInsertionContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dinota.Core.Data.Context.IUpdationContext" Collapsed="true">
+    <Position X="4.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Context\IUpdationContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dinota.Core.Data.ICrudRepository&lt;TEntity&gt;">
+    <Position X="0.5" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\ICrudRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dinota.Core.Data.IDataContext">
+    <Position X="10" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\IDataContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dinota.Core.Data.IRepository&lt;TEntity&gt;">
+    <Position X="0.5" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAQAAAAIAAAAAAAACEAAAAA=</HashCode>
+      <FileName>Data\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dinota.Core.Data.IRepository" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dinota.Core.Ioc.IContainer" Collapsed="true">
+    <Position X="8.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Ioc\IContainer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Dinota.Core.Specification.ISpecification&lt;TEntity&gt;">
+    <Position X="11.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Specification\ISpecification.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

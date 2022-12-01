@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C321CE4E-F28F-4FAF-98B8-F04C38FEC3B1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dinota.DataAccces</RootNamespace>
+    <AssemblyName>DinotaDataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=2.4.5.724, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\Libs\Autofac\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\EF\4.1\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <HintPath>C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\System.ComponentModel.DataAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminUser\AdminUserMap.cs" />
+    <Compile Include="AdminUser\AdminUserRepo.cs" />
+    <Compile Include="AutofacModule.cs" />
+    <Compile Include="Context\Internal\IdGenerationStrategy.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Context\DomainContext.cs" />
+    <Compile Include="Context\DomainContext.Model.cs" />
+    <Compile Include="Context\DomainContext.Sets.cs" />
+    <Compile Include="Context\Internal\DeletionContext.cs" />
+    <Compile Include="Context\Internal\EntityContext.cs" />
+    <Compile Include="Context\Internal\InsertionContext.cs" />
+    <Compile Include="Context\Internal\UpdationContext.cs" />
+    <Compile Include="Context\SecurityContext.cs" />
+    <Compile Include="MeasurementUnit\MeasurementUnitMap.cs" />
+    <Compile Include="MeasurementUnit\MeasurementUnitRepo.cs" />
+    <Compile Include="MenuMultiOption\MenuMultiOptionMap.cs" />
+    <Compile Include="MenuMultiOption\MenuMultiOptionRepo.cs" />
+    <Compile Include="MenuOption\MenuOptionMap.cs" />
+    <Compile Include="MenuOption\MenuOptionRepo.cs" />
+    <Compile Include="MenuFavorite\MenuFavoriteMap.cs" />
+    <Compile Include="MenuFavorite\MenuFavoriteRepo.cs" />
+    <Compile Include="News\NewsMap.cs" />
+    <Compile Include="News\NewsRepo.cs" />
+    <Compile Include="RoomInfo\RoomInfoMap.cs" />
+    <Compile Include="RoomInfo\RoomInfoRepo.cs" />
+    <Compile Include="RoomNo\RoomNoMap.cs" />
+    <Compile Include="RoomNo\RoomNoRepo.cs" />
+    <Compile Include="EventAttendance\EventAttendanceMap.cs" />
+    <Compile Include="EventAttendance\EventAttendanceRepo.cs" />
+    <Compile Include="EventParticipationKid\EventParticipationKidMap.cs" />
+    <Compile Include="EventParticipationKid\EventParticipationKidRepo.cs" />
+    <Compile Include="EventParticipation\EventParticipationMap.cs" />
+    <Compile Include="EventParticipation\EventParticipationRepo.cs" />
+    <Compile Include="Event\EventMap.cs" />
+    <Compile Include="Event\EventRepo.cs" />
+    <Compile Include="MenuOrder\MenuOrderMap.cs" />
+    <Compile Include="MenuOrder\MenuOrderRepo.cs" />
+    <Compile Include="MenuItem\MenuItemMap.cs" />
+    <Compile Include="MenuItem\MenuItemRepo.cs" />
+    <Compile Include="MenuCategory\MenuCategoryMap.cs" />
+    <Compile Include="MenuCategory\MenuCategoryRepo.cs" />
+    <Compile Include="Town\TownMap.cs" />
+    <Compile Include="Town\TownRepo.cs" />
+    <Compile Include="Rank\RankMap.cs" />
+    <Compile Include="Rank\RankRepo.cs" />
+    <Compile Include="FuelType\FuelTypeMap.cs" />
+    <Compile Include="FuelType\FuelTypeRepo.cs" />
+    <Compile Include="SLAFLocation\SLAFLocationMap.cs" />
+    <Compile Include="SLAFLocation\SLAFLocationRepo.cs" />
+    <Compile Include="PageObject\PageObjectMap.cs" />
+    <Compile Include="PageObject\PageObjectRepo.cs" />
+    <Compile Include="UserPermission\UserPermissionMap.cs" />
+    <Compile Include="UserPermission\UserPermissionRepo.cs" />
+    <Compile Include="UserType\UserTypeMap.cs" />
+    <Compile Include="UserType\UserTypeRepo.cs" />
+    <Compile Include="Division\DivisionMap.cs" />
+    <Compile Include="Division\DivisionRepo.cs" />
+    <Compile Include="District\DistrictMap.cs" />
+    <Compile Include="District\DistrictRepo.cs" />
+    <Compile Include="FunctionalArea\FunctionaAreaRepo.cs" />
+    <Compile Include="FunctionalArea\FunctionalAreaMap.cs" />
+    <Compile Include="Group\GroupMap.cs" />
+    <Compile Include="Group\GroupRepo.cs" />
+    <Compile Include="Login\LoginMap.cs" />
+    <Compile Include="Login\LoginRepo.cs" />
+    <Compile Include="Membership\MembershipProvider.cs" />
+    <Compile Include="Membership\RoleProvider.cs" />
+    <Compile Include="Repository\CrudRepository.cs" />
+    <Compile Include="Repository\CrudSyncRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Role\RoleMap.cs" />
+    <Compile Include="Role\RoleRepo.cs" />
+    <Compile Include="SyncEntityMap.cs" />
+    <Compile Include="Tracking\TrackingMap.cs" />
+    <Compile Include="Tracking\TrackingRepo.cs" />
+    <Compile Include="TxnEntityMap.cs" />
+    <Compile Include="User\SystemUserInfoRepo.cs" />
+    <Compile Include="User\UserAccountMap.cs" />
+    <Compile Include="User\UserBaseRepo.cs" />
+    <Compile Include="User\UserMap.cs" />
+    <Compile Include="User\UserAccountRepo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DinotaCore\DinotaCore.csproj">
+      <Project>{EBCC0061-E222-462A-BE49-7C1FFEAC582D}</Project>
+      <Name>DinotaCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinotaDomain\DinotaDomain.csproj">
+      <Project>{91F363ED-8175-4F44-8856-3E9EB7B205E8}</Project>
+      <Name>DinotaDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinotaSecurity\DinotaSecurity.csproj">
+      <Project>{8F19A64B-460E-41B9-9B01-0B59E940B3D2}</Project>
+      <Name>DinotaSecurity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

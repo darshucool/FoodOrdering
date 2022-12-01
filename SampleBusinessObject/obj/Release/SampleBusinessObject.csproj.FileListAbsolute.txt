@@ -1,0 +1,11 @@
+D:\Sudesh\Project\SampleBusinessObject\bin\Release\SampleBusinessObject.dll
+D:\Sudesh\Project\SampleBusinessObject\bin\Release\SampleBusinessObject.pdb
+D:\Sudesh\Project\SampleBusinessObject\bin\Release\BusinessObjectFramework.dll
+D:\Sudesh\Project\SampleBusinessObject\obj\Release\ResolveAssemblyReference.cache
+D:\Sudesh\Project\SampleBusinessObject\obj\Release\SampleBusinessObject.dll
+D:\Sudesh\Project\SampleBusinessObject\obj\Release\SampleBusinessObject.pdb
+D:\Peramune\Project\Project\SampleBusinessObject\bin\Release\SampleBusinessObject.dll
+D:\Peramune\Project\Project\SampleBusinessObject\bin\Release\SampleBusinessObject.pdb
+D:\Peramune\Project\Project\SampleBusinessObject\bin\Release\BusinessObjectFramework.dll
+D:\Peramune\Project\Project\SampleBusinessObject\obj\Release\SampleBusinessObject.dll
+D:\Peramune\Project\Project\SampleBusinessObject\obj\Release\SampleBusinessObject.pdb

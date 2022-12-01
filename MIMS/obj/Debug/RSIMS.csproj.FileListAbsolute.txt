@@ -1,0 +1,632 @@
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\AlfasiWeb.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\AlfasiWeb.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\Antlr3.Runtime.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\BusinessObjectFramework.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DinotaDataAccess.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DinotaSecurity.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DotNetOpenAuth.AspNet.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DotNetOpenAuth.Core.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DotNetOpenAuth.OAuth.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DotNetOpenAuth.OpenId.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\Microsoft.Web.Infrastructure.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\Newtonsoft.Json.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Net.Http.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Net.Http.Formatting.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Net.Http.WebRequest.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.Helpers.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.Http.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.Http.WebHost.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.Mvc.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.Optimization.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.Razor.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.WebPages.Deployment.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.WebPages.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.WebPages.Razor.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\WebGrease.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\WebMatrix.Data.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\WebMatrix.WebData.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DinotaDataAccess.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DinotaSecurity.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\Autofac.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\AutoMapper.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\Elmah.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\Elmah.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\MvcContrib.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\Newtonsoft.Json.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Net.Http.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Net.Http.Formatting.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Net.Http.WebRequest.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.Helpers.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.Http.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.Http.WebHost.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.Mvc.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.Razor.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.WebPages.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.WebPages.Deployment.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\System.Web.WebPages.Razor.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\WebMatrix.Data.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\WebMatrix.WebData.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DotNetOpenAuth.AspNet.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DotNetOpenAuth.Core.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DotNetOpenAuth.OAuth.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DotNetOpenAuth.OpenId.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\obj\Debug\RSIMS.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\obj\Debug\AlfasiWeb.Properties.Resources.resources
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\obj\Debug\RSIMS.csproj.GenerateResource.Cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\obj\Debug\AlfasiWeb.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\FuelStation\obj\Debug\AlfasiWeb.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\AlfasiWeb.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\AlfasiWeb.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\Antlr3.Runtime.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\BusinessObjectFramework.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DinotaDataAccess.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DinotaSecurity.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DotNetOpenAuth.AspNet.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DotNetOpenAuth.Core.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DotNetOpenAuth.OAuth.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DotNetOpenAuth.OpenId.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\Microsoft.Web.Infrastructure.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\Newtonsoft.Json.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Net.Http.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Net.Http.Formatting.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Net.Http.WebRequest.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.Helpers.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.Http.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.Http.WebHost.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.Mvc.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.Optimization.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.Razor.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.WebPages.Deployment.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.WebPages.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.WebPages.Razor.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\WebGrease.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\WebMatrix.Data.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\WebMatrix.WebData.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DinotaDataAccess.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DinotaSecurity.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\Autofac.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\AutoMapper.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\Elmah.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\Elmah.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\MvcContrib.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\Newtonsoft.Json.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Net.Http.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Net.Http.Formatting.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Net.Http.WebRequest.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.Helpers.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.Http.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.Http.WebHost.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.Mvc.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.Razor.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.WebPages.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.WebPages.Deployment.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\System.Web.WebPages.Razor.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\WebMatrix.Data.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\WebMatrix.WebData.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DotNetOpenAuth.AspNet.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DotNetOpenAuth.Core.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DotNetOpenAuth.OAuth.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DotNetOpenAuth.OpenId.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\obj\Debug\RSIMS.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\obj\Debug\RSIMS.csproj.GenerateResource.Cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\obj\Debug\AlfasiWeb.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\RSIMS\obj\Debug\AlfasiWeb.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\AlfasiWeb.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\AlfasiWeb.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\Antlr3.Runtime.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\BusinessObjectFramework.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DinotaDataAccess.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DinotaSecurity.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DotNetOpenAuth.AspNet.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DotNetOpenAuth.Core.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DotNetOpenAuth.OAuth.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DotNetOpenAuth.OpenId.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\Microsoft.Web.Infrastructure.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\Newtonsoft.Json.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Net.Http.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Net.Http.Formatting.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Net.Http.WebRequest.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.Helpers.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.Http.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.Http.WebHost.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.Mvc.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.Optimization.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.Razor.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.WebPages.Deployment.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.WebPages.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.WebPages.Razor.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\WebGrease.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\WebMatrix.Data.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\WebMatrix.WebData.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DinotaDataAccess.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DinotaSecurity.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\Newtonsoft.Json.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Net.Http.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Net.Http.Formatting.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Net.Http.WebRequest.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.Helpers.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.Http.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.Http.WebHost.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.Mvc.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.Razor.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.WebPages.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.WebPages.Deployment.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\System.Web.WebPages.Razor.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\WebMatrix.Data.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\WebMatrix.WebData.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DotNetOpenAuth.AspNet.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DotNetOpenAuth.Core.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DotNetOpenAuth.OAuth.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DotNetOpenAuth.OpenId.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\obj\Debug\RSIMS.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\obj\Debug\RSIMS.csproj.GenerateResource.Cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\obj\Debug\AlfasiWeb.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS\RSIMS\obj\Debug\AlfasiWeb.pdb
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\AlfasiWeb.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\AlfasiWeb.pdb
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\Antlr3.Runtime.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\BusinessObjectFramework.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaCore.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaDataAccess.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaDomain.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaSecurity.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.AspNet.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.Core.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OAuth.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OpenId.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\Microsoft.Web.Infrastructure.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\Newtonsoft.Json.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.Formatting.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.WebRequest.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Helpers.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Http.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Http.WebHost.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Mvc.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Optimization.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Razor.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.Deployment.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.Razor.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\WebGrease.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\WebMatrix.Data.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\WebMatrix.WebData.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaCore.pdb
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaDataAccess.pdb
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaDomain.pdb
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaSecurity.pdb
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\Newtonsoft.Json.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.Formatting.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.WebRequest.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Helpers.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Http.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Http.WebHost.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Mvc.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Razor.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.Deployment.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.Razor.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\WebMatrix.Data.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\WebMatrix.WebData.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.AspNet.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.Core.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OAuth.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OpenId.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\RSIMS.csprojResolveAssemblyReference.cache
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\RSIMS.csproj.GenerateResource.Cache
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\AlfasiWeb.dll
+D:\AirForce\WIMS-SRC\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\AlfasiWeb.pdb
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\AlfasiWeb.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\AlfasiWeb.pdb
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\Antlr3.Runtime.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\BusinessObjectFramework.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DinotaCore.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DinotaDataAccess.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DinotaDomain.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DinotaSecurity.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DotNetOpenAuth.AspNet.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DotNetOpenAuth.Core.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DotNetOpenAuth.OAuth.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DotNetOpenAuth.OpenId.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\Microsoft.Web.Infrastructure.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\Newtonsoft.Json.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Net.Http.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Net.Http.Formatting.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Net.Http.WebRequest.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.Helpers.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.Http.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.Http.WebHost.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.Mvc.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.Optimization.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.Razor.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.WebPages.Deployment.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.WebPages.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.WebPages.Razor.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\WebGrease.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\WebMatrix.Data.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\WebMatrix.WebData.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DinotaCore.pdb
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DinotaDataAccess.pdb
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DinotaDomain.pdb
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DinotaSecurity.pdb
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\Newtonsoft.Json.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Net.Http.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Net.Http.Formatting.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Net.Http.WebRequest.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.Helpers.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.Http.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.Http.WebHost.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.Mvc.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.Razor.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.WebPages.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.WebPages.Deployment.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\System.Web.WebPages.Razor.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\WebMatrix.Data.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\WebMatrix.WebData.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DotNetOpenAuth.AspNet.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DotNetOpenAuth.Core.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DotNetOpenAuth.OAuth.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DotNetOpenAuth.OpenId.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\obj\Debug\RSIMS.csprojResolveAssemblyReference.cache
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\obj\Debug\RSIMS.csproj.GenerateResource.Cache
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\obj\Debug\AlfasiWeb.dll
+D:\AirForce\WIMS-SRC\WIMS\RSIMS\obj\Debug\AlfasiWeb.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\AlfasiWeb.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\AlfasiWeb.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\Antlr3.Runtime.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\BusinessObjectFramework.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DinotaDataAccess.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DinotaSecurity.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DotNetOpenAuth.AspNet.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DotNetOpenAuth.Core.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DotNetOpenAuth.OAuth.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DotNetOpenAuth.OpenId.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\Microsoft.ReportViewer.WebForms.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\Microsoft.Web.Infrastructure.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\Newtonsoft.Json.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Net.Http.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Net.Http.Formatting.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Net.Http.WebRequest.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.Helpers.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.Http.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.Http.WebHost.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.Mvc.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.Optimization.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.Razor.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.WebPages.Deployment.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.WebPages.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.WebPages.Razor.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\WebGrease.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\WebMatrix.Data.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\WebMatrix.WebData.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DinotaDataAccess.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DinotaSecurity.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\Microsoft.ReportViewer.WebForms.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\Newtonsoft.Json.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Net.Http.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Net.Http.Formatting.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Net.Http.WebRequest.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.Helpers.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.Http.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.Http.WebHost.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.Mvc.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.Razor.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.WebPages.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.WebPages.Deployment.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\System.Web.WebPages.Razor.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\WebMatrix.Data.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\WebMatrix.WebData.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DotNetOpenAuth.AspNet.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DotNetOpenAuth.Core.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DotNetOpenAuth.OAuth.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DotNetOpenAuth.OpenId.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\obj\Debug\RSIMS.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\obj\Debug\RSIMS.csproj.GenerateResource.Cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\obj\Debug\AlfasiWeb.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\WIMS\RSIMS\obj\Debug\AlfasiWeb.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\AlfasiWeb.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\AlfasiWeb.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\Antlr3.Runtime.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\BusinessObjectFramework.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DinotaCore.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DinotaDataAccess.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DinotaDomain.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DinotaSecurity.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DotNetOpenAuth.AspNet.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DotNetOpenAuth.Core.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DotNetOpenAuth.OAuth.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DotNetOpenAuth.OpenId.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\Microsoft.ReportViewer.WebForms.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\Microsoft.Web.Infrastructure.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\Newtonsoft.Json.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Net.Http.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Net.Http.Formatting.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Net.Http.WebRequest.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.Helpers.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.Http.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.Http.WebHost.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.Mvc.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.Optimization.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.Razor.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.WebPages.Deployment.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.WebPages.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.WebPages.Razor.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\WebGrease.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\WebMatrix.Data.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\WebMatrix.WebData.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DinotaCore.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DinotaDataAccess.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DinotaDomain.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DinotaSecurity.pdb
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\Microsoft.ReportViewer.WebForms.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\Newtonsoft.Json.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Net.Http.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Net.Http.Formatting.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Net.Http.WebRequest.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.Helpers.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.Http.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.Http.WebHost.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.Mvc.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.Razor.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.WebPages.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.WebPages.Deployment.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\System.Web.WebPages.Razor.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\WebMatrix.Data.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\WebMatrix.WebData.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DotNetOpenAuth.AspNet.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DotNetOpenAuth.Core.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DotNetOpenAuth.OAuth.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DotNetOpenAuth.OpenId.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\obj\Debug\RSIMS.csprojResolveAssemblyReference.cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\obj\Debug\RSIMS.csproj.GenerateResource.Cache
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\obj\Debug\AlfasiWeb.dll
+D:\my PROJECT\Ranaviru Sewa\RSIMS\WIMS (1)\GitSource\RanaviruSewaAuthority\RSIMS\obj\Debug\AlfasiWeb.pdb
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\AlfasiWeb.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\AlfasiWeb.pdb
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\Antlr3.Runtime.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\BusinessObjectFramework.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaCore.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaDataAccess.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaDomain.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaSecurity.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.AspNet.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.Core.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OAuth.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OpenId.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\Microsoft.ReportViewer.WebForms.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\Microsoft.Web.Infrastructure.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\Newtonsoft.Json.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.Formatting.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.WebRequest.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Helpers.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Http.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Http.WebHost.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Mvc.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Optimization.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Razor.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.Deployment.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.Razor.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\WebGrease.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\WebMatrix.Data.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\WebMatrix.WebData.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaCore.pdb
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaDataAccess.pdb
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaDomain.pdb
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaSecurity.pdb
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\Microsoft.ReportViewer.WebForms.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\Newtonsoft.Json.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.Formatting.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.WebRequest.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Helpers.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Http.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Http.WebHost.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Mvc.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Razor.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.Deployment.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.Razor.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\WebMatrix.Data.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\WebMatrix.WebData.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.AspNet.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.Core.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OAuth.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OpenId.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\RSIMS.csprojResolveAssemblyReference.cache
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\RSIMS.csproj.GenerateResource.Cache
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\AlfasiWeb.dll
+D:\my PROJECT\RANAWIRU SEWA\WIMS_Ranawiru_Sewa\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\AlfasiWeb.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\AlfasiWeb.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\AlfasiWeb.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\Antlr3.Runtime.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\BusinessObjectFramework.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaCore.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaDataAccess.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaDomain.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaSecurity.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.AspNet.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.Core.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OAuth.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OpenId.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\Microsoft.Web.Infrastructure.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\Newtonsoft.Json.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.WebRequest.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Helpers.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Mvc.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Optimization.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Razor.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.Deployment.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.Razor.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\WebGrease.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\WebMatrix.Data.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\WebMatrix.WebData.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaCore.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaDataAccess.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaDomain.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaSecurity.pdb
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\Newtonsoft.Json.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.WebRequest.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Helpers.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Mvc.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Razor.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.Deployment.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.Razor.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\WebMatrix.Data.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\WebMatrix.WebData.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.AspNet.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.Core.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OAuth.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OpenId.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\RSIMS.csprojResolveAssemblyReference.cache
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\RSIMS.csproj.GenerateResource.Cache
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\AlfasiWeb.dll
+D:\Ranaviru-sewa\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\AlfasiWeb.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\AlfasiWeb.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\AlfasiWeb.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\Antlr3.Runtime.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\BusinessObjectFramework.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaCore.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaDataAccess.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaDomain.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaSecurity.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.AspNet.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.Core.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OAuth.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OpenId.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\Microsoft.ReportViewer.WebForms.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\Microsoft.Web.Infrastructure.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\Newtonsoft.Json.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.Formatting.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.WebRequest.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Helpers.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Http.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Http.WebHost.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Mvc.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Optimization.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Razor.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.Deployment.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.Razor.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\WebGrease.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\WebMatrix.Data.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\WebMatrix.WebData.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaCore.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaDataAccess.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaDomain.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DinotaSecurity.pdb
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\Microsoft.ReportViewer.WebForms.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\Newtonsoft.Json.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.Formatting.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Net.Http.WebRequest.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Helpers.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Http.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Http.WebHost.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Mvc.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.Razor.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.Deployment.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\System.Web.WebPages.Razor.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\WebMatrix.Data.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\WebMatrix.WebData.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.AspNet.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.Core.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OAuth.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OpenId.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\RSIMS.csprojResolveAssemblyReference.cache
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\RSIMS.csproj.GenerateResource.Cache
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\AlfasiWeb.dll
+D:\my PROJECT\RANAWIRU SEWA\GITHUB\WIMS_Ranawiru_Sewa\RSIMS\obj\Debug\AlfasiWeb.pdb

@@ -1,0 +1,389 @@
+D:\03200\MIMS\MIMS\MIMS\obj\Debug\MIMS.csprojResolveAssemblyReference.cache
+D:\03200\MIMS\MIMS\MIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
+D:\03200\MIMS\MIMS\MIMS\obj\Debug\MIMS.csproj.GenerateResource.Cache
+D:\03200\MIMS\MIMS\MIMS\obj\Debug\AlfasiWeb.dll
+D:\03200\MIMS\MIMS\MIMS\obj\Debug\AlfasiWeb.pdb
+D:\03200\MIMS\MIMS\MIMS\bin\AlfasiWeb.dll
+D:\03200\MIMS\MIMS\MIMS\bin\AlfasiWeb.pdb
+D:\03200\MIMS\MIMS\MIMS\bin\Antlr3.Runtime.dll
+D:\03200\MIMS\MIMS\MIMS\bin\BusinessObjectFramework.dll
+D:\03200\MIMS\MIMS\MIMS\bin\DinotaCore.dll
+D:\03200\MIMS\MIMS\MIMS\bin\DinotaDataAccess.dll
+D:\03200\MIMS\MIMS\MIMS\bin\DinotaDomain.dll
+D:\03200\MIMS\MIMS\MIMS\bin\DinotaSecurity.dll
+D:\03200\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.AspNet.dll
+D:\03200\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.Core.dll
+D:\03200\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\03200\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.dll
+D:\03200\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.dll
+D:\03200\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\03200\MIMS\MIMS\MIMS\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\03200\MIMS\MIMS\MIMS\bin\Microsoft.Web.Infrastructure.dll
+D:\03200\MIMS\MIMS\MIMS\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\03200\MIMS\MIMS\MIMS\bin\Newtonsoft.Json.dll
+D:\03200\MIMS\MIMS\MIMS\bin\System.Net.Http.dll
+D:\03200\MIMS\MIMS\MIMS\bin\System.Net.Http.Formatting.dll
+D:\03200\MIMS\MIMS\MIMS\bin\System.Net.Http.WebRequest.dll
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.Helpers.dll
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.Http.dll
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.Http.WebHost.dll
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.Mvc.dll
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.Optimization.dll
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.Razor.dll
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Deployment.dll
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.WebPages.dll
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Razor.dll
+D:\03200\MIMS\MIMS\MIMS\bin\WebGrease.dll
+D:\03200\MIMS\MIMS\MIMS\bin\WebMatrix.Data.dll
+D:\03200\MIMS\MIMS\MIMS\bin\WebMatrix.WebData.dll
+D:\03200\MIMS\MIMS\MIMS\bin\DinotaCore.pdb
+D:\03200\MIMS\MIMS\MIMS\bin\DinotaDataAccess.pdb
+D:\03200\MIMS\MIMS\MIMS\bin\DinotaDomain.pdb
+D:\03200\MIMS\MIMS\MIMS\bin\DinotaSecurity.pdb
+D:\03200\MIMS\MIMS\MIMS\bin\Newtonsoft.Json.xml
+D:\03200\MIMS\MIMS\MIMS\bin\System.Net.Http.xml
+D:\03200\MIMS\MIMS\MIMS\bin\System.Net.Http.Formatting.xml
+D:\03200\MIMS\MIMS\MIMS\bin\System.Net.Http.WebRequest.xml
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.Helpers.xml
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.Http.xml
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.Http.WebHost.xml
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.Mvc.xml
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.Razor.xml
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.WebPages.xml
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Deployment.xml
+D:\03200\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Razor.xml
+D:\03200\MIMS\MIMS\MIMS\bin\WebMatrix.Data.xml
+D:\03200\MIMS\MIMS\MIMS\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\03200\MIMS\MIMS\MIMS\bin\WebMatrix.WebData.xml
+D:\03200\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.AspNet.xml
+D:\03200\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.Core.xml
+D:\03200\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\03200\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.xml
+D:\03200\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.xml
+D:\03200\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\obj\Debug\MIMS.csprojAssemblyReference.cache
+D:\MY PROJECT\MIMS\MIMS\MIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
+D:\MY PROJECT\MIMS\MIMS\MIMS\obj\Debug\MIMS.csproj.GenerateResource.cache
+D:\MY PROJECT\MIMS\MIMS\MIMS\obj\Debug\AlfasiWeb.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\obj\Debug\AlfasiWeb.pdb
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\AlfasiWeb.dll.config
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\AlfasiWeb.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\AlfasiWeb.pdb
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\Antlr3.Runtime.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\BusinessObjectFramework.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DinotaCore.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DinotaDataAccess.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DinotaDomain.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DinotaSecurity.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.AspNet.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.Core.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\Microsoft.Web.Infrastructure.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\Newtonsoft.Json.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Net.Http.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Net.Http.Formatting.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Net.Http.WebRequest.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.Helpers.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.Http.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.Http.WebHost.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.Mvc.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.Optimization.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.Razor.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Deployment.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.WebPages.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Razor.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\WebGrease.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\WebMatrix.Data.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\WebMatrix.WebData.dll
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DinotaCore.pdb
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DinotaDataAccess.pdb
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DinotaDomain.pdb
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DinotaSecurity.pdb
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\Newtonsoft.Json.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Net.Http.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Net.Http.Formatting.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Net.Http.WebRequest.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.Helpers.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.Http.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.Http.WebHost.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.Mvc.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.Razor.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.WebPages.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Deployment.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Razor.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\WebMatrix.Data.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\WebMatrix.WebData.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.AspNet.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.Core.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\MY PROJECT\MIMS\MIMS\MIMS\obj\Debug\MIMS.csproj.CopyComplete
+D:\03200\MIMS\MIMS\bin\AlfasiWeb.dll.config
+D:\03200\MIMS\MIMS\bin\AlfasiWeb.dll
+D:\03200\MIMS\MIMS\bin\AlfasiWeb.pdb
+D:\03200\MIMS\MIMS\bin\Antlr3.Runtime.dll
+D:\03200\MIMS\MIMS\bin\BusinessObjectFramework.dll
+D:\03200\MIMS\MIMS\bin\DinotaCore.dll
+D:\03200\MIMS\MIMS\bin\DinotaDataAccess.dll
+D:\03200\MIMS\MIMS\bin\DinotaDomain.dll
+D:\03200\MIMS\MIMS\bin\DinotaSecurity.dll
+D:\03200\MIMS\MIMS\bin\DotNetOpenAuth.AspNet.dll
+D:\03200\MIMS\MIMS\bin\DotNetOpenAuth.Core.dll
+D:\03200\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\03200\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.dll
+D:\03200\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.dll
+D:\03200\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\03200\MIMS\MIMS\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\03200\MIMS\MIMS\bin\Microsoft.Web.Infrastructure.dll
+D:\03200\MIMS\MIMS\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\03200\MIMS\MIMS\bin\Newtonsoft.Json.dll
+D:\03200\MIMS\MIMS\bin\System.Net.Http.dll
+D:\03200\MIMS\MIMS\bin\System.Net.Http.Formatting.dll
+D:\03200\MIMS\MIMS\bin\System.Net.Http.WebRequest.dll
+D:\03200\MIMS\MIMS\bin\System.Web.Helpers.dll
+D:\03200\MIMS\MIMS\bin\System.Web.Http.dll
+D:\03200\MIMS\MIMS\bin\System.Web.Http.WebHost.dll
+D:\03200\MIMS\MIMS\bin\System.Web.Mvc.dll
+D:\03200\MIMS\MIMS\bin\System.Web.Optimization.dll
+D:\03200\MIMS\MIMS\bin\System.Web.Razor.dll
+D:\03200\MIMS\MIMS\bin\System.Web.WebPages.Deployment.dll
+D:\03200\MIMS\MIMS\bin\System.Web.WebPages.dll
+D:\03200\MIMS\MIMS\bin\System.Web.WebPages.Razor.dll
+D:\03200\MIMS\MIMS\bin\WebGrease.dll
+D:\03200\MIMS\MIMS\bin\WebMatrix.Data.dll
+D:\03200\MIMS\MIMS\bin\WebMatrix.WebData.dll
+D:\03200\MIMS\MIMS\bin\DinotaCore.pdb
+D:\03200\MIMS\MIMS\bin\DinotaDataAccess.pdb
+D:\03200\MIMS\MIMS\bin\DinotaDomain.pdb
+D:\03200\MIMS\MIMS\bin\DinotaSecurity.pdb
+D:\03200\MIMS\MIMS\bin\Newtonsoft.Json.xml
+D:\03200\MIMS\MIMS\bin\System.Net.Http.xml
+D:\03200\MIMS\MIMS\bin\System.Net.Http.Formatting.xml
+D:\03200\MIMS\MIMS\bin\System.Net.Http.WebRequest.xml
+D:\03200\MIMS\MIMS\bin\System.Web.Helpers.xml
+D:\03200\MIMS\MIMS\bin\System.Web.Http.xml
+D:\03200\MIMS\MIMS\bin\System.Web.Http.WebHost.xml
+D:\03200\MIMS\MIMS\bin\System.Web.Mvc.xml
+D:\03200\MIMS\MIMS\bin\System.Web.Razor.xml
+D:\03200\MIMS\MIMS\bin\System.Web.WebPages.xml
+D:\03200\MIMS\MIMS\bin\System.Web.WebPages.Deployment.xml
+D:\03200\MIMS\MIMS\bin\System.Web.WebPages.Razor.xml
+D:\03200\MIMS\MIMS\bin\WebMatrix.Data.xml
+D:\03200\MIMS\MIMS\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\03200\MIMS\MIMS\bin\WebMatrix.WebData.xml
+D:\03200\MIMS\MIMS\bin\DotNetOpenAuth.AspNet.xml
+D:\03200\MIMS\MIMS\bin\DotNetOpenAuth.Core.xml
+D:\03200\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\03200\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.xml
+D:\03200\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.xml
+D:\03200\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\03200\MIMS\MIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
+D:\03200\MIMS\MIMS\obj\Debug\MIMS.csproj.GenerateResource.Cache
+D:\03200\MIMS\MIMS\obj\Debug\AlfasiWeb.dll
+D:\03200\MIMS\MIMS\obj\Debug\AlfasiWeb.pdb
+C:\MIMS\MIMS\MIMS\bin\AlfasiWeb.dll
+C:\MIMS\MIMS\MIMS\bin\AlfasiWeb.pdb
+C:\MIMS\MIMS\MIMS\bin\Antlr3.Runtime.dll
+C:\MIMS\MIMS\MIMS\bin\BusinessObjectFramework.dll
+C:\MIMS\MIMS\MIMS\bin\DinotaCore.dll
+C:\MIMS\MIMS\MIMS\bin\DinotaDataAccess.dll
+C:\MIMS\MIMS\MIMS\bin\DinotaDomain.dll
+C:\MIMS\MIMS\MIMS\bin\DinotaSecurity.dll
+C:\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.AspNet.dll
+C:\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.Core.dll
+C:\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.dll
+C:\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.dll
+C:\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\MIMS\MIMS\MIMS\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\MIMS\MIMS\MIMS\bin\Microsoft.Web.Infrastructure.dll
+C:\MIMS\MIMS\MIMS\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\MIMS\MIMS\MIMS\bin\Newtonsoft.Json.dll
+C:\MIMS\MIMS\MIMS\bin\System.Net.Http.dll
+C:\MIMS\MIMS\MIMS\bin\System.Net.Http.Formatting.dll
+C:\MIMS\MIMS\MIMS\bin\System.Net.Http.WebRequest.dll
+C:\MIMS\MIMS\MIMS\bin\System.Web.Helpers.dll
+C:\MIMS\MIMS\MIMS\bin\System.Web.Http.dll
+C:\MIMS\MIMS\MIMS\bin\System.Web.Http.WebHost.dll
+C:\MIMS\MIMS\MIMS\bin\System.Web.Mvc.dll
+C:\MIMS\MIMS\MIMS\bin\System.Web.Optimization.dll
+C:\MIMS\MIMS\MIMS\bin\System.Web.Razor.dll
+C:\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Deployment.dll
+C:\MIMS\MIMS\MIMS\bin\System.Web.WebPages.dll
+C:\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Razor.dll
+C:\MIMS\MIMS\MIMS\bin\WebGrease.dll
+C:\MIMS\MIMS\MIMS\bin\WebMatrix.Data.dll
+C:\MIMS\MIMS\MIMS\bin\WebMatrix.WebData.dll
+C:\MIMS\MIMS\MIMS\bin\DinotaCore.pdb
+C:\MIMS\MIMS\MIMS\bin\DinotaDataAccess.pdb
+C:\MIMS\MIMS\MIMS\bin\DinotaDomain.pdb
+C:\MIMS\MIMS\MIMS\bin\DinotaSecurity.pdb
+C:\MIMS\MIMS\MIMS\bin\Newtonsoft.Json.xml
+C:\MIMS\MIMS\MIMS\bin\System.Net.Http.xml
+C:\MIMS\MIMS\MIMS\bin\System.Net.Http.Formatting.xml
+C:\MIMS\MIMS\MIMS\bin\System.Net.Http.WebRequest.xml
+C:\MIMS\MIMS\MIMS\bin\System.Web.Helpers.xml
+C:\MIMS\MIMS\MIMS\bin\System.Web.Http.xml
+C:\MIMS\MIMS\MIMS\bin\System.Web.Http.WebHost.xml
+C:\MIMS\MIMS\MIMS\bin\System.Web.Mvc.xml
+C:\MIMS\MIMS\MIMS\bin\System.Web.Razor.xml
+C:\MIMS\MIMS\MIMS\bin\System.Web.WebPages.xml
+C:\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Deployment.xml
+C:\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Razor.xml
+C:\MIMS\MIMS\MIMS\bin\WebMatrix.Data.xml
+C:\MIMS\MIMS\MIMS\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\MIMS\MIMS\MIMS\bin\WebMatrix.WebData.xml
+C:\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.AspNet.xml
+C:\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.Core.xml
+C:\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.xml
+C:\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.xml
+C:\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\MIMS\MIMS\MIMS\obj\Debug\MIMS.csprojResolveAssemblyReference.cache
+C:\MIMS\MIMS\MIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
+C:\MIMS\MIMS\MIMS\obj\Debug\MIMS.csproj.GenerateResource.Cache
+C:\MIMS\MIMS\MIMS\obj\Debug\AlfasiWeb.dll
+C:\MIMS\MIMS\MIMS\obj\Debug\AlfasiWeb.pdb
+C:\03200\MIMS\MIMS\MIMS\MIMS\obj\Debug\MIMS.csprojResolveAssemblyReference.cache
+C:\03200\MIMS\MIMS\MIMS\MIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
+C:\03200\MIMS\MIMS\MIMS\MIMS\obj\Debug\MIMS.csproj.GenerateResource.Cache
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\AlfasiWeb.dll.config
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\AlfasiWeb.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\AlfasiWeb.pdb
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\Antlr3.Runtime.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\BusinessObjectFramework.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DinotaCore.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DinotaDataAccess.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DinotaDomain.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DinotaSecurity.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.AspNet.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.Core.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\Microsoft.Web.Infrastructure.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\Newtonsoft.Json.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Net.Http.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Net.Http.Formatting.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Net.Http.WebRequest.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.Helpers.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.Http.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.Http.WebHost.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.Mvc.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.Optimization.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.Razor.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Deployment.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.WebPages.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Razor.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\WebGrease.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\WebMatrix.Data.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\WebMatrix.WebData.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\Microsoft.ReportViewer.Common.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DinotaCore.pdb
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DinotaDataAccess.pdb
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DinotaDomain.pdb
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DinotaSecurity.pdb
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\Newtonsoft.Json.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Net.Http.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Net.Http.Formatting.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Net.Http.WebRequest.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.Helpers.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.Http.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.Http.WebHost.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.Mvc.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.Razor.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.WebPages.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Deployment.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Razor.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\WebMatrix.Data.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\WebMatrix.WebData.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.AspNet.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.Core.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\03200\MIMS\MIMS\MIMS\MIMS\obj\Debug\AlfasiWeb.dll
+C:\03200\MIMS\MIMS\MIMS\MIMS\obj\Debug\AlfasiWeb.pdb
+E:\Project\MIMS\MIMS\MIMS\bin\AlfasiWeb.dll.config
+E:\Project\MIMS\MIMS\MIMS\bin\AlfasiWeb.dll
+E:\Project\MIMS\MIMS\MIMS\bin\AlfasiWeb.pdb
+E:\Project\MIMS\MIMS\MIMS\bin\Antlr3.Runtime.dll
+E:\Project\MIMS\MIMS\MIMS\bin\BusinessObjectFramework.dll
+E:\Project\MIMS\MIMS\MIMS\bin\DinotaCore.dll
+E:\Project\MIMS\MIMS\MIMS\bin\DinotaDataAccess.dll
+E:\Project\MIMS\MIMS\MIMS\bin\DinotaDomain.dll
+E:\Project\MIMS\MIMS\MIMS\bin\DinotaSecurity.dll
+E:\Project\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.AspNet.dll
+E:\Project\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.Core.dll
+E:\Project\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\Project\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.dll
+E:\Project\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.dll
+E:\Project\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\Project\MIMS\MIMS\MIMS\bin\Microsoft.ReportViewer.WebForms.DLL
+E:\Project\MIMS\MIMS\MIMS\bin\Microsoft.Web.Infrastructure.dll
+E:\Project\MIMS\MIMS\MIMS\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\Project\MIMS\MIMS\MIMS\bin\Newtonsoft.Json.dll
+E:\Project\MIMS\MIMS\MIMS\bin\System.Net.Http.dll
+E:\Project\MIMS\MIMS\MIMS\bin\System.Net.Http.Formatting.dll
+E:\Project\MIMS\MIMS\MIMS\bin\System.Net.Http.WebRequest.dll
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.Helpers.dll
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.Http.dll
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.Http.WebHost.dll
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.Mvc.dll
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.Optimization.dll
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.Razor.dll
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Deployment.dll
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.WebPages.dll
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Razor.dll
+E:\Project\MIMS\MIMS\MIMS\bin\WebGrease.dll
+E:\Project\MIMS\MIMS\MIMS\bin\WebMatrix.Data.dll
+E:\Project\MIMS\MIMS\MIMS\bin\WebMatrix.WebData.dll
+E:\Project\MIMS\MIMS\MIMS\bin\DinotaCore.pdb
+E:\Project\MIMS\MIMS\MIMS\bin\DinotaDataAccess.pdb
+E:\Project\MIMS\MIMS\MIMS\bin\DinotaDomain.pdb
+E:\Project\MIMS\MIMS\MIMS\bin\DinotaSecurity.pdb
+E:\Project\MIMS\MIMS\MIMS\bin\Newtonsoft.Json.xml
+E:\Project\MIMS\MIMS\MIMS\bin\System.Net.Http.xml
+E:\Project\MIMS\MIMS\MIMS\bin\System.Net.Http.Formatting.xml
+E:\Project\MIMS\MIMS\MIMS\bin\System.Net.Http.WebRequest.xml
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.Helpers.xml
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.Http.xml
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.Http.WebHost.xml
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.Mvc.xml
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.Razor.xml
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.WebPages.xml
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Deployment.xml
+E:\Project\MIMS\MIMS\MIMS\bin\System.Web.WebPages.Razor.xml
+E:\Project\MIMS\MIMS\MIMS\bin\WebMatrix.Data.xml
+E:\Project\MIMS\MIMS\MIMS\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\Project\MIMS\MIMS\MIMS\bin\WebMatrix.WebData.xml
+E:\Project\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.AspNet.xml
+E:\Project\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.Core.xml
+E:\Project\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\Project\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OAuth.xml
+E:\Project\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.xml
+E:\Project\MIMS\MIMS\MIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\Project\MIMS\MIMS\MIMS\obj\Debug\MIMS.csproj.AssemblyReference.cache
+E:\Project\MIMS\MIMS\MIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
+E:\Project\MIMS\MIMS\MIMS\obj\Debug\MIMS.csproj.GenerateResource.cache
+E:\Project\MIMS\MIMS\MIMS\obj\Debug\MIMS.csproj.CoreCompileInputs.cache
+E:\Project\MIMS\MIMS\MIMS\obj\Debug\MIMS.csproj.CopyComplete
+E:\Project\MIMS\MIMS\MIMS\obj\Debug\AlfasiWeb.dll
+E:\Project\MIMS\MIMS\MIMS\obj\Debug\AlfasiWeb.pdb
+D:\03200\MIMS\MIMS\obj\Debug\MIMS.csproj.AssemblyReference.cache
+D:\03200\MIMS\MIMS\obj\Debug\MIMS.csproj.CoreCompileInputs.cache
+D:\03200\MIMS\MIMS\obj\Debug\MIMS.csproj.CopyComplete

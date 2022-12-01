@@ -1,0 +1,88 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.MenuCategory
+@using AlfasiWeb.Models
+@model HomeModel
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="d-none">
+    <div class="bg-primary p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Menu Categories</h4>
+    </div>
+</div>
+<div class="osahan-trending">
+
+    <div class="container">
+        <div class="most_popular py-5">
+            <div class="d-flex align-items-center mb-4">
+                <h3 class="font-weight-bold text-dark mb-0">Menu Categories</h3>
+                
+            </div>
+            <div class="row">
+                @foreach(MenuCategory cat in Model.MenuCategoryList)
+                {
+                <div class="col-lg-4 mb-3">
+                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm grid-card">
+                        <div class="list-card-image">
+                          
+                            <a href="@Url.Content("~/Menu/MenuItemIndex/")@cat.UId">
+                                <img alt="#" src="@Url.Content("~/Asset/img/menucat/"+@cat.ImgName+".jpg")" class="img-fluid item-img w-100">
+                            </a>
+                        </div>
+                        <div class="p-3 position-relative">
+                            <div class="list-card-body">
+                                <h6 class="mb-1"><a href="@Url.Content("~/Menu/MenuItemIndex/")@cat.UId" class="text-black">@cat.Name
+</a>
+                                </h6>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
+        <div class="row">
+            <div class="col">
+                <a href="home.html" class="text-dark small font-weight-bold text-decoration-none">
+                    <p class="h4 m-0"><i class="feather-home"></i></p>
+                    Home
+</a>
+            </div>
+            <div class="col selected">
+                <a href="trending.html" class="text-danger small font-weight-bold text-decoration-none">
+                    <p class="h4 m-0"><i class="feather-map-pin text-danger"></i></p>
+                    Trending
+</a>
+            </div>
+            <div class="col bg-white rounded-circle mt-n4 px-3 py-2">
+                <div class="bg-danger rounded-circle mt-n0 shadow">
+                    <a href="checkout.html" class="text-white small font-weight-bold text-decoration-none">
+                        <i class="feather-shopping-cart"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <a href="favorites.html" class="text-dark small font-weight-bold text-decoration-none">
+                    <p class="h4 m-0"><i class="feather-heart"></i></p>
+                    Favorites
+</a>
+            </div>
+            <div class="col">
+                <a href="profile.html" class="text-dark small font-weight-bold text-decoration-none">
+                    <p class="h4 m-0"><i class="feather-user"></i></p>
+                    Profile
+</a>
+            </div>
+        </div>
+    </div>
+</div>
