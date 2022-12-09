@@ -30,6 +30,9 @@ namespace Dinota.Domain.EventParticipation
         public bool IsTransport { set; get; }
         public bool IsChangingRoom { set; get; }
         public string Remark { get; set; }
+        public string AddField1 { get; set; }
+        public string AddField2 { get; set; }
+        public string AddField3 { get; set; }
         public virtual UserBase UserBase { get; set; }
     }
 }

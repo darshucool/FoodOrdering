@@ -33,7 +33,7 @@
                                             <input type="hidden" name="eventuid" id="eventuid2">
                                             <div class="form-row">
                                                 <div class="mb-0 col-md-12 form-group">
-                                                    <label class="form-label">Meal preference</label>
+                                                    @*<label class="form-label">Meal preference</label>
                                                     <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
                                                         @if (!Model.EventParticipation.IsVeg)
                                                         {
@@ -58,30 +58,30 @@
                                                             </label>
                                                         }
                                                         <p></p>
-                                                    </div>
-                                                    <label class="form-label">
-                                                        <br />
-                                                        <b>Alcohol preference</b>
-                                                    </label>
-                                                    <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-                                                        <label class="btn btn-outline-secondary active">
-                                                            <input type="radio" name="IsAlcohol" value="1" @if (Model.EventParticipation.IsAlcohol == 1) { <text> checked="" </text> }>
-                                                            Alcohol
+                                                    </div>*@
+                                                    @*<label class="form-label">
+                                                            <br />
+                                                            <b>Alcohol preference</b>
                                                         </label>
-                                                        <label class="btn btn-outline-secondary">
-                                                            <input type="radio" name="IsAlcohol" value="2" @if (Model.EventParticipation.IsAlcohol == 2) { <text> checked="" </text> }>
-                                                            Wine
-                                                        </label>
-                                                        <label class="btn btn-outline-secondary">
-                                                            <input type="radio" name="IsAlcohol" value="4" @if (Model.EventParticipation.IsAlcohol == 4) { <text> checked="" </text> }>
-                                                            Both
-                                                        </label>
-                                                        <label class="btn btn-outline-secondary">
-                                                            <input type="radio" name="IsAlcohol" value="3" @if (Model.EventParticipation.IsAlcohol == 3) { <text> checked="" </text> }>
-                                                            None
-                                                        </label>
-                                                        <p></p>
-                                                    </div>
+                                                        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+                                                            <label class="btn btn-outline-secondary active">
+                                                                <input type="radio" name="IsAlcohol" value="1" @if (Model.EventParticipation.IsAlcohol == 1) { <text> checked="" </text> }>
+                                                                Alcohol
+                                                            </label>
+                                                            <label class="btn btn-outline-secondary">
+                                                                <input type="radio" name="IsAlcohol" value="2" @if (Model.EventParticipation.IsAlcohol == 2) { <text> checked="" </text> }>
+                                                                Wine
+                                                            </label>
+                                                            <label class="btn btn-outline-secondary">
+                                                                <input type="radio" name="IsAlcohol" value="4" @if (Model.EventParticipation.IsAlcohol == 4) { <text> checked="" </text> }>
+                                                                Both
+                                                            </label>
+                                                            <label class="btn btn-outline-secondary">
+                                                                <input type="radio" name="IsAlcohol" value="3" @if (Model.EventParticipation.IsAlcohol == 3) { <text> checked="" </text> }>
+                                                                None
+                                                            </label>
+                                                            <p></p>
+                                                        </div>*@
                                                     <label class="form-label">
                                                         <br />
                                                         <b>Is the Spouse participating in the event ?</b>
@@ -89,12 +89,12 @@
                                                     <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
 
                                                         <label class="btn btn-outline-secondary active">
-                                                            <input type="radio" name="participatefamily" value="1" @if (!Model.EventParticipation.IsFamily) { <text> checked="" </text> } onclick="changeSpouseState1()">
+                                                            <input type="radio" name="participatefamily" value="1" @if (Model.EventParticipation.IsFamily) { <text> checked="" </text>  } onclick="changeSpouseState1()">
                                                             Yes
                                                         </label>
 
                                                         <label class="btn btn-outline-secondary">
-                                                            <input type="radio" name="participatefamily" value="0" @if (Model.EventParticipation.IsFamily) { <text> checked="" </text> } onclick="changeSpouseState2()">
+                                                            <input type="radio" name="participatefamily" value="0" @if (!Model.EventParticipation.IsFamily) { <text> checked="" </text>  } onclick="changeSpouseState2()">
                                                             No
                                                         </label>
 
@@ -116,55 +116,109 @@
                                                             };
                                                         </script>
                                                     }
-                                                    <label class="form-label" id="spousevegnon1">
+                                                    @*<label class="form-label" id="spousevegnon1">
                                                         <br />
                                                         <b>Spouse meal preference</b>
                                                     </label>
                                                     <div class="btn-group btn-group-toggle w-100" data-toggle="buttons" id="spousevegnon2">
                                                         <label class="btn btn-outline-secondary active">
-                                                            <input type="radio" name="spouseVeg" value="1" id="spouseVeg1" @if (!IsSign) { <text> checked="" </text> }>
+                                                            <input type="radio" name="spouseVeg" value="1" id="spouseVeg1" @if (!IsSign) { <text> checked="" </text>  }>
                                                             Non Vegetarian
                                                         </label>
                                                         <label class="btn btn-outline-secondary">
-                                                            <input type="radio" name="spouseVeg" value="0" id="spouseVeg2" @if (IsSign) { <text> checked="" </text> }>
+                                                            <input type="radio" name="spouseVeg" value="0" id="spouseVeg2" @if (IsSign) { <text> checked="" </text>  }>
                                                             Vegetarian
                                                         </label>
                                                         <p></p>
+                                                    </div>*@
+                                                    <label class="form-label" id="children1">
+                                                        <br />
+                                                        <b>Children Information</b>
+                                                    </label>
+                                                    <hr />
+                                                    <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+                                                        <input type="hidden" name="kidrowcount" id="kidrowcount" value="0">
+                                                        <table class="test" width="100%" cellspacing="5" cellpadding="5">
+                                                            @*<thead>
+                                                                    <tr style="background-color:#f2f2f2 !important;">
+                                                                        <th>Children Age</th>
+                                                                        <th>Participation Count</th>
+
+                                                                    </tr>
+                                                                </thead>*@
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><b>Children Below 5</b></td>
+                                                                    <td><input type="number" name="child1" value="@Model.EventParticipation.AddField1"></td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b>Children 5-13 years</b></td>
+                                                                    <td><input type="number" name="child2" value="@Model.EventParticipation.AddField2"></td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b>Children above 13 </b></td>
+                                                                    <td><input type="number" name="child3"  value="@Model.EventParticipation.AddField3"></td>
+
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
                                                     </div>
-                                                    <label class="form-label" id="IsSpouseAlcohol1"><br /><b>Alcohol / Wine preference</b></label>
-                                                    <div class="btn-group btn-group-toggle w-100" data-toggle="buttons" id="IsSpouseAlcohol2">
-                                                        <label class="btn btn-outline-secondary active">
-                                                            <input type="radio" name="IsSpouseAlcohol" value="1" @if (Model.EventParticipation.IsSpouseAlcohol == 1) { <text> checked="" </text> }>
-                                                            Alcohol
-                                                        </label>
-                                                        <label class="btn btn-outline-secondary">
-                                                            <input type="radio" name="IsSpouseAlcohol" value="2" @if (Model.EventParticipation.IsSpouseAlcohol == 2) { <text> checked="" </text> }>
-                                                            Wine
-                                                        </label>
-                                                        <label class="btn btn-outline-secondary">
-                                                            <input type="radio" name="IsAlcohol" value="4" @if (Model.EventParticipation.IsSpouseAlcohol == 4) { <text> checked="" </text> }>
-                                                            Both
-                                                        </label>
-                                                        <label class="btn btn-outline-secondary">
-                                                            <input type="radio" name="IsAlcohol" value="3" @if (Model.EventParticipation.IsSpouseAlcohol == 3) { <text> checked="" </text> }>
-                                                            None
-                                                        </label>
-                                                        <p></p>
-                                                    </div>
+@if (Model.RankUId == 37 || Model.RankUId == 36 || Model.RankUId == 38 || Model.RankUId == 44 || Model.RankUId == 148)
+{
                                                     <label class="form-label">
-                                                        <br /><b>Is your OMT requires Dinner</b>
+                                                        <br /><b>Do you require Transport</b>
                                                     </label>
                                                     <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
                                                         <label class="btn btn-outline-secondary active">
-                                                            <input type="radio" name="IsOmt" value="1" @if (Model.EventParticipation.IsOmt) { <text> checked="" </text> } onclick="changeOMTState1()">
+                                                            <input type="radio" name="IsTransport" value="1" @if (Model.EventParticipation.IsTransport)
+                                                            { <text> checked="" </text>   }>
                                                             Yes
                                                         </label>
                                                         <label class="btn btn-outline-secondary">
-                                                            <input type="radio" name="IsOmt" value="0" @if (!Model.EventParticipation.IsOmt) { <text> checked="" </text> } onclick="changeOMTState2()">
+                                                            <input type="radio" name="IsTransport" value="0" @if (!Model.EventParticipation.IsTransport)
+                                                            { <text> checked="" </text>   }>
                                                             No
                                                         </label>
                                                         <p></p>
                                                     </div>
+}
+                                                    @*<label class="form-label" id="IsSpouseAlcohol1"><br /><b>Alcohol / Wine preference</b></label>
+                                                        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons" id="IsSpouseAlcohol2">
+                                                            <label class="btn btn-outline-secondary active">
+                                                                <input type="radio" name="IsSpouseAlcohol" value="1" @if (Model.EventParticipation.IsSpouseAlcohol == 1) { <text> checked="" </text> }>
+                                                                Alcohol
+                                                            </label>
+                                                            <label class="btn btn-outline-secondary">
+                                                                <input type="radio" name="IsSpouseAlcohol" value="2" @if (Model.EventParticipation.IsSpouseAlcohol == 2) { <text> checked="" </text> }>
+                                                                Wine
+                                                            </label>
+                                                            <label class="btn btn-outline-secondary">
+                                                                <input type="radio" name="IsAlcohol" value="4" @if (Model.EventParticipation.IsSpouseAlcohol == 4) { <text> checked="" </text> }>
+                                                                Both
+                                                            </label>
+                                                            <label class="btn btn-outline-secondary">
+                                                                <input type="radio" name="IsAlcohol" value="3" @if (Model.EventParticipation.IsSpouseAlcohol == 3) { <text> checked="" </text> }>
+                                                                None
+                                                            </label>
+                                                            <p></p>
+                                                        </div>*@
+                                                    @*<label class="form-label">
+                                                            <br /><b>Is your OMT requires Dinner</b>
+                                                        </label>
+                                                        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+                                                            <label class="btn btn-outline-secondary active">
+                                                                <input type="radio" name="IsOmt" value="1" @if (Model.EventParticipation.IsOmt) { <text> checked="" </text> } onclick="changeOMTState1()">
+                                                                Yes
+                                                            </label>
+                                                            <label class="btn btn-outline-secondary">
+                                                                <input type="radio" name="IsOmt" value="0" @if (!Model.EventParticipation.IsOmt) { <text> checked="" </text> } onclick="changeOMTState2()">
+                                                                No
+                                                            </label>
+                                                            <p></p>
+                                                        </div>*@
                                                     @if (Model.EventParticipation.IsOmt)
                                                     {
 
@@ -179,77 +233,77 @@
                                                         </script>
 
                                                     }
-                                                    <label class="form-label" id="IsOMTVeg1">
-                                                        <br />
-                                                        <b> OMT meal preference</b>
-                                                    </label>
-                                                    <div class="btn-group btn-group-toggle w-100" data-toggle="buttons" id="IsOMTVeg2">
-                                                        <label class="btn btn-outline-secondary active">
-                                                            <input type="radio" name="IsOMTVeg" value="1" @if (!Model.EventParticipation.IsOMTVeg) { <text> checked="" </text> }>
-                                                            Non Vegetarian
-                                                        </label>s
-                                                        <label class="btn btn-outline-secondary">
-                                                            <input type="radio" name="IsOMTVeg" value="0" @if (Model.EventParticipation.IsOMTVeg) { <text> checked="" </text> }>
-                                                            Vegetarian
+                                                    @*<label class="form-label" id="IsOMTVeg1">
+                                                            <br />
+                                                            <b> OMT meal preference</b>
                                                         </label>
-                                                        <p></p>
-                                                    </div>
-                                                    <label class="form-label">
-                                                        <br /><b>Do you require Valet parking</b>
-                                                    </label>
-                                                    <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-                                                        <label class="btn btn-outline-secondary active">
-                                                            <input type="radio" name="IsParking" value="1" @if (Model.EventParticipation.IsParking) { <text> checked="" </text> }>
-                                                            Yes
-                                                        </label>
-                                                        <label class="btn btn-outline-secondary">
-                                                            <input type="radio" name="IsParking" value="0" @if (!Model.EventParticipation.IsParking) { <text> checked="" </text> }>
-                                                            No
-                                                        </label>
-                                                        <p></p>
-                                                    </div>
-                                                    @if (Model.UserMode == "2")
-                                                    {
-                                                        <label class="form-label">
-                                                            <br /><b>Do you require Transport</b>
-                                                        </label>
-                                                        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+                                                        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons" id="IsOMTVeg2">
                                                             <label class="btn btn-outline-secondary active">
-                                                                <input type="radio" name="IsTransport" value="1" @if (Model.EventParticipation.IsTransport) { <text> checked="" </text> }>
-                                                                Yes
-                                                            </label>
+                                                                <input type="radio" name="IsOMTVeg" value="1" @if (!Model.EventParticipation.IsOMTVeg) { <text> checked="" </text> }>
+                                                                Non Vegetarian
+                                                            </label>s
                                                             <label class="btn btn-outline-secondary">
-                                                                <input type="radio" name="IsTransport" value="0" @if (!Model.EventParticipation.IsTransport) { <text> checked="" </text> }>
-                                                                No
+                                                                <input type="radio" name="IsOMTVeg" value="0" @if (Model.EventParticipation.IsOMTVeg) { <text> checked="" </text> }>
+                                                                Vegetarian
                                                             </label>
                                                             <p></p>
                                                         </div>
                                                         <label class="form-label">
-                                                            <br /><b>Do you require Changing Room</b>
+                                                            <br /><b>Do you require Valet parking</b>
                                                         </label>
                                                         <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
                                                             <label class="btn btn-outline-secondary active">
-                                                                <input type="radio" name="IsChangingRoom" value="1" @if (Model.EventParticipation.IsChangingRoom) { <text> checked="" </text> }>
+                                                                <input type="radio" name="IsParking" value="1" @if (Model.EventParticipation.IsParking) { <text> checked="" </text> }>
                                                                 Yes
                                                             </label>
                                                             <label class="btn btn-outline-secondary">
-                                                                <input type="radio" name="IsChangingRoom" value="0" @if (!Model.EventParticipation.IsChangingRoom) { <text> checked="" </text> }>
+                                                                <input type="radio" name="IsParking" value="0" @if (!Model.EventParticipation.IsParking) { <text> checked="" </text> }>
                                                                 No
                                                             </label>
                                                             <p></p>
                                                         </div>
-                                                        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons" id="vehiclenodiv1">
-
+                                                        @if (Model.UserMode == "2")
+                                                        {
                                                             <label class="form-label">
-                                                                <br />
-                                                                <b>Enter your Vehicle No</b>
+                                                                <br /><b>Do you require Transport</b>
                                                             </label>
-                                                        </div>
-                                                        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons" id="vehiclenodiv2">
+                                                            <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+                                                                <label class="btn btn-outline-secondary active">
+                                                                    <input type="radio" name="IsTransport" value="1" @if (Model.EventParticipation.IsTransport) { <text> checked="" </text> }>
+                                                                    Yes
+                                                                </label>
+                                                                <label class="btn btn-outline-secondary">
+                                                                    <input type="radio" name="IsTransport" value="0" @if (!Model.EventParticipation.IsTransport) { <text> checked="" </text> }>
+                                                                    No
+                                                                </label>
+                                                                <p></p>
+                                                            </div>
+                                                            <label class="form-label">
+                                                                <br /><b>Do you require Changing Room</b>
+                                                            </label>
+                                                            <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+                                                                <label class="btn btn-outline-secondary active">
+                                                                    <input type="radio" name="IsChangingRoom" value="1" @if (Model.EventParticipation.IsChangingRoom) { <text> checked="" </text> }>
+                                                                    Yes
+                                                                </label>
+                                                                <label class="btn btn-outline-secondary">
+                                                                    <input type="radio" name="IsChangingRoom" value="0" @if (!Model.EventParticipation.IsChangingRoom) { <text> checked="" </text> }>
+                                                                    No
+                                                                </label>
+                                                                <p></p>
+                                                            </div>
+                                                            <div class="btn-group btn-group-toggle w-100" data-toggle="buttons" id="vehiclenodiv1">
 
-                                                            <input type="text" name="VehicleNo" id="VehicleNo" class="form-control" value="@Model.EventParticipation.VehicleNo">
-                                                        </div>
-                                                    }
+                                                                <label class="form-label">
+                                                                    <br />
+                                                                    <b>Enter your Vehicle No</b>
+                                                                </label>
+                                                            </div>
+                                                            <div class="btn-group btn-group-toggle w-100" data-toggle="buttons" id="vehiclenodiv2">
+
+                                                                <input type="text" name="VehicleNo" id="VehicleNo" class="form-control" value="@Model.EventParticipation.VehicleNo">
+                                                            </div>
+                                                        }*@
                                                     <div class="btn-group btn-group-toggle w-100" id="vehiclenodiv1">
                                                         <label class="form-label">
                                                             <br />
@@ -258,73 +312,73 @@
                                                     </div>
                                                     <div class="btn-group btn-group-toggle w-100">
 
-                                                        <input type="text" name="Remark" id="Remark" class="form-control">
+                                                        <input type="text" name="Remark" id="Remark" class="form-control" value="@Model.EventParticipation.Remark">
                                                     </div>
                                                     @*<div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
 
-            <label class="form-label">
-                <br />
-                Enter number of children  </label>
-        </div>
-        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+                                                            <label class="form-label">
+                                                                <br />
+                                                                Enter number of children  </label>
+                                                        </div>
+                                                        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
 
-            <input type="number" name="kidscount" id="kidscount" value="@Model.EventParticipationKidList.Count" class="form-control">
-        </div>
-        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-            <div class="buttons">
-                @if (Model.EventParticipationKidList.Count == 0)
-                {
-                      <a id="add_Row" class="btn-dark btn-group" style="color: white; padding: 10px; padding-top: 5px; padding-bottom: 5px;" onclick="addRow_val()">Add Children</a>
-                <a id="delete_Row_btn" class="btn-danger btn-group" style="color: white; padding: 10px; padding-top: 5px; padding-bottom: 5px;display:none" onclick="removeRow_val()">Clear</a>
+                                                            <input type="number" name="kidscount" id="kidscount" value="@Model.EventParticipationKidList.Count" class="form-control">
+                                                        </div>
+                                                        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+                                                            <div class="buttons">
+                                                                @if (Model.EventParticipationKidList.Count == 0)
+                                                                {
+                                                                      <a id="add_Row" class="btn-dark btn-group" style="color: white; padding: 10px; padding-top: 5px; padding-bottom: 5px;" onclick="addRow_val()">Add Children</a>
+                                                                <a id="delete_Row_btn" class="btn-danger btn-group" style="color: white; padding: 10px; padding-top: 5px; padding-bottom: 5px;display:none" onclick="removeRow_val()">Clear</a>
 
-                }
-                else
-                {
-                  <a id="add_Row" class="btn-dark btn-group" style="color: white; padding: 10px; padding-top: 5px; padding-bottom: 5px;display:none" onclick="addRow_val()">Add Children</a>
-                <a id="delete_Row_btn" class="btn-danger btn-group" style="color: white; padding: 10px; padding-top: 5px; padding-bottom: 5px;" onclick="removeRow_val()">Clear</a>
+                                                                }
+                                                                else
+                                                                {
+                                                                  <a id="add_Row" class="btn-dark btn-group" style="color: white; padding: 10px; padding-top: 5px; padding-bottom: 5px;display:none" onclick="addRow_val()">Add Children</a>
+                                                                <a id="delete_Row_btn" class="btn-danger btn-group" style="color: white; padding: 10px; padding-top: 5px; padding-bottom: 5px;" onclick="removeRow_val()">Clear</a>
 
-                }
+                                                                }
 
-            </div>
-        </div>
-        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-            <input type="hidden" name="kidrowcount" id="kidrowcount" value="@Model.EventParticipationKidList.Count">
-            <table class="test" width="100%" cellspacing="5" cellpadding="5">
-                <thead>
-                    <tr>
-                        <th>Child</th>
-                        <th>Select Age</th>
-                        <th>Veg/Non Veg</th>
-                    </tr>
-                </thead>
-                <tbody id="kidstbody">
-                    @{
-                int i = 0;
-                        }
-                    @foreach (EventParticipationKid kid in Model.EventParticipationKidList)
-                    {
-                        i++;
-                        <tr>
-                            <td>
-                                <input type="number" name="kidno_@i" value="@kid.KidCount"  class="form-control"></td>
-                            <td>
-                                <input type="number"  name="kidage_@i" value="@kid.KidAge" class="form-control"></td>
-                            <td>
-                                <input type="text"  name="kidveg_@i" value="@kid.Veg" class="form-control"></td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                                                            </div>
+                                                        </div>
+                                                        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+                                                            <input type="hidden" name="kidrowcount" id="kidrowcount" value="@Model.EventParticipationKidList.Count">
+                                                            <table class="test" width="100%" cellspacing="5" cellpadding="5">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Child</th>
+                                                                        <th>Select Age</th>
+                                                                        <th>Veg/Non Veg</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody id="kidstbody">
+                                                                    @{
+                                                                int i = 0;
+                                                                        }
+                                                                    @foreach (EventParticipationKid kid in Model.EventParticipationKidList)
+                                                                    {
+                                                                        i++;
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input type="number" name="kidno_@i" value="@kid.KidCount"  class="form-control"></td>
+                                                                            <td>
+                                                                                <input type="number"  name="kidage_@i" value="@kid.KidAge" class="form-control"></td>
+                                                                            <td>
+                                                                                <input type="text"  name="kidveg_@i" value="@kid.Veg" class="form-control"></td>
+                                                                        </tr>
+                                                                    }
+                                                                </tbody>
+                                                            </table>
 
-        </div>
+                                                        </div>
 
-        <label class="form-label">
-            <br />
-            No of Guests </label>
-        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-            <input type="number" min="0" class="form-control" name="memcount" id="memcount" value="@Model.EventParticipation.MemCount" onkeyup="getGuestCount()" onchange="getGuestCount()" />
+                                                        <label class="form-label">
+                                                            <br />
+                                                            No of Guests </label>
+                                                        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+                                                            <input type="number" min="0" class="form-control" name="memcount" id="memcount" value="@Model.EventParticipation.MemCount" onkeyup="getGuestCount()" onchange="getGuestCount()" />
 
-        </div>*@
+                                                        </div>*@
                                                 </div>
 
                                             </div>
@@ -338,7 +392,7 @@
                                                 <button type="submit" value="SUBMIT" name="btnSubmit" class="btn btn-primary btn-lg btn-block">Update</button>
                                             </div>
                                         </div>
-                                    }
+                                                        }
                                 </div>
                             </div>
 

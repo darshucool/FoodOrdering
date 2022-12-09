@@ -450,6 +450,54 @@ namespace MIMS.Controllers
                     {
                         oEventParticipation.Remark = "";
                     }
+                    if (Form["child1"] != null)
+                    {
+                        if (!string.IsNullOrEmpty(Form["child1"].ToString()))
+                        {
+                            string Child1 = Form["child1"].ToString();
+                            oEventParticipation.AddField1 = Child1;
+                        }
+                        else
+                        {
+                            oEventParticipation.AddField1 = "0";
+                        }
+                    }
+                    else
+                    {
+                        oEventParticipation.AddField1 = "0";
+                    }
+                    if (Form["child2"] != null)
+                    {
+                        if (!string.IsNullOrEmpty(Form["child2"].ToString()))
+                        {
+                            string Child2 = Form["child2"].ToString();
+                            oEventParticipation.AddField2 = Child2;
+                        }
+                        else
+                        {
+                            oEventParticipation.AddField2 = "0";
+                        }
+                    }
+                    else
+                    {
+                        oEventParticipation.AddField2 = "0";
+                    }
+                    if (Form["child3"] != null)
+                    {
+                        if (!string.IsNullOrEmpty(Form["child3"].ToString()))
+                        {
+                            string Child3 = Form["child3"].ToString();
+                            oEventParticipation.AddField3 = Child3;
+                        }
+                        else
+                        {
+                            oEventParticipation.AddField3 = "0";
+                        }
+                    }
+                    else
+                    {
+                        oEventParticipation.AddField3 = "0";
+                    }
                     DataContext.SaveChanges();
                     TempData[ViewDataKeys.Message] = new SuccessMessage("Successfully updated");
                     return RedirectToAction("EventHome", "Menu");
@@ -1151,7 +1199,7 @@ namespace MIMS.Controllers
             try
             {
                 UserAccount account = GetCurrentUser();
-                //TempData["usermode"] = account.UserMode.ToString();
+                TempData["usermode"] = account.UserMode.ToString();
                 DateTime date = DateTime.Now;
                 var filter = _eventService.GetDefaultSpecification();
                 filter = filter.And(p => p.Active == true).And(p=>p.SLAFLocationUId==account.LocationUId);
@@ -1553,6 +1601,54 @@ namespace MIMS.Controllers
                 else
                 {
                     oEventParticipation.Remark = "";
+                }
+                if (Form["child1"] != null)
+                {
+                    if (!string.IsNullOrEmpty(Form["child1"].ToString()))
+                    {
+                        string Child1 = Form["child1"].ToString();
+                        oEventParticipation.AddField1 = Child1;
+                    }
+                    else
+                    {
+                        oEventParticipation.AddField1 = "0";
+                    }
+                }
+                else
+                {
+                    oEventParticipation.AddField1 = "0";
+                }
+                if (Form["child2"] != null)
+                {
+                    if (!string.IsNullOrEmpty(Form["child2"].ToString()))
+                    {
+                        string Child2 = Form["child2"].ToString();
+                        oEventParticipation.AddField2 = Child2;
+                    }
+                    else
+                    {
+                        oEventParticipation.AddField2 = "0";
+                    }
+                }
+                else
+                {
+                    oEventParticipation.AddField2 = "0";
+                }
+                if (Form["child3"] != null)
+                {
+                    if (!string.IsNullOrEmpty(Form["child3"].ToString()))
+                    {
+                        string Child3 = Form["child3"].ToString();
+                        oEventParticipation.AddField3 = Child3;
+                    }
+                    else
+                    {
+                        oEventParticipation.AddField3 = "0";
+                    }
+                }
+                else
+                {
+                    oEventParticipation.AddField3 = "0";
                 }
                 _eventParticipationService.Add(oEventParticipation);
                 DataContext.SaveChanges();

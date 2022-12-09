@@ -58,6 +58,7 @@
                                                 <th>Transport</th>
                                                 <th>Changing Room</th>
                                                 <th>Vehicle No</th>
+                                                <th>Remark</th>
                                                 @*<th>Status Updated date</th>*@
                                                 </thead>
                                                 <tbody>
@@ -213,7 +214,7 @@
                                                                     if (eve.EventParticipation.IsOMTVeg)
                                                                     {
                                                                         OMTVeg++;
-                                                                                <span> (Veg)</span>
+                                                                        <span> (Veg)</span>
                                                                     }
                                                                     else
                                                                     {
@@ -232,7 +233,7 @@
                                                                 @if (eve.EventParticipation.IsParking)
                                                                 {
                                                                     ValletParkingCount++;
-                                                                        <span>Yes</span>
+                                                                    <span>Yes</span>
 
                                                                 }
                                                                 else
@@ -290,7 +291,7 @@
                                                                 @if (eve.EventParticipation.IsTransport)
                                                                 {
                                                                     TransportCount++;
-                                                                        <span>Yes</span>
+                                                                    <span>Yes</span>
 
                                                                 }
                                                                 else
@@ -303,7 +304,7 @@
                                                                 @if (eve.EventParticipation.IsChangingRoom)
                                                                 {
                                                                     ChangingRoomCount++;
-                                                                        <span>Yes</span>
+                                                                    <span>Yes</span>
 
                                                                 }
                                                                 else
@@ -313,9 +314,14 @@
                                                                 }
                                                             </td>
                                                             <td>
-                                                               
+
                                                                 <span>@eve.EventParticipation.VehicleNo</span>
-                                                               
+
+                                                            </td>
+                                                            <td>
+
+                                                                <span>@eve.EventParticipation.Remark</span>
+
                                                             </td>
                                                             @*<td>@eve.EventParticipation.CreationDate.ToString("dd/MM/yyyy")</td>*@
                                                         </tr>

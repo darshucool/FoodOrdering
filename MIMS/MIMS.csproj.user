@@ -9,7 +9,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <NameOfLastUsedPublishProfile>D:\03200\MIMS\MIMS\Properties\PublishProfiles\WMIS.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>WMIS</NameOfLastUsedPublishProfile>
     <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
   <ProjectExtensions>

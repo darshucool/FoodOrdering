@@ -62,10 +62,10 @@
                                             }
                                             else
                                             {
-                                                <div class="col-md-6" @*id="participateBtn"*@>
+                                                <div class="col-md-6" id="participateBtn">
                                                     <a href="#" data-toggle="modal" data-target="#exampleModal" id="pbtn1" class="btn btn-block btn-dark border-top" onclick="AssignEventValue2(@e.Event.UId)">Click here to participate</a>
                                                 </div>
-                                                <div class="col-md-6" @*id="notparticipateBtn"*@>
+                                                <div class="col-md-6" id="notparticipateBtn">
                                                     <a href="#" data-toggle="modal" data-target="#notModal" id="pbtn2" class="btn btn-block btn-primary border-top" onclick="AssignEventValue(@e.Event.UId)">Not Participating</a>
                                                 </div>
                                             }
@@ -112,10 +112,10 @@
     }
     else
     {
-        <script>
+        @*<script>
             document.getElementById("pbtn1").style.display = "none";
             document.getElementById("pbtn2").style.display = "none";
-        </script>
+        </script>*@
     }
 
 
@@ -134,13 +134,19 @@
             document.getElementById("notparticipateBtn").style.display = "block";
         </script>
         }*@
+        
+        
+        <script>
+            document.getElementById("participateBtn").style.display = "block";
+            document.getElementById("notparticipateBtn").style.display = "block";
+        </script>
 }
 
 <div class="modal fade" id="notModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Event Not Participation Confirmation</h5>
+                <h5 class="modal-title">Please select YES if you are not attending the Event.</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -194,7 +200,7 @@
                     <input type="hidden" name="eventuid" id="eventuid2">
                     <div class="form-row">
                         <div class="mb-0 col-md-12 form-group">
-                            <label class="form-label"><b>Meal preference </b></label>
+                            @*<label class="form-label"><b>Meal preference </b></label>
                             <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
                                 <label class="btn btn-outline-secondary active">
                                     <input type="radio" name="IsVeg" value="1" checked="">
@@ -205,8 +211,8 @@
                                     Vegetarian
                                 </label>
                                 <p></p>
-                            </div>
-                            <label class="form-label">
+                            </div>*@
+                            @*<label class="form-label">
                                 <br />
                                 <b>Alcohol preference</b>
                             </label>
@@ -228,23 +234,23 @@
                                     None
                                 </label>
                                 <p></p>
-                            </div>
+                            </div>*@
                             <label class="form-label">
                                 <br />
                                 <b>Is the Spouse participating in the event ?</b>
                             </label>
                             <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
                                 <label class="btn btn-outline-secondary active">
-                                    <input type="radio" name="participatefamily" value="1" checked="" onclick="changeSpouseState1()">
+                                    <input type="radio" name="participatefamily" value="1"  onclick="changeSpouseState1()">
                                     Yes
                                 </label>
                                 <label class="btn btn-outline-secondary">
-                                    <input type="radio" name="participatefamily" value="0" onclick="changeSpouseState2()">
+                                    <input type="radio" name="participatefamily" value="0" checked="" onclick="changeSpouseState2()">
                                     No
                                 </label>
                                 <p></p>
                             </div>
-                            <label class="form-label" id="spousevegnon1">
+                            @*<label class="form-label" id="spousevegnon1">
                                 <br />
                                 <b>Meal preference </b>
                             </label>
@@ -258,8 +264,60 @@
                                     Vegetarian
                                 </label>
                                 <p></p>
+                            </div>*@
+                            <label class="form-label" id="children1">
+                                <br />
+                                <b>Children Information</b>
+                            </label>
+                            <hr/>
+                            <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+                                <input type="hidden" name="kidrowcount" id="kidrowcount" value="0">
+                                <table class="test" width="100%" cellspacing="5" cellpadding="5">
+                                    @*<thead>
+                                        <tr style="background-color:#f2f2f2 !important;">
+                                            <th>Children Age</th>
+                                            <th>Participation Count</th>
+                                         
+                                        </tr>
+                                    </thead>*@
+                                    <tbody>
+                                        <tr>
+                                            <td><b>Children Below 5</b></td>
+                                            <td><input type="number" name="child1" value="0"></td>
+                                            
+                                            </tr>
+                                        <tr>
+                                            <td><b>Children 5-13 years</b></td>
+                                            <td><input type="number" name="child2" value="0"></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td><b>Children above 13 </b></td>
+                                            <td><input type="number" name="child3" value="0"></td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+
                             </div>
-                            <label class="form-label" id="IsSpouseAlcohol1"><br /><b>Alcohol / Wine preference</b></label>
+                            @if (Model[0].RankUId == 37|| Model[0].RankUId == 36|| Model[0].RankUId == 38 || Model[0].RankUId == 44 || Model[0].RankUId == 148)
+                            {
+                            <label class="form-label" @*id="IsTransport1"*@>
+                                <br /><b>Do you require Transport ?</b>
+                            </label>
+                            <div class="btn-group btn-group-toggle w-100" data-toggle="buttons" @*id="IsTransport2"*@>
+                                <label class="btn btn-outline-secondary active">
+                                    <input type="radio" name="IsTransport" value="1" >
+                                    Yes
+                                </label>
+                                <label class="btn btn-outline-secondary">
+                                    <input type="radio" name="IsTransport" value="0" checked="">
+                                    No
+                                </label>
+                                <p></p>
+                            </div>
+                            }
+                            @*<label class="form-label" id="IsSpouseAlcohol1"><br /><b>Spouse Alcohol / Wine preference</b></label>
                             <div class="btn-group btn-group-toggle w-100" data-toggle="buttons" id="IsSpouseAlcohol2">
                                 <label class="btn btn-outline-secondary active">
                                     <input type="radio" name="IsSpouseAlcohol" value="1" checked="">
@@ -278,8 +336,8 @@
                                     None
                                 </label>
                                 <p></p>
-                            </div>
-                            <label class="form-label">
+                            </div>*@
+                            @*<label class="form-label">
                                 <br /><b>Does OMT require Dinner ? <br />(Meal will be provided at the parking lot)</b>
                             </label>
                             <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
@@ -310,7 +368,7 @@
                             </div>
                             <label class="form-label" id="IsValet1">
                                 <br /><b>Do you require Valet parking ?</b>
-                            </label>
+                            </label>*@
                             <div class="btn-group btn-group-toggle w-100" data-toggle="buttons" id="IsValet2">
                                 <label class="btn btn-outline-secondary active">
                                     <input type="radio" name="IsParking" value="1" checked="" onclick="changeValetState1()">
@@ -435,7 +493,7 @@
                             <button type="submit" class="btn btn-primary btn-lg btn-block">Participate</button>
                         </div>
                     </div>
-                }
+            }
                         </div>
                     </div>
                 </div>

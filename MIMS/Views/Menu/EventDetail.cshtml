@@ -45,19 +45,22 @@
                                                 <th>S. No</th>
                                                 <th>Ser. No</th>
                                                 <th>Officer</th>
-                                                <th>Veg / Non-Veg</th>
-                                                <th>Alcohol</th>
+                                                @*<th>Veg / Non-Veg</th>
+                                                <th>Alcohol</th>*@
                                                 @*<th>Participation Status</th>*@
                                                 <th>Spouse</th>
-                                                <th>Spouse Meal</th>
-                                                <th>Alcohol</th>
-                                                <th>OMT Meal</th>
-                                                <th>Vallet Parking</th>
+                                                <th>Kids below 5</th>
+                                                <th>Kids 5-13</th>
+                                                <th>Kids above 13</th>
+                                                @*<th>Spouse Meal</th>
+                                                <th>Alcohol</th>*@
+                                                @*<th>OMT Meal</th>
+                                                <th>Vallet Parking</th>*@
                                                 @*<th>Kids</th>
         <th>Guest</th>*@
                                                 <th>Transport</th>
-                                                <th>Changing Room</th>
-                                                <th>Vehicle No</th>
+                                                @*<th>Changing Room</th>
+                                                <th>Vehicle No</th>*@
                                                 <th>Remark</th>
                                                 @*<th>Status Updated date</th>*@
                                                 </thead>
@@ -79,7 +82,7 @@
                                                                 }
                                                                 &nbsp; @eve.EventParticipation.UserBase.Name
                                                             </td>
-                                                            <td>
+                                                            @*<td>
                                                                 @if (eve.EventParticipation.IsVeg)
                                                                 {
                                                                     VegCount++;
@@ -90,8 +93,8 @@
                                                                     NonVegCount++;
                                                                     <span>Non-Veg</span>
                                                                 }
-                                                            </td>
-                                                            <td>
+                                                            </td>*@
+                                                            @*<td>
                                                                 @if (!string.IsNullOrEmpty(eve.EventParticipation.IsAlcohol.ToString()))
                                                                 {
                                                                     if (eve.EventParticipation.IsAlcohol == 1)
@@ -119,7 +122,7 @@
 
                                                                     <span>N/A</span>
                                                                 }
-                                                            </td>
+                                                            </td>*@
                                                             @*<td>
             @if (eve.EventParticipation.IsParticipating)
             {
@@ -145,8 +148,10 @@
                                                                 }
 
                                                             </td>
-
-                                                            <td>
+                                                            <td>@eve.EventParticipation.AddField1</td>
+                                                            <td>@eve.EventParticipation.AddField2</td>
+                                                            <td>@eve.EventParticipation.AddField3</td>
+                                                            @*<td>
                                                                 @if (eve.EventParticipation.IsFamily)
                                                                 {
                                                                     if (!string.IsNullOrEmpty(eve.EventParticipation.SpouseVeg.ToString()))
@@ -205,8 +210,8 @@
                                                                 {
                                                                     <span>N/A</span>
                                                                 }
-                                                            </td>
-                                                            <td>
+                                                            </td>*@
+                                                            @*<td>
                                                                 @if (eve.EventParticipation.IsOmt)
                                                                 {
 
@@ -242,7 +247,7 @@
                                                                     <span>No</span>
                                                                 }
 
-                                                            </td>
+                                                            </td>*@
                                                             @*<td>
 
             @if (eve.EventParticipationKidList.Count > 0)
@@ -300,7 +305,7 @@
                                                                     <span>No</span>
                                                                 }
                                                             </td>
-                                                            <td>
+                                                            @*<td>
                                                                 @if (eve.EventParticipation.IsChangingRoom)
                                                                 {
                                                                     ChangingRoomCount++;
@@ -317,7 +322,7 @@
 
                                                                 <span>@eve.EventParticipation.VehicleNo</span>
 
-                                                            </td>
+                                                            </td>*@
                                                             <td>
 
                                                                 <span>@eve.EventParticipation.Remark</span>

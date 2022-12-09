@@ -174,3 +174,13 @@ D:\MY PROJECT\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.csprojAssembly
 D:\MY PROJECT\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.csproj.CopyComplete
 D:\MY PROJECT\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.dll
 D:\MY PROJECT\MIMS\MIMS\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\bin\Release\DinotaSecurity.dll
+D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\bin\Release\DinotaCore.dll
+D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\bin\Release\DinotaDomain.dll
+D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\bin\Release\DinotaCore.pdb
+D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\bin\Release\DinotaDomain.pdb
+D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\bin\Release\Autofac.xml
+D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csprojResolveAssemblyReference.cache
+D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.dll
+D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.pdb
