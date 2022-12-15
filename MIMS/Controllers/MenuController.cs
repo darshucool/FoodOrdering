@@ -1193,12 +1193,64 @@ namespace MIMS.Controllers
             return userAccount;
 
         }
+        public ActionResult EventHomeRma()
+        {
+            List<EventParticipateModel> list = new List<EventParticipateModel>();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                
+                TempData["usermode"] = account.UserMode.ToString();
+                DateTime date = DateTime.Now;
+                var filter = _eventService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p => p.SLAFLocationUId == account.LocationUId);
+                filter = filter.And(p => p.EffectiveDate >= date.Date);
+                List<Event> EventList = _eventService.GetCollection(filter, p => p.CreationDate).ToList();
+                foreach (Event e in EventList)
+                {
+                    EventParticipateModel mod = new EventParticipateModel();
+                    mod.RankUId = account.RankUId;
+                    mod.UserMode = account.UserMode.ToString();
+                    var filterE = _eventParticipationService.GetDefaultSpecification();
+                    filterE = filterE.And(p => p.Active == true).And(p => p.UserId == account.Id).And(p => p.EventUId == e.UId);
+                    List<EventParticipation> oEventParticipationList = _eventParticipationService.GetCollection(filterE, p => p.CreationDate).ToList();
+                    if (oEventParticipationList.Count == 0)
+                    {
+                        mod.Event = e;
+                        mod.IsParticipated = false;
+                        mod.ParticipationSubmit = false;
+                        mod.EventParticipation = new EventParticipation();
+                    }
+                    else
+                    {
+                        mod.Event = e;
+                        if (oEventParticipationList[0].IsParticipating)
+                            mod.IsParticipated = true;
+                        else
+                            mod.IsParticipated = false;
+                        mod.ParticipationSubmit = true;
+                        mod.EventParticipation = oEventParticipationList[0];
+                    }
+                    list.Add(mod);
+                }
+            }
+            catch (Exception)
+            {
+                TempData[ViewDataKeys.Message] = new FailMessage("You need to login again");
+                return RedirectToAction("Login", "Account");
+            }
+            return View(list);
+        }
         public ActionResult EventHome()
         {
             List<EventParticipateModel> list = new List<EventParticipateModel>();
             try
             {
                 UserAccount account = GetCurrentUser();
+                if(account.LocationUId== 18)
+                {
+                    return RedirectToAction("EventHomeRma");
+                    }
                 TempData["usermode"] = account.UserMode.ToString();
                 DateTime date = DateTime.Now;
                 var filter = _eventService.GetDefaultSpecification();
@@ -1278,11 +1330,40 @@ namespace MIMS.Controllers
             }
             return View(list);
         }
+        public ActionResult EventDetailRma(int id)
+        {
+            List<EventParticipateModel> list = new List<EventParticipateModel>();
+            try
+            {
+                var filter = _eventParticipationService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p => p.EventUId == id).And(p => p.IsParticipating == true);
+                List<EventParticipation> listeve = _eventParticipationService.GetCollection(filter, p => p.CreationDate).ToList();
+                foreach (EventParticipation eve in listeve)
+                {
+                    EventParticipateModel mod = new EventParticipateModel();
+                    mod.EventParticipation = eve;
+                    var filterK = _eventParticipationKidService.GetDefaultSpecification();
+                    filterK = filterK.And(p => p.Active == true).And(p => p.EventParticipationUId == eve.UId);
+                    List<EventParticipationKid> listkideve = _eventParticipationKidService.GetCollection(filterK, p => p.CreationDate).ToList();
+                    mod.EventParticipationKidList = listkideve;
+                    list.Add(mod);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(list);
+        }
         public ActionResult EventDetail(int id)
         {
             List<EventParticipateModel> list = new List<EventParticipateModel>();
             try
             {
+                UserAccount account = GetCurrentUser();
+                if (account.LocationUId == 18)
+                    return RedirectToAction("EventDetailRma", new {id = id });
                 var filter = _eventParticipationService.GetDefaultSpecification();
                 filter = filter.And(p=>p.Active==true).And(p=>p.EventUId==id).And(p=>p.IsParticipating==true);
                 List<EventParticipation>  listeve = _eventParticipationService.GetCollection(filter, p => p.CreationDate).ToList();
@@ -1649,6 +1730,54 @@ namespace MIMS.Controllers
                 else
                 {
                     oEventParticipation.AddField3 = "0";
+                }
+                if (Form["IsNonVeg"] != null)
+                {
+                    if (!string.IsNullOrEmpty(Form["IsNonVeg"].ToString()))
+                    {
+                        int IsNonVeg = int.Parse(Form["IsNonVeg"].ToString());
+                        oEventParticipation.NoVegType = IsNonVeg;
+                    }
+                    else
+                    {
+                        oEventParticipation.NoVegType = 0;
+                    }
+                }
+                else
+                {
+                    oEventParticipation.NoVegType = 0;
+                }
+                if (Form["IsSpouseNonVeg"] != null)
+                {
+                    if (!string.IsNullOrEmpty(Form["IsSpouseNonVeg"].ToString()))
+                    {
+                        int IsSpouseNonVeg = int.Parse(Form["IsSpouseNonVeg"].ToString());
+                        oEventParticipation.SpouseNonVegType = IsSpouseNonVeg;
+                    }
+                    else
+                    {
+                        oEventParticipation.SpouseNonVegType = 0;
+                    }
+                }
+                else
+                {
+                    oEventParticipation.SpouseNonVegType = 0;
+                }
+                if (Form["IsGuestNonVeg"] != null)
+                {
+                    if (!string.IsNullOrEmpty(Form["IsGuestNonVeg"].ToString()))
+                    {
+                        int IsGuestNonVeg = int.Parse(Form["IsGuestNonVeg"].ToString());
+                        oEventParticipation.GuestNonVegType = IsGuestNonVeg;
+                    }
+                    else
+                    {
+                        oEventParticipation.GuestNonVegType = 0;
+                    }
+                }
+                else
+                {
+                    oEventParticipation.GuestNonVegType = 0;
                 }
                 _eventParticipationService.Add(oEventParticipation);
                 DataContext.SaveChanges();

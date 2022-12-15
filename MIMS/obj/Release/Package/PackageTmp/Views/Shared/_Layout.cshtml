@@ -430,6 +430,25 @@
             $('#kidscount').val(0);
             $('#add_Row').fadeIn();
         }
+        $(document).ready(function() {
+         $('#IsGuestNonVeg1').fadeOut();
+            $('#IsGuestNonVeg2').fadeOut();
+         });
+         function getGuestNovVeg() {
+            var count = $("#memcount").val();
+              count = parseInt(count);
+       
+                if(count>0)
+                {
+                    $('#IsGuestNonVeg1').fadeIn();
+                    $('#IsGuestNonVeg2').fadeIn();
+                }
+                else
+                {
+             $('#IsGuestNonVeg1').fadeOut();
+            $('#IsGuestNonVeg2').fadeOut();
+                }
+        }
         function getGuestCount() {
             var count = $("#memcount").val();
             var rank = $("#RankVal").val();
@@ -503,6 +522,8 @@
             $('#spousevegnon2').fadeIn();
             $('#IsSpouseAlcohol2').fadeIn();
             $('#IsSpouseAlcohol1').fadeIn();
+            $('#IsSpouseNonVeg1').fadeIn();
+            $('#IsSpouseNonVeg2').fadeIn();
 
         }
         function changeOMTState1() {
@@ -517,6 +538,32 @@
             $('#spousevegnon2').fadeOut();
             $('#IsSpouseAlcohol2').fadeOut();
             $('#IsSpouseAlcohol1').fadeOut();
+         $('#IsSpouseNonVeg1').fadeOut();
+            $('#IsSpouseNonVeg2').fadeOut();
+        }
+         function changeNonVegState1()
+        {
+
+            $('#IsNonVeg1').fadeIn();
+            $('#IsNonVeg2').fadeIn();
+        }
+         function changeNonVegState2()
+        {
+
+            $('#IsNonVeg1').fadeOut();
+            $('#IsNonVeg2').fadeOut();
+        }
+           function changeNonSpouseVegState1()
+        {
+
+            $('#IsSpouseNonVeg1').fadeIn();
+            $('#IsSpouseNonVeg2').fadeIn();
+        }
+         function changeNonSpouseVegState2()
+        {
+
+            $('#IsSpouseNonVeg1').fadeOut();
+            $('#IsSpouseNonVeg2').fadeOut();
         }
         function changeOMTState2() {
 
@@ -524,11 +571,11 @@
             $('#IsOMTVeg2').fadeOut();
             $('#IsValet1').fadeIn();
             $('#IsValet2').fadeIn();
-            
+
         }
-        
+
          function hideParticipateBtn() {
-             
+
              //$('#pbtn1').fadeOut();
              //$('#pbtn2').fadeOut();
         }
@@ -540,7 +587,7 @@
         window.onload = function () {
             ChangeValletParking1();
         };
-        
+
         function ChangeValletParking1() {
             $('#IsValet1').fadeOut();
             $('#IsValet2').fadeOut();
@@ -575,7 +622,7 @@
         //    }
         //});
 
-        
+
        function isNumberKey(txt, evt) {
       var charCode = (evt.which) ? evt.which : evt.keyCode;
       if (charCode == 46) {

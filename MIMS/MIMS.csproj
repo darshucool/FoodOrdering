@@ -770,6 +770,8 @@
     <Content Include="Views\Menu\HQKOT.cshtml" />
     <Content Include="Views\Shared\_NoLoginLayout.cshtml" />
     <Content Include="Views\Menu\OrderMenu.cshtml" />
+    <Content Include="Views\Menu\EventHomeRma.cshtml" />
+    <Content Include="Views\Menu\EventDetailRma.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

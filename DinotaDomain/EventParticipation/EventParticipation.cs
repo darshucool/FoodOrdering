@@ -34,5 +34,8 @@ namespace Dinota.Domain.EventParticipation
         public string AddField2 { get; set; }
         public string AddField3 { get; set; }
         public virtual UserBase UserBase { get; set; }
+        public int NoVegType { set; get; }
+        public int SpouseNonVegType { set; get; }
+        public int GuestNonVegType { set; get; }
     }
 }

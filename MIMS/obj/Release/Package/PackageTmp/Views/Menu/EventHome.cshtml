@@ -52,7 +52,7 @@
                                                 if (e.IsParticipated)
                                                 {
                                                     <p style="padding: 10px; background-color: #b6ff00; color: #000; font-size: 14px; width: 100%">Willing to participate for the Event.</p>
-                                                    <a href="@Url.Content("~/Menu/UpdateEventStatus/")@e.EventParticipation.UId" class="btn btn-dark" style="width:100%;padding:10px">Update Paticipation Details</a>
+                                                    @*<a href="@Url.Content("~/Menu/UpdateEventStatus/")@e.EventParticipation.UId" class="btn btn-dark" style="width:100%;padding:10px">Update Paticipation Details</a>*@
                                                 }
                                                 else
                                                 {
@@ -63,10 +63,10 @@
                                             else
                                             {
                                                 <div class="col-md-6" id="participateBtn">
-                                                    <a href="#" data-toggle="modal" data-target="#exampleModal" id="pbtn1" class="btn btn-block btn-dark border-top" onclick="AssignEventValue2(@e.Event.UId)">Click here to participate</a>
+                                                    @*<a href="#" data-toggle="modal" data-target="#exampleModal" id="pbtn1" class="btn btn-block btn-dark border-top" onclick="AssignEventValue2(@e.Event.UId)">Click here to participate</a>*@
                                                 </div>
                                                 <div class="col-md-6" id="notparticipateBtn">
-                                                    <a href="#" data-toggle="modal" data-target="#notModal" id="pbtn2" class="btn btn-block btn-primary border-top" onclick="AssignEventValue(@e.Event.UId)">Not Participating</a>
+                                                    @*<a href="#" data-toggle="modal" data-target="#notModal" id="pbtn2" class="btn btn-block btn-primary border-top" onclick="AssignEventValue(@e.Event.UId)">Not Participating</a>*@
                                                 </div>
                                             }
                                         </div>
@@ -146,7 +146,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Event Not Participation Confirmation</h5>
+                <h5 class="modal-title">Please select YES if you are not attending the Event.</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -200,7 +200,7 @@
                     <input type="hidden" name="eventuid" id="eventuid2">
                     <div class="form-row">
                         <div class="mb-0 col-md-12 form-group">
-                            <label class="form-label"><b>Meal preference </b></label>
+                            @*<label class="form-label"><b>Meal preference </b></label>
                             <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
                                 <label class="btn btn-outline-secondary active">
                                     <input type="radio" name="IsVeg" value="1" checked="">
@@ -211,7 +211,7 @@
                                     Vegetarian
                                 </label>
                                 <p></p>
-                            </div>
+                            </div>*@
                             @*<label class="form-label">
                                 <br />
                                 <b>Alcohol preference</b>
@@ -241,16 +241,16 @@
                             </label>
                             <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
                                 <label class="btn btn-outline-secondary active">
-                                    <input type="radio" name="participatefamily" value="1" checked="" onclick="changeSpouseState1()">
+                                    <input type="radio" name="participatefamily" value="1"  onclick="changeSpouseState1()">
                                     Yes
                                 </label>
                                 <label class="btn btn-outline-secondary">
-                                    <input type="radio" name="participatefamily" value="0" onclick="changeSpouseState2()">
+                                    <input type="radio" name="participatefamily" value="0" checked="" onclick="changeSpouseState2()">
                                     No
                                 </label>
                                 <p></p>
                             </div>
-                            <label class="form-label" id="spousevegnon1">
+                            @*<label class="form-label" id="spousevegnon1">
                                 <br />
                                 <b>Meal preference </b>
                             </label>
@@ -264,7 +264,7 @@
                                     Vegetarian
                                 </label>
                                 <p></p>
-                            </div>
+                            </div>*@
                             <label class="form-label" id="children1">
                                 <br />
                                 <b>Children Information</b>
