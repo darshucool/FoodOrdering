@@ -53,6 +53,9 @@
     <Compile Include="AdminUser\AdminUserService.cs" />
     <Compile Include="AdminUser\IAdminUserRepo.cs" />
     <Compile Include="CommonEnums.cs" />
+    <Compile Include="IngredientInfo\IngredientInfo.cs" />
+    <Compile Include="IngredientInfo\IngredientInfoService.cs" />
+    <Compile Include="IngredientInfo\IIngredientInfoRepo.cs" />
     <Compile Include="MeasurementUnit\MeasurementUnit.cs" />
     <Compile Include="MeasurementUnit\MeasurementUnitService.cs" />
     <Compile Include="MeasurementUnit\IMeasurementUnitRepo.cs" />

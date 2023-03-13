@@ -67,6 +67,8 @@
     <Compile Include="Context\Internal\InsertionContext.cs" />
     <Compile Include="Context\Internal\UpdationContext.cs" />
     <Compile Include="Context\SecurityContext.cs" />
+    <Compile Include="IngredientInfo\IngredientInfoMap.cs" />
+    <Compile Include="IngredientInfo\IngredientInfoRepo.cs" />
     <Compile Include="MeasurementUnit\MeasurementUnitMap.cs" />
     <Compile Include="MeasurementUnit\MeasurementUnitRepo.cs" />
     <Compile Include="MenuMultiOption\MenuMultiOptionMap.cs" />

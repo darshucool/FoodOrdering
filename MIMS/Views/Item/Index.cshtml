@@ -1,0 +1,65 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.IngredientInfo
+@using Dinota.Domain.Event
+@using AlfasiWeb.Models
+@model List<IngredientInfo>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Room Information Edit</h4>
+    </div>
+</div>
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+       
+        <div class="col-md-12 mb-3">
+            <a href="@Url.Content("~/Item/IngredientRegister/")" class="btn btn-primary px-3 " style="float:right">Add New Stock Item</a>
+            @Html.Message()
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Ingredient</th>
+                        <th>Measurement Unit</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(IngredientInfo info in Model)
+                    {
+                    <tr>
+                        <td>
+                            @if (info.ItemTypeId == 1)
+                            {
+                                <span>Dry</span>
+                            }
+                            else if (info.ItemTypeId == 2)
+                            {
+                                <span>Fresh</span>
+                            }
+                        </td>
+                        <td>@info.ItemName</td>
+                        <td>@info.MeasurementUnit.Unit</td>
+                       
+                        <td><a href="@Url.Content("~/Item/IngredientEdit/")@info.UId" class="btn btn-primary px-3">Edit</a></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Asset/js/jquery-3.5.1.js"></script>
+<script src="~/Asset/js/jquery.dataTables.min.js"></script>
+<script src="~/Asset/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+    </script>

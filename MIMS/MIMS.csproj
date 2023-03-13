@@ -226,6 +226,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\DivisionInfoController.cs" />
@@ -772,6 +773,10 @@
     <Content Include="Views\Menu\OrderMenu.cshtml" />
     <Content Include="Views\Menu\EventHomeRma.cshtml" />
     <Content Include="Views\Menu\EventDetailRma.cshtml" />
+    <Content Include="Views\Item\_CreateEdit.cshtml" />
+    <Content Include="Views\Item\Index.cshtml" />
+    <Content Include="Views\Item\IngredientEdit.cshtml" />
+    <Content Include="Views\Item\IngredientRegister.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
