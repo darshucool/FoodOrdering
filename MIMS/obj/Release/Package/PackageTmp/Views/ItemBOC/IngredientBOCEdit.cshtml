@@ -1,0 +1,41 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.IngredientBOC
+@using Dinota.Domain.Event
+@using AlfasiWeb.Models
+@model IngredientBOC
+@{
+    ViewBag.Title = "RoomInfoRegister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Edit @TempData["ItemName"] BOC</h4>
+    </div>
+</div>
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+
+        <div class="col-md-12 mb-3">
+            <div class="rounded shadow-sm p-4 bg-white">
+                <h5 class="mb-4">Edit @TempData["ItemName"] BOC</h5>
+                <div id="edit_profile">
+                    <div>
+                        @Html.Message()
+                        @using (Html.BeginForm("IngredientBOCEdit", "ItemBOC", new { id=Model.UId}, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+                        {
+                            @Html.Partial("_CreateEditBOC", Model)
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

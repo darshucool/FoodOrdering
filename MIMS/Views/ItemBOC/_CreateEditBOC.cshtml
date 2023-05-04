@@ -1,0 +1,81 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.IngredientBOC
+@using Dinota.Domain.Event
+@using AlfasiWeb.Models
+@model IngredientBOC
+@{
+    ViewBag.Title = "_CreateEdit";
+}
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleInputName1"><b>Item</b> :</label>
+            @TempData["ItemName"]
+            @Html.HiddenFor(p=>p.IngredientUId)
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleInputName1"><b>Measure Unit</b> : </label>
+            @TempData["Unit"]
+            @Html.HiddenFor(p => p.UnitId)
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleInputName1">Date</label>
+@if (Model.UId == 0)
+{
+    @Html.TextBoxFor(m => m.EffectiveDate, new { @placeholder = "Enter Date", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @type = "date" })
+
+}
+else
+{
+    @Html.TextBoxFor(m => m.EffectiveDate, new { @placeholder = "Enter Date", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @type = "date" })
+
+}
+          
+             @Html.ValidationMessageFor(m => m.EffectiveDate, "")
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleInputName1">Price</label>
+            @Html.TextBoxFor(m => m.Price, new { @placeholder = "Enter Qty", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true" })
+            @Html.ValidationMessageFor(m => m.Price, "")
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleInputName1">Qty</label>
+            @Html.TextBoxFor(m => m.Qty, new { @placeholder = "Enter Qty", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true" })
+            @Html.ValidationMessageFor(m => m.Qty, "")
+        </div>
+    </div>
+    <div class="col-md-12">&nbsp;</div>
+        @if (Model.UId == 0)
+        {
+
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </div>
+
+
+        }
+        else
+        {
+            <div class="form-group">
+                <label for="exampleInputName1">Active</label>
+                @Html.CheckBoxFor(m => m.Active)
+            </div>
+            <div class="col-md-12">&nbsp;</div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-block">Update</button>
+            </div>
+        }
+
+
+    </div>

@@ -26,6 +26,7 @@ using Dinota.DataAccces.MeasurementUnit;
 using Dinota.DataAccces.MenuOption;
 using Dinota.DataAccces.MenuMultiOption;
 using Dinota.DataAccces.IngredientInfo;
+using Dinota.DataAccces.IngredientBOC;
 
 namespace Dinota.DataAccces.Context
 {
@@ -64,6 +65,7 @@ namespace Dinota.DataAccces.Context
             modelBuilder.Configurations.Add(new MenuOptionMap());
             modelBuilder.Configurations.Add(new MenuMultiOptionMap());
             modelBuilder.Configurations.Add(new IngredientInfoMap());
+            modelBuilder.Configurations.Add(new IngredientBOCMap());
         }
     }
 }

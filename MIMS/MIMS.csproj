@@ -224,6 +224,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthorizeUserAccessLevel.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ItemBOCController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
@@ -777,6 +778,13 @@
     <Content Include="Views\Item\Index.cshtml" />
     <Content Include="Views\Item\IngredientEdit.cshtml" />
     <Content Include="Views\Item\IngredientRegister.cshtml" />
+    <Content Include="Views\Item\BOCRegister.cshtml" />
+    <Content Include="Views\Item\_CreateEditBOC.cshtml" />
+    <Content Include="Views\ItemBOC\_CreateEditBOC.cshtml" />
+    <Content Include="Views\ItemBOC\IngredientBOCRegister.cshtml" />
+    <Content Include="Views\ItemBOC\Index.cshtml" />
+    <Content Include="Views\ItemBOC\IngredientBOCEdit.cshtml" />
+    <Content Include="Views\ItemBOC\BOCList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

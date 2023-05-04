@@ -72,6 +72,37 @@ namespace MIMS.Controllers
             }
 
         }
+        public void BindItemList()
+        {
+            try
+            {
+                var filter = _ingredientInfoService.GetDefaultSpecification().And(s => s.Active == true);
+                var TypeList = _ingredientInfoService.GetCollection(filter, d => d.UId);
+                SelectList list = new SelectList(TypeList, "UId", "ItemName");
+                ViewData[ViewDataKeys.IngredientInfoList] = list;
+            }
+            catch (Exception ex)
+            {
+                TempData[ViewDataKeys.Message] = new FailMessage(ex.Message.ToString());
+
+            }
+
+        }
+        public ActionResult BOCRegister()
+        {
+            IngredientInfo info = new IngredientInfo();
+            try
+            {
+                BindItemList();
+                BindMeasurementList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(info);   
+         }
         public ActionResult IngredientEdit(int id)
         {
             IngredientInfo info = new IngredientInfo();

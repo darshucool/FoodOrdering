@@ -103,5 +103,6 @@ namespace MIMS
         public static readonly string TownList = "TownList";
         public static readonly string RoomNoList = "RoomNoList"; 
         public static readonly string MeasurementUnitListList = "MeasurementUnitList";
+        public static readonly string IngredientInfoList = "IngredientInfoList";
     }
 }
