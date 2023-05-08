@@ -20,14 +20,14 @@
 
         <div class="col-md-12 mb-3">
             <div class="rounded shadow-sm p-4 bg-white">
-                <h5 class="mb-4">Add Event</h5>
+                <h5 class="mb-4">F.140</h5>
                 <div id="edit_profile">
                     <div>
                         @Html.Message()
-                        @using (Html.BeginForm("OrderBOCDeduct", "Menu", null, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+                        @using (Html.BeginForm("OrderBOCDeduct", "Menu", new {id=Model.MenuOrderId }, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
                         {
                             @Html.HiddenFor(p => p.MenuOrderId)
-                            <table>
+                            <table width="100%" cellpadding="10"cellspacing="10" border="1">
                                 @foreach (MenuItemDetailModel detail in Model.MenuItemList)
                                 {
                                     <tr>
@@ -37,7 +37,7 @@
                                     {
                                         <tr>
                                             <td><input type="hidden" name="menuing_@d.IngriedientUId">@d.IngredientInfo.ItemName</td>
-                                            <td><input type="text" name="menuingqty_@d.IngriedientUId" value="@d.IngriedientQty"></td>
+                                            <td><input type="text" name="menuingqty_@d.UId" value="@d.IngriedientQty"></td>
                                             <td><input type="text" readonly name="menuingunit_@d.IngriedientUId" value="@d.MeasurementUnit.Unit"></td>
                                         </tr>
                                     }

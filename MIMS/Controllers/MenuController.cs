@@ -30,6 +30,8 @@ using Dinota.Domain.Town;
 using Dinota.Domain.MenuMultiOption;
 using Dinota.Domain.MenuPackage;
 using Dinota.Domain.MenuItemDetail;
+using Dinota.Domain.F140Data;
+using Dinota.Domain.F140Header;
 
 namespace MIMS.Controllers
 {
@@ -50,7 +52,9 @@ namespace MIMS.Controllers
         private readonly MeasurementUnitService _measurementUnitService;
         private readonly MenuMultiOptionService _menuMultiOptionService;
         private readonly MenuItemDetailService _menuItemDetailService;
-        public MenuController(IDomainContext dataContext, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuMultiOptionService menuMultiOptionService, MeasurementUnitService measurementUnitService, MenuOptionService menuOptionService, EventAttendanceService eventAttendanceService, EventParticipationKidService eventParticipationKidService, EventParticipationService eventParticipationService, EventService eventService, MenuOrderService menuOrderService, MenuItemService menuItemService, MenuCategoryService menuCategoryService, UserAccountService userAccountService)
+        private readonly F140DataService _f140DataService;
+        private readonly F140HeaderService _f140HeaderService;
+        public MenuController(IDomainContext dataContext, F140HeaderService f140HeaderService, F140DataService f140DataService, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuMultiOptionService menuMultiOptionService, MeasurementUnitService measurementUnitService, MenuOptionService menuOptionService, EventAttendanceService eventAttendanceService, EventParticipationKidService eventParticipationKidService, EventParticipationService eventParticipationService, EventService eventService, MenuOrderService menuOrderService, MenuItemService menuItemService, MenuCategoryService menuCategoryService, UserAccountService userAccountService)
             : base(dataContext)
         {
             _userAccountService = userAccountService;
@@ -67,6 +71,8 @@ namespace MIMS.Controllers
             _menuPackageService = menuPackageService;
             _menuMultiOptionService = menuMultiOptionService;
             _menuItemDetailService = menuItemDetailService;
+            _f140DataService = f140DataService;
+            _f140HeaderService = f140HeaderService;
         }
         //[AuthorizeUserAccessLevel()]
         public ActionResult MenuItemIndex(int id)
@@ -1082,31 +1088,6 @@ namespace MIMS.Controllers
                 {
                     return RedirectToAction("OrderBOCDeduct", new { id });
                 }
-                    string s = "";
-                string MobNo = oMenuOrder.UserBase.Telephone1;
-                if (!string.IsNullOrEmpty(oMenuOrder.UserBase.Telephone1))
-                {
-                    s = MobNo;
-                    s = s.Substring(0, 1);
-                }
-                if (s == "0")
-                {
-                    MobNo = MobNo.Remove(0, 1);
-                }
-                TempData[ViewDataKeys.Message] = new SuccessMessage("Order successfully accepted");
-                if (!string.IsNullOrEmpty(oMenuOrder.UserBase.Telephone1))
-                {
-                    string menu = oMenuOrder.MenuItem.Name;
-                    //menu = menu.Replace(" ","%20");
-                    if (!string.IsNullOrEmpty(MobNo))
-                    {
-                        //TempData["WhatMsg"] = "http://api.whatsapp.com/send?phone=" + MobNo + "%&%&";
-                          TempData["WhatMsg1"]="http://api.whatsapp.com/send?phone=" + MobNo + "";
-                          TempData["WhatMsg2"] = "text=Your order " + menu + " has been accpeted and being processed.";
-                    }
-                    //Process.Start(new ProcessStartInfo("http://api.whatsapp.com/send?phone=" + MobNo + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'") { UseShellExecute = true });
-                    //System.Diagnostics.Process.Start("","http://api.whatsapp.com/send?phone=" + MobNo + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'");
-                }
                 return RedirectToAction("MenuOrderList");
             }
             catch (Exception ex)
@@ -1135,7 +1116,7 @@ namespace MIMS.Controllers
                         detail.MenuItemId = pack.MenuItemId;
                         detail.MenuItem = pack.MenuItem;
                         var filter = _menuItemDetailService.GetDefaultSpecification();
-                        filter = filter.And(p => p.Active == true).And(p => p.MenuItemId == pack.MenuItemId);
+                        filter = filter.And(p => p.Active == true).And(p => p.MenuItemId == pack.MenuItem.UId);
                         List < MenuItemDetail > MenuItemDetailSubList= _menuItemDetailService.GetCollection(filter, p => p.CreationDate).ToList();
                         detail.MenuItemDetailList = MenuItemDetailSubList;
                         MenuItemIngridientList.Add(detail);
@@ -1163,6 +1144,204 @@ namespace MIMS.Controllers
             }
             return View(model);
         }
+        [HttpPost]
+        public ActionResult OrderBOCDeduct(FormCollection Form,int id)
+        {
+            MenuBOCModel model = new MenuBOCModel();
+            try
+            {
+               
+                List<MenuItemDetail> MasterItemList = new List<MenuItemDetail>();
+                List<MenuItemDetailModel> MenuItemIngridientList = new List<MenuItemDetailModel>();
+                MenuOrder order = _menuOrderService.GetByKey(id);
+                F140Header header = new F140Header();
+                header.MenuOrderId = order.UId;
+                header.EffectiveDate = DateTime.Now;
+                header.UserId = order.UserId;
+                header.Active = true;
+                _f140HeaderService.Add(header);
+                DataContext.SaveChanges();
+                model.MenuOrderId = order.UId;
+                if (order.MenuItem.IsCombine)
+                {
+                    var filterM = _menuPackageService.GetDefaultSpecification();
+                    filterM = filterM.And(p => p.Active == true).And(p => p.MenuItemId == order.MenuItemUId);
+                    List<MenuPackage> MenuPackageList = _menuPackageService.GetCollection(filterM, p => p.CreationDate).ToList();
+                    foreach (MenuPackage pack in MenuPackageList)
+                    {
+                        MenuItemDetailModel detail = new MenuItemDetailModel();
+                        detail.MenuItemId = pack.MenuItemId;
+                        detail.MenuItem = pack.MenuItem;
+                        var filter = _menuItemDetailService.GetDefaultSpecification();
+                        filter = filter.And(p => p.Active == true).And(p => p.MenuItemId == pack.MenuItem.UId);
+                        List<MenuItemDetail> MenuItemDetailSubList = _menuItemDetailService.GetCollection(filter, p => p.CreationDate).ToList();
+                        foreach (MenuItemDetail it in MenuItemDetailSubList)
+                        {
+                            F140Data data = new F140Data();
+                            data.Active = true;
+                            data.F140HeaderUId = header.UId;
+                            data.MenuItemId = pack.MenuItem.UId;
+                            data.Amount = 0;
+                            data.IngridientUId = it.IngriedientUId;
+                            if (Form["menuingqty_" + it.UId] != null)
+                            {
+                                data.Qty = decimal.Parse(Form["menuingqty_" + it.UId].ToString());
+                            }
+                            else
+                            {
+                                data.Qty = it.IngriedientQty;
+                            }
+                            data.SLAFLocationId = 18;
+                            data.MeasurementUnitId = it.IngriedientMeasurementUId;
+                            _f140DataService.Add(data);
+                            DataContext.SaveChanges();
+                        }
+                    }
+                    string s = "";
+                    string MobNo = order.UserBase.Telephone1;
+                    if (!string.IsNullOrEmpty(order.UserBase.Telephone1))
+                    {
+                        s = MobNo;
+                        s = s.Substring(0, 1);
+                    }
+                    if (s == "0")
+                    {
+                        MobNo = MobNo.Remove(0, 1);
+                    }
+                    TempData[ViewDataKeys.Message] = new SuccessMessage("Order successfully accepted");
+                    if (!string.IsNullOrEmpty(order.UserBase.Telephone1))
+                    {
+                        string menu = order.MenuItem.Name;
+                        //menu = menu.Replace(" ","%20");
+                        if (!string.IsNullOrEmpty(MobNo))
+                        {
+                            //TempData["WhatMsg"] = "http://api.whatsapp.com/send?phone=" + MobNo + "%&%&";
+                            TempData["WhatMsg1"] = "http://api.whatsapp.com/send?phone=" + MobNo + "";
+                            TempData["WhatMsg2"] = "text=Your order " + menu + " has been accpeted and being processed.";
+                        }
+                        //Process.Start(new ProcessStartInfo("http://api.whatsapp.com/send?phone=" + MobNo + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'") { UseShellExecute = true });
+                        //System.Diagnostics.Process.Start("","http://api.whatsapp.com/send?phone=" + MobNo + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'");
+                    }
+                    return RedirectToAction("MenuOrderList");
+                }
+                else
+                {
+                    MenuItemDetailModel detail = new MenuItemDetailModel();
+                    detail.MenuItemId = order.MenuItemUId;
+                    detail.MenuItem = order.MenuItem;
+                    var filter = _menuItemDetailService.GetDefaultSpecification();
+                    filter = filter.And(p => p.Active == true).And(p => p.MenuItemId == order.MenuItemUId);
+                    MasterItemList = _menuItemDetailService.GetCollection(filter, p => p.CreationDate).ToList();
+                    foreach (MenuItemDetail it in MasterItemList)
+                    {
+                        F140Data data = new F140Data();
+                        data.Active = true;
+                        data.F140HeaderUId = header.UId;
+                        data.MenuItemId = order.MenuItemUId;
+                        data.Amount = 0;
+                        data.IngridientUId = it.IngriedientUId;
+                        if (Form["menuingqty_" + it.UId] != null)
+                        {
+                            data.Qty = decimal.Parse(Form["menuingqty_" + it.UId].ToString());
+                        }
+                        else
+                        {
+                            data.Qty = it.IngriedientQty;
+                        }
+                        data.SLAFLocationId = 18;
+                        data.MeasurementUnitId = it.IngriedientMeasurementUId;
+                        _f140DataService.Add(data);
+                        DataContext.SaveChanges();
+                    }
+                    string s = "";
+                    string MobNo = order.UserBase.Telephone1;
+                    if (!string.IsNullOrEmpty(order.UserBase.Telephone1))
+                    {
+                        s = MobNo;
+                        s = s.Substring(0, 1);
+                    }
+                    if (s == "0")
+                    {
+                        MobNo = MobNo.Remove(0, 1);
+                    }
+                    TempData[ViewDataKeys.Message] = new SuccessMessage("Order successfully accepted");
+                    if (!string.IsNullOrEmpty(order.UserBase.Telephone1))
+                    {
+                        string menu = order.MenuItem.Name;
+                        //menu = menu.Replace(" ","%20");
+                        if (!string.IsNullOrEmpty(MobNo))
+                        {
+                            //TempData["WhatMsg"] = "http://api.whatsapp.com/send?phone=" + MobNo + "%&%&";
+                            TempData["WhatMsg1"] = "http://api.whatsapp.com/send?phone=" + MobNo + "";
+                            TempData["WhatMsg2"] = "text=Your order " + menu + " has been accpeted and being processed.";
+                        }
+                        //Process.Start(new ProcessStartInfo("http://api.whatsapp.com/send?phone=" + MobNo + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'") { UseShellExecute = true });
+                        //System.Diagnostics.Process.Start("","http://api.whatsapp.com/send?phone=" + MobNo + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'");
+                    }
+                    return RedirectToAction("MenuOrderList");
+                }
+
+
+                model.MenuItemList = MenuItemIngridientList;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
+        }
+        public ActionResult MessBill()
+        {
+            return View();
+        }
+        public ActionResult MyF140Data()
+        {
+            List<F140Model> ModelList = new List<F140Model>();
+            List<F140Header> F140DataList = new List<F140Header>();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                var filter = _f140HeaderService.GetDefaultSpecification();
+                filter = filter.And(p=>p.Active==true).And(p=>p.UserId== account.Id);
+                F140DataList = _f140HeaderService.GetCollection(filter,p=>p.CreationDate).ToList();
+                foreach(F140Header head in F140DataList)
+                {
+                    F140Model mod = new F140Model();
+                    var filterSum = _f140DataService.GetDefaultSpecification();
+                    filterSum = filterSum.And(p => p.Active == true).And(p => p.F140HeaderUId == head.UId);
+                    List<F140Data> F140List = _f140DataService.GetCollection(filterSum, p => p.CreationDate).ToList();
+                    mod.F140Header = head;
+                    mod.totalAmount = F140List.Sum(p=>p.Amount);
+                    ModelList.Add(mod);
+                 }
+            }
+            catch (Exception)
+            {
+               
+                throw;
+            }
+            return View(F140DataList);
+        }
+        public ActionResult F140Detail(int id)
+        {
+            List<F140Data> F140DataList = new List<F140Data>();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                var filter = _f140DataService.GetDefaultSpecification();
+                filter = filter.And(p=>p.Active==true).And(p=>p.F140HeaderUId== id);
+                F140DataList = _f140DataService.GetCollection(filter,p=>p.CreationDate).ToList();
+                
+            }
+            catch (Exception)
+            {
+               
+                throw;
+            }
+            return View(F140DataList);
+        }
+
         [HttpPost]
         public ActionResult MenuOrderDelivery(FormCollection Form, int id)
         {

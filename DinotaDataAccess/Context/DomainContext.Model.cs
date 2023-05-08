@@ -29,6 +29,8 @@ using Dinota.DataAccces.IngredientInfo;
 using Dinota.DataAccces.IngredientBOC;
 using Dinota.DataAccces.MenuPackage;
 using Dinota.DataAccces.MenuItemDetail;
+using Dinota.DataAccces.F140Data;
+using Dinota.DataAccces.F140Header;
 
 namespace Dinota.DataAccces.Context
 {
@@ -70,6 +72,8 @@ namespace Dinota.DataAccces.Context
             modelBuilder.Configurations.Add(new IngredientBOCMap()); 
             modelBuilder.Configurations.Add(new MenuPackageMap());
             modelBuilder.Configurations.Add(new MenuItemDetailMap());
+            modelBuilder.Configurations.Add(new F140DataMap());
+            modelBuilder.Configurations.Add(new F140HeaderMap());
         }
     }
 }

@@ -132,7 +132,7 @@
                 <li><a href="@Url.Content("~/Account/ChangePassword")"><i class="feather-list mr-2"></i>Change Password</a></li>
                 <li><a href="@Url.Content("~/Account/LogOff")"><i class="feather-list mr-2"></i>Logoff</a></li>
             }
-            else if (account.UserTypeId == 2)
+            else if (account.UserTypeId == 2||account.UserTypeId == 4||account.UserTypeId == 5)
             {
                 <li><a href="@Url.Content("~/Menu/MenuOrderList")"><i class="feather-list mr-2"></i>Order List</a></li>
                 <li><a href="@Url.Content("~/Menu/AddEvent")"><i class="feather-list mr-2"></i>Add Event</a></li>
@@ -154,6 +154,7 @@
                 <li><a href="@Url.Content("~/Menu/MyOrders")"><i class="feather-list mr-2"></i>My Orders</a></li>
                 <li><a href="@Url.Content("~/Menu/EventIndex")"><i class="feather-list mr-2"></i>Event List</a></li>
                 <li><a href="@Url.Content("~/News/Index")"><i class="feather-list mr-2"></i>News List</a></li>
+                <li><a href="@Url.Content("~/Menu/MyF140Data")"><i class="feather-list mr-2"></i>F.140 List</a></li>
                 <li><a href="@Url.Content("~/Account/ChangePassword")"><i class="feather-list mr-2"></i>Change Password</a></li>
                 <li><a href="@Url.Content("~/Account/LogOff")"><i class="feather-list mr-2"></i>Logoff</a></li>
             }

@@ -53,6 +53,12 @@
     <Compile Include="AdminUser\AdminUserService.cs" />
     <Compile Include="AdminUser\IAdminUserRepo.cs" />
     <Compile Include="CommonEnums.cs" />
+    <Compile Include="F140Header\F140Header.cs" />
+    <Compile Include="F140Header\F140HeaderService.cs" />
+    <Compile Include="F140Header\F140HeaderRepo.cs" />
+    <Compile Include="F140Data\F140Data.cs" />
+    <Compile Include="F140Data\F140DataService.cs" />
+    <Compile Include="F140Data\IF140DataRepo.cs" />
     <Compile Include="IngredientBOC\IngredientBOC.cs" />
     <Compile Include="IngredientBOC\IngredientBOCService.cs" />
     <Compile Include="IngredientBOC\IIngredientBOCRepo.cs" />

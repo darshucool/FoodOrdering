@@ -786,6 +786,9 @@
     <Content Include="Views\ItemBOC\IngredientBOCEdit.cshtml" />
     <Content Include="Views\ItemBOC\BOCList.cshtml" />
     <Content Include="Views\Menu\OrderBOCDeduct.cshtml" />
+    <Content Include="Views\Menu\MyF140Data.cshtml" />
+    <Content Include="Views\Menu\F140Detail.cshtml" />
+    <Content Include="Views\Menu\MessBill.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

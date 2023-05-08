@@ -109,12 +109,8 @@
 
                                                 <select name="delilocation" id="delilocation" class="form-control" onchange="roomFunction()" required>
                                                     <option value>-- Select Location --</option>
-                                                    <option value="Room">Room</option>
+                                                    <option value="Dining Hall">Dining Hall</option>
                                                     <option value="Reception">Reception</option>
-                                                    @if (Model.LocationId == 1)
-                                                    {
-                                                    <option value="AFHQ Dining Hall">AFHQ Dining Hall</option>
-                                                    }
                                                     <option value="Bar">Bar</option>
                                                 </select>
                                                 <div id="roomoption" style="width:100%"></div>

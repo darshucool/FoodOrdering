@@ -591,7 +591,20 @@
                                                 </p>
                                             </div>
                                             <div class="ml-auto">
-                                                <p class="bg-warning text-white py-1 px-2 rounded small mb-1">Awaiting</p>
+                                                @if (ord.Status == 10)
+                                                {
+                                                    <p class="bg-warning text-white py-1 px-2 rounded small mb-1">Awaiting</p>
+
+                                                }
+                                                else if (ord.Status == 20)
+                                                {
+                                                    <p class="bg-warning text-white py-1 px-2 rounded small mb-1">WO I/C Accepted</p>
+                                                }
+                                                else if (ord.Status == 30)
+                                                {
+                                                    <p class="bg-warning text-white py-1 px-2 rounded small mb-1">Resident Manager Accepted</p>
+                                                }
+
                                                 <p class="small font-weight-bold text-center"><i class="feather-clock"></i> @ord.CreationDate</p>
                                             </div>
 

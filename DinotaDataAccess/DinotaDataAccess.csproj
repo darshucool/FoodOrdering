@@ -67,6 +67,10 @@
     <Compile Include="Context\Internal\InsertionContext.cs" />
     <Compile Include="Context\Internal\UpdationContext.cs" />
     <Compile Include="Context\SecurityContext.cs" />
+    <Compile Include="F140Header\F140HeaderMap.cs" />
+    <Compile Include="F140Header\F140HeaderRepo.cs" />
+    <Compile Include="F140Data\F140DataMap.cs" />
+    <Compile Include="F140Data\F140DataRepo.cs" />
     <Compile Include="IngredientBOC\IngredientBOCMap.cs" />
     <Compile Include="IngredientBOC\IngredientBOCRepo.cs" />
     <Compile Include="IngredientInfo\IngredientInfoMap.cs" />

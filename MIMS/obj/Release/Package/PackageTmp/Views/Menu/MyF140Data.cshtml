@@ -1,0 +1,54 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.F140Header
+@using Dinota.Domain.MenuOrder
+@using AlfasiWeb.Models
+@model List<F140Header>
+@{
+    ViewBag.Title = "MenuOrderList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">F.140 List</h4>
+    </div>
+</div>
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+
+        <div class="col-md-12 mb-3">
+            <div class="rounded shadow-sm p-4 bg-white">
+                <h5 class="mb-4">F.140</h5>
+                <div id="edit_profile">
+                    <div>
+                      
+                            
+                            <table width="100%" cellpadding="10"cellspacing="10" border="1">
+                                <tr>
+                                    <td><b>Order Date</b></td>
+                                    <td><b>Menu Item</b></td>
+                                    <td></td>
+                                </tr>
+                                @foreach (F140Header detail in Model)
+                                {
+                                    
+                                        <tr>
+                                            <td>@detail.EffectiveDate.ToString("dd/MM/yyyy")</td>
+                                            <td>@detail.MenuOrder.MenuItem.Name</td>
+                                           <td><a href="@Url.Content("~/Menu/F140Detail/")@detail.UId" class="btn btn-primary px-3">View Detail</a>
+</td>
+                                        </tr>
+                                   
+                                }
+                            </table>
+                            
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

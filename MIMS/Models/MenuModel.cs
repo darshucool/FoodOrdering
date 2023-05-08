@@ -1,4 +1,5 @@
 ﻿
+using Dinota.Domain.F140Header;
 using Dinota.Domain.MenuCategory;
 using Dinota.Domain.MenuItem;
 using Dinota.Domain.MenuItemDetail;
@@ -38,5 +39,11 @@ namespace AlfasiWeb.Models
         public int MenuItemId { get;set;}
         public MenuItem MenuItem { get; set; }
         public List<MenuItemDetail> MenuItemDetailList { get; set; }
+    }
+
+    public class F140Model
+    {
+        public F140Header F140Header { get; set; }
+        public decimal totalAmount { get; set; }
     }
 }
