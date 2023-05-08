@@ -27,6 +27,8 @@ using Dinota.DataAccces.MenuOption;
 using Dinota.DataAccces.MenuMultiOption;
 using Dinota.DataAccces.IngredientInfo;
 using Dinota.DataAccces.IngredientBOC;
+using Dinota.DataAccces.MenuPackage;
+using Dinota.DataAccces.MenuItemDetail;
 
 namespace Dinota.DataAccces.Context
 {
@@ -65,7 +67,9 @@ namespace Dinota.DataAccces.Context
             modelBuilder.Configurations.Add(new MenuOptionMap());
             modelBuilder.Configurations.Add(new MenuMultiOptionMap());
             modelBuilder.Configurations.Add(new IngredientInfoMap());
-            modelBuilder.Configurations.Add(new IngredientBOCMap());
+            modelBuilder.Configurations.Add(new IngredientBOCMap()); 
+            modelBuilder.Configurations.Add(new MenuPackageMap());
+            modelBuilder.Configurations.Add(new MenuItemDetailMap());
         }
     }
 }

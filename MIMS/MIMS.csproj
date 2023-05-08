@@ -785,6 +785,7 @@
     <Content Include="Views\ItemBOC\Index.cshtml" />
     <Content Include="Views\ItemBOC\IngredientBOCEdit.cshtml" />
     <Content Include="Views\ItemBOC\BOCList.cshtml" />
+    <Content Include="Views\Menu\OrderBOCDeduct.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -277,3 +277,14 @@ D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\obj\Debug\Dinota.Domain.Properties.R
 D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.GenerateResource.Cache
 D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.dll
 D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDomain\bin\Debug\DinotaDomain.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDomain\bin\Debug\DinotaDomain.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDomain\bin\Debug\DinotaCore.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDomain\bin\Debug\System.ComponentModel.DataAnnotations.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDomain\bin\Debug\DinotaCore.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csprojAssemblyReference.cache
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDomain\obj\Debug\Dinota.Domain.Properties.Resources.resources
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.GenerateResource.cache
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.CopyComplete
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.pdb

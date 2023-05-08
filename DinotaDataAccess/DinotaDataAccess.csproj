@@ -73,6 +73,10 @@
     <Compile Include="IngredientInfo\IngredientInfoRepo.cs" />
     <Compile Include="MeasurementUnit\MeasurementUnitMap.cs" />
     <Compile Include="MeasurementUnit\MeasurementUnitRepo.cs" />
+    <Compile Include="MenuItemDetail\MenuItemDetailMap.cs" />
+    <Compile Include="MenuItemDetail\MenuItemDetailRepo.cs" />
+    <Compile Include="MenuPackage\MenuPackageMap.cs" />
+    <Compile Include="MenuPackage\MenuPackageRepo.cs" />
     <Compile Include="MenuMultiOption\MenuMultiOptionMap.cs" />
     <Compile Include="MenuMultiOption\MenuMultiOptionRepo.cs" />
     <Compile Include="MenuOption\MenuOptionMap.cs" />

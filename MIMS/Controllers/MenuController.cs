@@ -28,6 +28,8 @@ using System.Security.Principal;
 using Dinota.Domain.MeasurementUnit;
 using Dinota.Domain.Town;
 using Dinota.Domain.MenuMultiOption;
+using Dinota.Domain.MenuPackage;
+using Dinota.Domain.MenuItemDetail;
 
 namespace MIMS.Controllers
 {
@@ -44,9 +46,11 @@ namespace MIMS.Controllers
         private readonly EventParticipationKidService _eventParticipationKidService;
         private readonly EventAttendanceService _eventAttendanceService;
         private readonly MenuOptionService _menuOptionService;
+        private readonly MenuPackageService _menuPackageService;
         private readonly MeasurementUnitService _measurementUnitService;
         private readonly MenuMultiOptionService _menuMultiOptionService;
-        public MenuController(IDomainContext dataContext, MenuMultiOptionService menuMultiOptionService, MeasurementUnitService measurementUnitService, MenuOptionService menuOptionService, EventAttendanceService eventAttendanceService, EventParticipationKidService eventParticipationKidService, EventParticipationService eventParticipationService, EventService eventService, MenuOrderService menuOrderService, MenuItemService menuItemService, MenuCategoryService menuCategoryService, UserAccountService userAccountService)
+        private readonly MenuItemDetailService _menuItemDetailService;
+        public MenuController(IDomainContext dataContext, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuMultiOptionService menuMultiOptionService, MeasurementUnitService measurementUnitService, MenuOptionService menuOptionService, EventAttendanceService eventAttendanceService, EventParticipationKidService eventParticipationKidService, EventParticipationService eventParticipationService, EventService eventService, MenuOrderService menuOrderService, MenuItemService menuItemService, MenuCategoryService menuCategoryService, UserAccountService userAccountService)
             : base(dataContext)
         {
             _userAccountService = userAccountService;
@@ -60,7 +64,9 @@ namespace MIMS.Controllers
             _eventAttendanceService = eventAttendanceService;
             _menuOptionService = menuOptionService;
             _measurementUnitService = measurementUnitService;
+            _menuPackageService = menuPackageService;
             _menuMultiOptionService = menuMultiOptionService;
+            _menuItemDetailService = menuItemDetailService;
         }
         //[AuthorizeUserAccessLevel()]
         public ActionResult MenuItemIndex(int id)
@@ -79,6 +85,10 @@ namespace MIMS.Controllers
                     MenuItemModel mod = new MenuItemModel();
                     mod.MenuItem = item;
                     MenuItemModelList.Add(mod);
+                    var filterPackage = _menuPackageService.GetDefaultSpecification();
+                    filterPackage = filterPackage.And(p=>p.MenuItemId== item.UId);
+                    List<MenuPackage> MenuPackageList = _menuPackageService.GetCollection(filterPackage,p=>p.CreationDate).ToList();
+                    mod.MenuPackageList = MenuPackageList;
                 }
                 model.MenuItemModel = MenuItemModelList;
             }
@@ -115,12 +125,12 @@ namespace MIMS.Controllers
             }
             MenuOrderModel model = new MenuOrderModel();
             var filter = _menuOrderService.GetDefaultSpecification();
-            filter = filter.And(p => p.Active == true).And(p => p.Status == 10).And(p => p.UserId == account.Id);
+            filter = filter.And(p => p.Active == true).And(p => p.Status <40).And(p => p.UserId == account.Id);
             List<MenuOrder> MenuItemList = _menuOrderService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p=>p.CreationDate).ToList();
             model.PendingMenuOrderList = MenuItemList;
 
             var filterC = _menuOrderService.GetDefaultSpecification();
-            filterC = filterC.And(p => p.Active == true).And(p => p.Status == 20).And(p => p.UserId == account.Id);
+            filterC = filterC.And(p => p.Active == true).And(p => p.Status == 40).And(p => p.UserId == account.Id);
             List<MenuOrder> CompMenuItemList = _menuOrderService.GetCollection(filterC, p => p.CreationDate).OrderByDescending(p => p.CreationDate).ToList();
             model.CompleteMenuOrderList = CompMenuItemList;
 
@@ -699,12 +709,18 @@ namespace MIMS.Controllers
             {
                 UserAccount account = GetCurrentUser();
                 var filter = _menuOrderService.GetDefaultSpecification();
-                filter = filter.And(p => p.Active == true).And(p => p.Status == 10).And(p=>p.SLAFLocationUId==account.LocationUId);
+                if(account.UserTypeId==2)
+                    filter = filter.And(p => p.Status == 10);
+                else if (account.UserTypeId == 4)
+                    filter = filter.And(p => p.Status == 20);
+                else if (account.UserTypeId == 5)
+                    filter = filter.And(p => p.Status == 30);
+                filter = filter.And(p => p.Active == true).And(p=>p.SLAFLocationUId==account.LocationUId);
                 List<MenuOrder> MenuItemList = _menuOrderService.GetCollection(filter, p => p.CreationDate).OrderBy(p => p.OrderDate).ToList();
                 model.PendingMenuOrderList = MenuItemList;
 
                 var filterC = _menuOrderService.GetDefaultSpecification();
-                filterC = filterC.And(p => p.Active == true).And(p => p.Status == 20).And(p => p.SLAFLocationUId == account.LocationUId);
+                filterC = filterC.And(p => p.Active == true).And(p => p.Status == 40).And(p => p.SLAFLocationUId == account.LocationUId);
                 List<MenuOrder> CompMenuItemList = _menuOrderService.GetCollection(filterC, p => p.CreationDate).OrderBy(p => p.OrderDate).ToList();
                 model.CompleteMenuOrderList = CompMenuItemList;
 
@@ -1049,9 +1065,24 @@ namespace MIMS.Controllers
                 {
                     return RedirectToAction("Login", "Account");
                 }
-                oMenuOrder.Status = 20;
+                if (account.UserTypeId == 2)
+                {
+                    oMenuOrder.Status = 20;
+                }
+                else if (account.UserTypeId == 4)
+                {
+                    oMenuOrder.Status = 30;
+                }
+                else if (account.UserTypeId == 5)
+                {
+                    oMenuOrder.Status = 40;
+                }
                 DataContext.SaveChanges();
-                string s = "";
+                if (account.UserTypeId == 5)
+                {
+                    return RedirectToAction("OrderBOCDeduct", new { id });
+                }
+                    string s = "";
                 string MobNo = oMenuOrder.UserBase.Telephone1;
                 if (!string.IsNullOrEmpty(oMenuOrder.UserBase.Telephone1))
                 {
@@ -1083,6 +1114,54 @@ namespace MIMS.Controllers
                 throw ex;
             }
             return View();
+        }
+        public ActionResult OrderBOCDeduct(int id)
+        {
+            MenuBOCModel model = new MenuBOCModel();
+            try
+            {
+                List<MenuItemDetail> MasterItemList = new List<MenuItemDetail>();
+                List<MenuItemDetailModel> MenuItemIngridientList = new List<MenuItemDetailModel>();
+                MenuOrder order = _menuOrderService.GetByKey(id);
+                model.MenuOrderId = order.UId;
+                if (order.MenuItem.IsCombine)
+                {
+                    var filterM = _menuPackageService.GetDefaultSpecification();
+                    filterM = filterM.And(p => p.Active == true).And(p => p.MenuItemId == order.MenuItemUId);
+                    List<MenuPackage> MenuPackageList = _menuPackageService.GetCollection(filterM,p=>p.CreationDate).ToList();
+                    foreach (MenuPackage pack in MenuPackageList)
+                    {
+                        MenuItemDetailModel detail = new MenuItemDetailModel();
+                        detail.MenuItemId = pack.MenuItemId;
+                        detail.MenuItem = pack.MenuItem;
+                        var filter = _menuItemDetailService.GetDefaultSpecification();
+                        filter = filter.And(p => p.Active == true).And(p => p.MenuItemId == pack.MenuItemId);
+                        List < MenuItemDetail > MenuItemDetailSubList= _menuItemDetailService.GetCollection(filter, p => p.CreationDate).ToList();
+                        detail.MenuItemDetailList = MenuItemDetailSubList;
+                        MenuItemIngridientList.Add(detail);
+                    }
+                }
+                else
+                {
+                    MenuItemDetailModel detail = new MenuItemDetailModel();
+                    detail.MenuItemId = order.MenuItemUId;
+                    detail.MenuItem= order.MenuItem;
+                    var filter = _menuItemDetailService.GetDefaultSpecification();
+                    filter = filter.And(p => p.Active == true).And(p => p.MenuItemId == order.MenuItemUId);
+                    MasterItemList = _menuItemDetailService.GetCollection(filter, p => p.CreationDate).ToList();
+                    detail.MenuItemDetailList = MasterItemList;
+                    MenuItemIngridientList.Add(detail);
+                }
+                
+               
+                model.MenuItemList = MenuItemIngridientList;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
         }
         [HttpPost]
         public ActionResult MenuOrderDelivery(FormCollection Form, int id)

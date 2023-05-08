@@ -61,7 +61,7 @@ namespace MIMS.Controllers
                 //model.DrawQty = _fuelDrawInfoService.GetCollection(filterF, p => p.CreationDate).ToList().Sum(p=>p.DrawQty);
 
                
-                if (account.UserTypeId == 2)
+                if (account.UserTypeId == 2|| account.UserTypeId == 4|| account.UserTypeId == 5)
                 {
                     return RedirectToAction("MenuOrderList", "Menu");
                 }
@@ -132,7 +132,7 @@ namespace MIMS.Controllers
                 //model.DrawQty = _fuelDrawInfoService.GetCollection(filterF, p => p.CreationDate).ToList().Sum(p=>p.DrawQty);
 
                
-                if (account.UserTypeId == 2)
+                if (account.UserTypeId == 2|| account.UserTypeId == 4|| account.UserTypeId == 5)
                 {
                     return RedirectToAction("MenuOrderList", "Menu");
                 }

@@ -155,3 +155,13 @@ D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\bin\Debug\System.ComponentModel.DataAn
 D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
 D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.dll
 D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\bin\Debug\DinotaCore.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\bin\Debug\System.ComponentModel.DataAnnotations.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.csprojAssemblyReference.cache
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.csproj.CopyComplete
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.pdb

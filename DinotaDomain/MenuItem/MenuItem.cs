@@ -18,6 +18,8 @@ namespace Dinota.Domain.MenuItem
         public int SLAFLocationUId { set; get; } 
         public int MeasurementUnitId { set; get; }
         public bool Active { set; get; }
+
+        public bool IsCombine { set; get; }
         public int MenuTypeId { set; get; }
         public virtual MenuCategory.MenuCategory MenuCategory { get; set; }
     }

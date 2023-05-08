@@ -2,6 +2,7 @@
 @using MIMS.Helpers
 @using Dinota.Security
 @using Dinota.Domain.MenuCategory
+@using Dinota.Domain.MenuPackage
 @using Dinota.Domain.MenuItem
 @using AlfasiWeb.Models
 @model MenuModel
@@ -66,17 +67,23 @@
                                 </div>
                                 <div id="collapse_@i" class="collapse" aria-labelledby="heading_@i" data-parent="#accordionExample">
                                     <div class="card-body border-top">
-                                        
-                                        <p class="m-0">@item.MenuItem.Description</p>
+
+                                        <p class="m-0">
+                                            @foreach (MenuPackage pack in item.MenuPackageList)
+                                            { 
+                                                @pack.MenuItem.Name <br/>
+                                            }
+                                           
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
 
-            }
+                }
         </div>
     </div>
 </div>
@@ -126,7 +133,7 @@
                             </div>
                             <h6 class="font-weight-bold mt-4">Delivery Location</h6>
                             <div class="custom-control custom-radio border-bottom py-2">
-                                
+
                                 <select name="delilocation" id="delilocation" class="form-control" onchange="roomFunction()" required>
                                     <option value>-- Select Location --</option>
                                     <option value="Room">Room</option>
@@ -425,7 +432,7 @@ else if (Model.oMenuCategory.MenuTypeId == 4)
                                     <option value="AFHQ Dining Hall">AFHQ Dining Hall</option>
                                     <option value="Bar">Bar</option>
                                 </select>
-                                <div id="roomoption" style="width:100%" ></div>
+                                <div id="roomoption" style="width:100%"></div>
                             </div>
                             <h6 class="font-weight-bold mt-4">Date</h6>
                             <div class="custom-control custom-radio border-bottom py-2">

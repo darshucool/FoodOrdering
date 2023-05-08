@@ -37,7 +37,6 @@ namespace Dinota.Domain.MenuOrder
         public DateTime OrderDate { get; set; }
         public virtual MenuItem.MenuItem MenuItem { get; set; }
         public virtual UserBase UserBase { get; set; }
-
         public virtual MenuOption.MenuOption MenuOption { get; set; }
         public virtual MenuMultiOption.MenuMultiOption MenuMultiOption { get; set; }
     }

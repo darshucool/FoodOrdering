@@ -62,6 +62,12 @@
     <Compile Include="MeasurementUnit\MeasurementUnit.cs" />
     <Compile Include="MeasurementUnit\MeasurementUnitService.cs" />
     <Compile Include="MeasurementUnit\IMeasurementUnitRepo.cs" />
+    <Compile Include="MenuItemDetail\IMenuItemDetailRepo.cs" />
+    <Compile Include="MenuItemDetail\MenuItemDetail.cs" />
+    <Compile Include="MenuItemDetail\MenuItemDetailService.cs" />
+    <Compile Include="MenuPackage\IMenuPackageRepo.cs" />
+    <Compile Include="MenuPackage\MenuPackage.cs" />
+    <Compile Include="MenuPackage\MenuPackageService.cs" />
     <Compile Include="MenuMultiOption\IMenuMultiOptionRepo.cs" />
     <Compile Include="MenuMultiOption\MenuMultiOption.cs" />
     <Compile Include="MenuMultiOption\MenuMultiOptionService.cs" />

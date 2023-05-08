@@ -330,3 +330,16 @@ D:\03200\MIMS\GIT\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaSecurity.pdb
 D:\03200\MIMS\GIT\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.csprojResolveAssemblyReference.cache
 D:\03200\MIMS\GIT\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.dll
 D:\03200\MIMS\GIT\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaDataAccess.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaDataAccess.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaCore.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaDomain.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaSecurity.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Debug\System.ComponentModel.DataAnnotations.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaCore.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaDomain.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaSecurity.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.csprojAssemblyReference.cache
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.csproj.CopyComplete
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.pdb

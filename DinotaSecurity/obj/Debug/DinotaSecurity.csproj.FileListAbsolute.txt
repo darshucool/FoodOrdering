@@ -233,3 +233,13 @@ D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\bin\Debug\DinotaDomain.pdb
 D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csprojResolveAssemblyReference.cache
 D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.dll
 D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\bin\Debug\DinotaSecurity.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\bin\Debug\DinotaSecurity.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\bin\Debug\DinotaCore.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\bin\Debug\DinotaDomain.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\bin\Debug\DinotaCore.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\bin\Debug\DinotaDomain.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csprojAssemblyReference.cache
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csproj.CopyComplete
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.pdb

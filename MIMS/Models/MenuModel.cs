@@ -1,8 +1,11 @@
 ﻿
 using Dinota.Domain.MenuCategory;
 using Dinota.Domain.MenuItem;
+using Dinota.Domain.MenuItemDetail;
 using Dinota.Domain.MenuMultiOption;
 using Dinota.Domain.MenuOption;
+using Dinota.Domain.MenuOrder;
+using Dinota.Domain.MenuPackage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +20,7 @@ namespace AlfasiWeb.Models
     }
     public class MenuItemModel {
         public MenuItem MenuItem { get; set; }
+        public List<MenuPackage> MenuPackageList { get; set; }
     }
     public class MenuClientOrderModel { 
         public MenuItem MenuItem { get; set; }
@@ -24,5 +28,15 @@ namespace AlfasiWeb.Models
         public int LocationId { get; set; }
         public List<MenuOption> MenuOptionList { get; set; }
         public List<MenuMultiOption> MenuMultiOptionList { get; set; }
+    }
+    public class MenuBOCModel {
+        public int MenuOrderId { get; set; }
+        public List<MenuItemDetailModel> MenuItemList { get; set; }
+
+    }
+    public class MenuItemDetailModel {
+        public int MenuItemId { get;set;}
+        public MenuItem MenuItem { get; set; }
+        public List<MenuItemDetail> MenuItemDetailList { get; set; }
     }
 }
