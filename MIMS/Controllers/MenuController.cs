@@ -32,6 +32,8 @@ using Dinota.Domain.MenuPackage;
 using Dinota.Domain.MenuItemDetail;
 using Dinota.Domain.F140Data;
 using Dinota.Domain.F140Header;
+using Dinota.Domain.IngredientBOC;
+using Dinota.Domain.BOCTransaction;
 
 namespace MIMS.Controllers
 {
@@ -54,7 +56,9 @@ namespace MIMS.Controllers
         private readonly MenuItemDetailService _menuItemDetailService;
         private readonly F140DataService _f140DataService;
         private readonly F140HeaderService _f140HeaderService;
-        public MenuController(IDomainContext dataContext, F140HeaderService f140HeaderService, F140DataService f140DataService, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuMultiOptionService menuMultiOptionService, MeasurementUnitService measurementUnitService, MenuOptionService menuOptionService, EventAttendanceService eventAttendanceService, EventParticipationKidService eventParticipationKidService, EventParticipationService eventParticipationService, EventService eventService, MenuOrderService menuOrderService, MenuItemService menuItemService, MenuCategoryService menuCategoryService, UserAccountService userAccountService)
+        private readonly IngredientBOCService _ingredientBOCService; 
+        private readonly BOCTransactionService _bOCTransactionService;
+        public MenuController(IDomainContext dataContext, BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, F140HeaderService f140HeaderService, F140DataService f140DataService, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuMultiOptionService menuMultiOptionService, MeasurementUnitService measurementUnitService, MenuOptionService menuOptionService, EventAttendanceService eventAttendanceService, EventParticipationKidService eventParticipationKidService, EventParticipationService eventParticipationService, EventService eventService, MenuOrderService menuOrderService, MenuItemService menuItemService, MenuCategoryService menuCategoryService, UserAccountService userAccountService)
             : base(dataContext)
         {
             _userAccountService = userAccountService;
@@ -73,6 +77,8 @@ namespace MIMS.Controllers
             _menuItemDetailService = menuItemDetailService;
             _f140DataService = f140DataService;
             _f140HeaderService = f140HeaderService;
+            _ingredientBOCService = ingredientBOCService;
+            _bOCTransactionService = bOCTransactionService;
         }
         //[AuthorizeUserAccessLevel()]
         public ActionResult MenuItemIndex(int id)
@@ -715,12 +721,13 @@ namespace MIMS.Controllers
             {
                 UserAccount account = GetCurrentUser();
                 var filter = _menuOrderService.GetDefaultSpecification();
-                if(account.UserTypeId==2)
+                //if(account.UserTypeId==2)
+                //    filter = filter.And(p => p.Status == 10);
+                //else if (account.UserTypeId == 4)
+                //    filter = filter.And(p => p.Status == 20);
+                //else 
+                if (account.UserTypeId == 5)
                     filter = filter.And(p => p.Status == 10);
-                else if (account.UserTypeId == 4)
-                    filter = filter.And(p => p.Status == 20);
-                else if (account.UserTypeId == 5)
-                    filter = filter.And(p => p.Status == 30);
                 filter = filter.And(p => p.Active == true).And(p=>p.SLAFLocationUId==account.LocationUId);
                 List<MenuOrder> MenuItemList = _menuOrderService.GetCollection(filter, p => p.CreationDate).OrderBy(p => p.OrderDate).ToList();
                 model.PendingMenuOrderList = MenuItemList;
@@ -1071,15 +1078,7 @@ namespace MIMS.Controllers
                 {
                     return RedirectToAction("Login", "Account");
                 }
-                if (account.UserTypeId == 2)
-                {
-                    oMenuOrder.Status = 20;
-                }
-                else if (account.UserTypeId == 4)
-                {
-                    oMenuOrder.Status = 30;
-                }
-                else if (account.UserTypeId == 5)
+                if (account.UserTypeId == 5)
                 {
                     oMenuOrder.Status = 40;
                 }
@@ -1183,13 +1182,42 @@ namespace MIMS.Controllers
                             data.MenuItemId = pack.MenuItem.UId;
                             data.Amount = 0;
                             data.IngridientUId = it.IngriedientUId;
+                            decimal AssignedQty = 0;
                             if (Form["menuingqty_" + it.UId] != null)
                             {
-                                data.Qty = decimal.Parse(Form["menuingqty_" + it.UId].ToString());
+                                AssignedQty = decimal.Parse(Form["menuingqty_" + it.UId].ToString());
+                                data.Qty = AssignedQty;
                             }
                             else
                             {
                                 data.Qty = it.IngriedientQty;
+                            }
+                            var filterBOC = _ingredientBOCService.GetDefaultSpecification();
+                            filterBOC = filterBOC.And(p => p.Active == true).And(p => p.IngredientUId == it.IngriedientUId);
+                            List<IngredientBOC> IngredientBOCList = _ingredientBOCService.GetCollection(filterBOC, p => p.EffectiveDate).ToList();
+                            IngredientBOC FEntry = new IngredientBOC();
+                            if (IngredientBOCList.Count > 0)
+                            {
+                                FEntry = IngredientBOCList.First();
+                                if (FEntry.Qty > AssignedQty)
+                                {
+                                    BOCTransaction tran = new BOCTransaction();
+                                    tran.IngriedientBOCUId = FEntry.UId;
+                                    tran.MenuOrderUId = order.UId;
+                                    tran.PresentStock = FEntry.Qty;
+                                    tran.IssueStock = AssignedQty;
+                                    tran.RemainingStock = FEntry.Qty - AssignedQty;
+                                    tran.Active = true;
+                                    tran.EffectiveDate = DateTime.Now;
+                                    _bOCTransactionService.Add(tran);
+                                    DataContext.SaveChanges();
+
+                                    IngredientBOC UpdateBOC = _ingredientBOCService.GetByKey(FEntry.UId);
+                                    UpdateBOC.Qty = FEntry.Qty;
+                                    DataContext.SaveChanges();
+
+                                    data.Amount = AssignedQty * FEntry.Price;
+                                }
                             }
                             data.SLAFLocationId = 18;
                             data.MeasurementUnitId = it.IngriedientMeasurementUId;
@@ -1240,13 +1268,42 @@ namespace MIMS.Controllers
                         data.MenuItemId = order.MenuItemUId;
                         data.Amount = 0;
                         data.IngridientUId = it.IngriedientUId;
+                        decimal AssignedQty = 0;
                         if (Form["menuingqty_" + it.UId] != null)
                         {
-                            data.Qty = decimal.Parse(Form["menuingqty_" + it.UId].ToString());
+                            AssignedQty = decimal.Parse(Form["menuingqty_" + it.UId].ToString());
+                            data.Qty = AssignedQty;
                         }
                         else
                         {
                             data.Qty = it.IngriedientQty;
+                        }
+                        var filterBOC = _ingredientBOCService.GetDefaultSpecification();
+                        filterBOC = filterBOC.And(p => p.Active == true).And(p => p.IngredientUId == it.IngriedientUId);
+                        List<IngredientBOC> IngredientBOCList = _ingredientBOCService.GetCollection(filterBOC, p => p.EffectiveDate).ToList();
+                        IngredientBOC FEntry = new IngredientBOC();
+                        if (IngredientBOCList.Count > 0)
+                        {
+                            FEntry = IngredientBOCList.First();
+                            if (FEntry.Qty > AssignedQty)
+                            {
+                                BOCTransaction tran = new BOCTransaction();
+                                tran.IngriedientBOCUId = FEntry.UId;
+                                tran.MenuOrderUId = order.UId;
+                                tran.PresentStock = FEntry.Qty;
+                                tran.IssueStock = AssignedQty;
+                                tran.RemainingStock = FEntry.Qty - AssignedQty;
+                                tran.Active = true;
+                                tran.EffectiveDate = DateTime.Now;
+                                _bOCTransactionService.Add(tran);
+                                DataContext.SaveChanges();
+
+                                IngredientBOC UpdateBOC = _ingredientBOCService.GetByKey(FEntry.UId);
+                                UpdateBOC.Qty = FEntry.Qty;
+                                DataContext.SaveChanges();
+
+                                data.Amount = AssignedQty * FEntry.Price;
+                            }
                         }
                         data.SLAFLocationId = 18;
                         data.MeasurementUnitId = it.IngriedientMeasurementUId;
@@ -1293,7 +1350,35 @@ namespace MIMS.Controllers
         }
         public ActionResult MessBill()
         {
-            return View();
+            MessBillModel model = new MessBillModel();
+            try
+            {
+                decimal Amount = 0;
+                UserAccount account = GetCurrentUser();
+                var filter = _f140HeaderService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p => p.UserId == account.Id);
+                List<F140Header> F140DataList = _f140HeaderService.GetCollection(filter, p => p.CreationDate).ToList();
+                foreach (F140Header head in F140DataList)
+                {
+                    F140Model mod = new F140Model();
+                    var filterSum = _f140DataService.GetDefaultSpecification();
+                    filterSum = filterSum.And(p => p.Active == true).And(p => p.F140HeaderUId == head.UId);
+                    List<F140Data> F140List = _f140DataService.GetCollection(filterSum, p => p.CreationDate).ToList();
+                  
+                    Amount+=  F140List.Sum(p => p.Amount);
+                }
+                model.CurrentAmount = Amount;
+                var filterC = _menuOrderService.GetDefaultSpecification();
+                filterC = filterC.And(p => p.Active == true).And(p => p.Status == 40).And(p => p.UserId == account.Id);
+                List<MenuOrder> CompMenuItemList = _menuOrderService.GetCollection(filterC, p => p.CreationDate).OrderByDescending(p => p.CreationDate).ToList();
+                model.MenuOrders = CompMenuItemList;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
         }
         public ActionResult MyF140Data()
         {

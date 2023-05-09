@@ -421,8 +421,6 @@ D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\bin\System.Web.WebPages.Razor.dll
 D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\bin\WebGrease.dll
 D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\bin\WebMatrix.Data.dll
 D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\bin\WebMatrix.WebData.dll
-D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\bin\Microsoft.ReportViewer.Common.dll
-D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
 D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\bin\DinotaCore.pdb
 D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\bin\DinotaDataAccess.pdb
 D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\bin\DinotaDomain.pdb

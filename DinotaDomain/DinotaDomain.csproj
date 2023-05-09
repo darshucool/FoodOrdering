@@ -53,6 +53,9 @@
     <Compile Include="AdminUser\AdminUserService.cs" />
     <Compile Include="AdminUser\IAdminUserRepo.cs" />
     <Compile Include="CommonEnums.cs" />
+    <Compile Include="BOCTransaction\BOCTransaction.cs" />
+    <Compile Include="BOCTransaction\BOCTransactionService.cs" />
+    <Compile Include="BOCTransaction\IBOCTransactionRepo.cs" />
     <Compile Include="F140Header\F140Header.cs" />
     <Compile Include="F140Header\F140HeaderService.cs" />
     <Compile Include="F140Header\F140HeaderRepo.cs" />

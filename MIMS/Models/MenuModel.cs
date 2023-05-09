@@ -46,4 +46,8 @@ namespace AlfasiWeb.Models
         public F140Header F140Header { get; set; }
         public decimal totalAmount { get; set; }
     }
+    public class MessBillModel { 
+        public decimal CurrentAmount { get; set; }
+        public List<MenuOrder> MenuOrders { get; set; }
+    }
 }
