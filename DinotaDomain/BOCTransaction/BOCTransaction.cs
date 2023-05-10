@@ -12,8 +12,11 @@ namespace Dinota.Domain.BOCTransaction
        
       
         public int IngriedientBOCUId { set; get; }
+       
         public decimal PresentStock { set; get; }
+      
         public decimal IssueStock { get; set; }
+      
         public decimal RemainingStock { get; set; }
         public bool Active { set; get; }
         public DateTime EffectiveDate { get; set; }

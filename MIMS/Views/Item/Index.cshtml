@@ -28,6 +28,7 @@
                         <th>Ingredient</th>
                         <th>Measurement Unit</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,7 +47,8 @@
                         </td>
                         <td>@info.ItemName</td>
                         <td>@info.MeasurementUnit.Unit</td>
-                       
+                        <td><a href="@Url.Content("~/Item/ItemStockSummary/")@info.UId" class="btn btn-danger px-3">Stock Summary</a></td>
+
                         <td><a href="@Url.Content("~/Item/IngredientEdit/")@info.UId" class="btn btn-primary px-3">Edit</a></td>
                     </tr>
                     }

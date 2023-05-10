@@ -16,6 +16,11 @@ namespace Dinota.DataAccces.BOCTransaction
             Property(refData => refData.UId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             HasRequired(f => f.MenuOrder).WithMany().HasForeignKey(f => f.MenuOrderUId);
             HasRequired(f => f.IngredientBOC).WithMany().HasForeignKey(f => f.IngriedientBOCUId);
+            Property(x => x.IssueStock).HasPrecision(18, 4);
+            Property(x => x.PresentStock).HasPrecision(18, 4);
+            Property(x => x.RemainingStock).HasPrecision(18, 4);
+
+
         }
     }
 }

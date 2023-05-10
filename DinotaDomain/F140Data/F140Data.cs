@@ -14,6 +14,7 @@ namespace Dinota.Domain.F140Data
         public int F140HeaderUId { set; get; }
         public int MenuItemId { set; get; }
         public int IngridientUId { set; get; }
+        [DisplayFormat(DataFormatString = "{0:0.0#####}", ApplyFormatInEditMode = true)]
         public decimal Qty { set; get; }
         public int MeasurementUnitId { set; get; }
         public int SLAFLocationId { set; get; }

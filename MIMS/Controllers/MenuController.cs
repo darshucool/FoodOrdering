@@ -1091,7 +1091,7 @@ namespace MIMS.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return RedirectToAction("Login","Account");
             }
             return View();
         }
@@ -1127,7 +1127,7 @@ namespace MIMS.Controllers
                     detail.MenuItemId = order.MenuItemUId;
                     detail.MenuItem= order.MenuItem;
                     var filter = _menuItemDetailService.GetDefaultSpecification();
-                    filter = filter.And(p => p.Active == true).And(p => p.MenuItemId == order.MenuItemUId);
+                    filter = filter.And(p => p.Active == true).And(p => p.MenuItemId == order.MenuItem.UId);
                     MasterItemList = _menuItemDetailService.GetCollection(filter, p => p.CreationDate).ToList();
                     detail.MenuItemDetailList = MasterItemList;
                     MenuItemIngridientList.Add(detail);
@@ -1344,7 +1344,7 @@ namespace MIMS.Controllers
             catch (Exception)
             {
 
-                throw;
+                return RedirectToAction("Login", "Account");
             }
             return View(model);
         }
@@ -1406,7 +1406,7 @@ namespace MIMS.Controllers
                
                 throw;
             }
-            return View(F140DataList);
+            return View(ModelList);
         }
         public ActionResult F140Detail(int id)
         {

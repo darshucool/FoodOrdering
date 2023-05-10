@@ -406,6 +406,12 @@ namespace MIMS.Helpers
             count = new CustomDataBaseManger().SelectStrengthCount(id);
             return count;
         }
+        public static MvcHtmlString Get140Price(this HtmlHelper helper, int id)
+        {
+            decimal Price = 0;
+            Price = new CustomDataBaseManger().GetOrderF140Amount(id);
+            return new MvcHtmlString(Price.ToString("00.00"));
+        }
         public static MvcHtmlString GetDeleteDiv(this HtmlHelper helper, string title)
         {
             return helper.GetBootsrapDiv("DeleteDivContainer-Elements", "DeleteDivContainer", title);

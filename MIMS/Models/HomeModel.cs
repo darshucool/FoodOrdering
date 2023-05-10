@@ -1,6 +1,9 @@
-﻿using Dinota.Domain.Event;
+﻿using Dinota.Domain.BOCTransaction;
+using Dinota.Domain.Event;
 using Dinota.Domain.EventParticipation;
 using Dinota.Domain.EventParticipationKid;
+using Dinota.Domain.IngredientBOC;
+using Dinota.Domain.IngredientInfo;
 using Dinota.Domain.MenuCategory;
 using Dinota.Domain.MenuFavorite;
 using Dinota.Domain.MenuOrder;
@@ -44,5 +47,9 @@ namespace AlfasiWeb.Models
         public EventParticipation EventParticipation { get; set; }
         public List<EventParticipationKid> EventParticipationKidList { get; set; }
     }
-    
+    public class StockSummaryModel {
+        public IngredientInfo IngredientInfo { get; set; }
+        public List<IngredientBOC> IngredientBOCList { get; set; }
+        public List<BOCTransaction> BOCTransactionList { get; set; }
+    }
 }

@@ -20,6 +20,8 @@ using Dinota.Domain.RoomInfo;
 using Dinota.Domain.RoomNo;
 using Dinota.Domain.IngredientInfo;
 using Dinota.Domain.MeasurementUnit;
+using Dinota.Domain.IngredientBOC;
+using Dinota.Domain.BOCTransaction;
 
 namespace MIMS.Controllers
 {
@@ -37,8 +39,10 @@ namespace MIMS.Controllers
         private readonly RoomNoService _roomNoService;
         private readonly IngredientInfoService _ingredientInfoService;
         private readonly MeasurementUnitService _measurementUnitService;
+        private readonly IngredientBOCService _ingredientBOCService;
+        private readonly BOCTransactionService _bOCTransactionService;
 
-        public ItemController(IDomainContext dataContext, MeasurementUnitService measurementUnitService, IngredientInfoService ingredientInfoService, UserAccountService userAccountService, RoomNoService roomNoService, RoomInfoService roomInfoService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
+        public ItemController(IDomainContext dataContext, BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, MeasurementUnitService measurementUnitService, IngredientInfoService ingredientInfoService, UserAccountService userAccountService, RoomNoService roomNoService, RoomInfoService roomInfoService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
             : base(dataContext)
         {
             _divisionService = divisionService;
@@ -51,6 +55,8 @@ namespace MIMS.Controllers
             _userAccountService = userAccountService;
             _ingredientInfoService = ingredientInfoService;
             _measurementUnitService = measurementUnitService;
+            _ingredientBOCService = ingredientBOCService;
+            _bOCTransactionService = bOCTransactionService;
         }
         // [AuthorizeUserAccessLevel()]
 
@@ -103,6 +109,29 @@ namespace MIMS.Controllers
             }
             return View(info);   
          }
+        public ActionResult ItemStockSummary(int id)
+        {
+            StockSummaryModel model = new StockSummaryModel();
+            try
+            {
+                IngredientInfo info = _ingredientInfoService.GetByKey(id);
+                model.IngredientInfo = info;
+                var filter = _ingredientBOCService.GetDefaultSpecification();
+                filter = filter.And(p=>p.Active==true).And(p=>p.IngredientUId== id);
+                List<IngredientBOC> IngredientBOCList = _ingredientBOCService.GetCollection(filter, p => p.CreationDate).ToList();
+                model.IngredientBOCList = IngredientBOCList;
+                var filterTr = _bOCTransactionService.GetDefaultSpecification();
+                filterTr = filterTr.And(p => p.Active == true).And(p => p.IngredientBOC.IngredientUId == id);
+                List<BOCTransaction> BOCTransactionList = _bOCTransactionService.GetCollection(filterTr, p => p.CreationDate).ToList();
+                model.BOCTransactionList = BOCTransactionList;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
+        }
         public ActionResult IngredientEdit(int id)
         {
             IngredientInfo info = new IngredientInfo();

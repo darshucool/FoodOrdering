@@ -173,6 +173,30 @@ namespace MIMS.Helpers
 	        }
             return count;
         }
+        public decimal GetOrderF140Amount(int OrderId)
+        {
+            decimal Amount = 0;
+            try 
+	        {
+                string sql = "select Sum(T2.Amount)  AS Amount from [dbo].[F140Data] AS T2,[dbo].[F140Header] AS T1 where T2.F140HeaderUId=T1.UId AND T1.MenuOrderId=" + OrderId + "";
+                DataTable dt=SelectData(sql);
+                foreach (DataRow row in dt.Rows)
+                {
+                    if (!string.IsNullOrEmpty(row["Amount"].ToString()))
+                    {
+                        Amount = decimal.Parse(row["Amount"].ToString());
+                    }
+                   
+                }
+              
+	        }
+	        catch (Exception)
+	        {
+		
+		        throw;
+	        }
+            return Amount;
+        }
         public int CheckVehicleSserviceNoExist(string ServiceNo)
         {
             int count = 0;

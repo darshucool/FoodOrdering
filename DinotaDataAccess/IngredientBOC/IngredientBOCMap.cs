@@ -16,6 +16,9 @@ namespace Dinota.DataAccces.IngredientBOC
             Property(refData => refData.UId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             HasRequired(f => f.IngredientInfo).WithMany().HasForeignKey(f => f.IngredientUId);
             HasRequired(f => f.MeasurementUnit).WithMany().HasForeignKey(f => f.UnitId);
+            Property(x => x.Qty).HasPrecision(18, 4);
+            Property(x => x.Price).HasPrecision(18, 4);
+            Property(x => x.TotalPrice).HasPrecision(18, 4);
         }
     }
 }

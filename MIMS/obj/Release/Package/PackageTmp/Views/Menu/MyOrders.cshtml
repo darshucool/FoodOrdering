@@ -402,6 +402,10 @@
                                                 </b> : @ord.OrderDate.ToString("dd/MM/yyyy") @ord.Time
                                                 <br />
                                                 <b> Remark</b> : @ord.Remark
+                                                @{ 
+                                                    decimal LKRPrice =new CustomDataBaseManger().GetOrderF140Amount(ord.UId);
+                                                    }
+                                                <p>LKR @LKRPrice</p>
                                             </p>
                                         </div>
                                         <div class="ml-auto">

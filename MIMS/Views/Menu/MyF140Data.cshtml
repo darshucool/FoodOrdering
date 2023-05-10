@@ -4,7 +4,7 @@
 @using Dinota.Domain.F140Header
 @using Dinota.Domain.MenuOrder
 @using AlfasiWeb.Models
-@model List<ModelList>
+@model List<F140Model>
 @{
     ViewBag.Title = "MenuOrderList";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -39,7 +39,7 @@
                                             <td>@detail.F140Header.EffectiveDate.ToString("dd/MM/yyyy")</td>
                                             <td>@detail.F140Header.MenuOrder.MenuItem.Name</td>
                                             <td>@detail.totalAmount.ToString("00.00")</td>
-                                           <td><a href="@Url.Content("~/Menu/F140Detail/")@detail.UId" class="btn btn-primary px-3">View Detail</a>
+                                           <td><a href="@Url.Content("~/Menu/F140Detail/")@detail.F140Header.UId" class="btn btn-primary px-3">View Detail</a>
 </td>
                                         </tr>
                                    

@@ -789,6 +789,7 @@
     <Content Include="Views\Menu\MyF140Data.cshtml" />
     <Content Include="Views\Menu\F140Detail.cshtml" />
     <Content Include="Views\Menu\MessBill.cshtml" />
+    <Content Include="Views\Item\ItemStockSummary.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

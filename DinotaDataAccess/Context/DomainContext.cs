@@ -27,7 +27,7 @@ namespace Dinota.DataAccces.Context
         {
             UserName = userName;
         }
-
+      
         public string UserName
         {
             get;
@@ -47,7 +47,7 @@ namespace Dinota.DataAccces.Context
             Configuration.ValidateOnSaveEnabled = false;
 
             //todo: check whether DetectChanges() call is required
-
+          
             var validationResults = new List<DbEntityValidationResult>();
 
             var changedEntities = ChangeTracker.Entries();
@@ -113,7 +113,7 @@ namespace Dinota.DataAccces.Context
         private void AddTrackingEntityRecords(TrackingService trackingService, EntityState state, Entity entity, List<TrackingEntityRecord> trackingEntities)
         {
             List<KeyValue> listKeyValue;
-
+           
             switch (state)
             {
                 case EntityState.Added:
