@@ -57,6 +57,10 @@
     <Compile Include="AdminUser\AdminUserMap.cs" />
     <Compile Include="AdminUser\AdminUserRepo.cs" />
     <Compile Include="AutofacModule.cs" />
+    <Compile Include="MenuOrderOfficer\MenuOrderOfficerMap.cs" />
+    <Compile Include="MenuOrderOfficer\MenuOrderOfficerRepo.cs" />
+    <Compile Include="MenuOrderItemDetail\MenuOrderItemDetailMap.cs" />
+    <Compile Include="MenuOrderItemDetail\MenuOrderItemDetailRepo.cs" />
     <Compile Include="Context\Internal\IdGenerationStrategy.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="Context\DomainContext.cs" />
@@ -69,6 +73,8 @@
     <Compile Include="Context\SecurityContext.cs" />
     <Compile Include="BOCTransaction\BOCTransactionMap.cs" />
     <Compile Include="BOCTransaction\BOCTransactionRepo.cs" />
+    <Compile Include="MenuOrderHeader\MenuOrderHeaderMap.cs" />
+    <Compile Include="MenuOrderHeader\MenuOrderHeaderRepo.cs" />
     <Compile Include="F140Header\F140HeaderMap.cs" />
     <Compile Include="F140Header\F140HeaderRepo.cs" />
     <Compile Include="F140Data\F140DataMap.cs" />

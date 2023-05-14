@@ -6,6 +6,7 @@ using Dinota.Domain.MenuItemDetail;
 using Dinota.Domain.MenuMultiOption;
 using Dinota.Domain.MenuOption;
 using Dinota.Domain.MenuOrder;
+using Dinota.Domain.MenuOrderItemDetail;
 using Dinota.Domain.MenuPackage;
 using System;
 using System.Collections.Generic;
@@ -49,5 +50,12 @@ namespace AlfasiWeb.Models
     public class MessBillModel { 
         public decimal CurrentAmount { get; set; }
         public List<MenuOrder> MenuOrders { get; set; }
+    }
+    public class OfficerMenuOrderModel {
+        public MenuItem MenuItem { get; set; }
+        public List<MenuItem> MenuItemList { get; set; }
+
+        public List<MenuOrderItemDetail> MenuOrderItemDetailList { get; set; }
+        public int MenuOrderId { get; set; }
     }
 }

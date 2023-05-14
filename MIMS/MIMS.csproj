@@ -225,6 +225,7 @@
     <Compile Include="Controllers\AuthorizeUserAccessLevel.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ItemBOCController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
@@ -790,6 +791,11 @@
     <Content Include="Views\Menu\F140Detail.cshtml" />
     <Content Include="Views\Menu\MessBill.cshtml" />
     <Content Include="Views\Item\ItemStockSummary.cshtml" />
+    <Content Include="Views\Order\MenuCreate.cshtml" />
+    <Content Include="Views\Order\MenuOrder.cshtml" />
+    <Content Include="Views\Order\OrderList.cshtml" />
+    <Content Include="Views\Order\OrderRegister.cshtml" />
+    <Content Include="Views\Order\_CreateEditOrderHeader.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

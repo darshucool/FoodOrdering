@@ -32,6 +32,9 @@ using Dinota.DataAccces.MenuItemDetail;
 using Dinota.DataAccces.F140Data;
 using Dinota.DataAccces.F140Header;
 using Dinota.DataAccces.BOCTransaction;
+using Dinota.DataAccces.MenuOrderHeader;
+using Dinota.DataAccces.MenuOrderItemDetail;
+using Dinota.DataAccces.MenuOrderOfficer;
 
 namespace Dinota.DataAccces.Context
 {
@@ -75,7 +78,10 @@ namespace Dinota.DataAccces.Context
             modelBuilder.Configurations.Add(new MenuItemDetailMap());
             modelBuilder.Configurations.Add(new F140DataMap());
             modelBuilder.Configurations.Add(new F140HeaderMap()); 
-            modelBuilder.Configurations.Add(new BOCTransactionMap());
+            modelBuilder.Configurations.Add(new BOCTransactionMap());   
+            modelBuilder.Configurations.Add(new MenuOrderHeaderMap()); 
+            modelBuilder.Configurations.Add(new MenuOrderItemDetailMap()); 
+            modelBuilder.Configurations.Add(new MenuOrderOfficerMap());
         }
     }
 }

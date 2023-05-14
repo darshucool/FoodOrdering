@@ -56,6 +56,15 @@
     <Compile Include="BOCTransaction\BOCTransaction.cs" />
     <Compile Include="BOCTransaction\BOCTransactionService.cs" />
     <Compile Include="BOCTransaction\IBOCTransactionRepo.cs" />
+    <Compile Include="MenuOrderOfficer\IMenuOrderOfficerRepo.cs" />
+    <Compile Include="MenuOrderOfficer\MenuOrderOfficer.cs" />
+    <Compile Include="MenuOrderOfficer\MenuOrderOfficerService.cs" />
+    <Compile Include="MenuOrderItemDetail\MenuOrderItemDetail.cs" />
+    <Compile Include="MenuOrderItemDetail\MenuOrderItemDetailService.cs" />
+    <Compile Include="MenuOrderItemDetail\IMenuOrderItemDetailRepo.cs" />
+    <Compile Include="MenuOrderHeader\MenuOrderHeader.cs" />
+    <Compile Include="MenuOrderHeader\MenuOrderHeaderService.cs" />
+    <Compile Include="MenuOrderHeader\IMenuOrderHeaderRepo.cs" />
     <Compile Include="F140Header\F140Header.cs" />
     <Compile Include="F140Header\F140HeaderService.cs" />
     <Compile Include="F140Header\F140HeaderRepo.cs" />
