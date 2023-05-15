@@ -14,7 +14,7 @@ namespace Dinota.DataAccces.F140Header
             ToTable("F140Header");
             HasKey(refData => refData.UId);
             Property(refData => refData.UId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            HasRequired(f => f.MenuOrder).WithMany().HasForeignKey(f => f.MenuOrderId);
+            HasRequired(f => f.MenuOrderHeader).WithMany().HasForeignKey(f => f.MenuOrderId);
         }
     }
 }

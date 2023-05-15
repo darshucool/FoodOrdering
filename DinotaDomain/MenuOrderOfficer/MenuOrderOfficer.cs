@@ -1,4 +1,5 @@
 ﻿using Dinota.Core.Data;
+using Dinota.Domain.User;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -15,6 +16,6 @@ namespace Dinota.Domain.MenuOrderOfficer
      
         public int UserId { set; get; }
         public bool Active { set; get; }
-
+        public virtual UserBase UserBase { get; set; }
     }
 }

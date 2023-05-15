@@ -12,12 +12,12 @@ namespace Dinota.Domain.F140Header
 
           [Required]
         [Display(Name = "Name")]
-        public int UserId { set; get; }
+        
         public int MenuOrderId { set; get; }
         
         public DateTime EffectiveDate { set; get; }
         public bool Active { set; get; }
        
-        public virtual MenuOrder.MenuOrder MenuOrder { get; set; }
+        public virtual MenuOrderHeader.MenuOrderHeader MenuOrderHeader { get; set; }
     }
 }

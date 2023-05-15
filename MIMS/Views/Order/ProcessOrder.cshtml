@@ -1,0 +1,57 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.MenuItemDetail
+@using Dinota.Domain.MenuOrder
+@using AlfasiWeb.Models
+@model MenuBOCModel
+@{
+    ViewBag.Title = "MenuOrderList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Automate F.140</h4>
+    </div>
+</div>
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+
+        <div class="col-md-12 mb-3">
+            <div class="rounded shadow-sm p-4 bg-white">
+                <h5 class="mb-4">F.140</h5>
+                <div id="edit_profile">
+                    <div>
+                        @Html.Message()
+                        @using (Html.BeginForm("ProcessOrder", "Order", new {id=Model.MenuOrderId }, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+                        {
+                            @Html.HiddenFor(p => p.MenuOrderId)
+                            <table width="100%" cellpadding="10"cellspacing="10" border="1">
+                                @foreach (MenuItemDetailModel detail in Model.MenuItemList)
+                                {
+                                    <tr>
+                                        <td colspan="3"><b>@detail.MenuItem.Name</b></td>
+                                    </tr>
+                                    foreach (MenuItemDetail d in detail.MenuItemDetailList)
+                                    {
+                                        <tr>
+                                            <td><input type="hidden" name="menuing_@d.IngriedientUId">@d.IngredientInfo.ItemName</td>
+                                            <td><input type="text" name="menuingqty_@d.UId" value="@d.IngriedientQty"></td>
+                                            <td><input type="text" readonly name="menuingunit_@d.IngriedientUId" value="@d.MeasurementUnit.Unit"></td>
+                                        </tr>
+                                    }
+                                }
+                            </table>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

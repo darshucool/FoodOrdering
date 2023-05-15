@@ -14,7 +14,7 @@ namespace Dinota.DataAccces.MenuOrderOfficer
             ToTable("MenuOrderOfficer");
             HasKey(refData => refData.UId);
             Property(refData => refData.UId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-          
+            HasRequired(f => f.UserBase).WithMany().HasForeignKey(f => f.UserId);
         }
     }
 }

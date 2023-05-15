@@ -18,7 +18,7 @@ namespace Dinota.Domain.MenuOrderHeader
         public string Time { set; get; }
         public string Location { set; get; }
         public bool Active { set; get; }
-
+        public int Status { get; set; }
 
     }
 }

@@ -6,8 +6,11 @@ using Dinota.Domain.MenuItemDetail;
 using Dinota.Domain.MenuMultiOption;
 using Dinota.Domain.MenuOption;
 using Dinota.Domain.MenuOrder;
+using Dinota.Domain.MenuOrderHeader;
 using Dinota.Domain.MenuOrderItemDetail;
+using Dinota.Domain.MenuOrderOfficer;
 using Dinota.Domain.MenuPackage;
+using Dinota.Domain.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,8 +57,10 @@ namespace AlfasiWeb.Models
     public class OfficerMenuOrderModel {
         public MenuItem MenuItem { get; set; }
         public List<MenuItem> MenuItemList { get; set; }
-
+        public MenuOrderHeader MenuOrderHeader { get; set; }
         public List<MenuOrderItemDetail> MenuOrderItemDetailList { get; set; }
+        public List<MenuOrderOfficer> MenuOrderOfficerList { get; set; }
+        public List<UserAccount> UserAccountList { get; set; }
         public int MenuOrderId { get; set; }
     }
 }

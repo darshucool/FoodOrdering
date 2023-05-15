@@ -796,6 +796,8 @@
     <Content Include="Views\Order\OrderList.cshtml" />
     <Content Include="Views\Order\OrderRegister.cshtml" />
     <Content Include="Views\Order\_CreateEditOrderHeader.cshtml" />
+    <Content Include="Views\Order\ProcessOrder.cshtml" />
+    <Content Include="Views\Order\OfficerList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

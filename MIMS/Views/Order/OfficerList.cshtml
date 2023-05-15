@@ -1,0 +1,86 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.User
+@using Dinota.Domain.MenuOrderOfficer
+@using AlfasiWeb.Models
+@model OfficerMenuOrderModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Room Information Edit</h4>
+    </div>
+</div>
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+
+        <div class="col-md-12 mb-3">
+         
+                <table class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Service No</th>
+                            <th>Rank</th>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (MenuOrderOfficer info in Model.MenuOrderOfficerList)
+                        {
+                            <tr>
+                                <td>@info.UserBase.UserName</td>
+                                <td>
+                                    @if (info.UserBase.Rank != null)
+                                    {
+                                        @info.UserBase.Rank.Name
+                                    }
+                                 
+                                </td>
+                                <td>@info.UserBase.Name</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <div class="text-center">
+                   
+                   <br/><br />
+                </div>
+           
+            @Html.Message()
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Service No</th>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (UserBase info in Model.MenuItemList)
+                    {
+                        <tr>
+                            <td>@info.Name</td>
+                            <td>@info.Description</td>
+
+                            <td><a href="@Url.Content("~/Order/MenuOrder?MenuItemId="+info.UId+"&&OrderId="+Model.MenuOrderId+"")" class="btn btn-primary px-3">Add Menu</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Asset/js/jquery-3.5.1.js"></script>
+<script src="~/Asset/js/jquery.dataTables.min.js"></script>
+<script src="~/Asset/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>

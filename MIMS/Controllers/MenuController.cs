@@ -1156,7 +1156,7 @@ namespace MIMS.Controllers
                 F140Header header = new F140Header();
                 header.MenuOrderId = order.UId;
                 header.EffectiveDate = DateTime.Now;
-                header.UserId = order.UserId;
+                
                 header.Active = true;
                 _f140HeaderService.Add(header);
                 DataContext.SaveChanges();
@@ -1356,7 +1356,7 @@ namespace MIMS.Controllers
                 decimal Amount = 0;
                 UserAccount account = GetCurrentUser();
                 var filter = _f140HeaderService.GetDefaultSpecification();
-                filter = filter.And(p => p.Active == true).And(p => p.UserId == account.Id);
+                filter = filter.And(p => p.Active == true);
                 List<F140Header> F140DataList = _f140HeaderService.GetCollection(filter, p => p.CreationDate).ToList();
                 foreach (F140Header head in F140DataList)
                 {
@@ -1388,7 +1388,7 @@ namespace MIMS.Controllers
             {
                 UserAccount account = GetCurrentUser();
                 var filter = _f140HeaderService.GetDefaultSpecification();
-                filter = filter.And(p=>p.Active==true).And(p=>p.UserId== account.Id);
+                filter = filter.And(p=>p.Active==true);
                 F140DataList = _f140HeaderService.GetCollection(filter,p=>p.CreationDate).ToList();
                 foreach(F140Header head in F140DataList)
                 {

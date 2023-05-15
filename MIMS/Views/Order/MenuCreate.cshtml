@@ -19,8 +19,7 @@
     <div class="py-5 osahan-profile row">
 
         <div class="col-md-12 mb-3">
-            @using (Html.BeginForm("OrderRegister", "Order", null, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
-            {
+         
                 <table class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
@@ -42,10 +41,15 @@
                         }
                     </tbody>
                 </table>
+
                 <div class="text-center">
-                    <button type="submit" class="btn btn-dark btn-block">Process Order</button><br/><br />
+                    @if (Model.MenuOrderHeader.Status == 10)
+                    {
+                        <a href="@Url.Content("~/Order/ProcessOrder/")@Model.MenuOrderId" class="btn btn-dark btn-block">Process Order</a>
+                    }
+                   <br/><br />
                 </div>
-            }
+           
             @Html.Message()
             <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead>
