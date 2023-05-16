@@ -1,0 +1,60 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.User
+@using Dinota.Domain.IngredientInfo
+@using AlfasiWeb.Models
+@model OfficerMenuOrderModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Room Information Edit</h4>
+    </div>
+</div>
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+
+        <div class="col-md-12 mb-3">
+         
+                <table class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Ingriedient Item</th>
+                            <th>Measurement Unit</th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (IngredientInfo info in Model.IngredientInfoList)
+                        {
+                            <tr>
+                                <td>@info.ItemName</td>
+                                <td>@info.MeasurementUnit.Unit</td>
+                                <td><a href="@Url.Content("~/Order/AddToMenuItem?IngredientId="+info.UId+"&&OrderId="+Model.MenuOrderId+"&&MenuItemId="+Model.MenuItemId + "")" class="btn btn-primary px-3">Add Ingridient</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <div class="text-center">
+                   
+                   <br/><br />
+                </div>
+           
+            
+        </div>
+    </div>
+</div>
+<script src="~/Asset/js/jquery-3.5.1.js"></script>
+<script src="~/Asset/js/jquery.dataTables.min.js"></script>
+<script src="~/Asset/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>

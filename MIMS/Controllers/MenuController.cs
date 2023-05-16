@@ -767,6 +767,53 @@ namespace MIMS.Controllers
             
             return View(model);
         }
+        public ActionResult IngriedientList(int id)
+        {
+            List<MenuItemDetail> MenuItemDetailList = new List<MenuItemDetail>();
+
+            var filterC = _menuItemDetailService.GetDefaultSpecification();
+            filterC = filterC.And(p => p.Active == true).And(p => p.MenuItemId == id);
+            MenuItemDetailList = _menuItemDetailService.GetCollection(filterC, p => p.CreationDate).OrderBy(p => p.CreationDate).ToList();
+            MenuItem item = _menuItemService.GetByKey(id);
+            TempData["MenuItem"] = item.Name; 
+            return View(MenuItemDetailList);
+        }
+        public ActionResult IngriedientEdit(int id)
+        {
+            MenuItemDetail detail = new MenuItemDetail();
+            try
+            {
+                BindMeasurementUnitList();
+                detail = _menuItemDetailService.GetByKey(id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(detail);   
+         }
+        [HttpPost]
+        public ActionResult IngriedientEdit(FormCollection Form,int id)
+        {
+            MenuItemDetail detail = new MenuItemDetail();
+            try
+            {
+                BindMeasurementUnitList();
+                detail = _menuItemDetailService.GetByKey(id);
+                TryUpdateModel(detail);
+                DataContext.SaveChanges();
+
+                TempData[ViewDataKeys.Message] = new FailMessage("Successfully Updated");
+                return RedirectToAction("IngriedientList", new { id= detail.MenuItemId });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(detail);
+        }
         public ActionResult OrderMenu(int id)
         {
             MenuClientOrderModel model = new MenuClientOrderModel();

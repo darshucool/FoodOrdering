@@ -275,6 +275,7 @@ namespace MIMS.Controllers
                             MenuItemDetailModel detail = new MenuItemDetailModel();
                             detail.MenuItemId = pack.MenuItemId;
                             detail.MenuItem = pack.MenuItem;
+                            detail.Detail = item;
                             var filter = _menuItemDetailService.GetDefaultSpecification();
                             filter = filter.And(p => p.Active == true).And(p => p.MenuItemId == pack.MenuItem.UId);
                             List<MenuItemDetail> MenuItemDetailSubList = _menuItemDetailService.GetCollection(filter, p => p.CreationDate).ToList();
@@ -287,6 +288,7 @@ namespace MIMS.Controllers
                         MenuItemDetailModel detail = new MenuItemDetailModel();
                         detail.MenuItemId = item.MenuItem.UId;
                         detail.MenuItem = item.MenuItem;
+                        detail.Detail = item;
                         var filter = _menuItemDetailService.GetDefaultSpecification();
                         filter = filter.And(p => p.Active == true).And(p => p.MenuItemId == item.MenuItem.UId);
                         MasterItemList = _menuItemDetailService.GetCollection(filter, p => p.CreationDate).ToList();
@@ -474,6 +476,29 @@ namespace MIMS.Controllers
             }
             return View(model);
         }
+        [AllowAnonymous]
+        public ActionResult AddOfficer(int OfficerId,int OrderId)
+        {
+            try
+            {
+                UserAccount account = _userAccountService.GetByKey(OfficerId);
+                MenuOrderOfficer off = new MenuOrderOfficer();
+                off.UserId = OfficerId;
+                off.Active = true;
+                off.MeanuOrderHeaderUId = OrderId;
+                _menuOrderOfficerService.Add(off);
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Officer is successfully added.");
+
+                return RedirectToAction("OfficerList", new { id=OrderId });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();
+        }
         public ActionResult OfficerList(int id)
         {
             OfficerMenuOrderModel model = new OfficerMenuOrderModel();
@@ -487,14 +512,91 @@ namespace MIMS.Controllers
                 var filterU = _userAccountService.GetDefaultSpecification();
                 filterU = filterU.And(p => p.Active == true).And(p => p.LocationUId == account.LocationUId);
                 model.UserAccountList = _userAccountService.GetCollection(filterU, p => p.CreationDate).ToList();
-
+                model.MenuOrderId = id;
             }
             catch (Exception)
             {
                 
                 throw;
             }
-            return View();
+            return View(model);
+        }
+        [AllowAnonymous]
+        public ActionResult AddIngridient(int MenuItemId,int OrderId)
+        {
+            OfficerMenuOrderModel model = new OfficerMenuOrderModel();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                var filterI = _ingredientInfoService.GetDefaultSpecification();
+                filterI = filterI.And(p=>p.Active==true).And(p=>p.LocationUId==account.LocationUId);
+                model.IngredientInfoList = _ingredientInfoService.GetCollection(filterI, p => p.CreationDate).ToList();
+                model.MenuOrderId = OrderId;
+                model.MenuItemId = MenuItemId;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
+        }
+        [AllowAnonymous]
+        public ActionResult AddToMenuItem(int MenuItemId, int OrderId,int IngredientId)
+        {
+            OfficerMenuOrderModel model = new OfficerMenuOrderModel();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                model.IngredientInfo = _ingredientInfoService.GetByKey(IngredientId);
+                model.MenuOrderId = OrderId;
+                model.MenuItemId = MenuItemId;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult AddToMenuItem(FormCollection Form)
+        {
+            OfficerMenuOrderModel model = new OfficerMenuOrderModel();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                int IngridientId = int.Parse(Form["IngredientInfo.UId"].ToString());
+                int MenuOrderId = int.Parse(Form["MenuOrderId"].ToString());
+                int MenuItemId = int.Parse(Form["MenuItemId"].ToString());
+                decimal menucount = decimal.Parse(Form["menucount"].ToString());
+                IngredientInfo oIngredientInfo = _ingredientInfoService.GetByKey(IngridientId);
+                MenuItem oMenuItem = _menuItemService.GetByKey(MenuItemId);
+                var filter=_menuItemDetailService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p => p.MenuItemId == MenuItemId);
+                List<MenuItemDetail> MenuItemDetailList = _menuItemDetailService.GetCollection(filter, p => p.CreationDate).ToList();
+                MenuItemDetail item = new MenuItemDetail();
+                item.SLAFLocationUId = account.LocationUId;
+                item.PortionQty = MenuItemDetailList[0].PortionQty;
+                item.PortionMeasurementUId = MenuItemDetailList[0].PortionMeasurementUId;
+                item.MenuItemId = MenuItemId;
+                item.IngriedientUId = oIngredientInfo.UId;
+                item.IngriedientMeasurementUId = oIngredientInfo.MeasurementUnitUId;
+                item.Active = true;
+                item.IngriedientQty = menucount;
+                _menuItemDetailService.Add(item);
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Ingriedient is successfully added.");
+
+                return RedirectToAction("ProcessOrder", new { id = MenuOrderId });
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
         }
         public ActionResult OfficerSearch()
         {

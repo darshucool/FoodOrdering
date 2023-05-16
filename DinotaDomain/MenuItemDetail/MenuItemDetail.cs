@@ -19,8 +19,9 @@ namespace Dinota.Domain.MenuItemDetail
         public int SLAFLocationUId { set; get; } 
         public decimal IngriedientQty { set; get; }
         public bool Active { set; get; }
-
+        public virtual MenuItem.MenuItem MenuItem { get; set; }
         public virtual IngredientInfo.IngredientInfo IngredientInfo { get; set; }
         public virtual MeasurementUnit.MeasurementUnit MeasurementUnit { get; set; }
+        public virtual MeasurementUnit.MeasurementUnit MenuItemMeasurementUnit { get; set; }
     }
 }

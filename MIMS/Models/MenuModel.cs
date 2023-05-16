@@ -1,5 +1,6 @@
 ﻿
 using Dinota.Domain.F140Header;
+using Dinota.Domain.IngredientInfo;
 using Dinota.Domain.MenuCategory;
 using Dinota.Domain.MenuItem;
 using Dinota.Domain.MenuItemDetail;
@@ -42,6 +43,7 @@ namespace AlfasiWeb.Models
     public class MenuItemDetailModel {
         public int MenuItemId { get;set;}
         public MenuItem MenuItem { get; set; }
+        public MenuOrderItemDetail Detail { get; set; }
         public List<MenuItemDetail> MenuItemDetailList { get; set; }
     }
 
@@ -56,11 +58,14 @@ namespace AlfasiWeb.Models
     }
     public class OfficerMenuOrderModel {
         public MenuItem MenuItem { get; set; }
+        public IngredientInfo IngredientInfo { get; set; }
         public List<MenuItem> MenuItemList { get; set; }
         public MenuOrderHeader MenuOrderHeader { get; set; }
         public List<MenuOrderItemDetail> MenuOrderItemDetailList { get; set; }
+        public List<IngredientInfo> IngredientInfoList { get; set; }
         public List<MenuOrderOfficer> MenuOrderOfficerList { get; set; }
         public List<UserAccount> UserAccountList { get; set; }
         public int MenuOrderId { get; set; }
+        public int MenuItemId { get; set; }
     }
 }

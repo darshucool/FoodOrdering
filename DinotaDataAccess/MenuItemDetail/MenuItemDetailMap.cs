@@ -16,6 +16,9 @@ namespace Dinota.DataAccces.MenuItemDetail
             Property(refData => refData.UId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             HasRequired(f => f.IngredientInfo).WithMany().HasForeignKey(f => f.IngriedientUId);
             HasRequired(f => f.MeasurementUnit).WithMany().HasForeignKey(f => f.IngriedientMeasurementUId);
+            HasRequired(f => f.MenuItemMeasurementUnit).WithMany().HasForeignKey(f => f.PortionMeasurementUId);
+            HasRequired(f => f.MenuItem).WithMany().HasForeignKey(f => f.MenuItemId);
+            Property(x => x.IngriedientQty).HasPrecision(18, 4);
         }
     }
 }

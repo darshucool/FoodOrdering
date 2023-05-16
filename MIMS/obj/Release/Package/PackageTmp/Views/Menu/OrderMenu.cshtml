@@ -33,55 +33,7 @@
                                     @using (Html.BeginForm("OrderMenu", "Menu", new { id = Model.MenuItem.UId }, FormMethod.Post))
                                     {
                                         <div class="recepie-body">
-                                            @if (Model.MenuOptionList.Count > 0)
-                                            {
-                                                int i = 1;
-                                                <label><b>Select the below option</b></label>
-                                                foreach (MenuOption opt in Model.MenuOptionList)
-                                                {
-                                                    <div class="custom-control custom-radio border-bottom py-2">
-                                                        @if (i == 1)
-                                                        {
-                                                            <input type="radio" id="customRadiof_@i" value="@opt.UId" name="OptionParameter" class="custom-control-input" checked>
-
-                                                        }
-                                                        else
-                                                        {
-                                                            <input type="radio" id="customRadiof_@i" value="@opt.UId" name="OptionParameter" class="custom-control-input">
-
-                                                        }
-                                                        <label class="custom-control-label" for="customRadiof_@i">@opt.Parameter </label>
-                                                    </div>
-                                                    i++;
-                                                }
-
-
-                                            }
-                                            @if (Model.MenuMultiOptionList.Count > 0)
-                                            {
-                                                int j = 1;
-                                                <label><b>Select the below option</b></label>
-                                                foreach (MenuMultiOption opt in Model.MenuMultiOptionList)
-                                                {
-
-                                                    <div class="custom-control custom-radio border-bottom py-2">
-                                                        @if (j == 1)
-                                                        {
-                                                            <input type="radio" id="customRadioff_@j" value="@opt.UId" name="OptionMultiParameter" class="custom-control-input" checked>
-
-                                                        }
-                                                        else
-                                                        {
-                                                            <input type="radio" id="customRadioff_@j" value="@opt.UId" name="OptionMultiParameter" class="custom-control-input">
-
-                                                        }
-                                                        <label class="custom-control-label" for="customRadioff_@j">@opt.Parameter </label>
-                                                    </div>
-                                                    j++;
-                                                }
-
-
-                                            }
+                                           
 
                                             <h6 class="font-weight-bold mt-4">QUANTITY</h6>
                                             <div class=" border-bottom py-2">
