@@ -15,6 +15,7 @@ namespace Dinota.DataAccces.MenuOrderItemDetail
             HasKey(refData => refData.UId);
             Property(refData => refData.UId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             HasRequired(f => f.MenuItem).WithMany().HasForeignKey(f => f.MenuItemUId);
+            HasRequired(f => f.MenuOrderHeader).WithMany().HasForeignKey(f => f.MeanuOrderHeaderUId);
             
 
 

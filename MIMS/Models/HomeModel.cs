@@ -7,6 +7,8 @@ using Dinota.Domain.IngredientInfo;
 using Dinota.Domain.MenuCategory;
 using Dinota.Domain.MenuFavorite;
 using Dinota.Domain.MenuOrder;
+using Dinota.Domain.MenuOrderItemDetail;
+using Dinota.Domain.MenuOrderOfficer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,10 +34,19 @@ namespace AlfasiWeb.Models
         public bool IsPermitted { get; set; }
     }
     public class MenuOrderModel {
-        public List<MenuOrder> PendingMenuOrderList { get; set; }
-        public List<MenuOrder> CompleteMenuOrderList { get; set; }
-        public List<MenuOrder> CancelledMenuOrderList { get; set; }
-        public List<MenuOrder> DeliveredMenuOrderList { get; set; }
+        public List<MenuOrderItemDetail> PendingMenuOrderList { get; set; }
+        public List<MenuOrderItemDetail> CompleteMenuOrderList { get; set; }
+        public List<MenuOrderItemDetail> CancelledMenuOrderList { get; set; }
+        public List<MenuOrderItemDetail> DeliveredMenuOrderList { get; set; }
+
+        public List<MenuOrderViewModel> PendingViewMenuOrderList { get; set; }
+        public List<MenuOrderViewModel> CompleteViewMenuOrderList { get; set; }
+        public List<MenuOrderViewModel> CancelledViewMenuOrderList { get; set; }
+        public List<MenuOrderViewModel> DeliveredViewMenuOrderList { get; set; }
+    }
+    public class MenuOrderViewModel {
+        public MenuOrderItemDetail PendingOrder { get; set; }
+        public List<MenuOrderOfficer> MenuOrderOfficerList { get; set; }
     }
     public class EventParticipateModel
     {

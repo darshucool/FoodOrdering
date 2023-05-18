@@ -17,7 +17,7 @@ namespace Dinota.Domain.MenuOrderItemDetail
         public int MeasurementUnit { set; get; }
         public string Remark { set; get; }
         public bool Active { set; get; }
-
+        public virtual MenuOrderHeader.MenuOrderHeader MenuOrderHeader { get; set; }
         public virtual MenuItem.MenuItem MenuItem { get; set; }
     }
 }

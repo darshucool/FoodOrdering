@@ -142,7 +142,7 @@
                 <li><a href="@Url.Content("~/Item/Index")"><i class="feather-list mr-2"></i>Stock Item List</a></li>
                 <li><a href="@Url.Content("~/ItemBOC/Index")"><i class="feather-list mr-2"></i>Item BOC</a></li>
                 <li><a href="@Url.Content("~/Order/OrderList/")"><i class="feather-list mr-2"></i>Create Order</a></li>
-
+                <li><a href="@Url.Content("~/Report/DailySalesSummary/")"><i class="feather-list mr-2"></i>Daily Sales Summary</a></li>
                 <li><a href="@Url.Content("~/Room/RoomInfoRegister")"><i class="feather-list mr-2"></i>Officer Room Allocation</a></li>
                 <li><a href="@Url.Content("~/Room/Index")"><i class="feather-list mr-2"></i>Room Info</a></li>
                 <li><a href="@Url.Content("~/News/Index")"><i class="feather-list mr-2"></i>News List</a></li>
@@ -304,77 +304,7 @@
 
     <script>
 
-        function AssignValue(value1,value2) {
-            $("#menuitemid").val(value1);
-            $("#menutypeid").val(value2);
-
-            if (value2 == 1) {
-                document.getElementById("customRadio13").style.display= "none";
-                document.getElementById("customRadio12").style.display= "none";
-                document.getElementById("customRadio11").style.display= "none";
-                document.getElementById("customRadio10").style.display= "none";
-                document.getElementById("customRadio9").style.display= "none";
-                document.getElementById("customRadio8").style.display= "none";
-                document.getElementById("customRadio7").style.display= "none";
-                document.getElementById("customRadio1").style.display= "block";
-                document.getElementById("customRadio2").style.display= "block";
-                document.getElementById("customRadio3").style.display= "block";
-                document.getElementById("customRadio4").style.display= "block";
-                document.getElementById("customRadio5").style.display= "block";
-                document.getElementById("customRadio6").style.display= "block";
-            } else if (value2 == 2) {
-                document.getElementById("customRadio1").style.display= "none";
-                document.getElementById("customRadio2").style.display= "none";
-                document.getElementById("customRadio3").style.display= "none";
-                document.getElementById("customRadio4").style.display= "none";
-                document.getElementById("customRadio5").style.display= "none";
-                document.getElementById("customRadio6").style.display= "none";
-                document.getElementById("customRadio13").style.display= "block";
-                document.getElementById("customRadio12").style.display= "block";
-                document.getElementById("customRadio11").style.display= "block";
-                document.getElementById("customRadio10").style.display= "block";
-                document.getElementById("customRadio9").style.display = "block";
-                document.getElementById("customRadio8").style.display = "block";
-                document.getElementById("customRadio7").style.display = "block";
-            }
-            else if (value2 == 3) {
-                document.getElementById("customRadio1").style.display = "none";
-                document.getElementById("customRadio2").style.display = "none";
-                document.getElementById("customRadio3").style.display = "none";
-                document.getElementById("customRadio4").style.display = "none";
-                document.getElementById("customRadio5").style.display = "none";
-                document.getElementById("customRadio6").style.display = "none";
-                document.getElementById("customRadio12").style.display= "none";
-                document.getElementById("customRadio11").style.display= "none";
-                document.getElementById("customRadio10").style.display= "none";
-                document.getElementById("customRadio9").style.display = "none";
-                document.getElementById("customRadio8").style.display = "none";
-                document.getElementById("customRadio7").style.display = "none";
-                document.getElementById("customRadio13").style.display= "block";
-            }
-            else if (value2 == 4) {
-                document.getElementById("customRadio1").style.display = "block";
-                document.getElementById("customRadio2").style.display = "block";
-                document.getElementById("customRadio3").style.display = "none";
-                document.getElementById("customRadio4").style.display = "none";
-                document.getElementById("customRadio5").style.display = "none";
-            }
-            else if (value2 == 5) {
-                document.getElementById("customRadio1").style.display = "none";
-                document.getElementById("customRadio2").style.display = "none";
-                document.getElementById("customRadio3").style.display = "none";
-                document.getElementById("customRadio4").style.display = "none";
-                document.getElementById("customRadio5").style.display = "none";
-            }
-            else if (value2 == 6) {
-                document.getElementById("customRadio1").style.display = "none";
-                document.getElementById("customRadio2").style.display = "none";
-                document.getElementById("customRadio3").style.display = "block";
-                document.getElementById("customRadio4").style.display = "block";
-                document.getElementById("customRadio5").style.display = "block";
-            }
-
-        }
+        
         function AssignOrderValue(value1) {
             $("#menuorderid").val(value1);
         }

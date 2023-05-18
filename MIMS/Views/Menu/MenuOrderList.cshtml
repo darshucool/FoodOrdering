@@ -2,7 +2,7 @@
 @using MIMS.Helpers
 @using Dinota.Security
 @using Dinota.Domain.MenuCategory
-@using Dinota.Domain.MenuOrder
+@using Dinota.Domain.MenuOrderItemDetail
 @using AlfasiWeb.Models
 @model MenuOrderModel
 @{
@@ -66,7 +66,7 @@
                             <tbody>
 
 
-                                @foreach (MenuOrder ord in Model.CompleteMenuOrderList)
+                                @foreach (MenuOrderItemDetail ord in Model.CompleteMenuOrderList)
                                 {
                                 <tr>
                                     @using (Html.BeginForm("MenuOrderDelivery", "Menu", new { id = ord.UId }, FormMethod.Post))

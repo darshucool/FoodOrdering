@@ -84,5 +84,14 @@ namespace MIMS.Controllers
         { 
             return View();
         }
+        public ActionResult DailySalesSummary()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult DailySalesSummary(FormCollection Form)
+        {
+            return View();
+        }
     }
 }
