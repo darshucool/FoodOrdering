@@ -19,6 +19,7 @@ using System.Drawing;
 using AlfasiWeb.Models;
 using Dinota.Domain.PageObject;
 using Dinota.Domain.UserPermission;
+using AlfasiWeb;
 
 namespace MIMS.Helpers
 {
@@ -542,7 +543,29 @@ namespace MIMS.Helpers
 
             return collection;
         }
-
+        public  static decimal GetQtyTotal(this HtmlHelper helper, decimal Qty, decimal DemandQty, int QtyMeasureUnit,int DemandMeasureUnit)
+        {
+            decimal finalQty = 0;
+            if (DemandMeasureUnit == (int)DataStruct.MeasurementUnit.Pax)
+            {
+                finalQty = Qty * DemandQty;
+            }
+            //else if (QtyMeasureUnit == (int)DataStruct.MeasurementUnit.ml)
+            //{
+            //    if (DemandMeasureUnit == (int)DataStruct.MeasurementUnit.ml)
+            //    {
+            //        decimal countqty = DemandQty / Qty;
+            //        finalQty = countqty * Qty;
+            //    }
+            //    else if (DemandMeasureUnit == (int)DataStruct.MeasurementUnit.L)
+            //    {
+            //        decimal countqty = DemandQty / (Qty*decimal.Parse("1000"));
+            //        finalQty = countqty * Qty;
+            //    }
+            //}
+           return  finalQty;
+           
+        }
 
         //Set Projects and Dynamic levels Home screen Images with styles
         public static MvcHtmlString ImageActionLink(this HtmlHelper helper, string tableName, byte[] image,
@@ -658,7 +681,7 @@ namespace MIMS.Helpers
 
             return new MvcHtmlString(link);
         }
-
+        
         //Action Link With Icon
         public static MvcHtmlString IconEditActionLink(this HtmlHelper helper, string actionName, string controllerName,
                                                        object routeValues)

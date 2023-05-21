@@ -43,5 +43,19 @@ namespace AlfasiWeb
             Bastam=16,
             Other=17
         };
+        public enum MeasurementUnit
+        {
+            Each = 1,
+            Gram = 2,
+            KG = 3,
+            ml = 4,
+            L = 5,
+            Pkt = 6,
+            Bottle = 7,
+            Tin = 8,
+            Cup = 9,
+            Scoop = 10,
+            Pax = 11
+        };
     }
 }

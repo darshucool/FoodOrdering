@@ -812,10 +812,10 @@ namespace MIMS.Controllers
         {
             MenuOrderModel model = new MenuOrderModel();
             
-            var filterC = _menuOrderService.GetDefaultSpecification();
-            filterC = filterC.And(p => p.Active == true).And(p => p.Status == 20).And(p=>p.SLAFLocationUId==1);
-            List<MenuOrder> CompMenuItemList = _menuOrderService.GetCollection(filterC, p => p.CreationDate).OrderBy(p => p.OrderDate).ToList();
-            model.CompleteMenuOrderList = CompMenuItemList;
+            //var filterC = _menuOrderService.GetDefaultSpecification();
+            //filterC = filterC.And(p => p.Active == true).And(p => p.Status == 20).And(p=>p.SLAFLocationUId==1);
+            //List<MenuOrder> CompMenuItemList = _menuOrderService.GetCollection(filterC, p => p.CreationDate).OrderBy(p => p.OrderDate).ToList();
+            //model.CompleteMenuOrderList = CompMenuItemList;
 
             
             return View(model);

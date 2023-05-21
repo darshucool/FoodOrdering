@@ -335,6 +335,7 @@
     <Content Include="Asset\img\pro2.jpg" />
     <Content Include="Asset\img\pro3.jpg" />
     <Content Include="Asset\img\pro4.jpg" />
+    <Content Include="Asset\img\remove.png" />
     <Content Include="Asset\img\reviewer1.png" />
     <Content Include="Asset\img\reviewer2.png" />
     <Content Include="Asset\img\reviewer3.png" />

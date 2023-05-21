@@ -45,8 +45,18 @@ namespace AlfasiWeb.Models
         public MenuItem MenuItem { get; set; }
         public MenuOrderItemDetail Detail { get; set; }
         public List<MenuItemDetail> MenuItemDetailList { get; set; }
+        public List<MenuItemDetailListModel> MenuItemDetailListModelList { get; set; }
     }
-
+    public class MenuItemDetailListModel {
+        public MenuItemDetail MenuItemDetail { get; set; }
+        public decimal CurrentStockQty { get; set; }
+        public IngredientInfo IngredientInfo { get; set; }
+    }
+    public class MenuOrderHeaderModel { 
+        public MenuOrderHeader MenuOrderHeader { get; set; }
+        public F140Header F140Header { get; set; }
+        public decimal TotalAmount { get; set; }
+    }
     public class F140Model
     {
         public F140Header F140Header { get; set; }

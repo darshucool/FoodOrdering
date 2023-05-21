@@ -30,22 +30,24 @@
                             <table width="100%" cellpadding="10"cellspacing="10" border="1">
                                 @foreach (MenuItemDetailModel detail in Model.MenuItemList)
                                 {
+                                    decimal AskQty = detail.Detail.Qty;
                                     <tr>
                                         <td colspan="2"><b>@detail.MenuItem.Name</b></td>
                                         <td><a href="@Url.Content("~/Order/AddIngridient?MenuItemId=" + detail.MenuItem.UId + "&&OrderId=" + Model.MenuOrderId + "")" class="btn btn-primary">Add more Ingridient</a></td>
+                                        <td></td>
                                     </tr>
-                                    @{
-                                        decimal AskQty = detail.Detail.Qty;
-                                    }
-                                    foreach (MenuItemDetail d in detail.MenuItemDetailList)
-                                    {
+                                   
+                                        foreach (MenuItemDetail d in detail.MenuItemDetailList)
+                                        {
+                                        
+                                            decimal DemandQty = Html.GetQtyTotal(d.IngriedientQty,AskQty,d.IngriedientMeasurementUId,d.PortionMeasurementUId);
                                         <tr>
                                             <td><input type="hidden" name="menuing_@d.IngriedientUId">@d.IngredientInfo.ItemName</td>
-                                           @{ 
-                                               decimal DemandQty = d.IngriedientQty * AskQty;
-                                           }
-                                            <td><input type="text" name="menuingqty_@d.UId" value="@DemandQty"></td>
+                                         
+                                            <td><input type="text" name="menuingqty_@d.IngriedientUId@d.UId" value="@DemandQty"></td>
                                             <td><input type="text" readonly name="menuingunit_@d.IngriedientUId" value="@d.MeasurementUnit.Unit"></td>
+                                            <td><a href="@Url.Content("~/Order/RemoveIngridient?ItemDetailId="+d.UId+"&&MenuOrderId="+Model.MenuOrderId+"")"><img src="~/Asset/img/remove.png" width="20" /></a></td>
+                                           
                                         </tr>
                                     }
                                 }

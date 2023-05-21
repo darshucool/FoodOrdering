@@ -120,19 +120,37 @@ namespace MIMS.Controllers
         }
         public ActionResult OrderList()
         {
-            List<MenuOrderHeader> MenuOrderHeaderList = new List<MenuOrderHeader>();
+            List<MenuOrderHeaderModel> MenuOrderHeaderModelList = new List<MenuOrderHeaderModel>();
             try
             {
                 var filter = _menuOrderHeaderService.GetDefaultSpecification();
                 filter = filter.And(p => p.Active == true);
-                MenuOrderHeaderList = _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).ToList();
+                List<MenuOrderHeader> MenuOrderHeaderList= _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).ToList();
+                foreach (MenuOrderHeader order in MenuOrderHeaderList)
+                {
+                    MenuOrderHeaderModel mod = new MenuOrderHeaderModel();
+                    mod.MenuOrderHeader = order;
+                    if (order.Status == 20)
+                    {
+                        var filter140 = _f140HeaderService.GetDefaultSpecification();
+                        filter140 = filter140.And(p => p.Active == true).And(p => p.MenuOrderId == order.UId);
+                        F140Header oF140Header = _f140HeaderService.GetBy(filter140);
+                        mod.F140Header = oF140Header;
+                        var filterD = _f140DataService.GetDefaultSpecification();
+                        filterD = filterD.And(p => p.Active == true).And(p => p.F140HeaderUId == oF140Header.UId);
+                        List<F140Data> F140DataList = _f140DataService.GetCollection(filterD, p=>p.CreationDate).ToList();
+                        mod.TotalAmount = F140DataList.Sum(p=>p.Amount);
+                    }
+                    MenuOrderHeaderModelList.Add(mod);
+                }
+               
             }
             catch (Exception)
             {
 
                 throw;
             }
-            return View(MenuOrderHeaderList);
+            return View(MenuOrderHeaderModelList);
         }
         public ActionResult OrderRegister()
         {
@@ -314,7 +332,13 @@ namespace MIMS.Controllers
             MenuBOCModel model = new MenuBOCModel();
             try
             {
+                F140Header header = new F140Header();
+                header.MenuOrderId = id;
+                header.EffectiveDate = DateTime.Now;
 
+                header.Active = true;
+                _f140HeaderService.Add(header);
+                DataContext.SaveChanges();
                 List<MenuItemDetail> MasterItemList = new List<MenuItemDetail>();
                 List<MenuItemDetailModel> MenuItemIngridientList = new List<MenuItemDetailModel>();
                 var filterMD = _menuOrderItemDetailService.GetDefaultSpecification();
@@ -322,13 +346,7 @@ namespace MIMS.Controllers
                 List<MenuOrderItemDetail> MenuOrderMenuList = _menuOrderItemDetailService.GetCollection(filterMD, p => p.CreationDate).ToList();
                 foreach (MenuOrderItemDetail item in MenuOrderMenuList)
                 {
-                    F140Header header = new F140Header();
-                    header.MenuOrderId = id;
-                    header.EffectiveDate = DateTime.Now;
-                   
-                    header.Active = true;
-                    _f140HeaderService.Add(header);
-                    DataContext.SaveChanges();
+                    
                     model.MenuOrderId = id;
                     if (item.MenuItem.IsCombine)
                     {
@@ -352,9 +370,10 @@ namespace MIMS.Controllers
                                 data.Amount = 0;
                                 data.IngridientUId = it.IngriedientUId;
                                 decimal AssignedQty = 0;
-                                if (Form["menuingqty_" + it.IngriedientUId] != null)
+                                if (Form["menuingqty_" + it.IngriedientUId + "" + it.UId] != null)
                                 {
-                                    AssignedQty = decimal.Parse(Form["menuingqty_" + it.IngriedientUId].ToString());
+                                    string Amt = Form["menuingqty_" + it.IngriedientUId+""+ it.UId].ToString();
+                                    AssignedQty = decimal.Parse(Form["menuingqty_" + it.IngriedientUId + "" + it.UId].ToString());
                                     data.Qty = AssignedQty;
                                 }
                                 else
@@ -382,7 +401,7 @@ namespace MIMS.Controllers
                                         DataContext.SaveChanges();
 
                                         IngredientBOC UpdateBOC = _ingredientBOCService.GetByKey(FEntry.UId);
-                                        UpdateBOC.Qty = FEntry.Qty;
+                                        UpdateBOC.Qty = tran.RemainingStock;
                                         DataContext.SaveChanges();
 
                                         data.Amount = AssignedQty * FEntry.Price;
@@ -415,9 +434,10 @@ namespace MIMS.Controllers
                             data.Amount = 0;
                             data.IngridientUId = it.IngriedientUId;
                             decimal AssignedQty = 0;
-                            if (Form["menuingqty_" + it.IngriedientUId] != null)
+                            if (Form["menuingqty_" + it.IngriedientUId + "" + it.UId] != null)
                             {
-                                AssignedQty = decimal.Parse(Form["menuingqty_" + it.IngriedientUId].ToString());
+                                string Amt = Form["menuingqty_" + it.IngriedientUId + "" + it.UId].ToString();
+                                AssignedQty = decimal.Parse(Amt);
                                 data.Qty = AssignedQty;
                             }
                             else
@@ -475,6 +495,24 @@ namespace MIMS.Controllers
                 return RedirectToAction("Login", "Account");
             }
             return View(model);
+        } 
+        [AllowAnonymous]
+        public ActionResult RemoveIngridient(int ItemDetailId,int MenuOrderId)
+        {
+            try
+            {
+                MenuItemDetail detail = _menuItemDetailService.GetByKey(ItemDetailId);
+                detail.Active = false;
+                DataContext.SaveChanges();
+
+                return RedirectToAction("ProcessOrder", new { id = MenuOrderId });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();    
         }
         [AllowAnonymous]
         public ActionResult AddOfficer(int OfficerId,int OrderId)
