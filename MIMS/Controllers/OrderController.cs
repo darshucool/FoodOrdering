@@ -297,6 +297,18 @@ namespace MIMS.Controllers
                             var filter = _menuItemDetailService.GetDefaultSpecification();
                             filter = filter.And(p => p.Active == true).And(p => p.MenuItemId == pack.MenuItem.UId);
                             List<MenuItemDetail> MenuItemDetailSubList = _menuItemDetailService.GetCollection(filter, p => p.CreationDate).ToList();
+                            List<MenuItemDetailListModel> MenuItemDetailListModelList = new List<MenuItemDetailListModel>();
+                            foreach (MenuItemDetail det in MenuItemDetailSubList)
+                            {
+                                MenuItemDetailListModel itemdetail = new MenuItemDetailListModel();
+                                var filterBOC = _ingredientBOCService.GetDefaultSpecification();
+                                filterBOC = filterBOC.And(p => p.Active == true).And(p => p.IngredientUId == det.IngriedientUId);
+                                decimal TotalStock = _ingredientBOCService.GetCollection(filterBOC,p=>p.CreationDate).Sum(p=>p.Qty);
+                                itemdetail.CurrentStockQty = TotalStock;
+                                itemdetail.MenuItemDetail = det;
+                                MenuItemDetailListModelList.Add(itemdetail);
+                            }
+                            detail.MenuItemDetailListModelList = MenuItemDetailListModelList;
                             detail.MenuItemDetailList = MenuItemDetailSubList;
                             MenuItemIngridientList.Add(detail);
                         }
@@ -310,6 +322,18 @@ namespace MIMS.Controllers
                         var filter = _menuItemDetailService.GetDefaultSpecification();
                         filter = filter.And(p => p.Active == true).And(p => p.MenuItemId == item.MenuItem.UId);
                         MasterItemList = _menuItemDetailService.GetCollection(filter, p => p.CreationDate).ToList();
+                        List<MenuItemDetailListModel> MenuItemDetailListModelList = new List<MenuItemDetailListModel>();
+                        foreach (MenuItemDetail det in MasterItemList)
+                        {
+                            MenuItemDetailListModel itemdetail = new MenuItemDetailListModel();
+                            var filterBOC = _ingredientBOCService.GetDefaultSpecification();
+                            filterBOC = filterBOC.And(p => p.Active == true).And(p => p.IngredientUId == det.IngriedientUId);
+                            decimal TotalStock = _ingredientBOCService.GetCollection(filterBOC, p => p.CreationDate).Sum(p => p.Qty);
+                            itemdetail.CurrentStockQty = TotalStock;
+                            itemdetail.MenuItemDetail = det;
+                            MenuItemDetailListModelList.Add(itemdetail);
+                        }
+                        detail.MenuItemDetailListModelList = MenuItemDetailListModelList;
                         detail.MenuItemDetailList = MasterItemList;
                         MenuItemIngridientList.Add(detail);
                     }
