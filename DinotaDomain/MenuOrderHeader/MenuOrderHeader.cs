@@ -19,6 +19,8 @@ namespace Dinota.Domain.MenuOrderHeader
         public string Location { set; get; }
         public bool Active { set; get; }
         public int Status { get; set; }
-
+        public int OfficerCount { get; set; }
+        public int MenuHeaderType { get; set; }
+        public decimal F140TotalAmt { get; set; }
     }
 }

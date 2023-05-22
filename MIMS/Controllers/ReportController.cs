@@ -16,6 +16,19 @@ using Dinota.Domain.UserType;
 using Dinota.Domain.District;
 using Dinota.Domain.SLAFLocation;
 using Dinota.Domain.FuelType;
+using Dinota.Domain.IngredientInfo;
+using Dinota.Domain.MeasurementUnit;
+using Dinota.Domain.IngredientBOC;
+using Dinota.Domain.BOCTransaction;
+using Dinota.Domain.MenuItem;
+using Dinota.Domain.MenuOrderHeader;
+using Dinota.Domain.MenuOrderItemDetail;
+using Dinota.Domain.MenuOrderOfficer;
+using Dinota.Domain.MenuPackage;
+using Dinota.Domain.F140Header;
+using Dinota.Domain.F140Data;
+using Dinota.Domain.MenuItemDetail;
+using AlfasiWeb;
 
 namespace MIMS.Controllers
 {
@@ -23,13 +36,26 @@ namespace MIMS.Controllers
    // [ExternalUserRedirectAttribute]
     public class ReportController : BaseController
     {
+        private readonly UserAccountService _userAccountService;
         private readonly DivisionService _divisionService;
         private readonly UserTypeService _userTypeService;
         private readonly DistrictService _districtService;
         private readonly SLAFLocationService _SLAFLocationService;
         private readonly FuelTypeService _fuelTypeService;
+        private readonly IngredientInfoService _ingredientInfoService;
+        private readonly MeasurementUnitService _measurementUnitService;
+        private readonly IngredientBOCService _ingredientBOCService;
+        private readonly BOCTransactionService _bOCTransactionService;
+        private readonly MenuItemService _menuItemService;
+        private readonly MenuOrderHeaderService _menuOrderHeaderService;
+        private readonly MenuOrderItemDetailService _menuOrderItemDetailService;
+        private readonly MenuOrderOfficerService _menuOrderOfficerService;
+        private readonly MenuPackageService _menuPackageService;
+        private readonly MenuItemDetailService _menuItemDetailService;
+        private readonly F140HeaderService _f140HeaderService;
+        private readonly F140DataService _f140DataService;
 
-        public ReportController(IDomainContext dataContext, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
+        public ReportController(IDomainContext dataContext, F140DataService f140DataService, F140HeaderService f140HeaderService, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuOrderOfficerService menuOrderOfficerService, MenuOrderItemDetailService menuOrderItemDetailService, MenuOrderHeaderService menuOrderHeaderService, MenuItemService menuItemService, BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, MeasurementUnitService measurementUnitService, IngredientInfoService ingredientInfoService, UserAccountService userAccountService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
             : base(dataContext)
         {
             _divisionService = divisionService;
@@ -37,8 +63,21 @@ namespace MIMS.Controllers
             _districtService = districtService;
             _fuelTypeService = fuelTypeService;
             _SLAFLocationService = SLAFLocationService;
+            _userAccountService = userAccountService;
+            _ingredientInfoService = ingredientInfoService;
+            _measurementUnitService = measurementUnitService;
+            _ingredientBOCService = ingredientBOCService;
+            _bOCTransactionService = bOCTransactionService;
+            _menuItemService = menuItemService;
+            _menuOrderHeaderService = menuOrderHeaderService;
+            _menuOrderItemDetailService = menuOrderItemDetailService;
+            _menuOrderOfficerService = menuOrderOfficerService;
+            _menuPackageService = menuPackageService;
+            _menuItemDetailService = menuItemDetailService;
+            _f140HeaderService = f140HeaderService;
+            _f140DataService = f140DataService;
         }
-       // [AuthorizeUserAccessLevel()]
+        // [AuthorizeUserAccessLevel()]
         public ActionResult SLAFLocationSummary()
         {
             ReportModel model = new ReportModel();
@@ -86,12 +125,61 @@ namespace MIMS.Controllers
         }
         public ActionResult DailySalesSummary()
         {
-            return View();
+            DailySaleReportModel model = new DailySaleReportModel();
+            model.IsSet = false;
+            return View(model);
         }
         [HttpPost]
         public ActionResult DailySalesSummary(FormCollection Form)
         {
-            return View();
+            DailySaleReportModel model = new DailySaleReportModel();
+            try
+            {
+                TryUpdateModel(model);
+                model.IsSet = true;
+                DateTime FromDate = model.EffectiveDate.Date;
+                DateTime ToDate = model.EffectiveDate.Date.AddDays(1).AddTicks(-1);
+                //Breakafast
+                var filterDutyB = _menuOrderItemDetailService.GetDefaultSpecification();
+                filterDutyB = filterDutyB.And(p => p.Active == true).And(p=>p.MenuOrderHeader.EffectiveDate>= FromDate).And(p=>p.MenuOrderHeader.EffectiveDate<= ToDate);
+                filterDutyB = filterDutyB.And(p=>p.MenuItemUId== (int)DataStruct.MainCourse.Rma_Breakfast);
+                List<MenuOrderItemDetail> BreakfastMenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterDutyB,p=>p.CreationDate).ToList();
+                if (BreakfastMenuOrderItemDetailList.Count > 0)
+                {
+                    model.DutyBreakfastCount = BreakfastMenuOrderItemDetailList.First().MenuOrderHeader.OfficerCount;
+                }
+                model.DutyBreakfastReceivableAmt = BreakfastMenuOrderItemDetailList.Sum(p=>p.MenuOrderHeader.F140TotalAmt);
+                model.DutyBreakfastExpenditureAmt = model.DutyBreakfastReceivableAmt;
+                //Lunch
+                var filterDutyL = _menuOrderItemDetailService.GetDefaultSpecification();
+                filterDutyL = filterDutyL.And(p => p.Active == true).And(p => p.MenuOrderHeader.EffectiveDate >= FromDate).And(p => p.MenuOrderHeader.EffectiveDate <= ToDate);
+                filterDutyL = filterDutyL.And(p => p.MenuItemUId == (int)DataStruct.MainCourse.Rma_Lunch);
+                List<MenuOrderItemDetail> LunchMenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterDutyL, p => p.CreationDate).ToList();
+                if (LunchMenuOrderItemDetailList.Count > 0)
+                {
+                    model.DutyLunchCount = LunchMenuOrderItemDetailList.First().MenuOrderHeader.OfficerCount;
+                }
+                model.DutyLunchReceivableAmt = LunchMenuOrderItemDetailList.Sum(p => p.MenuOrderHeader.F140TotalAmt);
+                model.DutyLunchExpenditureAmt = model.DutyLunchReceivableAmt;
+                //Dinner
+                var filterDutyD = _menuOrderItemDetailService.GetDefaultSpecification();
+                filterDutyD = filterDutyD.And(p => p.Active == true).And(p => p.MenuOrderHeader.EffectiveDate >= FromDate).And(p => p.MenuOrderHeader.EffectiveDate <= ToDate);
+                filterDutyD = filterDutyD.And(p => p.MenuItemUId == (int)DataStruct.MainCourse.Rma_Dinner);
+                List<MenuOrderItemDetail> DinnerMenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterDutyD, p => p.CreationDate).ToList();
+                if (DinnerMenuOrderItemDetailList.Count > 0)
+                {
+                    model.DutyDinnerCount = DinnerMenuOrderItemDetailList.First().MenuOrderHeader.OfficerCount;
+                }
+                model.DutyDinnerReceivableAmt = DinnerMenuOrderItemDetailList.Sum(p => p.MenuOrderHeader.F140TotalAmt);
+                model.DutyDinnerExpenditureAmt = model.DutyDinnerReceivableAmt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
         }
+        
     }
 }

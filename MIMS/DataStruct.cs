@@ -17,7 +17,7 @@ namespace AlfasiWeb
         public enum ServiceStatus
         {
             KIA = 0,
-            WIA=1
+            WIA = 1
         };
         public enum InstallementRole
         {
@@ -26,22 +26,22 @@ namespace AlfasiWeb
         };
         public enum DisabilityItemMaster
         {
-            Artificial_Leg=1,
+            Artificial_Leg = 1,
             Artificial_Hand = 2,
             Wheel_Chair = 3,
             Crutches = 4,
-            Clutches=5,
-            White_Stick=6,
-            Surgery_Shoe=7,
-            Gel_Sock=8,
-            Commod_Seat=9,
-            Roho_Cusion=10,
-            Eye_Spec=11,
-            HearingAid=12,
-            AirMattress=13,
-            SpecialBike=15,
-            Bastam=16,
-            Other=17
+            Clutches = 5,
+            White_Stick = 6,
+            Surgery_Shoe = 7,
+            Gel_Sock = 8,
+            Commod_Seat = 9,
+            Roho_Cusion = 10,
+            Eye_Spec = 11,
+            HearingAid = 12,
+            AirMattress = 13,
+            SpecialBike = 15,
+            Bastam = 16,
+            Other = 17
         };
         public enum MeasurementUnit
         {
@@ -56,6 +56,17 @@ namespace AlfasiWeb
             Cup = 9,
             Scoop = 10,
             Pax = 11
+        };
+        public enum MenuHeaderType
+        {
+            Duty = 1,
+            Casual = 2
+        };
+        public enum MainCourse
+        {
+            Rma_Breakfast = 30,
+            Rma_Lunch = 31,
+            Rma_Dinner = 32
         };
     }
 }

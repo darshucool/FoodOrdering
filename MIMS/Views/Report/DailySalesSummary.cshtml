@@ -1,4 +1,11 @@
-﻿@{
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.MenuCategory
+@using Dinota.Domain.Event
+@using AlfasiWeb.Models
+@model DailySaleReportModel
+@{
     ViewBag.Title = "Daily Sales Summary";
 }
 
@@ -7,6 +14,20 @@
         border: 1px solid black;
     }
 </style>
+@using (Html.BeginForm("DailySalesSummary", "Report", null, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        <label for="exampleInputName1">Event Name</label>
+        @Html.TextBoxFor(m => m.EffectiveDate, new { @placeholder = "Enter Date", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @type = "date" })
+        @Html.ValidationMessageFor(m => m.EffectiveDate, "")
+
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </div>
+}
+@if (Model.IsSet)
+{
 <div class="card-body p-0" style="padding: 20px !important;">
     <div class="row">
         <table class="table table-responsive" border="1">
@@ -36,56 +57,56 @@
             </tr>
             <tr>
                 <td>Breakfast</td>
+                <td>@Model.DutyBreakfastCount</td>
+                <td>@Model.DutyBreakfastReceivableAmt</td>
+                <td>@Model.DutyBreakfastExpenditureAmt</td>
+                <td>@Model.CasualBreakfastCount</td>
+                <td>@Model.CasualBreakfastCredit</td>
+                <td>@Model.CasualBreakfastCash</td>
+                <td>@Model.CasualBreakfastExpenditure</td>
                 <td></td>
                 <td></td>
                 <td></td>
+                <td>@Model.BreakfastGasCharges</td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>@Model.TotalIncomeBreakfast</td>
+                <td>@Model.TotalExpenditureBreakfast</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Lunch</td>
+                <td>@Model.DutyLunchCount</td>
+                <td>@Model.DutyLunchReceivableAmt</td>
+                <td>@Model.DutyLunchExpenditureAmt</td>
+                <td>@Model.CasualLunchCount</td>
+                <td>@Model.CasualLunchCredit</td>
+                <td>@Model.CasualLunchCash</td>
+                <td>@Model.CasualLunchExpenditure</td>
                 <td></td>
                 <td></td>
                 <td></td>
+                <td>@Model.LunchGasCharges</td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>@Model.TotalIncomeLunch</td>
+                <td>@Model.TotalExpenditureLunch</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Dinner</td>
+                <td>@Model.DutyDinnerCount</td>
+                <td>@Model.DutyDinnerReceivableAmt</td>
+                <td>@Model.DutyDinnerExpenditureAmt</td>
+                <td>@Model.CasualDinnerCount</td>
+                <td>@Model.CasualDinnerCredit</td>
+                <td>@Model.CasualDinnerCash</td>
+                <td>@Model.CasualDinnerExpenditure</td>
                 <td></td>
                 <td></td>
                 <td></td>
+                <td>@Model.DinnerGasCharges</td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>@Model.TotalIncomeLunch</td>
+                <td>@Model.TotalExpenditureLunch</td>
                 <td></td>
             </tr>
             <tr>
@@ -97,33 +118,34 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>@Model.ExtraMessingCreditAmount</td>
+                <td>@Model.ExtraMessingCashAmount</td>
+                <td>@Model.ExtraMessingExpenditureAmount</td>
+                <td>@Model.ExtraMessingGasCharges</td>
+                <td>@Model.Commodities</td>
+                <td>@Model.TotalIncomeExtramessing</td>
+                <td>@Model.TotalExpenditureExtramessing</td>
                 <td></td>
             </tr>
             <tr style="font-weight:bold">
                 <td>TOTAL</td>
                 <td></td>
+                <td>@Model.TotalDutyReceivableAmount</td>
+                <td>@Model.TotalDutyExpenditureAmount</td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>@Model.TotalExtraMessingCredit</td>
+                <td>@Model.TotalExtraMessingCash</td>
+                <td>@Model.TotalExtraMessingExpenditure</td>
+                <td>@Model.TotalGasAmount</td>
+                <td>@Model.TotalCommodotiesAmount</td>
+                <td>@Model.TotalIncomeAmount</td>
+                <td>@Model.TotalExpenditureAmount</td>
                 <td></td>
             </tr>
         </table>
     </div>
 </div>
+}

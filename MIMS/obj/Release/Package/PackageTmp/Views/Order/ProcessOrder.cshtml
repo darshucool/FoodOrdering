@@ -8,6 +8,7 @@
 @{
     ViewBag.Title = "MenuOrderList";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int NoStockCount = 0;
 }
 <div class="d-none">
     <div class="bg-primary border-bottom p-3 d-flex align-items-center">
@@ -27,32 +28,45 @@
                         @using (Html.BeginForm("ProcessOrder", "Order", new { id = Model.MenuOrderId }, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
                         {
                             @Html.HiddenFor(p => p.MenuOrderId)
-                            <table width="100%" cellpadding="10"cellspacing="10" border="1">
+                            <table width="100%" cellpadding="10" cellspacing="10" border="1">
                                 @foreach (MenuItemDetailModel detail in Model.MenuItemList)
                                 {
+                                    decimal AskQty = detail.Detail.Qty;
                                     <tr>
                                         <td colspan="2"><b>@detail.MenuItem.Name</b></td>
                                         <td><a href="@Url.Content("~/Order/AddIngridient?MenuItemId=" + detail.MenuItem.UId + "&&OrderId=" + Model.MenuOrderId + "")" class="btn btn-primary">Add more Ingridient</a></td>
+                                        <td>Current Stock</td>
+                                        <td></td>
                                     </tr>
-                                    @{
-                                        decimal AskQty = detail.Detail.Qty;
-                                    }
-                                    foreach (MenuItemDetail d in detail.MenuItemDetailList)
+
+                                    foreach (MenuItemDetailListModel d in detail.MenuItemDetailListModelList)
                                     {
-                                        <tr>
-                                            <td><input type="hidden" name="menuing_@d.IngriedientUId">@d.IngredientInfo.ItemName</td>
-                                           @{ 
-                                               decimal DemandQty = d.IngriedientQty * AskQty;
-                                           }
-                                            <td><input type="text" name="menuingqty_@d.UId" value="@DemandQty"></td>
-                                            <td><input type="text" readonly name="menuingunit_@d.IngriedientUId" value="@d.MeasurementUnit.Unit"></td>
+                                        string stylerow = "";
+                                        decimal DemandQty = Html.GetQtyTotal(d.MenuItemDetail.IngriedientQty, AskQty, d.MenuItemDetail.IngriedientMeasurementUId, d.MenuItemDetail.PortionMeasurementUId);
+                                        if (DemandQty > d.CurrentStockQty)
+                                        {
+                                            NoStockCount++;
+                                            stylerow = "style=background-color:#fba6a8";
+                                        }
+
+                                        <tr @stylerow>
+                                            <td><input type="hidden" name="menuing_@d.MenuItemDetail.IngriedientUId">@d.MenuItemDetail.IngredientInfo.ItemName</td>
+
+                                            <td><input type="text" name="menuingqty_@d.MenuItemDetail.IngriedientUId@d.MenuItemDetail.UId" value="@DemandQty"></td>
+                                            <td><input type="text" readonly name="menuingunit_@d.MenuItemDetail.IngriedientUId" value="@d.MenuItemDetail.MeasurementUnit.Unit"></td>
+                                            <td>@d.CurrentStockQty @d.MenuItemDetail.IngredientInfo.MeasurementUnit.Unit</td>
+                                            <td><a href="@Url.Content("~/Order/RemoveIngridient?ItemDetailId="+d.MenuItemDetail.UId+"&&MenuOrderId="+Model.MenuOrderId+"")"><img src="~/Asset/img/remove.png" width="20" /></a></td>
+
                                         </tr>
                                     }
                                 }
                             </table>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                            </div>
+                            if (NoStockCount == 0)
+                            {
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                </div>
+                            }
                         }
                     </div>
 

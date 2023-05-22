@@ -4,7 +4,7 @@
 @using Dinota.Domain.MenuOrderHeader
 @using Dinota.Domain.Event
 @using AlfasiWeb.Models
-@model List<MenuOrderHeader>
+@model List<MenuOrderHeaderModel>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -27,21 +27,38 @@
                         <th>Date</th>
                         <th>Time</th>
                         <th>Location</th>
+                        <th>Total Amount</th>
                         <th></th>
                         <th></th>
-                        
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (MenuOrderHeader info in Model)
+                    @foreach (MenuOrderHeaderModel info in Model)
                     {
                     <tr>
 
-                        <td>@info.EffectiveDate.ToShortDateString()</td>
-                        <td>@info.Time</td>
-                        <td>@info.Location</td>
-                        <td><a href="@Url.Content("~/Order/OfficerList/")@info.UId" class="btn btn-primary px-3">Officer List</a></td>
-                        <td><a href="@Url.Content("~/Order/MenuCreate/")@info.UId" class="btn btn-primary px-3">Detail</a></td>
+                        <td>@info.MenuOrderHeader.EffectiveDate.ToShortDateString()</td>
+                        <td>@info.MenuOrderHeader.Time</td>
+                        <td>@info.MenuOrderHeader.Location</td>
+                        <td>
+                            @if (info.F140Header != null)
+                            {
+                               <span> @info.TotalAmount.ToString("00.00")</span>
+                                    }
+
+                    </td>
+
+
+                    <td><a href="@Url.Content("~/Order/OfficerList/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Officer List</a></td>
+                    <td><a href="@Url.Content("~/Order/MenuCreate/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Detail</a></td>
+                    <td>
+                        @if (info.F140Header != null)
+                        {
+                            <a href="@Url.Content("~/Menu/F140Detail/")@info.F140Header.UId" class="btn btn-primary px-3">F140 Detail</a>
+                        }
+
+                    </td>
                     </tr>
                     }
                 </tbody>

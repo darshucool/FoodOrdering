@@ -63,7 +63,8 @@ namespace MIMS.Controllers
                
                 if (account.UserTypeId == 2|| account.UserTypeId == 4|| account.UserTypeId == 5)
                 {
-                    return RedirectToAction("MenuOrderList", "Menu");
+                    //return RedirectToAction("MenuOrderList", "Menu");
+                    return RedirectToAction("OrderList", "Order");
                 }
             }
             catch (Exception)
