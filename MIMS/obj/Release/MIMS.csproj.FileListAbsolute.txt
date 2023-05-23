@@ -385,3 +385,5 @@ D:\03200\MIMS\GIT\FoodOrdering\MIMS\obj\Release\AlfasiWeb.Properties.Resources.r
 D:\03200\MIMS\GIT\FoodOrdering\MIMS\obj\Release\MIMS.csproj.GenerateResource.Cache
 D:\03200\MIMS\GIT\FoodOrdering\MIMS\obj\Release\AlfasiWeb.dll
 D:\03200\MIMS\GIT\FoodOrdering\MIMS\obj\Release\AlfasiWeb.pdb
+D:\03200\MIMS\GIT\FoodOrdering\MIMS\bin\Microsoft.ReportViewer.Common.dll
+D:\03200\MIMS\GIT\FoodOrdering\MIMS\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll

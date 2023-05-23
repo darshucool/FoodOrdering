@@ -550,6 +550,11 @@ namespace MIMS.Helpers
             {
                 finalQty = Qty * DemandQty;
             }
+            else if (DemandMeasureUnit == (int)DataStruct.MeasurementUnit.Gram)
+            {
+                DemandQty = DemandQty * 2;
+                finalQty = Qty * DemandQty;
+            }
             //else if (QtyMeasureUnit == (int)DataStruct.MeasurementUnit.ml)
             //{
             //    if (DemandMeasureUnit == (int)DataStruct.MeasurementUnit.ml)
@@ -563,7 +568,7 @@ namespace MIMS.Helpers
             //        finalQty = countqty * Qty;
             //    }
             //}
-           return  finalQty;
+            return  finalQty;
            
         }
 
