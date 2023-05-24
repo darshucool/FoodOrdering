@@ -38,7 +38,7 @@ namespace AlfasiWeb.Models
     public class MenuBOCModel {
         public int MenuOrderId { get; set; }
         public List<MenuItemDetailModel> MenuItemList { get; set; }
-
+        public decimal MultipleQty{get;set;}
     }
     public class MenuItemDetailModel {
         public int MenuItemId { get;set;}

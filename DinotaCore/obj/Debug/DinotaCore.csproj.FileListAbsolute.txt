@@ -165,3 +165,8 @@ D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.csprojAssemb
 D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.csproj.CopyComplete
 D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.dll
 D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\AF\FoodOrderingNew\DinotaCore\bin\Debug\DinotaCore.dll
+D:\AF\FoodOrderingNew\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\AF\FoodOrderingNew\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+D:\AF\FoodOrderingNew\DinotaCore\obj\Debug\DinotaCore.dll
+D:\AF\FoodOrderingNew\DinotaCore\obj\Debug\DinotaCore.pdb

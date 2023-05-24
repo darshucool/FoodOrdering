@@ -543,17 +543,20 @@ namespace MIMS.Helpers
 
             return collection;
         }
-        public  static decimal GetQtyTotal(this HtmlHelper helper, decimal Qty, decimal DemandQty, int QtyMeasureUnit,int DemandMeasureUnit)
+        public  static decimal GetQtyTotal(this HtmlHelper helper, decimal Qty, decimal DemandQty, int QtyMeasureUnit,int DemandMeasureUnit,decimal MultipleQty)
         {
             decimal finalQty = 0;
             if (DemandMeasureUnit == (int)DataStruct.MeasurementUnit.Pax)
             {
                 finalQty = Qty * DemandQty;
             }
-            else if (DemandMeasureUnit == (int)DataStruct.MeasurementUnit.Gram)
+            else if (DemandMeasureUnit == (int)DataStruct.MeasurementUnit.KG)
             {
-                DemandQty = DemandQty * 2;
-                finalQty = Qty * DemandQty;
+                finalQty = Qty * MultipleQty;
+            }
+            else if (DemandMeasureUnit == (int)DataStruct.MeasurementUnit.Each)
+            {
+                finalQty = Qty * MultipleQty;
             }
             //else if (QtyMeasureUnit == (int)DataStruct.MeasurementUnit.ml)
             //{

@@ -343,3 +343,14 @@ D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.
 D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.csproj.CopyComplete
 D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.dll
 D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.pdb
+D:\AF\FoodOrderingNew\DinotaDataAccess\bin\Debug\DinotaDataAccess.dll
+D:\AF\FoodOrderingNew\DinotaDataAccess\bin\Debug\DinotaDataAccess.pdb
+D:\AF\FoodOrderingNew\DinotaDataAccess\bin\Debug\DinotaCore.dll
+D:\AF\FoodOrderingNew\DinotaDataAccess\bin\Debug\DinotaDomain.dll
+D:\AF\FoodOrderingNew\DinotaDataAccess\bin\Debug\DinotaSecurity.dll
+D:\AF\FoodOrderingNew\DinotaDataAccess\bin\Debug\DinotaCore.pdb
+D:\AF\FoodOrderingNew\DinotaDataAccess\bin\Debug\DinotaDomain.pdb
+D:\AF\FoodOrderingNew\DinotaDataAccess\bin\Debug\DinotaSecurity.pdb
+D:\AF\FoodOrderingNew\DinotaDataAccess\obj\Debug\DinotaDataAccess.csprojResolveAssemblyReference.cache
+D:\AF\FoodOrderingNew\DinotaDataAccess\obj\Debug\DinotaDataAccess.dll
+D:\AF\FoodOrderingNew\DinotaDataAccess\obj\Debug\DinotaDataAccess.pdb
