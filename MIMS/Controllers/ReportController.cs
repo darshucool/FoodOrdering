@@ -184,6 +184,8 @@ namespace MIMS.Controllers
                 }
                 model.DutyDinnerReceivableAmt = DinnerMenuOrderItemDetailList.Where(p => p.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Duty).Sum(p => p.MenuOrderHeader.F140TotalAmt);
                 model.DutyDinnerExpenditureAmt = model.DutyDinnerReceivableAmt;
+                model.CasualBreakfastCash = BreakfastMenuOrderItemDetailList.Find(c => c.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Duty && c.MenuOrderHeader.PaymentMethod == (int)DataStruct.PaymentMethod.Credit).Sum(p => p.MenuOrderHeader.F140TotalAmt);
+                model.CasualBreakfastCash = BreakfastMenuOrderItemDetailList.Find(c => c.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Duty && c.MenuOrderHeader.PaymentMethod == (int)DataStruct.PaymentMethod.Credit).Sum(p => p.MenuOrderHeader.F140TotalAmt);
             }
             catch (Exception)
             {
