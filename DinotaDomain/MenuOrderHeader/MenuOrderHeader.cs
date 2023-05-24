@@ -22,5 +22,6 @@ namespace Dinota.Domain.MenuOrderHeader
         public int OfficerCount { get; set; }
         public int MenuHeaderType { get; set; }
         public decimal F140TotalAmt { get; set; }
+        public int PaymentMethod { get; set; }
     }
 }

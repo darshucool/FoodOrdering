@@ -30,6 +30,7 @@ using Dinota.Domain.MenuPackage;
 using Dinota.Domain.MenuItemDetail;
 using Dinota.Domain.F140Header;
 using Dinota.Domain.F140Data;
+using AlfasiWeb;
 
 namespace MIMS.Controllers
 {
@@ -176,6 +177,7 @@ namespace MIMS.Controllers
                 header.OrderDate = DateTime.Now;
                 header.Active = true;
                 header.Status = 10;
+                header.PaymentMethod = (int)DataStruct.PaymentMethod.Credit;
                 header.OfficerCount = 0;
                 _menuOrderHeaderService.Add(header);
                 DataContext.SaveChanges();

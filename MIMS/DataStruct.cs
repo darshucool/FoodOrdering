@@ -68,5 +68,10 @@ namespace AlfasiWeb
             Rma_Lunch = 31,
             Rma_Dinner = 32
         };
+        public enum PaymentMethod
+        {
+            Credit = 1,
+            Cash = 2
+        };
     }
 }
