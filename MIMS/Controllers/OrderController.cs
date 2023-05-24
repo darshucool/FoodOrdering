@@ -284,8 +284,10 @@ namespace MIMS.Controllers
                 var filterMD = _menuOrderItemDetailService.GetDefaultSpecification();
                 filterMD = filterMD.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == id);
                 List<MenuOrderItemDetail> MenuOrderMenuList = _menuOrderItemDetailService.GetCollection(filterMD, p => p.CreationDate).ToList();
+                int i = 0;
                 foreach (MenuOrderItemDetail item in MenuOrderMenuList)
                 {
+                    i++;
                     if (item.MenuItem.IsCombine)
                     {
                         var filterM = _menuPackageService.GetDefaultSpecification();
@@ -328,6 +330,10 @@ namespace MIMS.Controllers
                         List<MenuItemDetailListModel> MenuItemDetailListModelList = new List<MenuItemDetailListModel>();
                         foreach (MenuItemDetail det in MasterItemList)
                         {
+                            if (i == 1)
+                            {
+                                model.MultipleQty = item.Qty / det.PortionQty;
+                            }
                             MenuItemDetailListModel itemdetail = new MenuItemDetailListModel();
                             var filterBOC = _ingredientBOCService.GetDefaultSpecification();
                             filterBOC = filterBOC.And(p => p.Active == true).And(p => p.IngredientUId == det.IngriedientUId);

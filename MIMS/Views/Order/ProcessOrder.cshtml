@@ -42,7 +42,8 @@
                                     foreach (MenuItemDetailListModel d in detail.MenuItemDetailListModelList)
                                     {
                                         string stylerow = "";
-                                        decimal DemandQty = Html.GetQtyTotal(d.MenuItemDetail.IngriedientQty, AskQty, d.MenuItemDetail.IngriedientMeasurementUId, d.MenuItemDetail.PortionMeasurementUId);
+                                        
+                                        decimal DemandQty = Html.GetQtyTotal(d.MenuItemDetail.IngriedientQty, AskQty, d.MenuItemDetail.IngriedientMeasurementUId, d.MenuItemDetail.PortionMeasurementUId,Model.MultipleQty);
                                         if (DemandQty > d.CurrentStockQty)
                                         {
                                             NoStockCount++;

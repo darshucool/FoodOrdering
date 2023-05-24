@@ -288,3 +288,12 @@ D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.G
 D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.CopyComplete
 D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.dll
 D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.pdb
+D:\AF\FoodOrderingNew\DinotaDomain\bin\Debug\DinotaDomain.dll
+D:\AF\FoodOrderingNew\DinotaDomain\bin\Debug\DinotaDomain.pdb
+D:\AF\FoodOrderingNew\DinotaDomain\bin\Debug\DinotaCore.dll
+D:\AF\FoodOrderingNew\DinotaDomain\bin\Debug\DinotaCore.pdb
+D:\AF\FoodOrderingNew\DinotaDomain\obj\Debug\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\AF\FoodOrderingNew\DinotaDomain\obj\Debug\Dinota.Domain.Properties.Resources.resources
+D:\AF\FoodOrderingNew\DinotaDomain\obj\Debug\DinotaDomain.csproj.GenerateResource.Cache
+D:\AF\FoodOrderingNew\DinotaDomain\obj\Debug\DinotaDomain.dll
+D:\AF\FoodOrderingNew\DinotaDomain\obj\Debug\DinotaDomain.pdb
