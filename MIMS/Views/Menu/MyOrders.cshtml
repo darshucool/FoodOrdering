@@ -47,39 +47,39 @@
             <div class="tab-content col-md-9" id="myTabContent">
                 <div class="tab-pane fade " id="completed" role="tabpanel" aria-labelledby="completed-tab">
                     <div class="order-body">
-                        @foreach (MenuOrderItemDetail ord in Model.CompleteMenuOrderList)
+                        @foreach (MenuDetailItemOfficerModel ord in Model.CompleteMenuOrderList)
                         {
                             <div class="pb-3">
                                 <div class="p-3 rounded shadow-sm bg-white">
 
                                     <div class="d-flex border-bottom pb-3">
                                         <div class="text-muted mr-3">
-                                            <img alt="#" src="@Url.Content("~/Asset/img/menu/" + ord.MenuItem.ImgName + ".jpg")" class="img-fluid order_img rounded">
+                                            <img alt="#" src="@Url.Content("~/Asset/img/menu/" + ord.MenuOrderItemDetail.MenuItem.ImgName + ".jpg")" class="img-fluid order_img rounded">
                                         </div>
                                         <div>
-                                            <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuItem.Name</a></p>
+                                            <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuOrderItemDetail.MenuItem.Name</a></p>
                                             <p>
                                                 Quantity :
                                                
-                                                    <span>  @ord.MenuItem.MeasurementUnit.Unit</span>
+                                                    <span>  @ord.MenuOrderItemDetail.MenuItem.MeasurementUnit.Unit</span>
                                               
                                             </p>
 
                                            
                                             <p>
-                                                <b>Location</b> : @ord.MenuOrderHeader.Location
+                                                <b>Location</b> : @ord.MenuOrderItemDetail.MenuOrderHeader.Location
                                                 <br />
                                                 <b>
                                                     Date and Time
-                                                </b> : @ord.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @ord.MenuOrderHeader.Time
+                                                </b> : @ord.MenuOrderItemDetail.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @ord.MenuOrderItemDetail.MenuOrderHeader.Time
                                                 <br />
-                                                <b> Remark</b> : @ord.Remark
+                                                <b> Remark</b> : @ord.MenuOrderItemDetail.Remark
                                             </p>
                                             @*<p class="mb-0 small"><a href="status_onprocess.html">View Details</a></p>*@
                                         </div>
                                         <div class="ml-auto">
                                             <p class="bg-dark text-white py-1 px-2 rounded small mb-1">Processing</p>
-                                            <p class="small font-weight-bold text-center"><i class="feather-clock"></i> @ord.CreationDate</p>
+                                            <p class="small font-weight-bold text-center"><i class="feather-clock"></i> @ord.MenuOrderItemDetail.CreationDate</p>
                                         </div>
 
                                     </div>
@@ -93,42 +93,42 @@
                 </div>
                 <div class="tab-pane fade " id="delivered" role="tabpanel" aria-labelledby="delivered-tab">
                     <div class="order-body">
-                        @foreach (MenuOrderItemDetail ord in Model.DeliveredMenuOrderList)
+                        @foreach (MenuDetailItemOfficerModel ord in Model.DeliveredMenuOrderList)
                         {
                             <div class="pb-3">
                                 <div class="p-3 rounded shadow-sm bg-white">
 
                                     <div class="d-flex border-bottom pb-3">
                                         <div class="text-muted mr-3">
-                                            <img alt="#" src="@Url.Content("~/Asset/img/menu/" + ord.MenuItem.ImgName + ".jpg")" class="img-fluid order_img rounded">
+                                            <img alt="#" src="@Url.Content("~/Asset/img/menu/" + ord.MenuOrderItemDetail.MenuItem.ImgName + ".jpg")" class="img-fluid order_img rounded">
                                         </div>
                                         <div>
-                                            <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuItem.Name</a></p>
+                                            <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuOrderItemDetail.MenuItem.Name</a></p>
                                             <p>
                                                 Quantity :
 
-                                                <span>  @ord.MenuItem.MeasurementUnit.Unit</span>
+                                                <span>  @ord.MenuOrderItemDetail.MenuItem.MeasurementUnit.Unit</span>
 
                                             </p>
 
                                            
                                             <p>
-                                                <b>Location</b> : @ord.MenuOrderHeader.Location
+                                                <b>Location</b> : @ord.MenuOrderItemDetail.MenuOrderHeader.Location
                                                 <br />
                                                 <b>
                                                     Date and Time
-                                                </b> : @ord.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @ord.MenuOrderHeader.Time
+                                                </b> : @ord.MenuOrderItemDetail.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @ord.MenuOrderItemDetail.MenuOrderHeader.Time
                                                 <br />
-                                                <b> Remark</b> : @ord.Remark
+                                                <b> Remark</b> : @ord.MenuOrderItemDetail.Remark
                                                 @{ 
-                                                    decimal LKRPrice =new CustomDataBaseManger().GetOrderF140Amount(ord.UId);
+                                                    decimal LKRPrice =new CustomDataBaseManger().GetOrderF140Amount(ord.MenuOrderItemDetail.UId);
                                                     }
                                                 <p>LKR @LKRPrice</p>
                                             </p>
                                         </div>
                                         <div class="ml-auto">
                                             <p class="bg-dark text-white py-1 px-2 rounded small mb-1">Delivered</p>
-                                            <p class="small font-weight-bold text-center"><i class="feather-clock"></i> @ord.CreationDate</p>
+                                            <p class="small font-weight-bold text-center"><i class="feather-clock"></i> @ord.MenuOrderItemDetail.MenuOrderHeader.CreationDate</p>
                                         </div>
 
                                     </div>
@@ -142,7 +142,7 @@
                 </div>
                 <div class="tab-pane fade show active" id="progress" role="tabpanel" aria-labelledby="progress-tab">
                     <div class="order-body">
-                        @foreach (MenuOrderItemDetail ord in Model.PendingMenuOrderList)
+                        @foreach (MenuDetailItemOfficerModel ord in Model.PendingMenuOrderList)
                         {
 
                             <div class="pb-3">
@@ -150,26 +150,26 @@
                                     
                                         <div class="d-flex border-bottom pb-3">
                                             <div class="text-muted mr-3">
-                                                <img alt="#" src="@Url.Content("~/Asset/img/menu/" + ord.MenuItem.ImgName + ".jpg")" class="img-fluid order_img rounded">
+                                                <img alt="#" src="@Url.Content("~/Asset/img/menu/" + ord.MenuOrderItemDetail.MenuItem.ImgName + ".jpg")" class="img-fluid order_img rounded">
                                             </div>
                                             <div>
-                                                <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuItem.Name</a></p>
+                                                <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuOrderItemDetail.MenuItem.Name</a></p>
                                                 <p>
                                                     Quantity :
 
-                                                    <span>  @ord.MenuItem.MeasurementUnit.Unit</span>
+                                                    <span>  @ord.MenuOrderItemDetail.MenuItem.MeasurementUnit.Unit</span>
 
                                                 </p>
                                                 
                                                 @*<p class="mb-0 small"><a href="status_onprocess.html">View Details</a></p>*@
                                                 <p>
-                                                    <b>Location</b> : @ord.MenuOrderHeader.Location
+                                                    <b>Location</b> : @ord.MenuOrderItemDetail.MenuOrderHeader.Location
                                                     <br />
                                                     <b>
                                                         Date and Time
-                                                    </b> : @ord.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @ord.MenuOrderHeader.Time
+                                                    </b> : @ord.MenuOrderItemDetail.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @ord.MenuOrderItemDetail.MenuOrderHeader.Time
                                                     <br />
-                                                    <b> Remark</b> : @ord.Remark
+                                                    <b> Remark</b> : @ord.MenuOrderItemDetail.Remark
                                                 </p>
                                             </div>
                                             <div class="ml-auto">
@@ -178,7 +178,7 @@
 
                                                 
 
-                                                <p class="small font-weight-bold text-center"><i class="feather-clock"></i> @ord.CreationDate</p>
+                                                <p class="small font-weight-bold text-center"><i class="feather-clock"></i> @ord.MenuOrderItemDetail.CreationDate</p>
                                             </div>
 
                                         </div>
@@ -186,7 +186,7 @@
 
                                             <div class="text-right">
                                              
-                                                <button type="button" name="btnSubmit" value="CANCEL" class="btn btn-outline-primary px-3" data-toggle="modal" data-target="#extras" onclick="AssignOrderValue(@ord.UId)">Cancel</button>
+                                                <button type="button" name="btnSubmit" value="CANCEL" class="btn btn-outline-primary px-3" data-toggle="modal" data-target="#extras" onclick="AssignOrderValue(@ord.MenuOrderItemDetail.UId)">Cancel</button>
                                             </div>
                                         </div>
                                   
@@ -197,39 +197,39 @@
                 </div>
                 <div class="tab-pane fade" id="canceled" role="tabpanel" aria-labelledby="canceled-tab">
                     <div class="order-body">
-                        @foreach (MenuOrderItemDetail ord in Model.CancelledMenuOrderList)
+                        @foreach (MenuDetailItemOfficerModel ord in Model.CancelledMenuOrderList)
                         {
                             <div class="pb-3">
                                 <div class="p-3 rounded shadow-sm bg-white">
 
                                     <div class="d-flex border-bottom pb-3">
                                         <div class="text-muted mr-3">
-                                            <img alt="#" src="@Url.Content("~/Asset/img/menu/" + ord.MenuItem.ImgName + ".jpg")" class="img-fluid order_img rounded">
+                                            <img alt="#" src="@Url.Content("~/Asset/img/menu/" + ord.MenuOrderItemDetail.MenuItem.ImgName + ".jpg")" class="img-fluid order_img rounded">
                                         </div>
                                         <div>
-                                            <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuItem.Name</a></p>
+                                            <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuOrderItemDetail.MenuItem.Name</a></p>
                                             <p>
                                                 Quantity :
 
-                                                <span>  @ord.MenuItem.MeasurementUnit.Unit</span>
+                                                <span>  @ord.MenuOrderItemDetail.MenuItem.MeasurementUnit.Unit</span>
 
                                             </p>
                                             <p>
-                                                <b>Location</b> : @ord.MenuOrderHeader.Location
+                                                <b>Location</b> : @ord.MenuOrderItemDetail.MenuOrderHeader.Location
                                                 <br />
                                                 <b>
                                                     Date and Time
-                                                </b> : @ord.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @ord.MenuOrderHeader.Time
+                                                </b> : @ord.MenuOrderItemDetail.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @ord.MenuOrderItemDetail.MenuOrderHeader.Time
                                                 <br />
-                                                <b> Remark</b> : @ord.Remark
+                                                <b> Remark</b> : @ord.MenuOrderItemDetail.Remark
                                             </p>
-                                            <p>Reason : @ord.Remark</p>
+                                            <p>Reason : @ord.MenuOrderItemDetail.Remark</p>
 
                                             @*<p class="mb-0 small"><a href="status_onprocess.html">View Details</a></p>*@
                                         </div>
                                         <div class="ml-auto">
                                             <p class="bg-danger text-white py-1 px-2 rounded small mb-1">Cancelled</p>
-                                            <p class="small font-weight-bold text-center"><i class="feather-clock"></i> @ord.CreationDate</p>
+                                            <p class="small font-weight-bold text-center"><i class="feather-clock"></i> @ord.MenuOrderItemDetail.CreationDate</p>
                                         </div>
                                     </div>
 
