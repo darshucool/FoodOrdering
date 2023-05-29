@@ -33,16 +33,21 @@ namespace AlfasiWeb.Models
         public string ControllerName { get; set; }
         public bool IsPermitted { get; set; }
     }
-    public class MenuOrderModel {
-        public List<MenuOrderItemDetail> PendingMenuOrderList { get; set; }
-        public List<MenuOrderItemDetail> CompleteMenuOrderList { get; set; }
-        public List<MenuOrderItemDetail> CancelledMenuOrderList { get; set; }
-        public List<MenuOrderItemDetail> DeliveredMenuOrderList { get; set; }
+    public class MenuOrderModel
+    {
+        public List<MenuDetailItemOfficerModel> PendingMenuOrderList { get; set; }
+        public List<MenuDetailItemOfficerModel> CompleteMenuOrderList { get; set; }
+        public List<MenuDetailItemOfficerModel> CancelledMenuOrderList { get; set; }
+        public List<MenuDetailItemOfficerModel> DeliveredMenuOrderList { get; set; }
 
         public List<MenuOrderViewModel> PendingViewMenuOrderList { get; set; }
         public List<MenuOrderViewModel> CompleteViewMenuOrderList { get; set; }
         public List<MenuOrderViewModel> CancelledViewMenuOrderList { get; set; }
         public List<MenuOrderViewModel> DeliveredViewMenuOrderList { get; set; }
+    }
+    public class MenuDetailItemOfficerModel {
+        public MenuOrderItemDetail MenuOrderItemDetail { get; set; }
+        public List<MenuOrderOfficer> MenuOrderOfficerList { get; set; }
     }
     public class MenuOrderViewModel {
         public MenuOrderItemDetail PendingOrder { get; set; }

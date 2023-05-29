@@ -73,5 +73,12 @@ namespace AlfasiWeb
             Credit = 1,
             Cash = 2
         };
+        public enum MenuOrderItemStatus
+        {
+            Pending = 10,
+            Accepted = 20,
+            Delivered=30,
+            Cancel=40
+        };
     }
 }

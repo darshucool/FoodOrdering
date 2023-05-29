@@ -260,6 +260,7 @@ namespace MIMS.Controllers
                 detail.MeanuOrderHeaderUId = id;
                 detail.Remark = remark;
                 detail.Active = true;
+                detail.Status = (int)DataStruct.MenuOrderItemStatus.Pending;
                 _menuOrderItemDetailService.Add(detail);
                 DataContext.SaveChanges();
                 TempData[ViewDataKeys.Message] = new SuccessMessage(item.Name+ "added to the order. Add more menu items");

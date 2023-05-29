@@ -581,3 +581,5 @@ D:\AF\FoodOrderingNew\MIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
 D:\AF\FoodOrderingNew\MIMS\obj\Debug\MIMS.csproj.GenerateResource.Cache
 D:\AF\FoodOrderingNew\MIMS\obj\Debug\AlfasiWeb.dll
 D:\AF\FoodOrderingNew\MIMS\obj\Debug\AlfasiWeb.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\bin\Microsoft.ReportViewer.Common.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll

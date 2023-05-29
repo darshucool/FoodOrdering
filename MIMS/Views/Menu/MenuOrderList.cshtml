@@ -9,7 +9,7 @@
     ViewBag.Title = "MenuOrderList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@*<meta http-equiv="Refresh" content="30">
+<meta http-equiv="Refresh" content="30">
 <div class="d-none">
     <div class="bg-primary border-bottom p-3 d-flex align-items-center">
         <a class="toggle togglew toggle-2" href="#"><span></span></a>
@@ -66,7 +66,7 @@
                             <tbody>
 
 
-                                @foreach (MenuOrderItemDetail ord in Model.CompleteMenuOrderList)
+                                @foreach (MenuDetailItemOfficerModel ord in Model.CompleteMenuOrderList)
                                 {
                                 <tr>
                                     @using (Html.BeginForm("MenuOrderDelivery", "Menu", new { id = ord.UId }, FormMethod.Post))
@@ -791,4 +791,4 @@
        
         </script>
   
-}*@
+}

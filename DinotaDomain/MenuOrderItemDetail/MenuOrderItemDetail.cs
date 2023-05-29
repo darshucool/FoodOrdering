@@ -12,7 +12,7 @@ namespace Dinota.Domain.MenuOrderItemDetail
         public int MeanuOrderHeaderUId { set; get; }
        
         public int MenuItemUId { set; get; }
-     
+        public int Status { get; set; }
         public decimal  Qty { set; get; }
         public int MeasurementUnit { set; get; }
         public string Remark { set; get; }
