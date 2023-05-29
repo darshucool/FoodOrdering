@@ -804,6 +804,8 @@
     <Content Include="Views\Menu\IngriedientList.cshtml" />
     <Content Include="Views\Menu\IngriedientEdit.cshtml" />
     <Content Include="Views\Report\DailySalesSummary.cshtml" />
+    <Content Include="Views\Order\ProcessSingleOrder.cshtml" />
+    <Content Include="Views\Menu\PackageList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

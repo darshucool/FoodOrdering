@@ -131,7 +131,7 @@ namespace MIMS.Controllers
                 {
                     MenuOrderHeaderModel mod = new MenuOrderHeaderModel();
                     mod.MenuOrderHeader = order;
-                    if (order.Status == 20)
+                    if (order.Status >(int)DataStruct.MenuOrderItemStatus.Accepted)
                     {
                         var filter140 = _f140HeaderService.GetDefaultSpecification();
                         filter140 = filter140.And(p => p.Active == true).And(p => p.MenuOrderId == order.UId);
@@ -558,7 +558,7 @@ namespace MIMS.Controllers
                     }
                 }
                 MenuOrderHeader orderheader = _menuOrderHeaderService.GetByKey(id);
-                orderheader.Status = 20;
+                orderheader.Status = (int)DataStruct.MenuOrderItemStatus.Delivered;
                 orderheader.F140TotalAmt = F140TotalAmount;
                 DataContext.SaveChanges();
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Order successfully created.");
@@ -573,7 +573,8 @@ namespace MIMS.Controllers
                 return RedirectToAction("Login", "Account");
             }
             return View(model);
-        } 
+        }
+        
         [AllowAnonymous]
         public ActionResult RemoveIngridient(int ItemDetailId,int MenuOrderId)
         {

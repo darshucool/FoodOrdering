@@ -828,6 +828,7 @@ namespace MIMS.Controllers
 
             return View(model);
         }
+
         public ActionResult HQKOT()
         {
             MenuOrderModel model = new MenuOrderModel();
@@ -966,7 +967,9 @@ namespace MIMS.Controllers
                     }
                 }
                 oheader.Status = 10;
+                oheader.PaymentMethod= (int)DataStruct.PaymentMethod.Credit;
                 oheader.EffectiveDate = DateTime.Now;
+                oheader.MenuHeaderType = (int)DataStruct.MenuHeaderType.Casual;
                 _menuOrderHeaderService.Add(oheader);
                 DataContext.SaveChanges();
                 MenuOrderItemDetail detail = new MenuOrderItemDetail();
@@ -1179,11 +1182,11 @@ namespace MIMS.Controllers
                 oMenuOrder.Status = (int)DataStruct.MenuOrderItemStatus.Accepted;
                 
                 DataContext.SaveChanges();
-                //if (account.UserTypeId == 5)
-                //{
-                //    return RedirectToAction("OrderBOCDeduct", new { id });
-                //}
-                return RedirectToAction("MenuOrderList");
+
+                MenuOrderHeader header = _menuOrderHeaderService.GetByKey(oMenuOrder.MeanuOrderHeaderUId);
+                header.Status = (int)DataStruct.MenuOrderItemStatus.Accepted;
+                DataContext.SaveChanges();
+                return RedirectToAction("ProcessOrder", "Order", new { id = oMenuOrder.MeanuOrderHeaderUId });
             }
             catch (Exception ex)
             {
@@ -1449,25 +1452,41 @@ namespace MIMS.Controllers
             MessBillModel model = new MessBillModel();
             try
             {
+                DateTime date = DateTime.Now;
+                var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+                var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
                 decimal Amount = 0;
+                List<MenuOrderHeaderDetailModel> MenuOrderHeaderList = new List<MenuOrderHeaderDetailModel>();
                 UserAccount account = GetCurrentUser();
-                var filter = _f140HeaderService.GetDefaultSpecification();
-                filter = filter.And(p => p.Active == true);
-                List<F140Header> F140DataList = _f140HeaderService.GetCollection(filter, p => p.CreationDate).ToList();
-                foreach (F140Header head in F140DataList)
+                var filter = _menuOrderOfficerService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p=>p.MenuOrderHeader.Status==(int)DataStruct.MenuOrderItemStatus.Delivered).And(p=>p.MenuOrderHeader.OrderDate>= firstDayOfMonth).And(p => p.MenuOrderHeader.OrderDate <= lastDayOfMonth);
+                List<MenuOrderOfficer> MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filter, p => p.CreationDate).ToList();
+                foreach (MenuOrderOfficer head in MenuOrderOfficerList)
                 {
-                    F140Model mod = new F140Model();
-                    var filterSum = _f140DataService.GetDefaultSpecification();
-                    filterSum = filterSum.And(p => p.Active == true).And(p => p.F140HeaderUId == head.UId);
-                    List<F140Data> F140List = _f140DataService.GetCollection(filterSum, p => p.CreationDate).ToList();
-                  
-                    Amount+=  F140List.Sum(p => p.Amount);
+                    MenuOrderHeaderDetailModel det = new MenuOrderHeaderDetailModel();
+                    MenuOrderHeader header = _menuOrderHeaderService.GetByKey(head.MeanuOrderHeaderUId);
+                    var filterO = _menuOrderOfficerService.GetDefaultSpecification();
+                    filterO = filterO.And(p => p.Active == true).And(p=>p.MeanuOrderHeaderUId== head.UId);
+                    List<MenuOrderOfficer> TotalOfficerList = _menuOrderOfficerService.GetCollection(filter, p => p.CreationDate).ToList();
+                    if (TotalOfficerList.Count == 1)
+                    {
+                        Amount += header.F140TotalAmt;
+                    }
+                    else if (TotalOfficerList.Count > 1)
+                    {
+                        decimal TotAmt = header.F140TotalAmt;
+                        decimal IndivisualAmt = TotAmt / TotalOfficerList.Count;
+                        Amount += IndivisualAmt;
+                    }
+                    var filterMD = _menuOrderItemDetailService.GetDefaultSpecification();
+                    filterMD = filterMD.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == head.UId);
+                    List<MenuOrderItemDetail> MenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterMD, p => p.CreationDate).ToList();
+                    det.MenuOrderItemDetailList = MenuOrderItemDetailList;
+                    MenuOrderHeaderList.Add(det);
                 }
                 model.CurrentAmount = Amount;
-                var filterC = _menuOrderService.GetDefaultSpecification();
-                filterC = filterC.And(p => p.Active == true).And(p => p.Status == 40).And(p => p.UserId == account.Id);
-                List<MenuOrder> CompMenuItemList = _menuOrderService.GetCollection(filterC, p => p.CreationDate).OrderByDescending(p => p.CreationDate).ToList();
-                model.MenuOrders = CompMenuItemList;
+                
+                model.MenuOrders = MenuOrderHeaderList;
             }
             catch (Exception)
             {
@@ -1478,31 +1497,42 @@ namespace MIMS.Controllers
         }
         public ActionResult MyF140Data()
         {
-            List<F140Model> ModelList = new List<F140Model>();
+            MessBillModel model = new MessBillModel();
             List<F140Header> F140DataList = new List<F140Header>();
             try
             {
+                DateTime date = DateTime.Now;
+                var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+                var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+                decimal Amount = 0;
+                List<MenuOrderHeaderDetailModel> MenuOrderHeaderList = new List<MenuOrderHeaderDetailModel>();
                 UserAccount account = GetCurrentUser();
-                var filter = _f140HeaderService.GetDefaultSpecification();
-                filter = filter.And(p=>p.Active==true);
-                F140DataList = _f140HeaderService.GetCollection(filter,p=>p.CreationDate).ToList();
-                foreach(F140Header head in F140DataList)
+                var filter = _menuOrderOfficerService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Delivered).And(p => p.MenuOrderHeader.OrderDate >= firstDayOfMonth).And(p => p.MenuOrderHeader.OrderDate <= lastDayOfMonth);
+                List<MenuOrderOfficer> MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filter, p => p.CreationDate).ToList();
+                foreach (MenuOrderOfficer head in MenuOrderOfficerList)
                 {
-                    F140Model mod = new F140Model();
-                    var filterSum = _f140DataService.GetDefaultSpecification();
-                    filterSum = filterSum.And(p => p.Active == true).And(p => p.F140HeaderUId == head.UId);
-                    List<F140Data> F140List = _f140DataService.GetCollection(filterSum, p => p.CreationDate).ToList();
-                    mod.F140Header = head;
-                    mod.totalAmount = F140List.Sum(p=>p.Amount);
-                    ModelList.Add(mod);
-                 }
+                    MenuOrderHeaderDetailModel det = new MenuOrderHeaderDetailModel();
+                    MenuOrderHeader header = _menuOrderHeaderService.GetByKey(head.MeanuOrderHeaderUId);
+                    det.MenuOrderHeader = header;
+                    var filter140 = _f140HeaderService.GetDefaultSpecification();
+                    filter140 = filter140.And(p => p.Active == true).And(p => p.MenuOrderId == header.UId);
+                    F140Header oF140Header = _f140HeaderService.GetBy(filter140);
+                    det.F140Header = oF140Header;
+                    var filterMD = _menuOrderItemDetailService.GetDefaultSpecification();
+                    filterMD = filterMD.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == header.UId);
+                    List<MenuOrderItemDetail> MenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterMD, p => p.CreationDate).ToList();
+                    det.MenuOrderItemDetailList = MenuOrderItemDetailList;
+                    MenuOrderHeaderList.Add(det);
+                }
+                model.MenuOrders = MenuOrderHeaderList;
             }
             catch (Exception)
             {
                
                 throw;
             }
-            return View(ModelList);
+            return View(model);
         }
         public ActionResult F140Detail(int id)
         {
@@ -1536,7 +1566,12 @@ namespace MIMS.Controllers
                 }
                 oMenuOrder.Status = (int)DataStruct.MenuOrderItemStatus.Delivered;
                 DataContext.SaveChanges();
+
+                MenuOrderHeader header = _menuOrderHeaderService.GetByKey(oMenuOrder.MeanuOrderHeaderUId);
+                header.Status = (int)DataStruct.MenuOrderItemStatus.Delivered;
+                DataContext.SaveChanges();
                 string s = "";
+                
                 //string MobNo = oMenuOrder.UserBase.Telephone1;
                 //if (!string.IsNullOrEmpty(oMenuOrder.UserBase.Telephone1))
                 //{
@@ -2519,6 +2554,68 @@ namespace MIMS.Controllers
             filter = filter.And(p => p.Active == true).And(p=>p.SLAFLocationUId==account.LocationUId);
             MenuItemList = _menuItemService.GetCollection(filter, p => p.CreationDate).ToList();
             return View(MenuItemList);
+        }
+        public ActionResult RemovePackageMenu(int id)
+        {
+            try
+            {
+                MenuPackage package = _menuPackageService.GetByKey(id);
+                package.Active = false;
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Menu Updated.");
+                return RedirectToAction("PackageList", new { id= package.MenuItemId});
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();
+        }
+        [AllowAnonymous]
+        public ActionResult AddPackageMenu(int MenuId,int MenuItemId)
+        {
+            try
+            {
+                MenuPackage package = new MenuPackage();
+                package.MenuItemId = MenuItemId;
+                package.CombinedMenuItemId = MenuId;
+                package.Active = true;
+                _menuPackageService.Add(package);
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Menu Updated.");
+                return RedirectToAction("PackageList", new { id = MenuItemId });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();
+        }
+        public ActionResult PackageList(int id)
+        {
+            MenuPackageEditModel model = new MenuPackageEditModel();
+            try
+            {
+                var filter = _menuItemService.GetDefaultSpecification();
+                filter= filter.And(p=>p.Active==true).And(p=>p.MenuCategoryUId==(int)DataStruct.MenuCategory.Rma_Curry);
+                List<MenuItem> MenuitemList = _menuItemService.GetCollection(filter, p => p.CreationDate).ToList();
+                model.MenuItemList = MenuitemList;
+
+                var filterM = _menuPackageService.GetDefaultSpecification();
+                filterM = filterM.And(p => p.Active == true).And(p => p.MenuItemId == id);
+                List<MenuPackage> MenuPackageList = _menuPackageService.GetCollection(filterM, p => p.CreationDate).ToList();
+                model.MenuPackageList = MenuPackageList;
+
+                model.MenuItemId = id;
+            }
+            catch (Exception)
+            {
+               
+                throw;
+            }
+            return View(model);    
         }
         public ActionResult RemoveOption(int id)
         {

@@ -24,8 +24,16 @@ namespace AlfasiWeb.Models
         public MenuCategory oMenuCategory { get; set; }
         public List<MenuItemModel> MenuItemModel { get; set; }
     }
+    public class MenuPackageModel {
+        public List<MenuPackage> MenuPackageList { get; set; }
+    }
     public class MenuItemModel {
         public MenuItem MenuItem { get; set; }
+        public List<MenuPackage> MenuPackageList { get; set; }
+    }
+    public class MenuPackageEditModel {
+        public int MenuItemId { get; set; }
+        public List<MenuItem> MenuItemList { get; set; }
         public List<MenuPackage> MenuPackageList { get; set; }
     }
     public class MenuClientOrderModel { 
@@ -64,7 +72,12 @@ namespace AlfasiWeb.Models
     }
     public class MessBillModel { 
         public decimal CurrentAmount { get; set; }
-        public List<MenuOrder> MenuOrders { get; set; }
+        public List<MenuOrderHeaderDetailModel> MenuOrders { get; set; }
+    }
+    public class MenuOrderHeaderDetailModel {
+        public MenuOrderHeader MenuOrderHeader { get; set; }
+        public F140Header F140Header { get; set; }
+        public List<MenuOrderItemDetail> MenuOrderItemDetailList { get; set; }
     }
     public class OfficerMenuOrderModel {
         public MenuItem MenuItem { get; set; }

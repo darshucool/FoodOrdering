@@ -26,6 +26,7 @@
                             <th>Name</th>
                             <th>Portion Unit</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,12 +36,14 @@
                                 <td>@ord.Name</td>
                                 <td>
                                     @ord.MeasurementUnit.Unit
-
-
                                 </td>
-
-
                                 <td><a href="@Url.Content("~/Menu/IngriedientList/")@ord.UId" class="btn btn-primary px-3">Ingriedient List</a></td>
+                                <td>
+                                    @if (ord.IsCombine)
+                                    {
+                                        <a href="@Url.Content("~/Menu/PackageList/")@ord.UId" class="btn btn-primary px-3">Package List</a>
+                                    }
+                                </td>
                             </tr>
                         }
                     </tbody>

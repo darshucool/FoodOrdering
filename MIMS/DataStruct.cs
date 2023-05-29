@@ -80,5 +80,9 @@ namespace AlfasiWeb
             Delivered=30,
             Cancel=40
         };
+        public enum MenuCategory
+        {
+            Rma_Curry = 13
+        };
     }
 }
