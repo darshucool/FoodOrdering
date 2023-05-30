@@ -236,8 +236,8 @@ namespace MIMS.Controllers
                 model.TotalIncomeLunch = model.DutyLunchReceivableAmt + model.CasualLunchCash + model.CasualLunchCredit + model.LunchGasCharges;
                 model.TotalExpenditureLunch = model.DutyLunchExpenditureAmt + model.CasualLunchExpenditure + model.LunchGasCharges;
 
-                model.TotalIncomeDinner = model.DutyLunchReceivableAmt + model.CasualLunchCash + model.CasualLunchCredit + model.LunchGasCharges;
-                model.TotalExpenditureDinner = model.DutyLunchExpenditureAmt + model.CasualLunchExpenditure + model.LunchGasCharges;
+                model.TotalIncomeDinner = model.DutyDinnerReceivableAmt + model.CasualDinnerCash + model.CasualDinnerCredit + model.DinnerGasCharges;
+                model.TotalExpenditureDinner = model.DutyDinnerExpenditureAmt + model.CasualDinnerExpenditure + model.DinnerGasCharges;
 
                 model.TotalIncomeExtramessing = model.ExtraMessingCashAmount + model.ExtraMessingCreditAmount + model.ExtraMessingGasCharges + model.Commodities;
                 model.TotalExpenditureExtramessing= model.ExtraMessingExpenditureAmount + model.ExtraMessingGasCharges + model.Commodities;

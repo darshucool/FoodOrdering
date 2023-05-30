@@ -76,6 +76,7 @@ namespace AlfasiWeb.Models
     }
     public class MenuOrderHeaderDetailModel {
         public MenuOrderHeader MenuOrderHeader { get; set; }
+        public decimal MyAmount { get; set; }
         public F140Header F140Header { get; set; }
         public List<MenuOrderItemDetail> MenuOrderItemDetailList { get; set; }
     }

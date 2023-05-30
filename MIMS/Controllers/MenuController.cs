@@ -1505,10 +1505,11 @@ namespace MIMS.Controllers
                 var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
                 var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
                 decimal Amount = 0;
-                List<MenuOrderHeaderDetailModel> MenuOrderHeaderList = new List<MenuOrderHeaderDetailModel>();
                 UserAccount account = GetCurrentUser();
+                List<MenuOrderHeaderDetailModel> MenuOrderHeaderList = new List<MenuOrderHeaderDetailModel>();
+               
                 var filter = _menuOrderOfficerService.GetDefaultSpecification();
-                filter = filter.And(p => p.Active == true).And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Delivered).And(p => p.MenuOrderHeader.OrderDate >= firstDayOfMonth).And(p => p.MenuOrderHeader.OrderDate <= lastDayOfMonth);
+                filter = filter.And(p=>p.UserId== account.Id).And(p => p.Active == true).And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Delivered).And(p => p.MenuOrderHeader.OrderDate >= firstDayOfMonth).And(p => p.MenuOrderHeader.OrderDate <= lastDayOfMonth);
                 List<MenuOrderOfficer> MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filter, p => p.CreationDate).ToList();
                 foreach (MenuOrderOfficer head in MenuOrderOfficerList)
                 {

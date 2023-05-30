@@ -43,7 +43,7 @@ namespace Dinota.Domain.User
         [Display(Name = "This supplier is a fabricator as well")]
         public bool IsFabUser { get; set; }
         public bool Active { get; set; }
-
+        public int LivingStatus { get; set; }
         public bool IsFirstLogin { get; set; }
         public UserType.UserType UserType { get; set; }
         public virtual Rank.Rank Rank { get; set; }

@@ -621,6 +621,39 @@ namespace MIMS.Controllers
                 throw;
             }
             return View();
+        } 
+        public ActionResult AddOfficerLivingInStatus(int id)
+        {
+            try
+            {
+                var filterU = _userAccountService.GetDefaultSpecification();
+                filterU = filterU.And(p => p.Active == true).And(p => p.LivingStatus == 1);
+                List<UserAccount> UserAccountList = _userAccountService.GetCollection(filterU, p => p.CreationDate).ToList();
+                foreach (UserAccount account in UserAccountList)
+                {
+                    MenuOrderOfficer off = new MenuOrderOfficer();
+                    off.UserId = account.Id;
+                    off.Active = true;
+                    off.MeanuOrderHeaderUId = id;
+                    _menuOrderOfficerService.Add(off);
+                    DataContext.SaveChanges();
+
+                    MenuOrderHeader header = _menuOrderHeaderService.GetByKey(id);
+                    int OfficerCount = header.OfficerCount;
+                    OfficerCount = OfficerCount + 1;
+                    header.OfficerCount = OfficerCount;
+                    DataContext.SaveChanges();
+                }
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Officers are successfully added.");
+
+                return RedirectToAction("OfficerList", new { id= id });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();
         }
         public ActionResult OfficerList(int id)
         {
