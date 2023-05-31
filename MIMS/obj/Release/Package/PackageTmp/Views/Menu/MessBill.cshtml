@@ -1,8 +1,8 @@
 ﻿@using MIMS
 @using MIMS.Helpers
 @using Dinota.Security
-@using Dinota.Domain.F140Header
-@using Dinota.Domain.MenuOrder
+@using Dinota.Domain.MenuOrderItemDetail
+@using Dinota.Domain.MenuOrderHeader
 @using AlfasiWeb.Models
 @model MessBillModel
 @{
@@ -45,183 +45,41 @@
                         </table>
                         <div class="tab-pane  " id="delivered" role="tabpanel" aria-labelledby="delivered-tab">
                             <div class="order-body">
-                                @foreach (MenuOrder ord in Model.MenuOrders)
+                                @foreach (MenuOrderHeaderDetailModel ord in Model.MenuOrders)
                                 {
                                     <div class="pb-3">
                                         <div class="p-3 rounded shadow-sm bg-white">
-
+                                            @foreach (MenuOrderItemDetail item in ord.MenuOrderItemDetailList)
+                                            {
                                             <div class="d-flex border-bottom pb-3">
                                                 <div class="text-muted mr-3">
-                                                    <img alt="#" src="@Url.Content("~/Asset/img/menu/" + ord.MenuItem.ImgName + ".jpg")" class="img-fluid order_img rounded">
+                                                    <img alt="#" src="@Url.Content("~/Asset/img/menu/" + item.MenuItem.ImgName + ".jpg")" class="img-fluid order_img rounded">
                                                 </div>
                                                 <div>
-                                                    <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuItem.Name</a></p>
+                                                    <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@item.MenuItem.Name</a></p>
                                                     <p>
-                                                        Quantity :  @if (ord.MenuItem.MeasurementUnitId == 1)
-                                                        {
-                                                            <span>  @ord.Qty</span>
-                                                        }
-                                                        else if (ord.MenuItem.MeasurementUnitId == 2)
-                                                        {
-                                                            <span>  @ord.Qty KG</span>
-                                                        }
+                                                        Quantity :   <span>  @item.Qty @item.MenuItem.MeasurementUnit.Unit</span>
+                                                       
                                                     </p>
 
-                                                    @if (!string.IsNullOrEmpty(ord.OptionType1.ToString()))
-                                                    {
-                                                        <p class="text- font-weight-bold mb-0">
-                                                            @if (ord.MenuOption != null)
-                                                            {
-                                                                @ord.MenuOption.Parameter
-                                                            }
-                                                        </p>
-                                                    }
-                                                    @if (!string.IsNullOrEmpty(ord.OptionType2.ToString()))
-                                                    {
-                                                        <p class="text- font-weight-bold mb-0">
-                                                            @if (ord.MenuMultiOption != null)
-                                                            {
-                                                                @ord.MenuMultiOption.Parameter
-                                                            }
-                                                        </p>
-                                                    }
-                                                    @if (ord.MenuItem.MenuCategory.MenuTypeId == 1)
-                                                    {
-                                                        if (!string.IsNullOrEmpty(ord.IsVeg.ToString()))
-                                                        {
-                                                            bool IsVeg = bool.Parse(ord.IsVeg.ToString());
-                                                            <p class="text- font-weight-bold mb-0">
-                                                                @if (IsVeg)
-                                                                {
-                                                                    <span>Vegetarian</span>
-                                                                }
-                                                                else
-                                                                {
-                                                                    <span>Non-Vegetarian</span>
-                                                                }
-
-                                                            </p>
-                                                        }
-                                                        if (!string.IsNullOrEmpty(ord.IsDiet.ToString()))
-                                                        {
-                                                            bool IsDiet = bool.Parse(ord.IsDiet.ToString());
-                                                            <p class="text- font-weight-bold mb-0">
-                                                                @if (IsDiet)
-                                                                {
-                                                                    <span>Diet Menu</span>
-                                                                }
-                                                                else
-                                                                {
-                                                                    <span>Normal Menu</span>
-                                                                }
-                                                            </p>
-                                                        }
-                                                    }
-                                                    else if (ord.MenuItem.MenuCategory.MenuTypeId == 2)
-                                                    {
-                                                        if (!string.IsNullOrEmpty(ord.IsEgg.ToString()))
-                                                        {
-                                                            bool EggAdd = bool.Parse(ord.IsEgg.ToString());
-
-                                                            <p class="text- font-weight-bold mb-0">
-                                                                @if (EggAdd)
-                                                                {
-                                                                    <span>With Eggs</span>
-                                                                }
-                                                                else
-                                                                {
-                                                                    <span>No Eggs</span>
-                                                                }
-                                                            </p>
-                                                        }
-                                                        if (!string.IsNullOrEmpty(ord.WithVeg.ToString()))
-                                                        {
-                                                            bool VegAdd = bool.Parse(ord.WithVeg.ToString());
-                                                            <p class="text- font-weight-bold mb-0">
-                                                                @if (VegAdd)
-                                                                {
-                                                                    <span>With Vegetables</span>
-                                                                }
-                                                                else
-                                                                {
-                                                                    <span>No Vegetables</span>
-                                                                }
-                                                            </p>
-                                                        }
-                                                    }
-                                                    else if (ord.MenuItem.MenuCategory.MenuTypeId == 3)
-                                                    {
-                                                        if (!string.IsNullOrEmpty(ord.BiteOpt.ToString()))
-                                                        {
-                                                            int opt = int.Parse(ord.BiteOpt.ToString());
-                                                            <p class="text- font-weight-bold mb-0">
-                                                                @if (opt == 1)
-                                                                {<span>Devilled</span>}
-                                                                @if (opt == 2)
-                                                                {<span>Papper Devilled</span>}
-                                                                @if (opt == 3)
-                                                                {<span>Backed</span>}
-                                                                @if (opt == 4)
-                                                                {<span>Deep Fried</span>}
-                                                                @if (opt == 5)
-                                                                {<span>Grilled</span>}
-                                                                @if (opt == 6)
-                                                                {<span>Saute Fried </span>}
-                                                                @if (opt == 7)
-                                                                {<span>Batter Fried</span>}
-                                                                @if (opt == 8)
-                                                                {<span>Grunb Fried</span>}
-                                                                @if (opt == 9)
-                                                                {<span>Hot Butter</span>}
-                                                                @if (opt == 10)
-                                                                {<span>Boiled</span>}
-                                                                @if (opt == 11)
-                                                                {<span>Raw Seasonela</span>}
-                                                                @if (opt == 12)
-                                                                {<span>Raw Unseasonela</span>}
-                                                                @if (opt == 13)
-                                                                {<span>Omlette</span>}
-                                                            </p>
-                                                        }
-                                                    }
-                                                    else if (ord.MenuItem.MenuCategory.MenuTypeId == 4)
-                                                    {
-                                                        if (!string.IsNullOrEmpty(ord.BiteOpt.ToString()))
-                                                        {
-                                                            int opt = int.Parse(ord.BiteOpt.ToString());
-                                                            <p class="text- font-weight-bold mb-0">
-                                                                @if (opt == 1)
-                                                                {<span>Plain</span>}
-                                                                @if (opt == 2)
-                                                                {<span>with Milk</span>}
-                                                                @if (opt == 3)
-                                                                {<span>Chocalate</span>}
-                                                                @if (opt == 4)
-                                                                {<span>Strawberry</span>}
-                                                                @if (opt == 5)
-                                                                {<span>Vanilla</span>}
-
-                                                            </p>
-                                                        }
-                                                    }
-                                                    @*<p class="mb-0 small"><a href="status_onprocess.html">View Details</a></p>*@
+                                                    
                                                     <p>
-                                                        <b>Location</b> : @ord.Location
+                                                        <b>Location</b> : @item.MenuOrderHeader.Location
                                                         <br />
                                                         <b>
                                                             Date and Time
-                                                        </b> : @ord.OrderDate.ToString("dd/MM/yyyy") @ord.Time
+                                                        </b> : @item.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @item.MenuOrderHeader.Time
                                                         <br />
-                                                        <b> Remark</b> : @ord.Remark
+                                                        <b> Remark</b> : @item.Remark
                                                     </p>
                                                 </div>
                                                 <div class="ml-auto">
                                                     <p class="bg-dark text-white py-1 px-2 rounded small mb-1">Delivered</p>
-                                                    <p class="small font-weight-bold text-center"><i class="feather-clock"></i> @ord.CreationDate</p>
+                                                    <p class="small font-weight-bold text-center"><i class="feather-clock"></i> @item.MenuOrderHeader.EffectiveDate</p>
                                                 </div>
 
                                             </div>
-
+                                            }
 
                                         </div>
                                     </div>

@@ -2,9 +2,10 @@
 @using MIMS.Helpers
 @using Dinota.Security
 @using Dinota.Domain.F140Header
+@using Dinota.Domain.MenuOrderItemDetail
 @using Dinota.Domain.MenuOrder
 @using AlfasiWeb.Models
-@model List<F140Model>
+@model MessBillModel
 @{
     ViewBag.Title = "MenuOrderList";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -32,13 +33,18 @@
                                     <td><b>Total Amount</b></td>
                                     <td></td>
                                 </tr>
-                                @foreach (F140Model detail in Model)
+                                @foreach (MenuOrderHeaderDetailModel detail in Model.MenuOrders)
                                 {
                                     
                                         <tr>
                                             <td>@detail.F140Header.EffectiveDate.ToString("dd/MM/yyyy")</td>
-                                            <td>@detail.F140Header.MenuOrder.MenuItem.Name</td>
-                                            <td>@detail.totalAmount.ToString("00.00")</td>
+                                            <td>
+                                                @foreach(MenuOrderItemDetail menu in detail.MenuOrderItemDetailList)
+                                                { 
+                                                <p>@menu.MenuItem.Name @menu.Qty @menu.MenuItem.MeasurementUnit.Unit</p>    
+                                                }
+                                            </td>
+                                            <td>@detail.MyAmount.ToString("00.00")</td>
                                            <td><a href="@Url.Content("~/Menu/F140Detail/")@detail.F140Header.UId" class="btn btn-primary px-3">View Detail</a>
 </td>
                                         </tr>

@@ -25,7 +25,7 @@
                 <div id="edit_profile">
                     <div>
                         @Html.Message()
-                        @using (Html.BeginForm("ProcessOrder", "Order", new { id = Model.MenuOrderId }, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+                        @using (Html.BeginForm("ProcessSingleOrder", "Order", new { id = Model.MenuOrderId }, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
                         {
                             @Html.HiddenFor(p => p.MenuOrderId)
                             <table width="100%" cellpadding="10" cellspacing="10" border="1">

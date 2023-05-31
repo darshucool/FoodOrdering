@@ -60,9 +60,11 @@
                 <thead>
                     <tr>
                         <th>Date</th>
+                        <th>Before Qty</th>
                         <th>Issue Qty</th>
-                        <th>Officer</th>
-                        <th>Menu Item</th>
+                        <th>After Qty</th>
+                      
+                       
                     </tr>
                 </thead>
                 <tbody>
@@ -73,9 +75,10 @@
                                 @info.EffectiveDate.ToShortDateString()
 
                             </td>
+                            <td>@info.PresentStock @info.IngredientBOC.MeasurementUnit.Unit</td>
                             <td>@info.IssueStock @info.IngredientBOC.MeasurementUnit.Unit</td>
-                            <td>@info.MenuOrder.UserBase.Name</td>
-                            <td>@info.MenuOrder.MenuItem.Name</td>
+                          
+                            <td>@info.RemainingStock @info.IngredientBOC.MeasurementUnit.Unit</td>
                         </tr>
                     }
                 </tbody>

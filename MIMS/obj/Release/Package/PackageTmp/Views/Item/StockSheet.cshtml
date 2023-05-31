@@ -1,0 +1,35 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.IngredientInfo
+@using Dinota.Domain.Event
+@using AlfasiWeb.Models
+@model List<IngredientInfo>
+
+ <table border="1" cellspacing="3" cellpadding="3">
+     <tr>
+         <td><b>Date</b></td>
+         @foreach (IngredientInfo info in Model)
+         {
+            <td>@info.ItemName</td>
+         }
+       
+     </tr>
+     <tr>
+         @{ 
+             int i = 0;
+         }
+         @foreach (IngredientInfo info in Model)
+         {
+             i++;
+             
+             <td>
+                 @if (i == 1)
+                 {
+                     @DateTime.Now.ToString("dd/MM/yyyy")
+                 }
+              </td>
+         }
+
+     </tr>
+     </table>

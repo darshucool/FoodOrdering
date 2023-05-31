@@ -132,6 +132,13 @@ namespace MIMS.Controllers
             }
             return View(model);
         }
+        public ActionResult StockSheet()
+        {
+            var filter = _ingredientInfoService.GetDefaultSpecification();
+            filter = filter.And(p => p.Active == true);
+            List<IngredientInfo> IngredientInfoList = _ingredientInfoService.GetCollection(filter, p => p.CreationDate).ToList();
+            return View(IngredientInfoList);
+        }
         public ActionResult IngredientEdit(int id)
         {
             IngredientInfo info = new IngredientInfo();

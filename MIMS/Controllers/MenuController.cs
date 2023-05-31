@@ -1459,15 +1459,15 @@ namespace MIMS.Controllers
                 List<MenuOrderHeaderDetailModel> MenuOrderHeaderList = new List<MenuOrderHeaderDetailModel>();
                 UserAccount account = GetCurrentUser();
                 var filter = _menuOrderOfficerService.GetDefaultSpecification();
-                filter = filter.And(p => p.Active == true).And(p=>p.MenuOrderHeader.Status==(int)DataStruct.MenuOrderItemStatus.Delivered).And(p=>p.MenuOrderHeader.OrderDate>= firstDayOfMonth).And(p => p.MenuOrderHeader.OrderDate <= lastDayOfMonth);
+                filter = filter.And(p => p.Active == true).And(p=>p.UserId==account.Id).And(p=>p.MenuOrderHeader.Status==(int)DataStruct.MenuOrderItemStatus.Delivered).And(p=>p.MenuOrderHeader.OrderDate>= firstDayOfMonth).And(p => p.MenuOrderHeader.OrderDate <= lastDayOfMonth);
                 List<MenuOrderOfficer> MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filter, p => p.CreationDate).ToList();
                 foreach (MenuOrderOfficer head in MenuOrderOfficerList)
                 {
                     MenuOrderHeaderDetailModel det = new MenuOrderHeaderDetailModel();
                     MenuOrderHeader header = _menuOrderHeaderService.GetByKey(head.MeanuOrderHeaderUId);
                     var filterO = _menuOrderOfficerService.GetDefaultSpecification();
-                    filterO = filterO.And(p => p.Active == true).And(p=>p.MeanuOrderHeaderUId== head.UId);
-                    List<MenuOrderOfficer> TotalOfficerList = _menuOrderOfficerService.GetCollection(filter, p => p.CreationDate).ToList();
+                    filterO = filterO.And(p => p.Active == true).And(p=>p.MeanuOrderHeaderUId== head.MeanuOrderHeaderUId);
+                    List<MenuOrderOfficer> TotalOfficerList = _menuOrderOfficerService.GetCollection(filterO, p => p.CreationDate).ToList();
                     if (TotalOfficerList.Count == 1)
                     {
                         Amount += header.F140TotalAmt;
@@ -1519,6 +1519,19 @@ namespace MIMS.Controllers
                     var filter140 = _f140HeaderService.GetDefaultSpecification();
                     filter140 = filter140.And(p => p.Active == true).And(p => p.MenuOrderId == header.UId);
                     F140Header oF140Header = _f140HeaderService.GetBy(filter140);
+                    var filterO = _menuOrderOfficerService.GetDefaultSpecification();
+                    filterO = filterO.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == header.UId);
+                    List<MenuOrderOfficer> TotalOfficerList = _menuOrderOfficerService.GetCollection(filterO, p => p.CreationDate).ToList();
+                    if (TotalOfficerList.Count == 1)
+                    {
+                        det.MyAmount = header.F140TotalAmt;
+                    }
+                    else if (TotalOfficerList.Count > 1)
+                    {
+                        decimal TotAmt = header.F140TotalAmt;
+                        decimal IndivisualAmt = TotAmt / TotalOfficerList.Count;
+                        det.MyAmount = IndivisualAmt;
+                    }
                     det.F140Header = oF140Header;
                     var filterMD = _menuOrderItemDetailService.GetDefaultSpecification();
                     filterMD = filterMD.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == header.UId);

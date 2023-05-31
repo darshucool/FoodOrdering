@@ -44,7 +44,7 @@
                                                 <p>@menu.MenuItem.Name @menu.Qty @menu.MenuItem.MeasurementUnit.Unit</p>    
                                                 }
                                             </td>
-                                            <td>@detail.MenuOrderHeader.F140TotalAmt.ToString("00.00")</td>
+                                            <td>@detail.MyAmount.ToString("00.00")</td>
                                            <td><a href="@Url.Content("~/Menu/F140Detail/")@detail.F140Header.UId" class="btn btn-primary px-3">View Detail</a>
 </td>
                                         </tr>

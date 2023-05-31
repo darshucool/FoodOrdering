@@ -22,7 +22,7 @@ namespace Dinota.Domain.BOCTransaction
         public DateTime EffectiveDate { get; set; }
         public int MenuOrderUId { get; set; }
 
-        public virtual MenuOrder.MenuOrder MenuOrder { get; set; }
+        public virtual MenuOrderHeader.MenuOrderHeader MenuOrderHeader { get; set; }
         public virtual IngredientBOC.IngredientBOC IngredientBOC { get; set; }
     }
 }
