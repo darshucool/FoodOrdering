@@ -170,3 +170,8 @@ D:\AF\FoodOrderingNew\DinotaCore\bin\Debug\DinotaCore.pdb
 D:\AF\FoodOrderingNew\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
 D:\AF\FoodOrderingNew\DinotaCore\obj\Debug\DinotaCore.dll
 D:\AF\FoodOrderingNew\DinotaCore\obj\Debug\DinotaCore.pdb
+E:\AF Programming\FoodOrdering\DinotaCore\bin\Debug\DinotaCore.dll
+E:\AF Programming\FoodOrdering\DinotaCore\bin\Debug\DinotaCore.pdb
+E:\AF Programming\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.csprojResolveAssemblyReference.cache
+E:\AF Programming\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.dll
+E:\AF Programming\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.pdb

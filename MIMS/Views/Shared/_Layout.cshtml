@@ -31,6 +31,12 @@
 
     <link href="@Url.Content("~/Asset/vendor/sidebar/demo.css")" rel="stylesheet">
     <link href="@Url.Content("~/Asset/css/dataTables.bootstrap4.min.css")" rel="stylesheet">
+    <style>
+  .insufficient-stock {
+    background-color: #fba6a8 !important;
+  }
+</style>
+    
 </head>
 <body class="fixed-bottom-bar">
     <header class="section-header">
@@ -287,8 +293,15 @@
         </div>
     }
 
-    <script type="457a562786498bfc8c87c2bf-text/javascript" src="@Url.Content("~/Asset/vendor/jquery/jquery.min.js")">
-       
+@if (ViewContext.RouteData.Values["Controller"].ToString() == "Order" && ViewContext.RouteData.Values["Action"].ToString() == "ProcessOrder")
+{
+    <script type="text/javascript" src="@Url.Content("~/Asset/js/jquery-3.6.0.min.js")"></script>   
+}
+else
+{
+    <script type="457a562786498bfc8c87c2bf-text/javascript" src="@Url.Content("~/Asset/vendor/jquery/jquery.min.js")"></script>
+}
+
 
 
     </script>
@@ -576,5 +589,42 @@
       return true;
     }
     </script>
+<script>
+    $(document).ready(function() {
+        // Input change event handler
+        $("body").on("input", ".quantity-input", function() {
+            var ingredientId = $(this).data("ingredient-id");
+            var quantity = parseFloat($(this).val()) || 0;
+
+            // Update the total quantity in the first table
+            $(this).closest("tr").find(".total-quantity").text(quantity);
+
+            // Update the total quantity in the second table
+            var totalQty = 0;
+            $("#table1 tr[data-ingredient-id='" + ingredientId + "']").each(function() {
+                var rowQty = parseFloat($(this).find(".quantity-input").val()) || 0;
+                totalQty += rowQty;
+            });
+            $("#table2 tr[data-ingredient-id='" + ingredientId + "'] .total-qty").text(totalQty);
+
+            // Update the insufficient-stock class
+            var stockQty = parseFloat($("#table2 tr[data-ingredient-id='" + ingredientId + "'] .current-stock-qty").text()) || 0;
+            if (totalQty > stockQty) {
+                $("#table1 tr[data-ingredient-id='" + ingredientId + "']").addClass("insufficient-stock");
+                $("#table2 tr[data-ingredient-id='" + ingredientId + "']").addClass("insufficient-stock");
+            } else {
+                $("#table1 tr[data-ingredient-id='" + ingredientId + "']").removeClass("insufficient-stock");
+                $("#table2 tr[data-ingredient-id='" + ingredientId + "']").removeClass("insufficient-stock");
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+
 </body>
 </html>

@@ -252,3 +252,12 @@ D:\AF\FoodOrderingNew\DinotaSecurity\bin\Debug\DinotaDomain.pdb
 D:\AF\FoodOrderingNew\DinotaSecurity\obj\Debug\DinotaSecurity.csprojResolveAssemblyReference.cache
 D:\AF\FoodOrderingNew\DinotaSecurity\obj\Debug\DinotaSecurity.dll
 D:\AF\FoodOrderingNew\DinotaSecurity\obj\Debug\DinotaSecurity.pdb
+E:\AF Programming\FoodOrdering\DinotaSecurity\bin\Debug\DinotaSecurity.dll
+E:\AF Programming\FoodOrdering\DinotaSecurity\bin\Debug\DinotaSecurity.pdb
+E:\AF Programming\FoodOrdering\DinotaSecurity\bin\Debug\DinotaCore.dll
+E:\AF Programming\FoodOrdering\DinotaSecurity\bin\Debug\DinotaDomain.dll
+E:\AF Programming\FoodOrdering\DinotaSecurity\bin\Debug\DinotaCore.pdb
+E:\AF Programming\FoodOrdering\DinotaSecurity\bin\Debug\DinotaDomain.pdb
+E:\AF Programming\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csprojResolveAssemblyReference.cache
+E:\AF Programming\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.dll
+E:\AF Programming\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.pdb
