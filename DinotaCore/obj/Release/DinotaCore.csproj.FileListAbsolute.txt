@@ -135,3 +135,9 @@ D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\bin\Release\Autofac.xml
 D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
 D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\obj\Release\DinotaCore.dll
 D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\obj\Release\DinotaCore.pdb
+D:\AF\FoodOrdering\DinotaCore\bin\Release\DinotaCore.dll
+D:\AF\FoodOrdering\DinotaCore\bin\Release\DinotaCore.pdb
+D:\AF\FoodOrdering\DinotaCore\bin\Release\Autofac.xml
+D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
+D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.dll
+D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.pdb

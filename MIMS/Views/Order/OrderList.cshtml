@@ -31,6 +31,7 @@
                         <th></th>
                         <th></th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,6 +57,13 @@
                         @if (info.F140Header != null)
                         {
                             <a href="@Url.Content("~/Menu/F140Detail/")@info.F140Header.UId" class="btn btn-primary px-3">F140 Detail</a>
+                        }
+
+                    </td>
+                        <td>
+                        @if (info.F140Header != null)
+                        {
+                            <a href="@Url.Content("~/Order/DeleteOrder/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Delete</a>
                         }
 
                     </td>

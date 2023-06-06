@@ -306,3 +306,12 @@ E:\AF Programming\FoodOrdering\DinotaDomain\obj\Debug\Dinota.Domain.Properties.R
 E:\AF Programming\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.GenerateResource.Cache
 E:\AF Programming\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.dll
 E:\AF Programming\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.pdb
+D:\AF\FoodOrdering\DinotaDomain\bin\Debug\DinotaDomain.dll
+D:\AF\FoodOrdering\DinotaDomain\bin\Debug\DinotaDomain.pdb
+D:\AF\FoodOrdering\DinotaDomain\bin\Debug\DinotaCore.dll
+D:\AF\FoodOrdering\DinotaDomain\bin\Debug\DinotaCore.pdb
+D:\AF\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\AF\FoodOrdering\DinotaDomain\obj\Debug\Dinota.Domain.Properties.Resources.resources
+D:\AF\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.GenerateResource.Cache
+D:\AF\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.dll
+D:\AF\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.pdb

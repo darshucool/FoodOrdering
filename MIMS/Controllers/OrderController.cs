@@ -135,12 +135,16 @@ namespace MIMS.Controllers
                     {
                         var filter140 = _f140HeaderService.GetDefaultSpecification();
                         filter140 = filter140.And(p => p.Active == true).And(p => p.MenuOrderId == order.UId);
-                        F140Header oF140Header = _f140HeaderService.GetBy(filter140);
-                        mod.F140Header = oF140Header;
-                        var filterD = _f140DataService.GetDefaultSpecification();
-                        filterD = filterD.And(p => p.Active == true).And(p => p.F140HeaderUId == oF140Header.UId);
-                        List<F140Data> F140DataList = _f140DataService.GetCollection(filterD, p=>p.CreationDate).ToList();
-                        mod.TotalAmount = F140DataList.Sum(p=>p.Amount);
+                        List<F140Header> oF140HeaderList = _f140HeaderService.GetCollection(filter140,p => p.CreationDate).OrderByDescending(p => p.UId).ToList();
+                        if (oF140HeaderList.Count > 0)
+                        {
+                            mod.F140Header = oF140HeaderList[0];
+                            var filterD = _f140DataService.GetDefaultSpecification();
+                            int id=oF140HeaderList[0].UId;
+                            filterD = filterD.And(p => p.Active == true).And(p => p.F140HeaderUId == id);
+                            List<F140Data> F140DataList = _f140DataService.GetCollection(filterD, p => p.CreationDate).ToList();
+                            mod.TotalAmount = F140DataList.Sum(p => p.Amount);
+                        }
                     }
                     MenuOrderHeaderModelList.Add(mod);
                 }
@@ -456,8 +460,8 @@ namespace MIMS.Controllers
                                         DataContext.SaveChanges();
 
                                         IngredientBOC UpdateBOC = _ingredientBOCService.GetByKey(FEntry.UId);
-                                        UpdateBOC.Qty = tran.RemainingStock;
-                                        DataContext.SaveChanges();
+                                        //UpdateBOC.Qty = tran.RemainingStock;
+                                        //DataContext.SaveChanges();
                                         TotAmount += FEntry.Qty * FEntry.Price;
                                     }
                                 }
@@ -621,7 +625,68 @@ namespace MIMS.Controllers
                 throw;
             }
             return View();
-        } 
+        }
+
+
+        public ActionResult DeleteOrder(int id)
+        {
+            try
+            {
+                MenuOrderHeader header = _menuOrderHeaderService.GetByKey(id);
+                header.Active = false;
+                DataContext.SaveChanges();
+
+                var filterItems = _menuOrderItemDetailService.GetDefaultSpecification();
+                filterItems = filterItems.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == id);
+                List<MenuOrderItemDetail> OrderItemList = _menuOrderItemDetailService.GetCollection(filterItems, p => p.CreationDate).ToList();
+                foreach (MenuOrderItemDetail item in OrderItemList)
+                {
+                    MenuOrderItemDetail detail = _menuOrderItemDetailService.GetByKey(item.UId);
+                    detail.Active = false;
+                    DataContext.SaveChanges();
+
+                }
+
+                var officerList = _menuOrderOfficerService.GetDefaultSpecification();
+                officerList = officerList.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == id);
+                List<MenuOrderOfficer> OfficerList = _menuOrderOfficerService.GetCollection(officerList, p => p.CreationDate).ToList();
+                foreach (MenuOrderOfficer off in OfficerList)
+                {
+                    MenuOrderOfficer detail = _menuOrderOfficerService.GetByKey(off.UId);
+                    detail.Active = false;
+                    DataContext.SaveChanges();
+
+                }
+                List<BOCTransaction> BOCTransactionList = new List<BOCTransaction>();
+                var filterBOC = _bOCTransactionService.GetDefaultSpecification();
+                filterBOC = filterBOC.And(p => p.Active == true).And(p => p.MenuOrderUId == id);
+                BOCTransactionList = _bOCTransactionService.GetCollection(filterBOC, p => p.CreationDate).ToList();
+                foreach (BOCTransaction boc in BOCTransactionList)
+                {
+                    BOCTransaction newBOC = new BOCTransaction();
+                    newBOC = _bOCTransactionService.GetByKey(boc.UId);
+                    newBOC.Active = false;
+                    DataContext.SaveChanges();
+                    IngredientBOC itemBOC = _ingredientBOCService.GetByKey(newBOC.IngriedientBOCUId);
+                    if (itemBOC != null)
+                    {
+                        itemBOC.Qty = itemBOC.Qty + boc.IssueStock;
+                        DataContext.SaveChanges();
+                    }
+
+                }
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Order successfully removed");
+
+                return RedirectToAction("OrderList");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return View();
+        }
+
+
         public ActionResult AddOfficerLivingInStatus(int id)
         {
             try

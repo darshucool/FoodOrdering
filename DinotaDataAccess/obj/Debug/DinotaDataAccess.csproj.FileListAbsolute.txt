@@ -365,3 +365,14 @@ E:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaSecurity.pdb
 E:\AF Programming\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.csprojResolveAssemblyReference.cache
 E:\AF Programming\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.dll
 E:\AF Programming\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.pdb
+D:\AF\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaDataAccess.dll
+D:\AF\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaDataAccess.pdb
+D:\AF\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaCore.dll
+D:\AF\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaDomain.dll
+D:\AF\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaSecurity.dll
+D:\AF\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaCore.pdb
+D:\AF\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaDomain.pdb
+D:\AF\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaSecurity.pdb
+D:\AF\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.csprojResolveAssemblyReference.cache
+D:\AF\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.dll
+D:\AF\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.pdb
