@@ -335,6 +335,8 @@ namespace MIMS.Controllers
                         List<MenuItemDetailListModel> MenuItemDetailListModelList = new List<MenuItemDetailListModel>();
                         foreach (MenuItemDetail det in MasterItemList)
                         {
+                            if (item.Qty == 0)
+                                item.Qty = 1;
                             if (i == 1)
                             {
                                 model.MultipleQty = item.Qty / det.PortionQty;
@@ -460,8 +462,8 @@ namespace MIMS.Controllers
                                         DataContext.SaveChanges();
 
                                         IngredientBOC UpdateBOC = _ingredientBOCService.GetByKey(FEntry.UId);
-                                        //UpdateBOC.Qty = tran.RemainingStock;
-                                        //DataContext.SaveChanges();
+                                        UpdateBOC.Qty = tran.RemainingStock;
+                                        DataContext.SaveChanges();
                                         TotAmount += FEntry.Qty * FEntry.Price;
                                     }
                                 }
@@ -675,6 +677,28 @@ namespace MIMS.Controllers
                     }
 
                 }
+                var filter140Header = _f140HeaderService.GetDefaultSpecification();
+                filter140Header = filter140Header.And(p => p.Active == true).And(p => p.MenuOrderId == id);
+                List<F140Header> F140HeaderList = _f140HeaderService.GetCollection(filter140Header, p => p.CreationDate).ToList();
+                foreach (F140Header head in F140HeaderList)
+                {
+                    F140Header headerCheck = new F140Header();
+                    headerCheck = _f140HeaderService.GetByKey(head.UId);
+                    headerCheck.Active = false;
+                    DataContext.SaveChanges();
+
+                    var filter140Detail = _f140DataService.GetDefaultSpecification();
+                    filter140Detail = filter140Detail.And(p => p.Active == true).And(p => p.F140HeaderUId == head.UId);
+                    List<F140Data> filter140DetailList = _f140DataService.GetCollection(filter140Detail, p => p.CreationDate).ToList();
+
+                    foreach (F140Data d in filter140DetailList)
+                     {
+                        F140Data dataCheck = new F140Data();
+                        dataCheck = _f140DataService.GetByKey(d.UId);
+                        dataCheck.Active = false;
+                        DataContext.SaveChanges();
+                    }
+                }
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Order successfully removed");
 
                 return RedirectToAction("OrderList");
@@ -798,8 +822,8 @@ namespace MIMS.Controllers
                 List<MenuItemDetail> MenuItemDetailList = _menuItemDetailService.GetCollection(filter, p => p.CreationDate).ToList();
                 MenuItemDetail item = new MenuItemDetail();
                 item.SLAFLocationUId = account.LocationUId;
-                item.PortionQty = MenuItemDetailList[0].PortionQty;
-                item.PortionMeasurementUId = MenuItemDetailList[0].PortionMeasurementUId;
+                item.PortionQty = 1;
+                item.PortionMeasurementUId = oMenuItem.MeasurementUnitId;
                 item.MenuItemId = MenuItemId;
                 item.IngriedientUId = oIngredientInfo.UId;
                 item.IngriedientMeasurementUId = oIngredientInfo.MeasurementUnitUId;

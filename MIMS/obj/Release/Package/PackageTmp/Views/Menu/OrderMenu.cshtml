@@ -28,32 +28,28 @@
 
                             <div class="row">
                                 <div class="col-md-3">&nbsp;</div>
-                                <div class="col-md-6 " style="background-color:#e3e3e3 !important; padding: 10px;">
+                                <div class="col-md-6 " style="background-color: #e3e3e3 !important; padding: 10px;">
                                     <h6 class="mb-3 font-weight-bold">Order @Model.MenuItem.Name</h6>
                                     @using (Html.BeginForm("OrderMenu", "Menu", new { id = Model.MenuItem.UId }, FormMethod.Post))
                                     {
                                         <div class="recepie-body">
-                                           
+
 
                                             <h6 class="font-weight-bold mt-4">QUANTITY</h6>
                                             <div class=" border-bottom py-2">
-                                                @if (Model.MenuItem.MeasurementUnitId == 1)
-                                                {<div class="row">
+                                                <div class="row">
                                                     <div class="col-md-8 col-sm-7  col-xs-7">
-                                                        <input type="text" name="menucount" value="1"  id="menucount"   onkeypress="return isNumberKey(this, event);"  class="form-control" required>
+                                                        <input type="text" name="menucount" value="1" id="menucount" onkeypress="return isNumberKey(this, event);" class="form-control" required>
                                                     </div>
-                                                    <div class="col-md-3 col-sm-4 col-xs-4"> <span style="float:left">(<b>Ea</b>)</span></div>
+                                                    <div class="col-md-3 col-sm-4 col-xs-4">
+                                                        <span style="float: left">(<b>@Model.MenuItem.MeasurementUnit.Unit
+                                                        </b>)</span>
+                                                    </div>
                                                 </div>
-                                                }
-                                                else if (Model.MenuItem.MeasurementUnitId == 2)
-                                                {
-                                            <div class="row">
-                                                <div class="col-md-8 col-sm-7  col-xs-7">
-                                                    <input type="text" name="menucount" id="menucount"  onkeypress="return isNumberKey(this, event);"  value="0.5" class="form-control" required>
-                                                </div>
-                                                <div class="col-md-3 col-sm-4 col-xs-4"> <span style="float:left">(<b>KG</b>)</span></div>
-                                            </div>
-                                                }
+
+
+                                               
+
 
                                             </div>
                                             <h6 class="font-weight-bold mt-4">Delivery Location</h6>
@@ -65,22 +61,19 @@
                                                     <option value="Reception">Reception</option>
                                                     <option value="Bar">Bar</option>
                                                 </select>
-                                                <div id="roomoption" style="width:100%"></div>
+                                                <div id="roomoption" style="width: 100%"></div>
                                             </div>
                                             <h6 class="font-weight-bold mt-4">Date</h6>
                                             <div class=" border-bottom py-2">
                                                 <input type="date" name="delidate" class="form-control" required>
-
                                             </div>
                                             <h6 class="font-weight-bold mt-4">Time</h6>
                                             <div class=" border-bottom py-2">
                                                 <input type="time" name="delitime" class="form-control" required>
-
                                             </div>
                                             <h6 class="font-weight-bold mt-4">Remark</h6>
                                             <div class=" border-bottom py-2">
                                                 <input type="text" name="remark" class="form-control">
-
                                             </div>
                                         </div>
                                         <div class="modal-footer p-0 border-0">
