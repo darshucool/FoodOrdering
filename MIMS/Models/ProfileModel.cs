@@ -38,4 +38,7 @@ namespace AlfasiWeb.Models
         public string Name { get; set; }
         public string NIC { get; set; }
     }
+    public class OfficerAddProfile { 
+        public string ServiceNo { get; set; }
+    }
 }

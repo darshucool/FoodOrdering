@@ -229,6 +229,7 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\OfficerController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\DivisionInfoController.cs" />
@@ -808,6 +809,8 @@
     <Content Include="Views\Menu\PackageList.cshtml" />
     <Content Include="Views\Item\StockSheet.cshtml" />
     <Content Include="Views\Order\ProcessOrder_backup.cshtml" />
+    <Content Include="Views\Officer\OfficerList.cshtml" />
+    <Content Include="Views\Officer\AddOfficer.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
