@@ -18,6 +18,7 @@ using Dinota.Domain.SLAFLocation;
 using Dinota.Domain.FuelType;
 using Dinota.Domain.RoomInfo;
 using Dinota.Domain.RoomNo;
+using Dinota.Domain.UserStatus;
 
 namespace MIMS.Controllers
 {
@@ -33,8 +34,9 @@ namespace MIMS.Controllers
         private readonly FuelTypeService _fuelTypeService;
         private readonly RoomInfoService _roomInfoService;
         private readonly RoomNoService _roomNoService;
+        private readonly UserStatusService _userStatusService;
 
-        public OfficerController(IDomainContext dataContext, UserAccountService userAccountService, RoomNoService roomNoService, RoomInfoService roomInfoService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
+        public OfficerController(IDomainContext dataContext, UserStatusService userStatusService, UserAccountService userAccountService, RoomNoService roomNoService, RoomInfoService roomInfoService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
             : base(dataContext)
         {
             _divisionService = divisionService;
@@ -45,6 +47,7 @@ namespace MIMS.Controllers
             _roomInfoService = roomInfoService;
             _roomNoService = roomNoService;
             _userAccountService = userAccountService;
+            _userStatusService = userStatusService;
         }
         // [AuthorizeUserAccessLevel()]
 
@@ -76,12 +79,40 @@ namespace MIMS.Controllers
             List<UserAccount> UserAccountList = _userAccountService.GetCollection(filter, p => p.CreationDate).ToList();
             return View(UserAccountList);
         }
+        public void BindUserStatusList()
+        {
+            try
+            {
+                var filter = _userStatusService.GetDefaultSpecification().And(s => s.Active == true);
+                var TypeList = _userStatusService.GetCollection(filter, d => d.UId);
+                SelectList list = new SelectList(TypeList, "UId", "Status");
+                ViewData[ViewDataKeys.UserStatusList] = list;
+            }
+            catch (Exception ex)
+            {
+                TempData[ViewDataKeys.Message] = new FailMessage(ex.Message.ToString());
+
+            }
+
+        }
         public ActionResult UpdateStatus(int id)
         {
             UserAccount account = _userAccountService.GetByKey(id);
+            BindUserStatusList();
             return View(account);
         }
+        [HttpPost]
+        public ActionResult UpdateStatus(FormCollection Form,int id)
+        {
+            UserAccount account = _userAccountService.GetByKey(id);
+            BindUserStatusList();
+            TryUpdateModel(account);
+            DataContext.SaveChanges();
+            TempData[ViewDataKeys.Message] = new SuccessMessage("Officer Status successfully updated");
 
+            return RedirectToAction("OfficerList");
+            return View(account);
+        }
         public ActionResult AddOfficer()
         {
             OfficerAddProfile profile = new OfficerAddProfile();

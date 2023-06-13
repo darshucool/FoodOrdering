@@ -1,0 +1,48 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.MenuCategory
+@using Dinota.Domain.User
+@using AlfasiWeb.Models
+@model UserAccount
+@{
+    ViewBag.Title = "MenuOrderList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Add Event</h4>
+    </div>
+</div>
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+
+        <div class="col-md-12 mb-3">
+            <div class="rounded shadow-sm p-4 bg-white">
+                <h5 class="mb-4">Add Event</h5>
+                <div id="edit_profile">
+                    <div>
+                        @Html.Message()
+                        @using (Html.BeginForm("UpdateStatus", "Officer", null, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+                        {
+
+                            <div class="form-group">
+                                <label for="exampleInputName1">Officer Status</label>
+                                @Html.DropDownListFor(model => model.LivingStatus, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.UserStatusList], "-- Select User Status  --", new { @class = "full-width form-control", @required = "true" })
+                                @Html.ValidationMessageFor(m => m.LivingStatus, null, new { @class = "help-inline" })
+
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

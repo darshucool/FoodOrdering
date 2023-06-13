@@ -27,25 +27,32 @@
                         <th>Service No</th>
                         <th>Rank</th>
                         <th>Name</th>
+                        <th>Name</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (UserAccount info in Model)
                     {
-                        <tr>
+                    <tr>
 
-                            <td>@info.UserName</td>
-                            <td>@if(info.Rank!=null)
-                            { 
-                                @info.Rank.Name    
+                        <td>@info.UserName</td>
+                        <td>
+                            @if (info.Rank != null)
+                            {
+                                @info.Rank.Name
                             }
-                            </td>
-                            <td>@info.Name</td> 
-                            
-                            <td><a href="@Url.Content("~/Officer/UpdateOfficer/")@info.Id" class="">Update Status</a></td>
-                            @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
-                        </tr>
+                    </td>
+                    <td>@info.Name</td>
+                    <td>@if(info.UserStatus!=null)
+                        { 
+                        @info.UserStatus.Status
+                        }
+                        </td>
+    
+                        <td><a href="@Url.Content("~/Officer/UpdateStatus/")@info.Id" class="">Update Status</a></td>
+                    @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
+                    </tr>
                     }
                 </tbody>
             </table>

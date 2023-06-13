@@ -267,7 +267,6 @@ D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\bin\Release\DinotaCore.dll
 D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\bin\Release\System.ComponentModel.DataAnnotations.dll
 D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\bin\Release\DinotaCore.pdb
 D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\bin\Release\Autofac.xml
-D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csprojResolveAssemblyReference.cache
 D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
 D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
 D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.dll
@@ -282,3 +281,6 @@ D:\AF\FoodOrdering\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.r
 D:\AF\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.Cache
 D:\AF\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.dll
 D:\AF\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.AssemblyReference.cache
+D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.CoreCompileInputs.cache
+D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.CopyComplete

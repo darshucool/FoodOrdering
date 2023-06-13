@@ -15,6 +15,7 @@ namespace Dinota.DataAccces.User
             HasRequired(f => f.Division).WithMany().HasForeignKey(f => f.DivisionId);
             HasRequired(f => f.Rank).WithMany().HasForeignKey(f => f.RankUId);
             HasRequired(f => f.SLAFLocation).WithMany().HasForeignKey(f => f.LocationUId);
+            HasRequired(f => f.UserStatus).WithMany().HasForeignKey(f => f.LivingStatus);
             Property(user => user.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(user => user.IsFabUser).HasColumnName("DoFabricate");

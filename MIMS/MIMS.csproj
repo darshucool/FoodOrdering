@@ -811,6 +811,7 @@
     <Content Include="Views\Order\ProcessOrder_backup.cshtml" />
     <Content Include="Views\Officer\OfficerList.cshtml" />
     <Content Include="Views\Officer\AddOfficer.cshtml" />
+    <Content Include="Views\Officer\UpdateStatus.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -132,7 +132,6 @@ D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.Pro
 D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.WebForms.DLL
 D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\bin\Release\System.ComponentModel.DataAnnotations.dll
 D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\bin\Release\Autofac.xml
-D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
 D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\obj\Release\DinotaCore.dll
 D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\obj\Release\DinotaCore.pdb
 D:\AF\FoodOrdering\DinotaCore\bin\Release\DinotaCore.dll
@@ -141,3 +140,6 @@ D:\AF\FoodOrdering\DinotaCore\bin\Release\Autofac.xml
 D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
 D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.dll
 D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.pdb
+D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.AssemblyReference.cache
+D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CoreCompileInputs.cache
+D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CopyComplete

@@ -57,6 +57,8 @@
     <Compile Include="AdminUser\AdminUserMap.cs" />
     <Compile Include="AdminUser\AdminUserRepo.cs" />
     <Compile Include="AutofacModule.cs" />
+    <Compile Include="Event\EventMap.cs" />
+    <Compile Include="Event\EventRepo.cs" />
     <Compile Include="MenuOrderOfficer\MenuOrderOfficerMap.cs" />
     <Compile Include="MenuOrderOfficer\MenuOrderOfficerRepo.cs" />
     <Compile Include="MenuOrderItemDetail\MenuOrderItemDetailMap.cs" />
@@ -107,8 +109,8 @@
     <Compile Include="EventParticipationKid\EventParticipationKidRepo.cs" />
     <Compile Include="EventParticipation\EventParticipationMap.cs" />
     <Compile Include="EventParticipation\EventParticipationRepo.cs" />
-    <Compile Include="Event\EventMap.cs" />
-    <Compile Include="Event\EventRepo.cs" />
+    <Compile Include="UserStatus\UserStatusMap.cs" />
+    <Compile Include="UserStatus\UserStatusRepo.cs" />
     <Compile Include="MenuOrder\MenuOrderMap.cs" />
     <Compile Include="MenuOrder\MenuOrderRepo.cs" />
     <Compile Include="MenuItem\MenuItemMap.cs" />

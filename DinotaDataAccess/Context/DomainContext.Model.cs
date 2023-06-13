@@ -35,6 +35,7 @@ using Dinota.DataAccces.BOCTransaction;
 using Dinota.DataAccces.MenuOrderHeader;
 using Dinota.DataAccces.MenuOrderItemDetail;
 using Dinota.DataAccces.MenuOrderOfficer;
+using Dinota.DataAccces.UserStatus;
 
 namespace Dinota.DataAccces.Context
 {
@@ -81,7 +82,8 @@ namespace Dinota.DataAccces.Context
             modelBuilder.Configurations.Add(new BOCTransactionMap());   
             modelBuilder.Configurations.Add(new MenuOrderHeaderMap()); 
             modelBuilder.Configurations.Add(new MenuOrderItemDetailMap()); 
-            modelBuilder.Configurations.Add(new MenuOrderOfficerMap());
+            modelBuilder.Configurations.Add(new MenuOrderOfficerMap()); 
+            modelBuilder.Configurations.Add(new UserStatusMap());
         }
     }
 }

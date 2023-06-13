@@ -49,6 +49,7 @@ namespace Dinota.Domain.User
         public virtual Rank.Rank Rank { get; set; }
         public Division.Division Division { get; set; }
         public virtual SLAFLocation.SLAFLocation SLAFLocation { get; set; }
+        public virtual UserStatus.UserStatus UserStatus { get; set; }
         //public override bool ExpireOnDelete
         //{
         //    get
