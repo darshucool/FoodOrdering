@@ -453,8 +453,9 @@ namespace MIMS.Controllers
                                         tran.IngriedientBOCUId = FEntry.UId;
                                         tran.MenuOrderUId = id;
                                         tran.PresentStock = FEntry.Qty;
+                                        AssignedQty = AssignedQty - FEntry.Qty;
                                         tran.IssueStock = AssignedQty;
-                                        AssignedQty = AssignedQty-FEntry.Qty;
+                                        
                                         tran.RemainingStock = 0;
                                         tran.Active = true;
                                         tran.EffectiveDate = DateTime.Now;
@@ -538,8 +539,9 @@ namespace MIMS.Controllers
                                     tran.IngriedientBOCUId = FEntry.UId;
                                     tran.MenuOrderUId = id;
                                     tran.PresentStock = FEntry.Qty;
-                                    tran.IssueStock = AssignedQty;
                                     AssignedQty = AssignedQty - FEntry.Qty;
+                                    tran.IssueStock = AssignedQty;
+                                    
                                     tran.RemainingStock = 0;
                                     tran.Active = true;
                                     tran.EffectiveDate = DateTime.Now;
