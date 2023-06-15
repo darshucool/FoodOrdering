@@ -314,6 +314,4 @@ D:\AF\FoodOrdering\DinotaDomain\obj\Debug\Dinota.Domain.Properties.Resources.res
 D:\AF\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.GenerateResource.Cache
 D:\AF\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.dll
 D:\AF\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.pdb
-D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.AssemblyReference.cache
-D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.CoreCompileInputs.cache
-D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.CopyComplete
+D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csprojResolveAssemblyReference.cache

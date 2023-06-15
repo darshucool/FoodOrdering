@@ -812,6 +812,8 @@
     <Content Include="Views\Officer\OfficerList.cshtml" />
     <Content Include="Views\Officer\AddOfficer.cshtml" />
     <Content Include="Views\Officer\UpdateStatus.cshtml" />
+    <Content Include="Views\Officer\OfficerRequestList.cshtml" />
+    <Content Include="Views\Officer\AddOfficerRequest.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

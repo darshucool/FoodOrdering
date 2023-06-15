@@ -708,6 +708,4 @@ D:\AF\FoodOrdering\MIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
 D:\AF\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.GenerateResource.Cache
 D:\AF\FoodOrdering\MIMS\obj\Debug\AlfasiWeb.dll
 D:\AF\FoodOrdering\MIMS\obj\Debug\AlfasiWeb.pdb
-D:\03200\MIMS\GIT\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.AssemblyReference.cache
-D:\03200\MIMS\GIT\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.CoreCompileInputs.cache
-D:\03200\MIMS\GIT\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.CopyComplete
+D:\03200\MIMS\GIT\FoodOrdering\MIMS\obj\Debug\MIMS.csprojResolveAssemblyReference.cache

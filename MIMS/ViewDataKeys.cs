@@ -105,5 +105,6 @@ namespace MIMS
         public static readonly string MeasurementUnitListList = "MeasurementUnitList";
         public static readonly string IngredientInfoList = "IngredientInfoList";
         public static readonly string UserStatusList = "UserStatusList";
+        public static readonly string MenuItemList = "MenuItemList";
     }
 }

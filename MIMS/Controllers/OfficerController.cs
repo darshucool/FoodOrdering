@@ -19,6 +19,8 @@ using Dinota.Domain.FuelType;
 using Dinota.Domain.RoomInfo;
 using Dinota.Domain.RoomNo;
 using Dinota.Domain.UserStatus;
+using Dinota.Domain.OfficerRequest;
+using Dinota.Domain.MenuItem;
 
 namespace MIMS.Controllers
 {
@@ -35,8 +37,10 @@ namespace MIMS.Controllers
         private readonly RoomInfoService _roomInfoService;
         private readonly RoomNoService _roomNoService;
         private readonly UserStatusService _userStatusService;
+        private readonly MenuItemService _menuItemService;
+        private readonly OfficerRequestService _officerRequestService;
 
-        public OfficerController(IDomainContext dataContext, UserStatusService userStatusService, UserAccountService userAccountService, RoomNoService roomNoService, RoomInfoService roomInfoService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
+        public OfficerController(IDomainContext dataContext, MenuItemService menuItemService, OfficerRequestService officerRequestService, UserStatusService userStatusService, UserAccountService userAccountService, RoomNoService roomNoService, RoomInfoService roomInfoService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
             : base(dataContext)
         {
             _divisionService = divisionService;
@@ -48,10 +52,27 @@ namespace MIMS.Controllers
             _roomNoService = roomNoService;
             _userAccountService = userAccountService;
             _userStatusService = userStatusService;
+            _officerRequestService = officerRequestService;
+            _menuItemService =menuItemService;
         }
         // [AuthorizeUserAccessLevel()]
 
+        public void BindMainMealItemList()
+        {
+            try
+            {
+                var filter = _menuItemService.GetDefaultSpecification().And(s => s.Active == true).And(p=>p.IsCombine==true);
+                var TypeList = _menuItemService.GetCollection(filter, d => d.UId);
+                SelectList list = new SelectList(TypeList, "UId", "Name");
+                ViewData[ViewDataKeys.MenuItemList] = list;
+            }
+            catch (Exception ex)
+            {
+                TempData[ViewDataKeys.Message] = new FailMessage(ex.Message.ToString());
 
+            }
+
+        }
 
         private UserAccount GetCurrentUser()
         {
@@ -113,6 +134,11 @@ namespace MIMS.Controllers
             return RedirectToAction("OfficerList");
             return View(account);
         }
+        public ActionResult CreateRequest()
+        {
+            OfficerRequest profile = new OfficerRequest();
+            return View(profile);
+        }
         public ActionResult AddOfficer()
         {
             OfficerAddProfile profile = new OfficerAddProfile();
@@ -122,6 +148,58 @@ namespace MIMS.Controllers
         public ActionResult AddOfficer(FormCollection Form)
         {
             OfficerAddProfile profile = new OfficerAddProfile();
+            try
+            {
+                UserAccount user = GetCurrentUser();
+                TryUpdateModel(profile);
+                var filter = _userAccountService.GetDefaultSpecification();
+                filter = filter.And(p => p.ServiceNo == profile.ServiceNo).And(p => p.Active == true);
+                UserAccount account = _userAccountService.GetBy(filter);
+                if (account != null)
+                {
+                    account.LocationUId = user.LocationUId;
+                    DataContext.SaveChanges();
+                }
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Officer successfully added");
+
+                return RedirectToAction("OfficerList");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(profile);
+        }
+        public ActionResult AddOfficerRequest(int id)
+        {
+            OfficerRequest profile = new OfficerRequest();
+            UserAccount account = new UserAccount();
+            BindMainMealItemList();
+            if (id > 0)
+            {
+               account = _userAccountService.GetByKey();
+               profile.UserId = account.Id;
+               profile.ServiceNo = account.UserName;
+            }
+           
+
+            return View(profile);
+        }
+        public ActionResult OfficerRequestList()
+        {
+            List<OfficerRequest> profile = new List<OfficerRequest>();
+            UserAccount account = new UserAccount();
+            var filter = _officerRequestService.GetDefaultSpecification();
+            filter = filter.And(p => p.Active == true);
+            profile = _officerRequestService.GetCollection(filter, p => p.CreationDate).ToList();
+
+            return View(profile);
+        }
+        [HttpPost]
+        public ActionResult AddOfficerRequest(FormCollection Form)
+        {
+            OfficerRequest profile = new OfficerRequest();
             try
             {
                 UserAccount user = GetCurrentUser();

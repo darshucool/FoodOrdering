@@ -269,6 +269,4 @@ D:\AF\FoodOrdering\DinotaSecurity\bin\Debug\DinotaDomain.pdb
 D:\AF\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csprojResolveAssemblyReference.cache
 D:\AF\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.dll
 D:\AF\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.pdb
-D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csproj.AssemblyReference.cache
-D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csproj.CoreCompileInputs.cache
-D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csproj.CopyComplete
+D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csprojResolveAssemblyReference.cache
