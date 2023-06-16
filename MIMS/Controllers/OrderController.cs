@@ -125,7 +125,7 @@ namespace MIMS.Controllers
             try
             {
                 var filter = _menuOrderHeaderService.GetDefaultSpecification();
-                filter = filter.And(p => p.Active == true);
+                 filter = filter.And(p => p.Active == true);
                 List<MenuOrderHeader> MenuOrderHeaderList= _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).ToList();
                 foreach (MenuOrderHeader order in MenuOrderHeaderList.OrderBy(p=>p.OrderDate))
                 {

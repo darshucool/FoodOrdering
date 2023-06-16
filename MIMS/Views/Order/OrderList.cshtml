@@ -42,19 +42,25 @@
 
                             <td>@info.MenuOrderHeader.EffectiveDate.ToShortDateString()</td>
                             <td>
-                                @foreach (MenuOrderItemDetail det in info.MenuOrderItemDetailList)
-                                { 
-                                @det.MenuItem.Name<br/>
-                                
+                                @if (info.MenuOrderItemDetailList != null)
+                                {
+                                    foreach (MenuOrderItemDetail det in info.MenuOrderItemDetailList)
+                                    {
+                                        @det.MenuItem.Name<br />
+
+                                    }
                                 }
+                               
                                 </td>
                             <td>
-                                @foreach (MenuOrderItemDetail det in info.MenuOrderItemDetailList)
+                                @if (info.MenuOrderItemDetailList != null)
                                 {
-                                    <span>@det.Qty.ToString("00")&nbsp; @det.MenuItem.MeasurementUnit.Unit</span><br />
+                                                                foreach (MenuOrderItemDetail det in info.MenuOrderItemDetailList)
+                                                                {
+                                                                    <span>@det.Qty.ToString("00")&nbsp; @det.MenuItem.MeasurementUnit.Unit</span><br />
 
+                                                                }
                                 }
-
                             </td>
                                 @*<td>@info.MenuOrderHeader.Location</td>*@
                                 <td style="text-align:right">
