@@ -196,3 +196,14 @@ D:\AF\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.pdb
 D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csproj.AssemblyReference.cache
 D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csproj.CoreCompileInputs.cache
 D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csproj.CopyComplete
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\bin\Release\DinotaSecurity.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\bin\Release\DinotaSecurity.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\bin\Release\DinotaCore.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\bin\Release\DinotaDomain.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\bin\Release\DinotaCore.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\bin\Release\DinotaDomain.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\bin\Release\Autofac.xml
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csprojAssemblyReference.cache
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csproj.CopyComplete
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.pdb

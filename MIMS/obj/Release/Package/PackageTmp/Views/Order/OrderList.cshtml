@@ -2,6 +2,7 @@
 @using MIMS.Helpers
 @using Dinota.Security
 @using Dinota.Domain.MenuOrderHeader
+@using Dinota.Domain.MenuOrderItemDetail
 @using Dinota.Domain.Event
 @using AlfasiWeb.Models
 @model List<MenuOrderHeaderModel>
@@ -25,45 +26,59 @@
                 <thead>
                     <tr>
                         <th>Date</th>
-                        <th>Time</th>
-                        <th>Location</th>
+                        <th>Menu Item</th>
+                        <th>Qty</th>
                         <th>Total Amount</th>
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th></th>                      
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (MenuOrderHeaderModel info in Model)
                     {
-                    <tr>
+                        <tr>
 
-                        <td>@info.MenuOrderHeader.EffectiveDate.ToShortDateString()</td>
-                        <td>@info.MenuOrderHeader.Time</td>
-                        <td>@info.MenuOrderHeader.Location</td>
-                        <td>
-                            @if (info.F140Header != null)
-                            {
-                               <span> @info.TotalAmount.ToString("00.00")</span>
+                            <td>@info.MenuOrderHeader.EffectiveDate.ToShortDateString()</td>
+                            <td>
+                                @foreach (MenuOrderItemDetail det in info.MenuOrderItemDetailList)
+                                { 
+                                @det.MenuItem.Name<br/>
+                                
+                                }
+                                </td>
+                            <td>
+                                @foreach (MenuOrderItemDetail det in info.MenuOrderItemDetailList)
+                                {
+                                    <span>@det.Qty.ToString("00")&nbsp; @det.MenuItem.MeasurementUnit.Unit</span><br />
+
+                                }
+
+                            </td>
+                                @*<td>@info.MenuOrderHeader.Location</td>*@
+                                <td style="text-align:right">
+                                    @if (info.F140Header != null)
+                                    {
+                                        <span> @info.TotalAmount.ToString("00.00")</span>
                                     }
 
-                    </td>
+                                </td>
 
 
-                    <td><a href="@Url.Content("~/Order/OfficerList/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Officer List</a></td>
-                    <td><a href="@Url.Content("~/Order/MenuCreate/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Detail</a></td>
-                    <td>
-                        @if (info.F140Header != null)
-                        {
-                            <a href="@Url.Content("~/Menu/F140Detail/")@info.F140Header.UId" class="btn btn-primary px-3">F140 Detail</a>
+                                <td><a href="@Url.Content("~/Order/OfficerList/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Officer List</a></td>
+                                <td><a href="@Url.Content("~/Order/MenuCreate/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Detail</a></td>
+                                <td>
+                                    @if (info.F140Header != null)
+                                    {
+                                        <a href="@Url.Content("~/Menu/F140Detail/")@info.F140Header.UId" class="btn btn-primary px-3">F140 Detail</a>
+                                    }
+
+                                </td>
+                                <td><a href="@Url.Content("~/Order/DeleteOrder/")@info.MenuOrderHeader.UId" class=""><img src="~/Asset/img/remove.png" width="20" /></a></td>
+                                @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
+                            </tr>
                         }
-
-                    </td>                       
-                         <td><a href="@Url.Content("~/Order/DeleteOrder/")@info.MenuOrderHeader.UId" class=""><img src="~/Asset/img/remove.png" width="20" /></a></td>
-                        @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
-                    </tr>
-                    }
                 </tbody>
             </table>
         </div>

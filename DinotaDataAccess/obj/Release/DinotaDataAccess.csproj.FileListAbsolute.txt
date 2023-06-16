@@ -333,3 +333,17 @@ D:\AF\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.pdb
 D:\03200\MIMS\GIT\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.AssemblyReference.cache
 D:\03200\MIMS\GIT\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.CoreCompileInputs.cache
 D:\03200\MIMS\GIT\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.CopyComplete
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Release\DinotaDataAccess.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Release\DinotaDataAccess.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Release\DinotaCore.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Release\DinotaDomain.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Release\DinotaSecurity.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Release\System.ComponentModel.DataAnnotations.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Release\DinotaCore.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Release\DinotaDomain.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Release\DinotaSecurity.pdb
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\bin\Release\Autofac.xml
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csprojAssemblyReference.cache
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.CopyComplete
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.dll
+D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.pdb

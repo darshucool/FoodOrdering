@@ -127,7 +127,7 @@ namespace MIMS.Controllers
                 var filter = _menuOrderHeaderService.GetDefaultSpecification();
                 filter = filter.And(p => p.Active == true);
                 List<MenuOrderHeader> MenuOrderHeaderList= _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).ToList();
-                foreach (MenuOrderHeader order in MenuOrderHeaderList)
+                foreach (MenuOrderHeader order in MenuOrderHeaderList.OrderBy(p=>p.OrderDate))
                 {
                     MenuOrderHeaderModel mod = new MenuOrderHeaderModel();
                     mod.MenuOrderHeader = order;
@@ -145,6 +145,10 @@ namespace MIMS.Controllers
                             List<F140Data> F140DataList = _f140DataService.GetCollection(filterD, p => p.CreationDate).ToList();
                             mod.TotalAmount = F140DataList.Sum(p => p.Amount);
                         }
+                        var filterOD = _menuOrderItemDetailService.GetDefaultSpecification();
+                        filterOD = filterOD.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == order.UId);
+                        List<MenuOrderItemDetail> MenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterOD, p => p.CreationDate).ToList();
+                        mod.MenuOrderItemDetailList = MenuOrderItemDetailList;
                     }
                     MenuOrderHeaderModelList.Add(mod);
                 }
@@ -402,7 +406,7 @@ namespace MIMS.Controllers
                             var filter = _menuItemDetailService.GetDefaultSpecification();
                             filter = filter.And(p => p.Active == true).And(p => p.MenuItemId == pack.MenuItem.UId);
                             List<MenuItemDetail> MenuItemDetailSubList = _menuItemDetailService.GetCollection(filter, p => p.CreationDate).ToList();
-                            foreach (MenuItemDetail it in MenuItemDetailSubList)
+                            foreach (MenuItemDetail it in MenuItemDetailSubList) 
                             {
                                 F140Data data = new F140Data();
                                 data.Active = true;
@@ -422,7 +426,7 @@ namespace MIMS.Controllers
                                     data.Qty = it.IngriedientQty;
                                 }
                                 var filterBOC = _ingredientBOCService.GetDefaultSpecification();
-                                filterBOC = filterBOC.And(p => p.Active == true).And(p => p.IngredientUId == it.IngriedientUId);
+                                filterBOC = filterBOC.And(p => p.Active == true).And(p => p.IngredientUId == it.IngriedientUId).And(p=>p.Qty>0);
                                 List<IngredientBOC> IngredientBOCList = _ingredientBOCService.GetCollection(filterBOC, p => p.EffectiveDate).ToList();
                                 decimal TotAmount = 0;
                                 foreach (IngredientBOC FEntry in IngredientBOCList.OrderBy(p => p.EffectiveDate))
@@ -508,7 +512,7 @@ namespace MIMS.Controllers
                                 data.Qty = it.IngriedientQty;
                             }
                             var filterBOC = _ingredientBOCService.GetDefaultSpecification();
-                            filterBOC = filterBOC.And(p => p.Active == true).And(p => p.IngredientUId == it.IngriedientUId);
+                            filterBOC = filterBOC.And(p => p.Active == true).And(p => p.IngredientUId == it.IngriedientUId).And(p => p.Qty > 0);
                             List<IngredientBOC> IngredientBOCList = _ingredientBOCService.GetCollection(filterBOC, p => p.EffectiveDate).ToList();
                             decimal TotAmount = 0;
                             foreach (IngredientBOC FEntry in IngredientBOCList.OrderBy(p => p.EffectiveDate))
