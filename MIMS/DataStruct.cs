@@ -66,7 +66,13 @@ namespace AlfasiWeb
         {
             Rma_Breakfast = 30,
             Rma_Lunch = 31,
-            Rma_Dinner = 32
+            Rma_Dinner = 32,
+            Rma_Breakfast_diet = 177,
+            Rma_Lunch_diet = 179,
+            Rma_Dinner_diet = 181,
+            Rma_Breakfast_veg = 176,
+            Rma_Lunch_veg = 178,
+            Rma_Dinner_veg = 180
         };
         public enum PaymentMethod
         {

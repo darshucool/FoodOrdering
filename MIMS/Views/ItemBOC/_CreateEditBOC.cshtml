@@ -28,14 +28,17 @@
             <label for="exampleInputName1">Date</label>
 @if (Model.UId == 0)
 {
-    @Html.TextBoxFor(m => m.EffectiveDate, new { @placeholder = "Enter Date", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @type = "date" })
-
+    @Html.TextBoxFor(s => s.EffectiveDate, new { @class = "form-control ", @placeholder = "Date", @type = "date" })
 }
 else
 {
-    @Html.TextBoxFor(m => m.EffectiveDate, new { @placeholder = "Enter Date", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @type = "date" })
+    @Html.TextBoxFor(p => p.EffectiveDate, "{0:yyyy-MM-dd}", new { @class = "form-control  ", @type = "date", @placeholder = "Date", @value = @Model.EffectiveDate.ToString("MM/dd/yyyy") })
 
+  
 }
+           
+
+          
           
              @Html.ValidationMessageFor(m => m.EffectiveDate, "")
         </div>
@@ -52,6 +55,13 @@ else
             <label for="exampleInputName1">Qty</label>
             @Html.TextBoxFor(m => m.Qty, new { @placeholder = "Enter Qty", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true"})
             @Html.ValidationMessageFor(m => m.Qty, "")
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleInputName1">Voucher No</label>
+            @Html.TextBoxFor(m => m.VoucherNo, new { @placeholder = "Enter Voucher No", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @Required = "true" })
+            @Html.ValidationMessageFor(m => m.VoucherNo, "")
         </div>
     </div>
     <div class="col-md-12">&nbsp;</div>

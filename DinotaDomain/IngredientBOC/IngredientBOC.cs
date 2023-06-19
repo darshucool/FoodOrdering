@@ -17,7 +17,7 @@ namespace Dinota.Domain.IngredientBOC
         public decimal Price { get; set; }
       
         public decimal Qty { get; set; }
-      
+      public string VoucherNo { get; set; }
         public decimal TotalPrice { get; set; }
         public int SLAFLocationUId { get; set; }
         public bool Active { set; get; }

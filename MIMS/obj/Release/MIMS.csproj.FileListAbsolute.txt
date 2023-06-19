@@ -449,9 +449,6 @@ D:\AF\FoodOrdering\MIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
 D:\AF\FoodOrdering\MIMS\bin\DotNetOpenAuth.OAuth.xml
 D:\AF\FoodOrdering\MIMS\bin\DotNetOpenAuth.OpenId.xml
 D:\AF\FoodOrdering\MIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
-D:\03200\MIMS\GIT\FoodOrdering\MIMS\obj\Release\MIMS.csproj.AssemblyReference.cache
-D:\03200\MIMS\GIT\FoodOrdering\MIMS\obj\Release\MIMS.csproj.CoreCompileInputs.cache
-D:\03200\MIMS\GIT\FoodOrdering\MIMS\obj\Release\MIMS.csproj.CopyComplete
 D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\obj\Release\MIMS.csprojAssemblyReference.cache
 D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\obj\Release\AlfasiWeb.Properties.Resources.resources
 D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\obj\Release\MIMS.csproj.GenerateResource.cache
@@ -519,3 +516,4 @@ D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\bin\DotNetOpenAuth.OAuth.xml
 D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\bin\DotNetOpenAuth.OpenId.xml
 D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\obj\Release\MIMS.csproj.CopyComplete
+D:\03200\MIMS\GIT\FoodOrdering\MIMS\obj\Release\MIMS.csprojResolveAssemblyReference.cache
