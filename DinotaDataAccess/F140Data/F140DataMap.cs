@@ -17,6 +17,7 @@ namespace Dinota.DataAccces.F140Data
             HasRequired(f => f.MeasurementUnit).WithMany().HasForeignKey(f => f.MeasurementUnitId);
             HasRequired(f => f.MenuItem).WithMany().HasForeignKey(f => f.MenuItemId);
             HasRequired(f => f.IngredientInfo).WithMany().HasForeignKey(f => f.IngridientUId);
+            HasRequired(f => f.F140Header).WithMany().HasForeignKey(f => f.F140HeaderUId);
             Property(x => x.Qty).HasPrecision(18, 4);
             Property(x => x.Amount).HasPrecision(18, 4);
         }

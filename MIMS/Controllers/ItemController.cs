@@ -22,6 +22,9 @@ using Dinota.Domain.IngredientInfo;
 using Dinota.Domain.MeasurementUnit;
 using Dinota.Domain.IngredientBOC;
 using Dinota.Domain.BOCTransaction;
+using Dinota.Domain.StockSheetTransaction;
+using Dinota.Domain.F140Header;
+using Dinota.Domain.F140Data;
 
 namespace MIMS.Controllers
 {
@@ -41,8 +44,11 @@ namespace MIMS.Controllers
         private readonly MeasurementUnitService _measurementUnitService;
         private readonly IngredientBOCService _ingredientBOCService;
         private readonly BOCTransactionService _bOCTransactionService;
+        private readonly StockSheetTransactionService _stockSheetTransactionService;
+        private readonly F140HeaderService _f140HeaderService;
+        private readonly F140DataService _f140DataService;
 
-        public ItemController(IDomainContext dataContext, BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, MeasurementUnitService measurementUnitService, IngredientInfoService ingredientInfoService, UserAccountService userAccountService, RoomNoService roomNoService, RoomInfoService roomInfoService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
+        public ItemController(IDomainContext dataContext, F140DataService f140DataService, F140HeaderService f140HeaderService, StockSheetTransactionService stockSheetTransactionService, BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, MeasurementUnitService measurementUnitService, IngredientInfoService ingredientInfoService, UserAccountService userAccountService, RoomNoService roomNoService, RoomInfoService roomInfoService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
             : base(dataContext)
         {
             _divisionService = divisionService;
@@ -57,6 +63,9 @@ namespace MIMS.Controllers
             _measurementUnitService = measurementUnitService;
             _ingredientBOCService = ingredientBOCService;
             _bOCTransactionService = bOCTransactionService;
+            _stockSheetTransactionService = stockSheetTransactionService;
+            _f140HeaderService = f140HeaderService;
+            _f140DataService = f140DataService;
         }
         // [AuthorizeUserAccessLevel()]
 
@@ -132,12 +141,69 @@ namespace MIMS.Controllers
             }
             return View(model);
         }
-        public ActionResult StockSheet()
+        public ActionResult StockSheet(int id)
         {
-            var filter = _ingredientInfoService.GetDefaultSpecification();
-            filter = filter.And(p => p.Active == true);
-            List<IngredientInfo> IngredientInfoList = _ingredientInfoService.GetCollection(filter, p => p.CreationDate).ToList();
-            return View(IngredientInfoList);
+            StockSheetTransactionModel StockSheetTransactionModelList = new StockSheetTransactionModel();
+            var firstDayOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            var filter = _stockSheetTransactionService.GetDefaultSpecification();
+            filter = filter.And(p => p.Active == true).And(p=>p.EffectiveDate>= firstDayOfMonth).And(p=>p.EffectiveDate<= lastDayOfMonth);
+            List<StockSheetTransaction> StockSheetTransactionList = _stockSheetTransactionService.GetCollection(filter, p => p.CreationDate).ToList();
+            if (StockSheetTransactionList.Count > 0)
+            {
+
+            }
+            DateTime CurrentFromDate = DateTime.Now.Date;
+            DateTime CurrentToDate = DateTime.Now.Date.AddDays(1).AddTicks(-1);
+            var filterI = _ingredientInfoService.GetDefaultSpecification();
+            filterI = filterI.And(p => p.Active == true).And(p => p.ItemTypeId == id);
+            List<IngredientInfo> IngredientInfoList = _ingredientInfoService.GetCollection(filterI, p => p.CreationDate).ToList();
+            List<IngredientInfo> IngredientList = new List<IngredientInfo>();
+            List<BOCAmountList> BOCAmountList = new List<BOCAmountList>();
+            List<BOCQtyList> BOCQtyList = new List<BOCQtyList>();
+            List<IngIssueList> IngIssueList = new List<IngIssueList>();
+            foreach (IngredientInfo info in IngredientInfoList)
+            {
+                IngredientList.Add(info);
+               
+                var filterBOCA = _ingredientBOCService.GetDefaultSpecification();
+                filterBOCA = filterBOCA.And(p => p.Active == true).And(p => p.IngredientUId == info.UId);
+                List<IngredientBOC> IngredientInfoBOCAmountList = _ingredientBOCService.GetCollection(filterBOCA, p => p.CreationDate).OrderByDescending(p=>p.UId).ToList();
+                BOCAmountList oBOCAmount = new BOCAmountList();
+                if (IngredientInfoBOCAmountList.Count > 0)
+                {
+                    oBOCAmount.BocAmount = IngredientInfoBOCAmountList[0].Price;
+                }
+                else
+                {
+                    oBOCAmount.BocAmount = 0;
+                }
+                BOCAmountList.Add(oBOCAmount);
+                var filterBOCNew = _ingredientBOCService.GetDefaultSpecification();
+                filterBOCNew = filterBOCNew.And(p=>p.Active==true).And(p=>p.IngredientUId== info.UId).And(p=>p.EffectiveDate>= CurrentFromDate).And(p=>p.EffectiveDate<= CurrentToDate);
+                List<IngredientBOC> IngredientInfoBOCNewList = _ingredientBOCService.GetCollection(filterBOCNew, p=>p.CreationDate).ToList();
+
+                var filterBOC = _ingredientBOCService.GetDefaultSpecification();
+                filterBOC = filterBOC.And(p => p.Active == true).And(p => p.IngredientUId == info.UId);
+                List<IngredientBOC> IngredientInfoBOCList = _ingredientBOCService.GetCollection(filterBOC, p => p.CreationDate).ToList();
+                BOCQtyList bqty = new BOCQtyList();
+                foreach (IngredientBOC BOC in IngredientInfoBOCList)
+                {
+                    bqty.Qty= IngredientInfoBOCList.Sum(p => p.Qty);
+                }
+                BOCQtyList.Add(bqty);
+
+                var filterData = _f140DataService.GetDefaultSpecification();
+                filterData = filterData.And(p => p.Active == true).And(p=>p.IngridientUId== info.UId).And(p => p.F140Header.MenuOrderHeader.EffectiveDate >= CurrentFromDate).And(p => p.F140Header.MenuOrderHeader.EffectiveDate <= CurrentToDate);
+                List<F140Data> DataList = _f140DataService.GetCollection(filterData, p => p.CreationDate).ToList();
+                IngIssueList IngIss = new IngIssueList();
+                IngIss.Qty = DataList.Sum(p=>p.Qty);
+            }
+            StockSheetTransactionModelList.IngredientInfoList = IngredientList;
+            StockSheetTransactionModelList.BOCAmountList = BOCAmountList;
+            StockSheetTransactionModelList.BOCQtyList = BOCQtyList;
+            StockSheetTransactionModelList.IngIssueList = IngIssueList;
+            return View(StockSheetTransactionModelList);
         }
         public ActionResult IngredientEdit(int id)
         {

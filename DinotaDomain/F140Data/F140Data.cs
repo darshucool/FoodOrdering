@@ -20,7 +20,7 @@ namespace Dinota.Domain.F140Data
         public int SLAFLocationId { set; get; }
         public decimal Amount { set; get; }
         public bool Active { set; get; }
-        
+        public virtual F140Header.F140Header F140Header { get; set; }
         public virtual MenuItem.MenuItem MenuItem { get; set; }
         public virtual IngredientInfo.IngredientInfo IngredientInfo { get; set; }
 

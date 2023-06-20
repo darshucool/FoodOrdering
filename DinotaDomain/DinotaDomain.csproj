@@ -56,6 +56,9 @@
     <Compile Include="BOCTransaction\BOCTransaction.cs" />
     <Compile Include="BOCTransaction\BOCTransactionService.cs" />
     <Compile Include="BOCTransaction\IBOCTransactionRepo.cs" />
+    <Compile Include="StockSheetTransaction\StockSheetTransaction.cs" />
+    <Compile Include="StockSheetTransaction\StockSheetTransactionService.cs" />
+    <Compile Include="StockSheetTransaction\IStockSheetTransactionRepo.cs" />
     <Compile Include="OfficerRequest\OfficerRequest.cs" />
     <Compile Include="OfficerRequest\OfficerRequestService.cs" />
     <Compile Include="OfficerRequest\IOfficerRequestRepo.cs" />

@@ -1,5 +1,6 @@
 ﻿
 
+using Dinota.Domain.IngredientInfo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -89,6 +90,27 @@ namespace AlfasiWeb.Models
         public decimal TotalCommodotiesAmount { get; set; }
         public decimal TotalIncomeAmount { get; set; }
         public decimal TotalExpenditureAmount { get; set; }
+    }
+    public class StockSheetTransactionModel {
+        public List<IngredientInfo> IngredientInfoList { get; set; }
+        public DateTime Date { get; set; }
+        
+        public decimal IssueAmount{ get; set; }
+        public List<BOCAmountList> BOCAmountList { get; set; }
+        public List<BOCQtyList> BOCQtyList { get; set; }
+        public List<IngIssueList> IngIssueList { get; set; }
+       
+    }
+    public class BOCAmountList {
+        public decimal BocAmount { get; set; }
+    }
+    public class BOCQtyList
+    {
+        public decimal Qty { get; set; }
+    }
+    public class IngIssueList
+    {
+        public decimal Qty { get; set; }
     }
     
 }

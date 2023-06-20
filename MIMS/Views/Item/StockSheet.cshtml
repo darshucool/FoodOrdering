@@ -4,32 +4,83 @@
 @using Dinota.Domain.IngredientInfo
 @using Dinota.Domain.Event
 @using AlfasiWeb.Models
-@model List<IngredientInfo>
+@model StockSheetTransactionModel
 
- <table border="1" cellspacing="3" cellpadding="3">
-     <tr>
-         <td><b>Date</b></td>
-         @foreach (IngredientInfo info in Model)
-         {
-            <td>@info.ItemName</td>
-         }
-       
-     </tr>
-     <tr>
-         @{ 
-             int i = 0;
-         }
-         @foreach (IngredientInfo info in Model)
-         {
-             i++;
-             
-             <td>
-                 @if (i == 1)
-                 {
-                     @DateTime.Now.ToString("dd/MM/yyyy")
-                 }
-              </td>
-         }
+<style>
+    th {
+        vertical-align: bottom;
+        text-align: center;
+    }
 
-     </tr>
-     </table>
+        th span {
+            -ms-writing-mode: tb-rl;
+            -webkit-writing-mode: vertical-rl;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            white-space: nowrap;
+        }
+</style>
+<button onclick="history.back()">Go Back</button><br />
+<table border="1" cellspacing="3" cellpadding="3">
+    <tr>
+        <td><b>Date</b></td>
+        @foreach (IngredientInfo info in Model.IngredientInfoList)
+        {
+
+
+            <th>
+
+                <span><small>@info.ItemName</small></span>
+
+
+            </th>
+
+
+
+        }
+    </tr>
+    <tr>
+        <td rowspan="3"><b>@DateTime.Now.ToString("dd/MM/yyyy")</b></td>
+
+
+
+        @foreach (BOCAmountList bocamt in Model.BOCAmountList)
+        {
+            <td>
+                @if (bocamt.BocAmount > 0)
+                {
+                    <p style="color:red"><small>@bocamt.BocAmount</small></p>
+                }
+
+            </td>
+        }
+    </tr>
+    <tr>
+
+        @foreach (BOCQtyList bocqty in Model.BOCQtyList)
+            {
+            <td>
+                @if (bocqty.Qty > 0)
+                {
+                    <p style="color:blue" class="BOCqty"><small>@bocqty.Qty</small></p>
+                }
+
+            </td>
+        }
+
+    </tr>
+    <tr>
+        @foreach (IngIssueList InqIss in Model.IngIssueList)
+            {
+            <td>
+                @if (InqIss.Qty > 0)
+                {
+                    <p style="color:blue" class="Ingqty"><small>@InqIss.Qty</small></p>
+                }
+
+            </td>
+
+        }
+    </tr>
+
+</table>
