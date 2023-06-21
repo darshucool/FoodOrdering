@@ -101,6 +101,11 @@ namespace AlfasiWeb.Models
         public List<IngIssueList> IngIssueList { get; set; }
        
     }
+    public class BOCTotalModel {
+        public IngredientInfo IngredientInfo { get; set; }
+        public decimal RemQty { get; set; }
+        public decimal BOCValue { get; set; }
+    }
     public class BOCAmountList {
         public decimal BocAmount { get; set; }
     }

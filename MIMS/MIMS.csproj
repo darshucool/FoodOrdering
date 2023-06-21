@@ -814,6 +814,7 @@
     <Content Include="Views\Officer\UpdateStatus.cshtml" />
     <Content Include="Views\Officer\OfficerRequestList.cshtml" />
     <Content Include="Views\Officer\AddOfficerRequest.cshtml" />
+    <Content Include="Views\Item\TotalStockBOCValue.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

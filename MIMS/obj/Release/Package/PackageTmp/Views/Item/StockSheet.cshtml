@@ -7,82 +7,89 @@
 @model StockSheetTransactionModel
 
 <style>
-    th 
-{
-  vertical-align: bottom;
-  text-align: center;
-}
+    th {
+        vertical-align: bottom;
+        text-align: center;
+    }
 
-th span 
-{
-  -ms-writing-mode: tb-rl;
-  -webkit-writing-mode: vertical-rl;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  white-space: nowrap;
-}
-    </style>
-                <button onclick="history.back()">Go Back</button><br/>
-    <table border="1" cellspacing="3" cellpadding="3">
-        <tr>
-            <td><b>Date</b></td>
-            @foreach (IngredientInfo info in Model.IngredientInfoList)
-            {
-
-               
-                    <th>
-                       
-                            <span><small>@info.ItemName</small></span>
-                      
-
-                    </th>
-               
+        th span {
+            -ms-writing-mode: tb-rl;
+            -webkit-writing-mode: vertical-rl;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            white-space: nowrap;
+        }
+</style>
+<button onclick="history.back()">Go Back</button><br />
+<table border="1" cellspacing="3" cellpadding="3">
+    <tr>
+        <td><b>Date</b></td>
+        @foreach (IngredientInfo info in Model.IngredientInfoList)
+        {
 
 
-            }
-        </tr>
-        <tr>
-            <td rowspan="4"><b>@DateTime.Now.ToString("dd/MM/yyyy")</b></td>
-          
-            
-            
-                @foreach (BOCAmountList bocamt in Model.BOCAmountList)
+            <th>
+
+                <span><small>@info.ItemName</small></span>
+
+
+            </th>
+
+
+
+        }
+    </tr>
+    <tr>
+        <td rowspan="3"><b>@DateTime.Now.ToString("dd/MM/yyyy")</b></td>
+
+
+
+        @foreach (BOCAmountList bocamt in Model.BOCAmountList)
+        {
+            <td>
+                @if (bocamt.BocAmount > 0)
                 {
-                    <td>
-                        @if (bocamt.BocAmount > 0)
-                        {
-                            <p style="color:red"><small>@bocamt.BocAmount</small></p>
-                        }
-                       
-                    </td>
+                    <p style="color:red"><small>@bocamt.BocAmount</small></p>
                 }
-            </tr>
-        <tr>
+                else
+                {
+                    <p>&nbsp;</p>
+                }
+            </td>
+        }
+    </tr>
+    <tr>
 
-            @foreach (BOCQtyList bocqty in Model.BOCQtyList)
+        @foreach (BOCQtyList bocqty in Model.BOCQtyList)
             {
-                <td>
-                    @if (bocqty.Qty > 0)
-                    {
-                        <p style="color:blue"><small>@bocqty.Qty</small></p>
-                    }
+            <td>
+                @if (bocqty.Qty > 0)
+                {
+                    <p style="color:blue" class="BOCqty"><small>@bocqty.Qty</small></p>
+                }
+                else
+                {
+                    <p>&nbsp;</p>
+                }
+            </td>
+        }
 
-                </td>
-            }
-
-        </tr>
-        <tr>
-            @foreach (IngIssueList InqIss in Model.IngIssueList)
+    </tr>
+    <tr>
+        @foreach (IngIssueList InqIss in Model.IngIssueList)
             {
-                <td>
-                    @if (InqIss.Qty > 0)
-                    {
-                        <p style="color:blue"><small>@InqIss.Qty</small></p>
-                    }
+            <td>
+                @if (InqIss.Qty > 0)
+                {
+                    <p style="color:blue" class="Ingqty"><small>@InqIss.Qty</small></p>
+                }
+                else
+                {
+                    <p>&nbsp;</p>
+                }
+            </td>
 
-                </td>
+        }
+    </tr>
 
-            }
-        </tr>
-
-    </table>
+</table>

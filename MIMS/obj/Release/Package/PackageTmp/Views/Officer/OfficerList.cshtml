@@ -27,8 +27,9 @@
                         <th>Service No</th>
                         <th>Rank</th>
                         <th>Name</th>
-                        <th>Name</th>
+                        <th>Status</th>
                         <th></th>
+                          <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,6 +52,8 @@
                         </td>
     
                         <td><a href="@Url.Content("~/Officer/UpdateStatus/")@info.Id" class="">Update Status</a></td>
+                        <td><a href="@Url.Content("~/Officer/AddOfficerRequest/")@info.Id" class=""> Warning In/Out
+                            </a></td>
                     @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
                     </tr>
                     }

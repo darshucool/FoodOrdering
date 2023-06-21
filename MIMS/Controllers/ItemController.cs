@@ -195,6 +195,7 @@ namespace MIMS.Controllers
                 List<F140Data> DataList = _f140DataService.GetCollection(filterData, p => p.CreationDate).ToList();
                 IngIssueList IngIss = new IngIssueList();
                 IngIss.Qty = DataList.Sum(p=>p.Qty);
+                IngIssueList.Add(IngIss);
             }
             StockSheetTransactionModelList.IngredientInfoList = IngredientList;
             StockSheetTransactionModelList.BOCAmountList = BOCAmountList;
@@ -307,5 +308,41 @@ namespace MIMS.Controllers
             List<IngredientInfo> IngredientInfoList = _ingredientInfoService.GetCollection(filter, p => p.CreationDate).ToList();
             return View(IngredientInfoList);
         }
+        public ActionResult TotalStockBOCValue()
+        {
+            List<BOCTotalModel> List = new List<BOCTotalModel>();
+            try
+            {
+                var filter = _ingredientInfoService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true);
+                List<IngredientInfo> IngredientInfoList = _ingredientInfoService.GetCollection(filter, p => p.CreationDate).ToList() ;
+                
+                foreach (IngredientInfo info in IngredientInfoList)
+                {
+                    decimal TotalValue = 0;
+                    decimal TotalWeight = 0;
+                    BOCTotalModel boc = new BOCTotalModel();
+                    boc.IngredientInfo = info;
+                    var filterI = _ingredientBOCService.GetDefaultSpecification();
+                    filterI = filterI.And(p=>p.IngredientUId==info.UId).And(p=>p.Active==true).And(p=>p.Qty>0);
+                    List<IngredientBOC> IngredientBOCList = _ingredientBOCService.GetCollection(filterI,p=>p.CreationDate).ToList();
+                    foreach (IngredientBOC Iboc in IngredientBOCList)
+                    {
+                        TotalValue += Iboc.Qty * Iboc.Price;
+                        TotalWeight += Iboc.Qty;
+                    }
+                    boc.BOCValue = TotalValue;
+                    boc.RemQty = TotalWeight;
+                    List.Add(boc);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(List);
+        }
+
     }
 }

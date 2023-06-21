@@ -12,60 +12,61 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
-<div class="d-none">
-    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
-        <a class="toggle togglew toggle-2" href="#"><span></span></a>
-        <h4 class="font-weight-bold m-0 text-white">Add Officer </h4>
-    </div>
-</div>
-<div class="container position-relative">
-    <div class="py-5 row">
-        <div class="col-md-12 mb-3">
-            <div>
-                <div class="osahan-cart-item mb-3 rounded shadow-sm bg-white overflow-hidden">
-                    <div class="osahan-cart-item-profile bg-white p-3">
-                        <div class="d-flex flex-column">
 
-                            <div class="row">
-                                <div class="col-md-3">&nbsp;</div>
-                                <div class="col-md-6 " style="background-color:#e3e3e3 !important; padding: 10px;">
-                                    <h6 class="mb-3 font-weight-bold">Add Officer</h6>
-                                    @using (Html.BeginForm("AddOfficer", "Officer", null, FormMethod.Post))
-                                    {
-                                        <div class="recepie-body">
-                                           
-                                            <h6 class="font-weight-bold mt-4">Service No</h6>
-                                            <div class=" border-bottom py-2">
-                                                <div class="row">
-                                                    <div class="col-md-8 col-sm-7  col-xs-7">
-                                                        <input ty<div class="form-group">
-            <label for="exampleInputName1">Date</label>
-            @Html.TextBoxFor(m => m.ServiceNo , new { @placeholder = "Enter Service No", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @type = "date" })
-            @Html.ValidationMessageFor(m => m.ServiceNo, "")
+
+        <div class="d-none">
+            <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+                <a class="toggle togglew toggle-2" href="#"><span></span></a>
+                <h4 class="font-weight-bold m-0 text-white">Item BOC</h4>
+            </div>
         </div>
-                                                </div>
+        <div class="container position-relative">
+            <div class="py-5 osahan-profile row">
+
+                <div class="col-md-12 mb-3">
+                    <div class="rounded shadow-sm p-4 bg-white">
+                        <h5 class="mb-4">BOC</h5>
+                        <div id="edit_profile">
+                            <div>
+                                @Html.Message()
+                                @using (Html.BeginForm("AddOfficer", "Officer", null, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+                                {
+
+                                    <div class="row">
+                                        
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputName1">Service No</label>
+                                                @Html.TextBoxFor(m => m.ServiceNo, new { @placeholder = "Enter Service No", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @type = "date" })
+                                                @Html.ValidationMessageFor(m => m.ServiceNo, "")
+                                            </div>
+                                        </div>
+                                        
 
 
-
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
                                             </div>
 
-                                            
-                                        </div>
-                                        <div class="modal-footer p-0 border-0">
 
-                                            <div class="col-6 m-0 p-0">
-                                                <button type="submit" value="SUBMIT" name="btnSubmit" class="btn btn-primary btn-lg btn-block">Order Item</button>
-                                            </div>
-                                        </div>
-                                    }
-                                </div>
+                                        
 
+
+                                    </div>
+
+                                }
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+
+
+
+
+
+
+
 
