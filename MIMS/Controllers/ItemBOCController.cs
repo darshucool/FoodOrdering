@@ -209,5 +209,10 @@ namespace MIMS.Controllers
             List<IngredientBOC> IngredientList = _ingredientBOCService.GetCollection(filter, p => p.CreationDate).ToList();
             return View(IngredientList);
         }
+
+        public ActionResult ItemRemainingBOCValue()
+        {
+            return View();
+        }
     }
 }

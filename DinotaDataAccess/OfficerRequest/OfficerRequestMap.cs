@@ -15,6 +15,9 @@ namespace Dinota.DataAccces.OfficerRequest
             HasKey(refData => refData.UId);
             Property(refData => refData.UId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             HasRequired(f => f.UserAccount).WithMany().HasForeignKey(f => f.UserId);
+            HasRequired(f => f.ToMealInfo).WithMany().HasForeignKey(f => f.ToMeal);
+            HasRequired(f => f.FromMealInfo).WithMany().HasForeignKey(f => f.FromMeal);
+            HasRequired(f => f.PaymentMethodInfo).WithMany().HasForeignKey(f => f.PaymentMethod);
         }
     }
 }

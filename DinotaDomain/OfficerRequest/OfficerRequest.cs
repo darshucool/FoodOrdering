@@ -18,11 +18,13 @@ namespace Dinota.Domain.OfficerRequest
         public int FromMeal { set; get; }
         public DateTime ToDate { set; get; }
         public int ToMeal { set; get; }
-        [NotMapped]
-        public string ServiceNo { set; get; }
+      
         public int PaymentMethod { get; set; }
         public bool Active { set; get; }
 
        public virtual UserAccount UserAccount { get; set; }
+        public virtual MenuItem.MenuItem FromMealInfo { get; set; }
+        public virtual MenuItem.MenuItem ToMealInfo { get; set; }
+        public virtual PaymentMethod.PaymentMethod PaymentMethodInfo { get; set; }
     }
 }

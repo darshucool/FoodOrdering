@@ -187,10 +187,7 @@ namespace MIMS.Controllers
                 filterBOC = filterBOC.And(p => p.Active == true).And(p => p.IngredientUId == info.UId);
                 List<IngredientBOC> IngredientInfoBOCList = _ingredientBOCService.GetCollection(filterBOC, p => p.CreationDate).ToList();
                 BOCQtyList bqty = new BOCQtyList();
-                foreach (IngredientBOC BOC in IngredientInfoBOCList)
-                {
-                    bqty.Qty= IngredientInfoBOCList.Sum(p => p.Qty);
-                }
+                bqty.Qty= IngredientInfoBOCList.Sum(p => p.Qty);
                 BOCQtyList.Add(bqty);
 
                 var filterData = _f140DataService.GetDefaultSpecification();

@@ -57,6 +57,8 @@
     <Compile Include="AdminUser\AdminUserMap.cs" />
     <Compile Include="AdminUser\AdminUserRepo.cs" />
     <Compile Include="AutofacModule.cs" />
+    <Compile Include="PaymentMethod\PaymentMethodMap.cs" />
+    <Compile Include="PaymentMethod\PaymentMethodRepo.cs" />
     <Compile Include="StockSheetTransaction\StockSheetTransactionMap.cs" />
     <Compile Include="StockSheetTransaction\StockSheetTransactionRepo.cs" />
     <Compile Include="OfficerRequest\OfficerRequestMap.cs" />

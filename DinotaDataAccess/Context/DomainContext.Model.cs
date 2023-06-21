@@ -38,6 +38,7 @@ using Dinota.DataAccces.MenuOrderOfficer;
 using Dinota.DataAccces.UserStatus;
 using Dinota.DataAccces.OfficerRequest;
 using Dinota.DataAccces.StockSheetTransaction;
+using Dinota.DataAccces.PaymentMethod;
 
 namespace Dinota.DataAccces.Context
 {
@@ -88,6 +89,7 @@ namespace Dinota.DataAccces.Context
             modelBuilder.Configurations.Add(new UserStatusMap());
             modelBuilder.Configurations.Add(new OfficerRequestMap());
             modelBuilder.Configurations.Add(new StockSheetTransactionMap());
+            modelBuilder.Configurations.Add(new PaymentMethodMap());
         }
     }
 }

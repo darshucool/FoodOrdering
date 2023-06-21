@@ -68,4 +68,5 @@ namespace AlfasiWeb.Models
         public List<IngredientBOC> IngredientBOCList { get; set; }
         public List<BOCTransaction> BOCTransactionList { get; set; }
     }
+
 }

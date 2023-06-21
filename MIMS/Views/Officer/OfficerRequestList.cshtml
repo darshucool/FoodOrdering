@@ -27,10 +27,13 @@
                         <th>Service No</th>
                         <th>Rank</th>
                         <th>Name</th>
-                        
+
                         <th>From Date</th>
+                        <th>From Meal</th>
                         <th>To Date</th>
-                        <th></th>
+                        <th>To Meal</th>
+                        <th>Payment Method</th>
+                        @*<th></th>*@
                     </tr>
                 </thead>
                 <tbody>
@@ -39,17 +42,20 @@
                     <tr>
 
                         <td>@info.UserAccount.UserName</td>
-                        <td>@if (info.UserAccount.Rank != null)
-                        {
-                            @info.UserAccount.Rank.Name
-                        }</td>
+                        <td>
+                            @if (info.UserAccount.Rank != null)
+                            {
+                                @info.UserAccount.Rank.Name
+                            }
+                        </td>
                         <td>@info.UserAccount.Name</td>
-                    <td>@info.FromDate.ToString("dd/MM/yyyy")</td>
-                    <td>@info.ToDate.ToString("dd/MM/yyyy")</td>
-                   
-    
-                        <td><a href="@Url.Content("~/Officer/UpdateStatus/")@info.UId" class="">Edit</a></td>
-                    @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
+                        <td>@info.FromDate.ToString("dd/MM/yyyy")</td>
+                        <td>@info.FromMealInfo.Name</td>
+                        <td>@info.ToDate.ToString("dd/MM/yyyy")</td>
+                        <td>@info.ToMealInfo.Name</td>
+                        <td>@info.PaymentMethodInfo.Name</td>
+                        @*<td><a href="@Url.Content("~/Officer/UpdateStatus/")@info.UId" class="">Edit</a></td>*@
+                        @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
                     </tr>
                     }
                 </tbody>
