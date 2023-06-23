@@ -36,7 +36,7 @@ namespace AlfasiWeb.Models
         public List<MenuItem> MenuItemList { get; set; }
         public List<MenuPackage> MenuPackageList { get; set; }
     }
-    public class MenuClientOrderModel { 
+    public class MenuClientOrderModel {
         public MenuItem MenuItem { get; set; }
 
         public int LocationId { get; set; }
@@ -46,10 +46,10 @@ namespace AlfasiWeb.Models
     public class MenuBOCModel {
         public int MenuOrderId { get; set; }
         public List<MenuItemDetailModel> MenuItemList { get; set; }
-        public decimal MultipleQty{get;set;}
+        public decimal MultipleQty { get; set; }
     }
     public class MenuItemDetailModel {
-        public int MenuItemId { get;set;}
+        public int MenuItemId { get; set; }
         public MenuItem MenuItem { get; set; }
         public MenuOrderItemDetail Detail { get; set; }
         public List<MenuItemDetail> MenuItemDetailList { get; set; }
@@ -60,7 +60,7 @@ namespace AlfasiWeb.Models
         public decimal CurrentStockQty { get; set; }
         public IngredientInfo IngredientInfo { get; set; }
     }
-    public class MenuOrderHeaderModel { 
+    public class MenuOrderHeaderModel {
         public MenuOrderHeader MenuOrderHeader { get; set; }
         public F140Header F140Header { get; set; }
         public List<MenuOrderItemDetail> MenuOrderItemDetailList { get; set; }
@@ -71,7 +71,7 @@ namespace AlfasiWeb.Models
         public F140Header F140Header { get; set; }
         public decimal totalAmount { get; set; }
     }
-    public class MessBillModel { 
+    public class MessBillModel {
         public decimal CurrentAmount { get; set; }
         public List<MenuOrderHeaderDetailModel> MenuOrders { get; set; }
     }
@@ -85,6 +85,7 @@ namespace AlfasiWeb.Models
         public MenuItem MenuItem { get; set; }
         public IngredientInfo IngredientInfo { get; set; }
         public List<MenuItem> MenuItemList { get; set; }
+        
         public MenuOrderHeader MenuOrderHeader { get; set; }
         public List<MenuOrderItemDetail> MenuOrderItemDetailList { get; set; }
         public List<IngredientInfo> IngredientInfoList { get; set; }
@@ -92,5 +93,25 @@ namespace AlfasiWeb.Models
         public List<UserAccount> UserAccountList { get; set; }
         public int MenuOrderId { get; set; }
         public int MenuItemId { get; set; }
+    }
+    public class StockCheckModel {
+        public string ServiceNo { get; set; }
+        public string EffectiveDate { get; set; }
+        public string Remark { get; set; }
+        public List<IngriendientStockInfo> IngredientInfoList { get; set; }
+    }
+
+    public class IngriendientStockInfo
+    {
+        public string ItemName { get; set; }
+        public decimal CurrentStock { get; set; }
+        public string Unit { get; set; }
+        public string PresentStock { get; set; }
+    }
+
+    public class OffcerRecoveryList
+    {
+        public UserAccount oUserAccount { get; set; }
+        public decimal MessBill { get; set; }
     }
 }

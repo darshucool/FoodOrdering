@@ -29,6 +29,7 @@
                         @Html.Message()
                         @using (Html.BeginForm("IngredientBOCRegister", "ItemBOC", null, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
                         {
+                            @Html.HiddenFor(p=>p.TransactionType)
                             @Html.Partial("_CreateEditBOC", Model)
                         }
                     </div>

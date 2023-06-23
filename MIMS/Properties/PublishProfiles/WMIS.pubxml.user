@@ -4856,7 +4856,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/28/2021 18:59:04</publishTime>
     </File>
     <File Include="bin/AlfasiWeb.dll">
-      <publishTime>06/21/2023 09:46:30</publishTime>
+      <publishTime>06/23/2023 10:55:25</publishTime>
     </File>
     <File Include="bin/AlfasiWeb.pdb">
       <publishTime>06/16/2023 00:25:26</publishTime>
@@ -4880,25 +4880,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/24/2012 13:52:52</publishTime>
     </File>
     <File Include="bin/DinotaCore.dll">
-      <publishTime>06/16/2023 08:16:37</publishTime>
+      <publishTime>06/23/2023 10:55:22</publishTime>
     </File>
     <File Include="bin/DinotaCore.pdb">
       <publishTime>06/15/2023 23:23:48</publishTime>
     </File>
     <File Include="bin/DinotaDataAccess.dll">
-      <publishTime>06/21/2023 09:20:37</publishTime>
+      <publishTime>06/23/2023 10:55:23</publishTime>
     </File>
     <File Include="bin/DinotaDataAccess.pdb">
       <publishTime>06/15/2023 23:23:52</publishTime>
     </File>
     <File Include="bin/DinotaDomain.dll">
-      <publishTime>06/21/2023 09:20:36</publishTime>
+      <publishTime>06/23/2023 10:55:23</publishTime>
     </File>
     <File Include="bin/DinotaDomain.pdb">
       <publishTime>06/15/2023 23:23:50</publishTime>
     </File>
     <File Include="bin/DinotaSecurity.dll">
-      <publishTime>06/21/2023 09:20:36</publishTime>
+      <publishTime>06/23/2023 10:55:23</publishTime>
     </File>
     <File Include="bin/DinotaSecurity.pdb">
       <publishTime>06/15/2023 23:23:51</publishTime>
@@ -6058,8 +6058,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Item/ItemStockSummary.cshtml">
       <publishTime>06/02/2023 12:32:23</publishTime>
     </File>
+    <File Include="Views/Item/StockCheck.cshtml">
+      <publishTime>06/23/2023 09:35:51</publishTime>
+    </File>
     <File Include="Views/Item/StockSheet.cshtml">
-      <publishTime>06/21/2023 08:52:23</publishTime>
+      <publishTime>06/21/2023 09:47:34</publishTime>
     </File>
     <File Include="Views/Item/TotalStockBOCValue.cshtml">
       <publishTime>06/21/2023 09:35:49</publishTime>
@@ -6070,17 +6073,23 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Item/_CreateEditBOC.cshtml">
       <publishTime>06/02/2023 12:32:23</publishTime>
     </File>
+    <File Include="Views/Item/_CreateEditStockCheck.cshtml">
+      <publishTime>06/23/2023 10:06:01</publishTime>
+    </File>
     <File Include="Views/ItemBOC/BOCList.cshtml">
       <publishTime>06/02/2023 12:32:23</publishTime>
     </File>
     <File Include="Views/ItemBOC/Index.cshtml">
-      <publishTime>06/02/2023 12:32:23</publishTime>
+      <publishTime>06/23/2023 10:12:00</publishTime>
     </File>
     <File Include="Views/ItemBOC/IngredientBOCEdit.cshtml">
       <publishTime>06/02/2023 12:32:23</publishTime>
     </File>
     <File Include="Views/ItemBOC/IngredientBOCRegister.cshtml">
-      <publishTime>06/02/2023 12:32:23</publishTime>
+      <publishTime>06/23/2023 09:04:06</publishTime>
+    </File>
+    <File Include="Views/ItemBOC/IngredientCRVRegister.cshtml">
+      <publishTime>06/23/2023 10:08:21</publishTime>
     </File>
     <File Include="Views/ItemBOC/TotalStockBOCValue.cshtml">
       <publishTime>06/21/2023 09:12:10</publishTime>
@@ -6338,10 +6347,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/21/2023 08:45:21</publishTime>
     </File>
     <File Include="Views/Officer/AddOfficerRequest.cshtml">
-      <publishTime>06/21/2023 08:45:21</publishTime>
+      <publishTime>06/23/2023 10:13:46</publishTime>
     </File>
     <File Include="Views/Officer/OfficerList.cshtml">
       <publishTime>06/21/2023 08:45:21</publishTime>
+    </File>
+    <File Include="Views/Officer/OfficerRecoveryList.cshtml">
+      <publishTime>06/23/2023 10:53:34</publishTime>
     </File>
     <File Include="Views/Officer/OfficerRequestList.cshtml">
       <publishTime>06/21/2023 09:32:13</publishTime>
@@ -6350,7 +6362,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/12/2023 08:39:21</publishTime>
     </File>
     <File Include="Views/Order/AddIngridient.cshtml">
-      <publishTime>06/02/2023 12:32:23</publishTime>
+      <publishTime>06/23/2023 10:08:56</publishTime>
     </File>
     <File Include="Views/Order/AddToMenuItem.cshtml">
       <publishTime>06/02/2023 12:32:23</publishTime>
@@ -6617,7 +6629,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/12/2023 08:20:51</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>06/21/2023 09:08:04</publishTime>
+      <publishTime>06/23/2023 10:54:06</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutLogin.cshtml">
       <publishTime>06/12/2023 08:20:51</publishTime>

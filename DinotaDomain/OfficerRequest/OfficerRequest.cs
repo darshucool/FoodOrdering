@@ -14,12 +14,12 @@ namespace Dinota.Domain.OfficerRequest
           [Required]
         [Display(Name = "User")]
         public int UserId { set; get; }
-        public DateTime FromDate { set; get; }
-        public int FromMeal { set; get; }
-        public DateTime ToDate { set; get; }
-        public int ToMeal { set; get; }
+        public DateTime? FromDate { set; get; }
+        public int? FromMeal { set; get; }
+        public DateTime? ToDate { set; get; }
+        public int? ToMeal { set; get; }
       
-        public int PaymentMethod { get; set; }
+        public int? PaymentMethod { get; set; }
         public bool Active { set; get; }
 
        public virtual UserAccount UserAccount { get; set; }

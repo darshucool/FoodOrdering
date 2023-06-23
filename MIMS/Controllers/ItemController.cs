@@ -218,6 +218,36 @@ namespace MIMS.Controllers
             }
             return View(info);
         }
+        public ActionResult StockCheck()
+        {
+            StockCheckModel model = new StockCheckModel();
+            List<IngredientInfo> IngredientInfoList = new List<IngredientInfo>();
+            try
+            {
+                List<IngriendientStockInfo> IngredientStockInfoList = new List<IngriendientStockInfo>();
+                var filter = _ingredientInfoService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true);
+                IngredientInfoList = _ingredientInfoService.GetCollection(filter, p => p.CreationDate).ToList() ;
+                foreach (IngredientInfo info in IngredientInfoList)
+                {
+                    IngriendientStockInfo check = new IngriendientStockInfo();
+                    check.ItemName = info.ItemName;
+                    var filterB = _ingredientBOCService.GetDefaultSpecification();
+                    filterB = filterB.And(p => p.Active == true).And(p => p.IngredientUId == info.UId);
+                    List<IngredientBOC> IngredientBOCList = _ingredientBOCService.GetCollection(filterB, p => p.CreationDate).ToList();
+                    check.CurrentStock = IngredientBOCList.Sum(p=>p.Qty);
+                    check.Unit = info.MeasurementUnit.Unit;
+                    IngredientStockInfoList.Add(check);
+                }
+                model.IngredientInfoList = IngredientStockInfoList;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            return View(model);   
+         }
         [HttpPost]
         public ActionResult IngredientEdit(FormCollection Form,int id)
         {

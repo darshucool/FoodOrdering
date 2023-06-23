@@ -215,6 +215,11 @@ namespace MIMS.Controllers
                 var filterO = _menuOrderItemDetailService.GetDefaultSpecification();
                 filterO = filterO.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == id);
                 model.MenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterO, p => p.CreationDate).ToList();
+
+                var filterI = _ingredientInfoService.GetDefaultSpecification();
+                filterI = filterI.And(p => p.Active == true);
+                List<IngredientInfo> IngredientInfoList = _ingredientInfoService.GetCollection(filterI, p => p.CreationDate).ToList();
+                model.IngredientInfoList = IngredientInfoList;
             }
             catch (Exception)
             {

@@ -49,7 +49,7 @@
             <td>
                 @if (bocamt.BocAmount > 0)
                 {
-                    <p style="color:red"><small>@bocamt.BocAmount</small></p>
+                    <p style="color:red"><small>@bocamt.BocAmount.ToString("00.00")</small></p>
                 }
                 else
                 {
@@ -65,7 +65,7 @@
             <td>
                 @if (bocqty.Qty > 0)
                 {
-                    <p style="color:blue" class="BOCqty"><small>@bocqty.Qty</small></p>
+                    <p style="color:blue" class="BOCqty"><small>@bocqty.Qty.ToString("00.000")</small></p>
                 }
                 else
                 {
@@ -81,7 +81,7 @@
             <td>
                 @if (InqIss.Qty > 0)
                 {
-                    <p style="color:blue" class="Ingqty"><small>@InqIss.Qty</small></p>
+                    <p style="color:blue" class="Ingqty"><small>@InqIss.Qty.ToString("00.000")</small></p>
                 }
                 else
                 {

@@ -184,6 +184,7 @@ namespace MIMS.Controllers
 
                 oIngredientBOC.Active = true;
                 oIngredientBOC.TotalPrice = oIngredientBOC.Qty * oIngredientBOC.Price;
+                oIngredientBOC.TransactionType = (int)DataStruct.BOCTransactionType.BOC;
                 _ingredientBOCService.Add(oIngredientBOC);
                 DataContext.SaveChanges();
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Successfully Saved");
@@ -206,12 +207,16 @@ namespace MIMS.Controllers
             {
 
                 TryUpdateModel(oIngredientBOC);
+
+
+
                 oIngredientBOC.Active = true;
                 oIngredientBOC.TotalPrice = oIngredientBOC.Qty * oIngredientBOC.Price;
+                oIngredientBOC.TransactionType = (int)DataStruct.BOCTransactionType.CRV;
                 _ingredientBOCService.Add(oIngredientBOC);
                 DataContext.SaveChanges();
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Successfully Saved");
-                return RedirectToAction("IngredientBOCRegister", new { oIngredientBOC.IngredientUId });
+                return RedirectToAction("IngredientCRVRegister", new { oIngredientBOC.IngredientUId });
 
 
             }
@@ -222,6 +227,7 @@ namespace MIMS.Controllers
             }
             return View(oIngredientBOC);
         }
+       
         private UserAccount GetCurrentUser()
         {
             UserAccount userAccount = new UserAccount();

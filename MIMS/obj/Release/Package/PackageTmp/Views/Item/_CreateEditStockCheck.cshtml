@@ -1,0 +1,48 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.IngredientInfo
+@using Dinota.Domain.Event
+@using AlfasiWeb.Models
+@model StockCheckModel
+@{
+    ViewBag.Title = "_CreateEdit";
+}
+
+<div class="form-group">
+    <label for="exampleInputName1">Service No</label>
+    @Html.TextBoxFor(m => m.ServiceNo, new { @placeholder = "Enter Service No", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true" })
+    @Html.ValidationMessageFor(m => m.ServiceNo, "")
+</div>
+<div class="form-group">
+    <label for="exampleInputName1">Date</label>
+    @Html.TextBoxFor(m => m.EffectiveDate, new { @placeholder = "Date", @data_rule_required = "true", @type = "date", @class = "form-control", @aria_required = "true",@Required= "true" })
+    @Html.ValidationMessageFor(m => m.EffectiveDate, "")
+</div>
+<table  class="table table-striped table-bordered" style="width:100%">
+    <tr>
+        <td>Item Name</td>
+        <td>Current Stock</td>
+        <td>Value</td>
+    </tr>
+    @foreach (IngriendientStockInfo info in Model.IngredientInfoList)
+    {
+        <tr>
+        <td>@info.ItemName</td>
+        <td>@info.CurrentStock @info.Unit</td>
+        <td><input type="number" class="form-control"></td>
+        </tr>
+    }
+</table>
+
+<div class="col-md-12"></div>
+    
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </div>
+
+
+
+
+
+
