@@ -90,5 +90,11 @@ namespace AlfasiWeb
         {
             Rma_Curry = 13
         };
+public enum BOCTransactionType
+        {
+            BOC = 1,
+            CRV=2
+        };
+
     }
 }

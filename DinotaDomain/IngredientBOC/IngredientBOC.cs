@@ -21,7 +21,7 @@ namespace Dinota.Domain.IngredientBOC
         public decimal TotalPrice { get; set; }
         public int SLAFLocationUId { get; set; }
         public bool Active { set; get; }
-        
+        public int TransactionType { get; set; }
         public DateTime EffectiveDate { get; set; }
 
         public virtual IngredientInfo.IngredientInfo IngredientInfo { get; set; }

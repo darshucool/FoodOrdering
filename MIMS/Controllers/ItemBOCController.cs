@@ -21,6 +21,7 @@ using Dinota.Domain.RoomNo;
 using Dinota.Domain.IngredientInfo;
 using Dinota.Domain.MeasurementUnit;
 using Dinota.Domain.IngredientBOC;
+using AlfasiWeb;
 
 namespace MIMS.Controllers
 {
@@ -139,6 +140,26 @@ namespace MIMS.Controllers
             {
                 IngredientInfo info = _ingredientInfoService.GetByKey(id);
                 oIngredientBOC.IngredientUId = id;
+                oIngredientBOC.TransactionType = (int)DataStruct.BOCTransactionType.BOC;
+                oIngredientBOC.UnitId = info.MeasurementUnitUId;
+                TempData["Unit"] = info.MeasurementUnit.Unit;
+                TempData["ItemName"] = info.ItemName;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(oIngredientBOC);
+        }
+        public ActionResult IngredientCRVRegister(int id)
+        {
+            IngredientBOC oIngredientBOC = new IngredientBOC();
+            try
+            {
+                IngredientInfo info = _ingredientInfoService.GetByKey(id);
+                oIngredientBOC.IngredientUId = id;
+                oIngredientBOC.TransactionType = (int)DataStruct.BOCTransactionType.CRV;
                 oIngredientBOC.UnitId = info.MeasurementUnitUId;
                 TempData["Unit"] = info.MeasurementUnit.Unit;
                 TempData["ItemName"] = info.ItemName;
@@ -169,6 +190,30 @@ namespace MIMS.Controllers
                     return RedirectToAction("IngredientBOCRegister", new { oIngredientBOC.IngredientUId});
                 
                 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(oIngredientBOC);
+        }
+        [HttpPost]
+        public ActionResult IngredientCRVRegister(FormCollection Form)
+        {
+            IngredientBOC oIngredientBOC = new IngredientBOC();
+            try
+            {
+
+                TryUpdateModel(oIngredientBOC);
+                oIngredientBOC.Active = true;
+                oIngredientBOC.TotalPrice = oIngredientBOC.Qty * oIngredientBOC.Price;
+                _ingredientBOCService.Add(oIngredientBOC);
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Successfully Saved");
+                return RedirectToAction("IngredientBOCRegister", new { oIngredientBOC.IngredientUId });
+
+
             }
             catch (Exception)
             {
