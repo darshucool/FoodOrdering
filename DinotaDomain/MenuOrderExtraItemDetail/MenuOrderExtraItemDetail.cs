@@ -3,15 +3,15 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace Dinota.Domain.MenuOrderItemDetail
+namespace Dinota.Domain.MenuOrderExtraItemDetail
 {
-    public class MenuOrderItemDetail : Entity
+    public class MenuOrderExtraItemDetail : Entity
     {
         
         public int UId { get; set; }
         public int MeanuOrderHeaderUId { set; get; }
        
-        public int MenuItemUId { set; get; }
+        public int OtherItemUId { set; get; }
         public int Status { get; set; }
        
         public decimal  Qty { set; get; }
@@ -19,6 +19,6 @@ namespace Dinota.Domain.MenuOrderItemDetail
         public string Remark { set; get; }
         public bool Active { set; get; }
         public virtual MenuOrderHeader.MenuOrderHeader MenuOrderHeader { get; set; }
-        public virtual MenuItem.MenuItem MenuItem { get; set; }
+        public virtual IngredientInfo.IngredientInfo IngredientInfo { get; set; }
     }
 }

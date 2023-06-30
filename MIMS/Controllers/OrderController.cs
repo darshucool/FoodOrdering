@@ -31,6 +31,7 @@ using Dinota.Domain.MenuItemDetail;
 using Dinota.Domain.F140Header;
 using Dinota.Domain.F140Data;
 using AlfasiWeb;
+using Dinota.Domain.MenuOrderExtraItemDetail;
 
 namespace MIMS.Controllers
 {
@@ -53,13 +54,14 @@ namespace MIMS.Controllers
         private readonly MenuItemService _menuItemService; 
         private readonly MenuOrderHeaderService _menuOrderHeaderService;
         private readonly MenuOrderItemDetailService _menuOrderItemDetailService;
+        private readonly MenuOrderExtraItemDetailService _menuOrderExtraItemDetailService;
         private readonly MenuOrderOfficerService _menuOrderOfficerService;
         private readonly MenuPackageService _menuPackageService;
         private readonly MenuItemDetailService _menuItemDetailService;
         private readonly F140HeaderService _f140HeaderService;
         private readonly F140DataService _f140DataService;
 
-        public OrderController(IDomainContext dataContext, F140DataService f140DataService, F140HeaderService f140HeaderService, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuOrderOfficerService menuOrderOfficerService, MenuOrderItemDetailService menuOrderItemDetailService, MenuOrderHeaderService menuOrderHeaderService, MenuItemService menuItemService, BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, MeasurementUnitService measurementUnitService, IngredientInfoService ingredientInfoService, UserAccountService userAccountService, RoomNoService roomNoService, RoomInfoService roomInfoService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
+        public OrderController(IDomainContext dataContext, MenuOrderExtraItemDetailService menuOrderExtraItemDetailService, F140DataService f140DataService, F140HeaderService f140HeaderService, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuOrderOfficerService menuOrderOfficerService, MenuOrderItemDetailService menuOrderItemDetailService, MenuOrderHeaderService menuOrderHeaderService, MenuItemService menuItemService, BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, MeasurementUnitService measurementUnitService, IngredientInfoService ingredientInfoService, UserAccountService userAccountService, RoomNoService roomNoService, RoomInfoService roomInfoService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
             : base(dataContext)
         {
             _divisionService = divisionService;
@@ -82,6 +84,7 @@ namespace MIMS.Controllers
             _menuItemDetailService = menuItemDetailService;
             _f140HeaderService = f140HeaderService;
             _f140DataService = f140DataService;
+            _menuOrderExtraItemDetailService = menuOrderExtraItemDetailService;
         }
         // [AuthorizeUserAccessLevel()]
 
@@ -212,9 +215,14 @@ namespace MIMS.Controllers
                 model.MenuItemList = MenuItemList;
                 model.MenuOrderId = id;
                 model.MenuOrderHeader = _menuOrderHeaderService.GetByKey(id);
+
                 var filterO = _menuOrderItemDetailService.GetDefaultSpecification();
                 filterO = filterO.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == id);
                 model.MenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterO, p => p.CreationDate).ToList();
+
+                var filterOI = _menuOrderExtraItemDetailService.GetDefaultSpecification();
+                filterOI = filterOI.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == id);
+                model.MenuOrderOtherItemDetailList = _menuOrderExtraItemDetailService.GetCollection(filterOI, p => p.CreationDate).ToList();
 
                 var filterI = _ingredientInfoService.GetDefaultSpecification();
                 filterI = filterI.And(p => p.Active == true);
@@ -229,13 +237,23 @@ namespace MIMS.Controllers
             return View(model);
         }
         [AllowAnonymous]
-        public ActionResult MenuOrder(int MenuItemId,int OrderId)
+        public ActionResult MenuOrder(int MenuItemId,int OrderId,int OrderMenuType)
         {
             OfficerMenuOrderModel model = new OfficerMenuOrderModel();
             try
             {
-                MenuItem item = _menuItemService.GetByKey(MenuItemId);
-                model.MenuItem = item;
+                if (OrderMenuType == 1)
+                {
+                    MenuItem item = _menuItemService.GetByKey(MenuItemId);
+                    model.MenuItem = item;
+                    model.IsMenuItem = true;
+                }
+                 else if (OrderMenuType == 2)
+                {
+                    IngredientInfo oIngredientInfo = _ingredientInfoService.GetByKey(MenuItemId);
+                    model.IngredientInfo = oIngredientInfo;
+                    model.IsMenuItem = false;
+                }
                 model.MenuOrderId = OrderId;
                 
             }
@@ -253,7 +271,16 @@ namespace MIMS.Controllers
             try
             {
                 TryUpdateModel(model);
-                int MenuId = int.Parse(Form["MenuItem.UId"].ToString());
+                int MenuId = 0;
+                if (model.IsMenuItem)
+                {
+                     MenuId = int.Parse(Form["MenuItem.UId"].ToString());
+                }
+                else
+                {
+                    MenuId = int.Parse(Form["IngredientInfo.UId"].ToString());
+                }
+                 
                 decimal Qty = 0;
                 string remark = "";
                 DateTime date = DateTime.Now;
@@ -266,17 +293,36 @@ namespace MIMS.Controllers
                 {
                     remark = Form["remark"].ToString();
                 }
-                MenuOrderItemDetail detail = new MenuOrderItemDetail();
-                detail.MenuItemUId = MenuId;
-                MenuItem item = _menuItemService.GetByKey(MenuId);
-                detail.Qty = Qty;
-                detail.MeanuOrderHeaderUId = id;
-                detail.Remark = remark;
-                detail.Active = true;
-                detail.Status = (int)DataStruct.MenuOrderItemStatus.Pending;
-                _menuOrderItemDetailService.Add(detail);
+               
+                
+                if (model.IsMenuItem)
+                {
+                    MenuOrderItemDetail detail = new MenuOrderItemDetail();
+                    detail.MenuItemUId = MenuId;
+                    MenuItem item = _menuItemService.GetByKey(MenuId);
+                    detail.Qty = Qty;
+                    detail.MeanuOrderHeaderUId = id;
+                    detail.Remark = remark;
+                    detail.Active = true;
+                   
+                    detail.Status = (int)DataStruct.MenuOrderItemStatus.Pending;
+                    _menuOrderItemDetailService.Add(detail);
+                }
+                else
+                {
+                    MenuOrderExtraItemDetail detail = new MenuOrderExtraItemDetail();
+                    IngredientInfo info = _ingredientInfoService.GetByKey(MenuId);
+                    detail.OtherItemUId = MenuId;
+                    detail.Qty = Qty;
+                    detail.MeanuOrderHeaderUId = id;
+                    detail.Remark = remark;
+                    detail.Active = true;
+                    detail.Status = (int)DataStruct.MenuOrderItemStatus.Pending;
+                    _menuOrderExtraItemDetailService.Add(detail);
+                }
+                
                 DataContext.SaveChanges();
-                TempData[ViewDataKeys.Message] = new SuccessMessage(item.Name+ "added to the order. Add more menu items");
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Item added to the order. Add more menu items");
                 return RedirectToAction("MenuCreate",new { id });
             }
             catch (Exception)

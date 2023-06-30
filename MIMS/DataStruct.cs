@@ -95,6 +95,10 @@ public enum BOCTransactionType
             BOC = 1,
             CRV=2
         };
-
+        public enum MenuTypeId
+        {
+            MenuItem = 1,
+            OtherItem=2
+        };
     }
 }

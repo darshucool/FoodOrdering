@@ -7,6 +7,7 @@ using Dinota.Domain.MenuItemDetail;
 using Dinota.Domain.MenuMultiOption;
 using Dinota.Domain.MenuOption;
 using Dinota.Domain.MenuOrder;
+using Dinota.Domain.MenuOrderExtraItemDetail;
 using Dinota.Domain.MenuOrderHeader;
 using Dinota.Domain.MenuOrderItemDetail;
 using Dinota.Domain.MenuOrderOfficer;
@@ -85,9 +86,10 @@ namespace AlfasiWeb.Models
         public MenuItem MenuItem { get; set; }
         public IngredientInfo IngredientInfo { get; set; }
         public List<MenuItem> MenuItemList { get; set; }
-        
+        public bool IsMenuItem { get; set; }
         public MenuOrderHeader MenuOrderHeader { get; set; }
         public List<MenuOrderItemDetail> MenuOrderItemDetailList { get; set; }
+        public List<MenuOrderExtraItemDetail> MenuOrderOtherItemDetailList { get; set; }
         public List<IngredientInfo> IngredientInfoList { get; set; }
         public List<MenuOrderOfficer> MenuOrderOfficerList { get; set; }
         public List<UserAccount> UserAccountList { get; set; }

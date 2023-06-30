@@ -47,7 +47,11 @@
                                             }
                                             @ord.oUserAccount.Name
                                             </td>
-                                            <td style="text-align:right">@ord.oUserAccount.UserStatus.Status</td>
+                                            <td style="text-align:right">@if (ord.oUserAccount.UserStatus != null)
+                                            {
+                                                @ord.oUserAccount.UserStatus.Status
+                                            }
+                                          </td>
                                             <td style="text-align:right">
                                                 Rs.  @ord.MessBill.ToString("00.00")
 

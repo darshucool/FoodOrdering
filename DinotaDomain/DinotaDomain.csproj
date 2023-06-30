@@ -56,6 +56,9 @@
     <Compile Include="BOCTransaction\BOCTransaction.cs" />
     <Compile Include="BOCTransaction\BOCTransactionService.cs" />
     <Compile Include="BOCTransaction\IBOCTransactionRepo.cs" />
+    <Compile Include="MenuOrderExtraItemDetail\IMenuOrderExtraItemDetailRepo.cs" />
+    <Compile Include="MenuOrderExtraItemDetail\MenuOrderExtraItemDetail.cs" />
+    <Compile Include="MenuOrderExtraItemDetail\MenuOrderExtraItemDetailService.cs" />
     <Compile Include="PaymentMethod\PaymentMethod.cs" />
     <Compile Include="PaymentMethod\PaymentMethodService.cs" />
     <Compile Include="PaymentMethod\IPaymentMethodRepo.cs" />
