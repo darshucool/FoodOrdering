@@ -482,45 +482,49 @@ namespace MIMS.Controllers
                                 decimal TotAmount = 0;
                                 foreach (IngredientBOC FEntry in IngredientBOCList.OrderBy(p => p.EffectiveDate))
                                 {
-                                    if (FEntry.Qty > AssignedQty)
+                                    if (AssignedQty > 0)
                                     {
-                                        BOCTransaction tran = new BOCTransaction();
-                                        tran.IngriedientBOCUId = FEntry.UId;
-                                        tran.MenuOrderUId = id;
-                                        tran.PresentStock = FEntry.Qty;
-                                        tran.IssueStock = AssignedQty;
-                                        decimal RemStock= FEntry.Qty - AssignedQty;
-                                        tran.RemainingStock = RemStock;
-                                        tran.Active = true;
-                                        tran.EffectiveDate = DateTime.Now;
-                                        _bOCTransactionService.Add(tran);
-                                        DataContext.SaveChanges();
+                                        if (FEntry.Qty > AssignedQty)
+                                        {
+                                            BOCTransaction tran = new BOCTransaction();
+                                            tran.IngriedientBOCUId = FEntry.UId;
+                                            tran.MenuOrderUId = id;
+                                            tran.PresentStock = FEntry.Qty;
+                                            tran.IssueStock = AssignedQty;
+                                            decimal RemStock = FEntry.Qty - AssignedQty;
+                                            tran.RemainingStock = RemStock;
+                                            tran.Active = true;
+                                            tran.EffectiveDate = DateTime.Now;
+                                            _bOCTransactionService.Add(tran);
+                                            DataContext.SaveChanges();
 
-                                        IngredientBOC UpdateBOC = _ingredientBOCService.GetByKey(FEntry.UId);
-                                        UpdateBOC.Qty = tran.RemainingStock;
-                                        DataContext.SaveChanges();
+                                            IngredientBOC UpdateBOC = _ingredientBOCService.GetByKey(FEntry.UId);
+                                            UpdateBOC.Qty = tran.RemainingStock;
+                                            DataContext.SaveChanges();
 
-                                        TotAmount += AssignedQty * FEntry.Price;
-                                    }
-                                    else
-                                    {
-                                        BOCTransaction tran = new BOCTransaction();
-                                        tran.IngriedientBOCUId = FEntry.UId;
-                                        tran.MenuOrderUId = id;
-                                        tran.PresentStock = FEntry.Qty;
-                                        AssignedQty = AssignedQty - FEntry.Qty;
-                                        tran.IssueStock = AssignedQty;
-                                        
-                                        tran.RemainingStock = 0;
-                                        tran.Active = true;
-                                        tran.EffectiveDate = DateTime.Now;
-                                        _bOCTransactionService.Add(tran);
-                                        DataContext.SaveChanges();
+                                            TotAmount += AssignedQty * FEntry.Price;
+                                            AssignedQty = 0;
+                                        }
+                                        else
+                                        {
+                                            BOCTransaction tran = new BOCTransaction();
+                                            tran.IngriedientBOCUId = FEntry.UId;
+                                            tran.MenuOrderUId = id;
+                                            tran.PresentStock = FEntry.Qty;
+                                            AssignedQty = AssignedQty - FEntry.Qty;
+                                            tran.IssueStock = AssignedQty;
 
-                                        IngredientBOC UpdateBOC = _ingredientBOCService.GetByKey(FEntry.UId);
-                                        UpdateBOC.Qty = tran.RemainingStock;
-                                        DataContext.SaveChanges();
-                                        TotAmount += FEntry.Qty * FEntry.Price;
+                                            tran.RemainingStock = 0;
+                                            tran.Active = true;
+                                            tran.EffectiveDate = DateTime.Now;
+                                            _bOCTransactionService.Add(tran);
+                                            DataContext.SaveChanges();
+
+                                            IngredientBOC UpdateBOC = _ingredientBOCService.GetByKey(FEntry.UId);
+                                            UpdateBOC.Qty = tran.RemainingStock;
+                                            DataContext.SaveChanges();
+                                            TotAmount += FEntry.Qty * FEntry.Price;
+                                        }
                                     }
                                 }
                                 data.Amount = TotAmount;
@@ -568,46 +572,51 @@ namespace MIMS.Controllers
                             decimal TotAmount = 0;
                             foreach (IngredientBOC FEntry in IngredientBOCList.OrderBy(p => p.EffectiveDate))
                             {
-                                if (FEntry.Qty > AssignedQty)
+                                if (AssignedQty > 0)
                                 {
-                                    BOCTransaction tran = new BOCTransaction();
-                                    tran.IngriedientBOCUId = FEntry.UId;
-                                    tran.MenuOrderUId = id;
-                                    tran.PresentStock = FEntry.Qty;
-                                    tran.IssueStock = AssignedQty;
-                                    decimal RemStock = FEntry.Qty - AssignedQty;
-                                    tran.RemainingStock = RemStock;
-                                    tran.Active = true;
-                                    tran.EffectiveDate = DateTime.Now;
-                                    _bOCTransactionService.Add(tran);
-                                    DataContext.SaveChanges();
+                                    if (FEntry.Qty > AssignedQty)
+                                    {
+                                        BOCTransaction tran = new BOCTransaction();
+                                        tran.IngriedientBOCUId = FEntry.UId;
+                                        tran.MenuOrderUId = id;
+                                        tran.PresentStock = FEntry.Qty;
+                                        tran.IssueStock = AssignedQty;
+                                        decimal RemStock = FEntry.Qty - AssignedQty;
+                                        tran.RemainingStock = RemStock;
+                                        tran.Active = true;
+                                        tran.EffectiveDate = DateTime.Now;
+                                        _bOCTransactionService.Add(tran);
+                                        DataContext.SaveChanges();
 
-                                    IngredientBOC UpdateBOC = _ingredientBOCService.GetByKey(FEntry.UId);
-                                    UpdateBOC.Qty = tran.RemainingStock;
-                                    DataContext.SaveChanges();
+                                        IngredientBOC UpdateBOC = _ingredientBOCService.GetByKey(FEntry.UId);
+                                        UpdateBOC.Qty = tran.RemainingStock;
+                                        DataContext.SaveChanges();
 
-                                    TotAmount += AssignedQty * FEntry.Price;
+                                        TotAmount += AssignedQty * FEntry.Price;
+                                        AssignedQty = 0;
+                                    }
+                                    else
+                                    {
+                                        BOCTransaction tran = new BOCTransaction();
+                                        tran.IngriedientBOCUId = FEntry.UId;
+                                        tran.MenuOrderUId = id;
+                                        tran.PresentStock = FEntry.Qty;
+                                        AssignedQty = AssignedQty - FEntry.Qty;
+                                        tran.IssueStock = AssignedQty;
+
+                                        tran.RemainingStock = 0;
+                                        tran.Active = true;
+                                        tran.EffectiveDate = DateTime.Now;
+                                        _bOCTransactionService.Add(tran);
+                                        DataContext.SaveChanges();
+
+                                        IngredientBOC UpdateBOC = _ingredientBOCService.GetByKey(FEntry.UId);
+                                        UpdateBOC.Qty = tran.RemainingStock;
+                                        DataContext.SaveChanges();
+                                        TotAmount += FEntry.Qty * FEntry.Price;
+                                    }
                                 }
-                                else
-                                {
-                                    BOCTransaction tran = new BOCTransaction();
-                                    tran.IngriedientBOCUId = FEntry.UId;
-                                    tran.MenuOrderUId = id;
-                                    tran.PresentStock = FEntry.Qty;
-                                    AssignedQty = AssignedQty - FEntry.Qty;
-                                    tran.IssueStock = AssignedQty;
-                                    
-                                    tran.RemainingStock = 0;
-                                    tran.Active = true;
-                                    tran.EffectiveDate = DateTime.Now;
-                                    _bOCTransactionService.Add(tran);
-                                    DataContext.SaveChanges();
-
-                                    IngredientBOC UpdateBOC = _ingredientBOCService.GetByKey(FEntry.UId);
-                                    UpdateBOC.Qty = tran.RemainingStock;
-                                    DataContext.SaveChanges();
-                                    TotAmount += FEntry.Qty * FEntry.Price;
-                                }
+                                
                             }
                             data.Amount = TotAmount;
                             F140TotalAmount += TotAmount;

@@ -74,6 +74,8 @@ namespace AlfasiWeb.Models
     }
     public class MessBillModel {
         public decimal CurrentAmount { get; set; }
+        public DateTime EffectiveDate { get; set; }
+        public bool IsDataSubmit { get; set; }
         public List<MenuOrderHeaderDetailModel> MenuOrders { get; set; }
     }
     public class MenuOrderHeaderDetailModel {

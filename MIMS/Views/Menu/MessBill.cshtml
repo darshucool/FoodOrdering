@@ -23,7 +23,20 @@
                 <h5 class="mb-4">Mess Bill Summary</h5>
                 <div id="edit_profile">
                     <div>
+                      
+                        @using (Html.BeginForm("MessBill", "Menu", null, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+                        {
+                            <div class="form-group">
+                                <label for="exampleInputName1">Date</label>
+                                @Html.TextBoxFor(m => m.EffectiveDate, new { @placeholder = "Enter Name", @type = "month", @data_rule_email = "true", @class = "form-control", @aria_required = "true" })
+                                @Html.ValidationMessageFor(m => m.EffectiveDate, "")
 
+                            </div>
+                                
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                </div>
+                        }}
 
                         <table width="100%" cellpadding="10" cellspacing="10" border="1">
                             <tr>
