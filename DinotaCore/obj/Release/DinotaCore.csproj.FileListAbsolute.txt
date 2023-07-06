@@ -152,3 +152,15 @@ D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.Cop
 D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\obj\Release\DinotaCore.dll
 D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\obj\Release\DinotaCore.pdb
 D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
+D:\AF\MIMS\FoodOrdering\DinotaCore\bin\Release\DinotaCore.dll
+D:\AF\MIMS\FoodOrdering\DinotaCore\bin\Release\DinotaCore.pdb
+D:\AF\MIMS\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.Common.dll
+D:\AF\MIMS\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\AF\MIMS\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+D:\AF\MIMS\FoodOrdering\DinotaCore\bin\Release\System.ComponentModel.DataAnnotations.dll
+D:\AF\MIMS\FoodOrdering\DinotaCore\bin\Release\Autofac.xml
+D:\AF\MIMS\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.AssemblyReference.cache
+D:\AF\MIMS\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CoreCompileInputs.cache
+D:\AF\MIMS\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CopyComplete
+D:\AF\MIMS\FoodOrdering\DinotaCore\obj\Release\DinotaCore.dll
+D:\AF\MIMS\FoodOrdering\DinotaCore\obj\Release\DinotaCore.pdb

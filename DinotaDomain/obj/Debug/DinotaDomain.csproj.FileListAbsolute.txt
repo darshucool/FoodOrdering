@@ -315,3 +315,15 @@ D:\AF\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.GenerateResource.C
 D:\AF\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.dll
 D:\AF\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.pdb
 D:\03200\MIMS\GIT\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csprojResolveAssemblyReference.cache
+D:\AF\MIMS\FoodOrdering\DinotaDomain\bin\Debug\DinotaDomain.dll
+D:\AF\MIMS\FoodOrdering\DinotaDomain\bin\Debug\DinotaDomain.pdb
+D:\AF\MIMS\FoodOrdering\DinotaDomain\bin\Debug\DinotaCore.dll
+D:\AF\MIMS\FoodOrdering\DinotaDomain\bin\Debug\System.ComponentModel.DataAnnotations.dll
+D:\AF\MIMS\FoodOrdering\DinotaDomain\bin\Debug\DinotaCore.pdb
+D:\AF\MIMS\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.AssemblyReference.cache
+D:\AF\MIMS\FoodOrdering\DinotaDomain\obj\Debug\Dinota.Domain.Properties.Resources.resources
+D:\AF\MIMS\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.GenerateResource.cache
+D:\AF\MIMS\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.CoreCompileInputs.cache
+D:\AF\MIMS\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.CopyComplete
+D:\AF\MIMS\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.dll
+D:\AF\MIMS\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.pdb

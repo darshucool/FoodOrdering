@@ -10,6 +10,8 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<br />
 <div class="d-none">
     <div class="bg-primary border-bottom p-3 d-flex align-items-center">
         <a class="toggle togglew toggle-2" href="#"><span></span></a>
@@ -22,7 +24,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="exampleInputName1">Search Month</label>
+                    <label for="exampleInputName1">Search Date</label>
                     @Html.TextBoxFor(m => m.EffectiveDate, new { @placeholder = "Enter Name", @type = "date", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "" })
                     @Html.ValidationMessageFor(m => m.EffectiveDate, "")
 
@@ -31,7 +33,7 @@
             <div class="col-md-6">
                 <div class="text-center">
                     <label for="exampleInputName1">&nbsp;</label>
-                    <button type="submit" class="btn btn-primary btn-block">Get Order L</button>
+                    <button type="submit" class="btn btn-primary btn-block">Get Order List</button>
                 </div>
             </div>
         </div>

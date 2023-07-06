@@ -8,6 +8,24 @@
 @{
     ViewBag.Title = "MenuOrderList";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    DateTime firstDay;
+    DateTime lastDay;
+
+    if (TempData.ContainsKey("FirstDay") && TempData.ContainsKey("LastDay"))
+    {
+        firstDay = (DateTime)TempData["FirstDay"];
+        lastDay = (DateTime)TempData["LastDay"];
+    }
+    else
+    {
+        DateTime currentDate = DateTime.Today;
+        firstDay = new DateTime(currentDate.Year, currentDate.Month, 1);
+        lastDay = firstDay.AddMonths(1).AddDays(-1);
+    }
+
+    string formattedDate = firstDay.ToString("yyyy MMMM");
+
 }
 <div class="d-none">
     <div class="bg-primary border-bottom p-3 d-flex align-items-center">
@@ -20,12 +38,13 @@
 
         <div class="col-md-12 mb-3">
             <div class="rounded shadow-sm p-4 bg-white">
-                <h5 class="mb-4">Mess Bill Summary</h5>
+                <h5 class="mb-4">Mess Bill Summary - @formattedDate</h5>
                 <div id="edit_profile">
                     <div>
                       
                         @using (Html.BeginForm("MessBill", "Menu", null, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
                         {
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -53,11 +72,17 @@
                                 </tr>
 
                                 <tr>
-                                    <td>Mess bill amount for the month of @DateTime.Now.ToString("MMM")</td>
+                                    <td>Mess bill amount for @formattedDate</td>
 
                                     <td>@Model.CurrentAmount.ToString("00.00")</td>
                                     <td>
-                                        <a href="@Url.Content("~/Menu/MyF140Data/")" class="btn btn-primary px-3">View Detail</a>
+                                        @using (Html.BeginForm("MyF140Data", "Menu", null, FormMethod.Post, new { @class = "form-horizontal" }))
+                                        {
+                                            <input type="hidden" value="@Model.EffectiveDate" name="EffectiveDate"/>
+                                            <button type="submit" class="btn btn-primary px-3">View Detail</button>
+
+                                            @*<a href="@Url.Content("~/Menu/MyF140Data/")" class="btn btn-primary px-3">View Detail</a>*@
+                                        }
                                     </td>
                                 </tr>
 

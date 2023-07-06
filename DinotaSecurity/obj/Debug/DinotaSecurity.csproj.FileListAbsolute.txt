@@ -270,3 +270,14 @@ D:\AF\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csprojResolveAssembly
 D:\AF\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.dll
 D:\AF\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.pdb
 D:\03200\MIMS\GIT\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csprojResolveAssemblyReference.cache
+D:\AF\MIMS\FoodOrdering\DinotaSecurity\bin\Debug\DinotaSecurity.dll
+D:\AF\MIMS\FoodOrdering\DinotaSecurity\bin\Debug\DinotaSecurity.pdb
+D:\AF\MIMS\FoodOrdering\DinotaSecurity\bin\Debug\DinotaCore.dll
+D:\AF\MIMS\FoodOrdering\DinotaSecurity\bin\Debug\DinotaDomain.dll
+D:\AF\MIMS\FoodOrdering\DinotaSecurity\bin\Debug\DinotaCore.pdb
+D:\AF\MIMS\FoodOrdering\DinotaSecurity\bin\Debug\DinotaDomain.pdb
+D:\AF\MIMS\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csproj.AssemblyReference.cache
+D:\AF\MIMS\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csproj.CoreCompileInputs.cache
+D:\AF\MIMS\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csproj.CopyComplete
+D:\AF\MIMS\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.dll
+D:\AF\MIMS\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.pdb

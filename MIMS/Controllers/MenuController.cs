@@ -1451,13 +1451,25 @@ namespace MIMS.Controllers
         public ActionResult MessBill(FormCollection Form)
         {
             MessBillModel model = new MessBillModel();
+
+            DateTime firstDayOfMonth;
+            DateTime lastDayOfMonth;
             try
             {
                 TryUpdateModel(model);
-                DateTime date = DateTime.Now;
-                var firstDayOfMonth = new DateTime(model.EffectiveDate.Year, model.EffectiveDate.Month, 1);
-                var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+                
+
+                DateTime effectiveDate = DateTime.Parse(Request.Form["EffectiveDate"]);
+                firstDayOfMonth = new DateTime(effectiveDate.Year, effectiveDate.Month, 1);
+                lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+                TempData["FirstDay"] = firstDayOfMonth;
+                TempData["LastDay"] = lastDayOfMonth;
+
+
+
                 decimal Amount = 0;
+                
+
                 List<MenuOrderHeaderDetailModel> MenuOrderHeaderList = new List<MenuOrderHeaderDetailModel>();
                 UserAccount account = GetCurrentUser();
                 var filter = _menuOrderOfficerService.GetDefaultSpecification();
@@ -1506,6 +1518,10 @@ namespace MIMS.Controllers
                 var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
                 var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
                 decimal Amount = 0;
+
+                TempData["FirstDay"] = firstDayOfMonth;
+                TempData["LastDay"] = lastDayOfMonth;
+
                 List<MenuOrderHeaderDetailModel> MenuOrderHeaderList = new List<MenuOrderHeaderDetailModel>();
                 UserAccount account = GetCurrentUser();
                 var filter = _menuOrderOfficerService.GetDefaultSpecification();
@@ -1533,6 +1549,7 @@ namespace MIMS.Controllers
                     List<MenuOrderItemDetail> MenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterMD, p => p.CreationDate).ToList();
                     det.MenuOrderItemDetailList = MenuOrderItemDetailList;
                     MenuOrderHeaderList.Add(det);
+
                 }
                 model.CurrentAmount = Amount;
                 
@@ -1545,16 +1562,38 @@ namespace MIMS.Controllers
             }
             return View(model);
         }
+        
+        [HttpPost]
         public ActionResult MyF140Data()
         {
             MessBillModel model = new MessBillModel();
             List<F140Header> F140DataList = new List<F140Header>();
+
+            DateTime firstDayOfMonth, lastDayOfMonth;
+
             try
-            {
-                DateTime date = DateTime.Now;
-                var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
-                var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            {               
+
+                DateTime effectiveDate;
+
+                if (!string.IsNullOrEmpty(Request.Form["EffectiveDate"]) && DateTime.TryParse(Request.Form["EffectiveDate"], out effectiveDate))
+                {
+                    effectiveDate = DateTime.Parse(Request.Form["EffectiveDate"]);
+                }
+                else
+                {
+                    effectiveDate = DateTime.Now;
+                }
+
+                firstDayOfMonth = new DateTime(effectiveDate.Year, effectiveDate.Month, 1);
+                lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+                TempData["FirstDay"] = firstDayOfMonth;
+                TempData["LastDay"] = lastDayOfMonth;
+
                 decimal Amount = 0;
+
+             
+
                 UserAccount account = GetCurrentUser();
                 List<MenuOrderHeaderDetailModel> MenuOrderHeaderList = new List<MenuOrderHeaderDetailModel>();
                
