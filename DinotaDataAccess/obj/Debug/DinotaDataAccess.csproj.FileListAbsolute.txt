@@ -390,3 +390,17 @@ D:\AF\MIMS\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.csproj.CoreC
 D:\AF\MIMS\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.csproj.CopyComplete
 D:\AF\MIMS\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.dll
 D:\AF\MIMS\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.pdb
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaDataAccess.dll
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaDataAccess.pdb
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaCore.dll
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaDomain.dll
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaSecurity.dll
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Debug\System.ComponentModel.DataAnnotations.dll
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaCore.pdb
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaDomain.pdb
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaSecurity.pdb
+D:\AF Programming\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.csproj.AssemblyReference.cache
+D:\AF Programming\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.csproj.CoreCompileInputs.cache
+D:\AF Programming\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.csproj.CopyComplete
+D:\AF Programming\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.dll
+D:\AF Programming\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.pdb

@@ -1587,8 +1587,6 @@ namespace MIMS.Controllers
 
                 firstDayOfMonth = new DateTime(effectiveDate.Year, effectiveDate.Month, 1);
                 lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
-                TempData["FirstDay"] = firstDayOfMonth;
-                TempData["LastDay"] = lastDayOfMonth;
 
                 decimal Amount = 0;
 

@@ -191,3 +191,14 @@ D:\AF\MIMS\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.csproj.CoreCompileInputs
 D:\AF\MIMS\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.csproj.CopyComplete
 D:\AF\MIMS\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.dll
 D:\AF\MIMS\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.pdb
+D:\AF Programming\FoodOrdering\DinotaCore\bin\Debug\DinotaCore.dll
+D:\AF Programming\FoodOrdering\DinotaCore\bin\Debug\DinotaCore.pdb
+D:\AF Programming\FoodOrdering\DinotaCore\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\AF Programming\FoodOrdering\DinotaCore\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\AF Programming\FoodOrdering\DinotaCore\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\AF Programming\FoodOrdering\DinotaCore\bin\Debug\System.ComponentModel.DataAnnotations.dll
+D:\AF Programming\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.csproj.AssemblyReference.cache
+D:\AF Programming\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.csproj.CoreCompileInputs.cache
+D:\AF Programming\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.csproj.CopyComplete
+D:\AF Programming\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.dll
+D:\AF Programming\FoodOrdering\DinotaCore\obj\Debug\DinotaCore.pdb
