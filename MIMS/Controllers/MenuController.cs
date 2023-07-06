@@ -1447,6 +1447,56 @@ namespace MIMS.Controllers
             }
             return View(model);
         }
+        [HttpPost]
+        public ActionResult MessBill(FormCollection Form)
+        {
+            MessBillModel model = new MessBillModel();
+            try
+            {
+                TryUpdateModel(model);
+                DateTime date = DateTime.Now;
+                var firstDayOfMonth = new DateTime(model.EffectiveDate.Year, model.EffectiveDate.Month, 1);
+                var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+                decimal Amount = 0;
+                List<MenuOrderHeaderDetailModel> MenuOrderHeaderList = new List<MenuOrderHeaderDetailModel>();
+                UserAccount account = GetCurrentUser();
+                var filter = _menuOrderOfficerService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p => p.UserId == account.Id).And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Delivered).And(p => p.MenuOrderHeader.OrderDate >= firstDayOfMonth).And(p => p.MenuOrderHeader.OrderDate <= lastDayOfMonth);
+                List<MenuOrderOfficer> MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filter, p => p.CreationDate).ToList();
+                foreach (MenuOrderOfficer head in MenuOrderOfficerList)
+                {
+                    MenuOrderHeaderDetailModel det = new MenuOrderHeaderDetailModel();
+                    MenuOrderHeader header = _menuOrderHeaderService.GetByKey(head.MeanuOrderHeaderUId);
+                    var filterO = _menuOrderOfficerService.GetDefaultSpecification();
+                    filterO = filterO.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == head.MeanuOrderHeaderUId);
+                    List<MenuOrderOfficer> TotalOfficerList = _menuOrderOfficerService.GetCollection(filterO, p => p.CreationDate).ToList();
+                    if (TotalOfficerList.Count == 1)
+                    {
+                        Amount += header.F140TotalAmt;
+                    }
+                    else if (TotalOfficerList.Count > 1)
+                    {
+                        decimal TotAmt = header.F140TotalAmt;
+                        decimal IndivisualAmt = TotAmt / TotalOfficerList.Count;
+                        Amount += IndivisualAmt;
+                    }
+                    var filterMD = _menuOrderItemDetailService.GetDefaultSpecification();
+                    filterMD = filterMD.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == head.UId);
+                    List<MenuOrderItemDetail> MenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterMD, p => p.CreationDate).ToList();
+                    det.MenuOrderItemDetailList = MenuOrderItemDetailList;
+                    MenuOrderHeaderList.Add(det);
+                }
+                model.CurrentAmount = Amount;
+
+                model.MenuOrders = MenuOrderHeaderList;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
+        }
         public ActionResult MessBill()
         {
             MessBillModel model = new MessBillModel();

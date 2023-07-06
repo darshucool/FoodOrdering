@@ -61,6 +61,10 @@ namespace AlfasiWeb.Models
         public decimal CurrentStockQty { get; set; }
         public IngredientInfo IngredientInfo { get; set; }
     }
+    public class OrdeerListViewModel { 
+        public DateTime EffectiveDate { get; set; }
+        public List<MenuOrderHeaderModel> MenuOrderHeaderModelList { get; set; }
+    }
     public class MenuOrderHeaderModel {
         public MenuOrderHeader MenuOrderHeader { get; set; }
         public F140Header F140Header { get; set; }

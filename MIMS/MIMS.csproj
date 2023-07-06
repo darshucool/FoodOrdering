@@ -225,11 +225,11 @@
     <Compile Include="Controllers\AuthorizeUserAccessLevel.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ItemBOCController.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\OfficerController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\DivisionInfoController.cs" />

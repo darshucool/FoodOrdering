@@ -36,7 +36,7 @@ using Dinota.Domain.MenuOrderExtraItemDetail;
 namespace MIMS.Controllers
 {
     //[Authorize]
-   // [ExternalUserRedirectAttribute]
+    // [ExternalUserRedirectAttribute]
     public class OrderController : BaseController
     {
         private readonly UserAccountService _userAccountService;
@@ -51,7 +51,7 @@ namespace MIMS.Controllers
         private readonly MeasurementUnitService _measurementUnitService;
         private readonly IngredientBOCService _ingredientBOCService;
         private readonly BOCTransactionService _bOCTransactionService;
-        private readonly MenuItemService _menuItemService; 
+        private readonly MenuItemService _menuItemService;
         private readonly MenuOrderHeaderService _menuOrderHeaderService;
         private readonly MenuOrderItemDetailService _menuOrderItemDetailService;
         private readonly MenuOrderExtraItemDetailService _menuOrderExtraItemDetailService;
@@ -122,28 +122,33 @@ namespace MIMS.Controllers
             }
 
         }
-        public ActionResult OrderList()
+        [HttpPost]
+        public ActionResult OrderList(FormCollection Form)
         {
+            OrdeerListViewModel model = new OrdeerListViewModel();
             List<MenuOrderHeaderModel> MenuOrderHeaderModelList = new List<MenuOrderHeaderModel>();
             try
             {
+                TryUpdateModel(model);
+                DateTime FromDate = model.EffectiveDate.Date;
+                DateTime ToDate = model.EffectiveDate.Date.AddDays(1).AddTicks(-1);
                 var filter = _menuOrderHeaderService.GetDefaultSpecification();
-                 filter = filter.And(p => p.Active == true);
-                List<MenuOrderHeader> MenuOrderHeaderList= _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).ToList();
-                foreach (MenuOrderHeader order in MenuOrderHeaderList.OrderBy(p=>p.OrderDate))
+                filter = filter.And(p => p.Active == true).And(p=>p.OrderDate>= FromDate).And(p=>p.OrderDate<= ToDate);
+                List<MenuOrderHeader> MenuOrderHeaderList = _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p=>p.OrderDate).Take(30).ToList();
+                foreach (MenuOrderHeader order in MenuOrderHeaderList.OrderBy(p => p.OrderDate))
                 {
                     MenuOrderHeaderModel mod = new MenuOrderHeaderModel();
                     mod.MenuOrderHeader = order;
-                    if (order.Status >(int)DataStruct.MenuOrderItemStatus.Accepted)
+                    if (order.Status > (int)DataStruct.MenuOrderItemStatus.Accepted)
                     {
                         var filter140 = _f140HeaderService.GetDefaultSpecification();
                         filter140 = filter140.And(p => p.Active == true).And(p => p.MenuOrderId == order.UId);
-                        List<F140Header> oF140HeaderList = _f140HeaderService.GetCollection(filter140,p => p.CreationDate).OrderByDescending(p => p.UId).ToList();
+                        List<F140Header> oF140HeaderList = _f140HeaderService.GetCollection(filter140, p => p.CreationDate).OrderByDescending(p => p.UId).ToList();
                         if (oF140HeaderList.Count > 0)
                         {
                             mod.F140Header = oF140HeaderList[0];
                             var filterD = _f140DataService.GetDefaultSpecification();
-                            int id=oF140HeaderList[0].UId;
+                            int id = oF140HeaderList[0].UId;
                             filterD = filterD.And(p => p.Active == true).And(p => p.F140HeaderUId == id);
                             List<F140Data> F140DataList = _f140DataService.GetCollection(filterD, p => p.CreationDate).ToList();
                             mod.TotalAmount = F140DataList.Sum(p => p.Amount);
@@ -155,14 +160,60 @@ namespace MIMS.Controllers
                     }
                     MenuOrderHeaderModelList.Add(mod);
                 }
-               
+                model.MenuOrderHeaderModelList = MenuOrderHeaderModelList;
+
             }
             catch (Exception)
             {
 
                 throw;
             }
-            return View(MenuOrderHeaderModelList);
+            return View(model);
+        }
+        
+        public ActionResult OrderList()
+        {
+            OrdeerListViewModel model = new OrdeerListViewModel();
+            List<MenuOrderHeaderModel> MenuOrderHeaderModelList = new List<MenuOrderHeaderModel>();
+            try
+            {
+                var filter = _menuOrderHeaderService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true);
+                List<MenuOrderHeader> MenuOrderHeaderList = _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).ToList();
+                foreach (MenuOrderHeader order in MenuOrderHeaderList.OrderBy(p => p.OrderDate))
+                {
+                    MenuOrderHeaderModel mod = new MenuOrderHeaderModel();
+                    mod.MenuOrderHeader = order;
+                    if (order.Status > (int)DataStruct.MenuOrderItemStatus.Accepted)
+                    {
+                        var filter140 = _f140HeaderService.GetDefaultSpecification();
+                        filter140 = filter140.And(p => p.Active == true).And(p => p.MenuOrderId == order.UId);
+                        List<F140Header> oF140HeaderList = _f140HeaderService.GetCollection(filter140, p => p.CreationDate).OrderByDescending(p => p.UId).ToList();
+                        if (oF140HeaderList.Count > 0)
+                        {
+                            mod.F140Header = oF140HeaderList[0];
+                            var filterD = _f140DataService.GetDefaultSpecification();
+                            int id = oF140HeaderList[0].UId;
+                            filterD = filterD.And(p => p.Active == true).And(p => p.F140HeaderUId == id);
+                            List<F140Data> F140DataList = _f140DataService.GetCollection(filterD, p => p.CreationDate).ToList();
+                            mod.TotalAmount = F140DataList.Sum(p => p.Amount);
+                        }
+                        var filterOD = _menuOrderItemDetailService.GetDefaultSpecification();
+                        filterOD = filterOD.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == order.UId);
+                        List<MenuOrderItemDetail> MenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterOD, p => p.CreationDate).ToList();
+                        mod.MenuOrderItemDetailList = MenuOrderItemDetailList;
+                    }
+                    MenuOrderHeaderModelList.Add(mod);
+                }
+                model.MenuOrderHeaderModelList = MenuOrderHeaderModelList;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
         }
         public ActionResult OrderRegister()
         {
@@ -193,7 +244,7 @@ namespace MIMS.Controllers
                 _menuOrderHeaderService.Add(header);
                 DataContext.SaveChanges();
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Order created. Add menu items");
-                return RedirectToAction("MenuCreate",new { id= header.UId});
+                return RedirectToAction("MenuCreate", new { id = header.UId });
             }
             catch (Exception)
             {
@@ -237,7 +288,7 @@ namespace MIMS.Controllers
             return View(model);
         }
         [AllowAnonymous]
-        public ActionResult MenuOrder(int MenuItemId,int OrderId,int OrderMenuType)
+        public ActionResult MenuOrder(int MenuItemId, int OrderId, int OrderMenuType)
         {
             OfficerMenuOrderModel model = new OfficerMenuOrderModel();
             try
@@ -248,14 +299,14 @@ namespace MIMS.Controllers
                     model.MenuItem = item;
                     model.IsMenuItem = true;
                 }
-                 else if (OrderMenuType == 2)
+                else if (OrderMenuType == 2)
                 {
                     IngredientInfo oIngredientInfo = _ingredientInfoService.GetByKey(MenuItemId);
                     model.IngredientInfo = oIngredientInfo;
                     model.IsMenuItem = false;
                 }
                 model.MenuOrderId = OrderId;
-                
+
             }
             catch (Exception)
             {
@@ -265,7 +316,7 @@ namespace MIMS.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult MenuOrder(FormCollection Form,int id)
+        public ActionResult MenuOrder(FormCollection Form, int id)
         {
             OfficerMenuOrderModel model = new OfficerMenuOrderModel();
             try
@@ -274,27 +325,27 @@ namespace MIMS.Controllers
                 int MenuId = 0;
                 if (model.IsMenuItem)
                 {
-                     MenuId = int.Parse(Form["MenuItem.UId"].ToString());
+                    MenuId = int.Parse(Form["MenuItem.UId"].ToString());
                 }
                 else
                 {
                     MenuId = int.Parse(Form["IngredientInfo.UId"].ToString());
                 }
-                 
+
                 decimal Qty = 0;
                 string remark = "";
                 DateTime date = DateTime.Now;
                 if (Form["menucount"] != null)
                 {
                     Qty = decimal.Parse(Form["menucount"].ToString());
-                 } 
-               
+                }
+
                 if (Form["remark"] != null)
                 {
                     remark = Form["remark"].ToString();
                 }
-               
-                
+
+
                 if (model.IsMenuItem)
                 {
                     MenuOrderItemDetail detail = new MenuOrderItemDetail();
@@ -304,7 +355,7 @@ namespace MIMS.Controllers
                     detail.MeanuOrderHeaderUId = id;
                     detail.Remark = remark;
                     detail.Active = true;
-                   
+
                     detail.Status = (int)DataStruct.MenuOrderItemStatus.Pending;
                     _menuOrderItemDetailService.Add(detail);
                 }
@@ -320,10 +371,10 @@ namespace MIMS.Controllers
                     detail.Status = (int)DataStruct.MenuOrderItemStatus.Pending;
                     _menuOrderExtraItemDetailService.Add(detail);
                 }
-                
+
                 DataContext.SaveChanges();
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Item added to the order. Add more menu items");
-                return RedirectToAction("MenuCreate",new { id });
+                return RedirectToAction("MenuCreate", new { id });
             }
             catch (Exception)
             {
@@ -332,7 +383,7 @@ namespace MIMS.Controllers
             }
             return View(model);
         }
-       
+
         public ActionResult ProcessOrder(int id)
         {
             MenuBOCModel model = new MenuBOCModel();
@@ -368,7 +419,7 @@ namespace MIMS.Controllers
                                 MenuItemDetailListModel itemdetail = new MenuItemDetailListModel();
                                 var filterBOC = _ingredientBOCService.GetDefaultSpecification();
                                 filterBOC = filterBOC.And(p => p.Active == true).And(p => p.IngredientUId == det.IngriedientUId);
-                                decimal TotalStock = _ingredientBOCService.GetCollection(filterBOC,p=>p.CreationDate).Sum(p=>p.Qty);
+                                decimal TotalStock = _ingredientBOCService.GetCollection(filterBOC, p => p.CreationDate).Sum(p => p.Qty);
                                 itemdetail.CurrentStockQty = TotalStock;
                                 itemdetail.MenuItemDetail = det;
                                 MenuItemDetailListModelList.Add(itemdetail);
@@ -376,7 +427,7 @@ namespace MIMS.Controllers
                             detail.MenuItemDetailListModelList = MenuItemDetailListModelList;
                             detail.MenuItemDetailList = MenuItemDetailSubList;
                             MenuItemIngridientList.Add(detail);
-                         }
+                        }
                     }
                     else
                     {
@@ -411,7 +462,7 @@ namespace MIMS.Controllers
                 }
 
 
-                model.MenuOrderId =id;
+                model.MenuOrderId = id;
                 model.MenuItemList = MenuItemIngridientList;
             }
             catch (Exception)
@@ -442,7 +493,7 @@ namespace MIMS.Controllers
                 List<MenuOrderItemDetail> MenuOrderMenuList = _menuOrderItemDetailService.GetCollection(filterMD, p => p.CreationDate).ToList();
                 foreach (MenuOrderItemDetail item in MenuOrderMenuList)
                 {
-                    
+
                     model.MenuOrderId = id;
                     if (item.MenuItem.IsCombine)
                     {
@@ -457,7 +508,7 @@ namespace MIMS.Controllers
                             var filter = _menuItemDetailService.GetDefaultSpecification();
                             filter = filter.And(p => p.Active == true).And(p => p.MenuItemId == pack.MenuItem.UId);
                             List<MenuItemDetail> MenuItemDetailSubList = _menuItemDetailService.GetCollection(filter, p => p.CreationDate).ToList();
-                            foreach (MenuItemDetail it in MenuItemDetailSubList) 
+                            foreach (MenuItemDetail it in MenuItemDetailSubList)
                             {
                                 F140Data data = new F140Data();
                                 data.Active = true;
@@ -468,7 +519,7 @@ namespace MIMS.Controllers
                                 decimal AssignedQty = 0;
                                 if (Form["menuingqty_" + it.IngriedientUId + "" + it.UId] != null)
                                 {
-                                    string Amt = Form["menuingqty_" + it.IngriedientUId+""+ it.UId].ToString();
+                                    string Amt = Form["menuingqty_" + it.IngriedientUId + "" + it.UId].ToString();
                                     AssignedQty = decimal.Parse(Form["menuingqty_" + it.IngriedientUId + "" + it.UId].ToString());
                                     data.Qty = AssignedQty;
                                 }
@@ -477,7 +528,7 @@ namespace MIMS.Controllers
                                     data.Qty = it.IngriedientQty;
                                 }
                                 var filterBOC = _ingredientBOCService.GetDefaultSpecification();
-                                filterBOC = filterBOC.And(p => p.Active == true).And(p => p.IngredientUId == it.IngriedientUId).And(p=>p.Qty>0);
+                                filterBOC = filterBOC.And(p => p.Active == true).And(p => p.IngredientUId == it.IngriedientUId).And(p => p.Qty > 0);
                                 List<IngredientBOC> IngredientBOCList = _ingredientBOCService.GetCollection(filterBOC, p => p.EffectiveDate).ToList();
                                 decimal TotAmount = 0;
                                 foreach (IngredientBOC FEntry in IngredientBOCList.OrderBy(p => p.EffectiveDate))
@@ -535,9 +586,9 @@ namespace MIMS.Controllers
                                 DataContext.SaveChanges();
                             }
                         }
-                        
-                        
-                        
+
+
+
                     }
                     else
                     {
@@ -616,7 +667,7 @@ namespace MIMS.Controllers
                                         TotAmount += FEntry.Qty * FEntry.Price;
                                     }
                                 }
-                                
+
                             }
                             data.Amount = TotAmount;
                             F140TotalAmount += TotAmount;
@@ -625,8 +676,8 @@ namespace MIMS.Controllers
                             _f140DataService.Add(data);
                             DataContext.SaveChanges();
                         }
-                        
-                        
+
+
                     }
                 }
                 MenuOrderHeader orderheader = _menuOrderHeaderService.GetByKey(id);
@@ -646,9 +697,9 @@ namespace MIMS.Controllers
             }
             return View(model);
         }
-        
+
         [AllowAnonymous]
-        public ActionResult RemoveIngridient(int ItemDetailId,int MenuOrderId)
+        public ActionResult RemoveIngridient(int ItemDetailId, int MenuOrderId)
         {
             try
             {
@@ -663,10 +714,10 @@ namespace MIMS.Controllers
 
                 throw;
             }
-            return View();    
+            return View();
         }
         [AllowAnonymous]
-        public ActionResult AddOfficer(int OfficerId,int OrderId)
+        public ActionResult AddOfficer(int OfficerId, int OrderId)
         {
             try
             {
@@ -685,7 +736,7 @@ namespace MIMS.Controllers
                 DataContext.SaveChanges();
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Officer is successfully added.");
 
-                return RedirectToAction("OfficerList", new { id=OrderId });
+                return RedirectToAction("OfficerList", new { id = OrderId });
             }
             catch (Exception)
             {
@@ -758,7 +809,7 @@ namespace MIMS.Controllers
                     List<F140Data> filter140DetailList = _f140DataService.GetCollection(filter140Detail, p => p.CreationDate).ToList();
 
                     foreach (F140Data d in filter140DetailList)
-                     {
+                    {
                         F140Data dataCheck = new F140Data();
                         dataCheck = _f140DataService.GetByKey(d.UId);
                         dataCheck.Active = false;
@@ -801,7 +852,7 @@ namespace MIMS.Controllers
                 }
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Officers are successfully added.");
 
-                return RedirectToAction("OfficerList", new { id= id });
+                return RedirectToAction("OfficerList", new { id = id });
             }
             catch (Exception)
             {
@@ -817,8 +868,8 @@ namespace MIMS.Controllers
             {
                 UserAccount account = GetCurrentUser();
                 var filterO = _menuOrderOfficerService.GetDefaultSpecification();
-                filterO = filterO.And(p => p.Active == true).And(p=>p.MeanuOrderHeaderUId==id);
-                model.MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filterO,p => p.CreationDate).ToList();
+                filterO = filterO.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == id);
+                model.MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filterO, p => p.CreationDate).ToList();
 
                 var filterU = _userAccountService.GetDefaultSpecification();
                 filterU = filterU.And(p => p.Active == true).And(p => p.LocationUId == account.LocationUId);
@@ -827,20 +878,20 @@ namespace MIMS.Controllers
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
             return View(model);
         }
         [AllowAnonymous]
-        public ActionResult AddIngridient(int MenuItemId,int OrderId)
+        public ActionResult AddIngridient(int MenuItemId, int OrderId)
         {
             OfficerMenuOrderModel model = new OfficerMenuOrderModel();
             try
             {
                 UserAccount account = GetCurrentUser();
                 var filterI = _ingredientInfoService.GetDefaultSpecification();
-                filterI = filterI.And(p=>p.Active==true).And(p=>p.LocationUId==account.LocationUId);
+                filterI = filterI.And(p => p.Active == true).And(p => p.LocationUId == account.LocationUId);
                 model.IngredientInfoList = _ingredientInfoService.GetCollection(filterI, p => p.CreationDate).ToList();
                 model.MenuOrderId = OrderId;
                 model.MenuItemId = MenuItemId;
@@ -853,7 +904,7 @@ namespace MIMS.Controllers
             return View(model);
         }
         [AllowAnonymous]
-        public ActionResult AddToMenuItem(int MenuItemId, int OrderId,int IngredientId)
+        public ActionResult AddToMenuItem(int MenuItemId, int OrderId, int IngredientId)
         {
             OfficerMenuOrderModel model = new OfficerMenuOrderModel();
             try
@@ -883,7 +934,7 @@ namespace MIMS.Controllers
                 decimal menucount = decimal.Parse(Form["menucount"].ToString());
                 IngredientInfo oIngredientInfo = _ingredientInfoService.GetByKey(IngridientId);
                 MenuItem oMenuItem = _menuItemService.GetByKey(MenuItemId);
-                var filter=_menuItemDetailService.GetDefaultSpecification();
+                var filter = _menuItemDetailService.GetDefaultSpecification();
                 filter = filter.And(p => p.Active == true).And(p => p.MenuItemId == MenuItemId);
                 List<MenuItemDetail> MenuItemDetailList = _menuItemDetailService.GetCollection(filter, p => p.CreationDate).ToList();
                 MenuItemDetail item = new MenuItemDetail();
@@ -915,15 +966,15 @@ namespace MIMS.Controllers
             try
             {
                 UserAccount account = GetCurrentUser();
-               
+
             }
             catch (Exception)
             {
 
                 throw;
             }
-            return View(UserAccountList);   
-         }
+            return View(UserAccountList);
+        }
         private UserAccount GetCurrentUser()
         {
             UserAccount userAccount = new UserAccount();
