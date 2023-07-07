@@ -360,3 +360,18 @@ D:\AF\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.Cor
 D:\AF\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.CopyComplete
 D:\AF\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.dll
 D:\AF\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.pdb
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Release\DinotaDataAccess.dll
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Release\DinotaDataAccess.pdb
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Release\DinotaCore.dll
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Release\DinotaDomain.dll
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Release\DinotaSecurity.dll
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Release\System.ComponentModel.DataAnnotations.dll
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Release\DinotaCore.pdb
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Release\DinotaDomain.pdb
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Release\DinotaSecurity.pdb
+D:\AF Programming\FoodOrdering\DinotaDataAccess\bin\Release\Autofac.xml
+D:\AF Programming\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.AssemblyReference.cache
+D:\AF Programming\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.CoreCompileInputs.cache
+D:\AF Programming\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.CopyComplete
+D:\AF Programming\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.dll
+D:\AF Programming\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.pdb

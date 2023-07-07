@@ -26,6 +26,7 @@
                             <th>Service No</th>
                             <th>Rank</th>
                             <th>Name</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,6 +42,8 @@
                                  
                                 </td>
                                 <td>@info.UserBase.Name</td>
+                                <td><a href="@Url.Content("~/Order/RemoveOfficer?OfficerId="+info.UId+"&&OrderId="+Model.MenuOrderId+"")" class="btn btn-primary px-3">Remove</a></td>
+
                             </tr>
                         }
                     </tbody>

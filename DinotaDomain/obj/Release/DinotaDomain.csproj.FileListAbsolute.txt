@@ -307,3 +307,16 @@ D:\AF\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.CoreCompile
 D:\AF\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.CopyComplete
 D:\AF\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.dll
 D:\AF\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.pdb
+D:\AF Programming\FoodOrdering\DinotaDomain\bin\Release\DinotaDomain.dll
+D:\AF Programming\FoodOrdering\DinotaDomain\bin\Release\DinotaDomain.pdb
+D:\AF Programming\FoodOrdering\DinotaDomain\bin\Release\DinotaCore.dll
+D:\AF Programming\FoodOrdering\DinotaDomain\bin\Release\System.ComponentModel.DataAnnotations.dll
+D:\AF Programming\FoodOrdering\DinotaDomain\bin\Release\DinotaCore.pdb
+D:\AF Programming\FoodOrdering\DinotaDomain\bin\Release\Autofac.xml
+D:\AF Programming\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.AssemblyReference.cache
+D:\AF Programming\FoodOrdering\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+D:\AF Programming\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.cache
+D:\AF Programming\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.CoreCompileInputs.cache
+D:\AF Programming\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.CopyComplete
+D:\AF Programming\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.dll
+D:\AF Programming\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.pdb

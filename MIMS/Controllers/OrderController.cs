@@ -717,26 +717,26 @@ namespace MIMS.Controllers
             return View();
         }
         [AllowAnonymous]
-        public ActionResult AddOfficer(int OfficerId, int OrderId)
+        public ActionResult AddOfficer(int officerId, int orderId)
         {
             try
             {
-                UserAccount account = _userAccountService.GetByKey(OfficerId);
+                UserAccount account = _userAccountService.GetByKey(officerId);
                 MenuOrderOfficer off = new MenuOrderOfficer();
-                off.UserId = OfficerId;
+                off.UserId = officerId;
                 off.Active = true;
-                off.MeanuOrderHeaderUId = OrderId;
+                off.MeanuOrderHeaderUId = orderId;
                 _menuOrderOfficerService.Add(off);
                 DataContext.SaveChanges();
 
-                MenuOrderHeader header = _menuOrderHeaderService.GetByKey(OrderId);
+                MenuOrderHeader header = _menuOrderHeaderService.GetByKey(orderId);
                 int OfficerCount = header.OfficerCount;
                 OfficerCount = OfficerCount + 1;
                 header.OfficerCount = OfficerCount;
                 DataContext.SaveChanges();
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Officer is successfully added.");
 
-                return RedirectToAction("OfficerList", new { id = OrderId });
+                return RedirectToAction("OfficerList", new { id = orderId });
             }
             catch (Exception)
             {
@@ -746,6 +746,31 @@ namespace MIMS.Controllers
             return View();
         }
 
+
+        public ActionResult RemoveOfficer(int officerId, int orderId)
+        {
+            try
+            {
+                MenuOrderOfficer officer = _menuOrderOfficerService.GetByKey(officerId);
+                officer.Active = false;
+                DataContext.SaveChanges();
+
+                MenuOrderHeader header = _menuOrderHeaderService.GetByKey(orderId);
+                int officerCount = header.OfficerCount;
+                officerCount = officerCount -1;
+                header.OfficerCount = officerCount;
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Officer removed successfully.");
+
+                return RedirectToAction("OfficerList", new { id = orderId });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();
+        }
 
         public ActionResult DeleteOrder(int id)
         {

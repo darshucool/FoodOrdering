@@ -78,7 +78,7 @@
                                     <td>
                                         @using (Html.BeginForm("MyF140Data", "Menu", null, FormMethod.Post, new { @class = "form-horizontal" }))
                                         {
-                                            <input type="hidden" value="@Model.EffectiveDate" name="EffectiveDate"/>
+                                            <input type="hidden" value="@firstDay" name="EffectiveDate"/>
                                             <button type="submit" class="btn btn-primary px-3">View Detail</button>
 
                                             @*<a href="@Url.Content("~/Menu/MyF140Data/")" class="btn btn-primary px-3">View Detail</a>*@
