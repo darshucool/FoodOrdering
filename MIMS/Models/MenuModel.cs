@@ -51,13 +51,19 @@ namespace AlfasiWeb.Models
     }
     public class MenuItemDetailModel {
         public int MenuItemId { get; set; }
+        public int IngredientInfoId { get; set; }
+
+        public int MenuItemType { get; set; }
         public MenuItem MenuItem { get; set; }
+        public IngredientInfo IngredientInfo { get; set; }
         public MenuOrderItemDetail Detail { get; set; }
+        public MenuOrderExtraItemDetail ExtraDetail { get; set; }
         public List<MenuItemDetail> MenuItemDetailList { get; set; }
         public List<MenuItemDetailListModel> MenuItemDetailListModelList { get; set; }
     }
     public class MenuItemDetailListModel {
         public MenuItemDetail MenuItemDetail { get; set; }
+       
         public decimal CurrentStockQty { get; set; }
         public IngredientInfo IngredientInfo { get; set; }
     }
