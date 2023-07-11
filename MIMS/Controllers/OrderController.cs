@@ -462,35 +462,8 @@ namespace MIMS.Controllers
                         MenuItemIngridientList.Add(detail);
                     }
                 }
-                var filterEMD = _menuOrderExtraItemDetailService.GetDefaultSpecification();
-                filterEMD = filterEMD.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == id);
-                List<MenuOrderExtraItemDetail> MenuOrderExtraItemDetailList = _menuOrderExtraItemDetailService.GetCollection(filterEMD, p => p.CreationDate).ToList();
-                foreach (MenuOrderExtraItemDetail item in MenuOrderExtraItemDetailList)
-                {
-                    MenuItemDetailModel detail = new MenuItemDetailModel();
-                    detail.IngredientInfoId = item.IngredientInfo.UId;
-                    detail.IngredientInfo = item.IngredientInfo;
-                    detail.ExtraDetail = item;
-                    detail.MenuItemType = 2;
-                    if (item.Qty == 0)
-                        item.Qty = 1;
-                    //if (i == 1)
-                    //{
-                    //    model.MultipleQty = item.Qty / det.PortionQty;
-                    //}
-                    List<MenuItemDetailListModel> MenuItemDetailListModelList = new List<MenuItemDetailListModel>();
-                    MenuItemDetailListModel itemdetail = new MenuItemDetailListModel();
-                    var filterBOC = _ingredientBOCService.GetDefaultSpecification();
-                    filterBOC = filterBOC.And(p => p.Active == true).And(p => p.IngredientUId == item.IngredientInfo.UId);
-                    decimal TotalStock = _ingredientBOCService.GetCollection(filterBOC, p => p.CreationDate).Sum(p => p.Qty);
-                    itemdetail.CurrentStockQty = TotalStock;
-                    
-                    MenuItemDetailListModelList.Add(itemdetail);
-                    detail.MenuItemDetailListModelList = MenuItemDetailListModelList;
-                    //detail.MenuItemDetailList = MenuItemDetailSubList;
-                    MenuItemIngridientList.Add(detail);
-                }
-                    model.MenuOrderId = id;
+                
+                model.MenuOrderId = id;
                 model.MenuItemList = MenuItemIngridientList;
             }
             catch (Exception)
