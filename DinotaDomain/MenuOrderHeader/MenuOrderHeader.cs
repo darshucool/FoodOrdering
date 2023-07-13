@@ -14,7 +14,7 @@ namespace Dinota.Domain.MenuOrderHeader
      
         public DateTime EffectiveDate { set; get; }
         public DateTime OrderDate { set; get; }
-      
+      public int LocationUId { get; set; }
         public string Time { set; get; }
         public string Location { set; get; }
         public bool Active { set; get; }

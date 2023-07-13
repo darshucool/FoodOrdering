@@ -248,8 +248,9 @@ namespace MIMS.Controllers
         }
         public ActionResult Index()
         {
+            UserAccount account = GetCurrentUser();
             var filter = _ingredientInfoService.GetDefaultSpecification();
-            filter = filter.And(p=>p.Active==true);
+            filter = filter.And(p=>p.Active==true).And(p=>p.LocationUId== account.LocationUId);
             List<IngredientInfo> IngredientList = _ingredientInfoService.GetCollection(filter, p => p.CreationDate).ToList();
             return View(IngredientList);
         }

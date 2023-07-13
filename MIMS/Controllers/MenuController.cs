@@ -761,7 +761,7 @@ namespace MIMS.Controllers
                 //else 
                 List<MenuDetailItemOfficerModel> PendingMenuOrderList = new List<MenuDetailItemOfficerModel>();
                 filter = filter.And(p => p.Status == (int)DataStruct.MenuOrderItemStatus.Pending);
-                filter = filter.And(p => p.Active == true);
+                filter = filter.And(p => p.Active == true).And(p=>p.MenuOrderHeader.LocationUId==account.LocationUId);
                 List<MenuOrderItemDetail> MenuItemList = _menuOrderItemDetailService.GetCollection(filter, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).ToList();
                 foreach (MenuOrderItemDetail item in MenuItemList)
                 {
@@ -777,7 +777,7 @@ namespace MIMS.Controllers
                 var filterC = _menuOrderItemDetailService.GetDefaultSpecification();
                 List<MenuDetailItemOfficerModel> CompleteMenuOrderList = new List<MenuDetailItemOfficerModel>();
                 filterC = filterC.And(p => p.Status == (int)DataStruct.MenuOrderItemStatus.Accepted);
-                filterC = filterC.And(p => p.Active == true);
+                filterC = filterC.And(p => p.Active == true).And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
                 List<MenuOrderItemDetail> CompleteMenuItemList = _menuOrderItemDetailService.GetCollection(filterC, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).ToList();
                 foreach (MenuOrderItemDetail item in CompleteMenuItemList)
                 {
@@ -792,7 +792,7 @@ namespace MIMS.Controllers
                 var filterCan = _menuOrderItemDetailService.GetDefaultSpecification();
                 List<MenuDetailItemOfficerModel> CancelledMenuItemList = new List<MenuDetailItemOfficerModel>();
                 filterCan = filterCan.And(p => p.Status == (int)DataStruct.MenuOrderItemStatus.Cancel);
-                filterCan = filterCan.And(p => p.Active == true);
+                filterCan = filterCan.And(p => p.Active == true).And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
                 List<MenuOrderItemDetail> CancelMenuItemList = _menuOrderItemDetailService.GetCollection(filterCan, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).ToList();
                 foreach (MenuOrderItemDetail item in CancelMenuItemList)
                 {
@@ -807,7 +807,7 @@ namespace MIMS.Controllers
                 var filterD = _menuOrderItemDetailService.GetDefaultSpecification();
                 List<MenuDetailItemOfficerModel> DeliveredMenuItemList = new List<MenuDetailItemOfficerModel>();
                 filterD = filterD.And(p => p.Status == (int)DataStruct.MenuOrderItemStatus.Delivered);
-                filterD = filterD.And(p => p.Active == true);
+                filterD = filterD.And(p => p.Active == true).And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
                 List<MenuOrderItemDetail> DeliMenuItemList = _menuOrderItemDetailService.GetCollection(filterD, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).ToList();
                 foreach (MenuOrderItemDetail item in DeliMenuItemList)
                 {
@@ -970,6 +970,7 @@ namespace MIMS.Controllers
                 oheader.PaymentMethod= (int)DataStruct.PaymentMethod.Credit;
                 oheader.EffectiveDate = DateTime.Now;
                 oheader.MenuHeaderType = (int)DataStruct.MenuHeaderType.Casual;
+                oheader.LocationUId = account.LocationUId;
                 _menuOrderHeaderService.Add(oheader);
                 DataContext.SaveChanges();
                 MenuOrderItemDetail detail = new MenuOrderItemDetail();

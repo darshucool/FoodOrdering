@@ -129,18 +129,37 @@ namespace MIMS.Controllers
             model.IsSet = false;
             return View(model);
         }
+        private UserAccount GetCurrentUser()
+        {
+            UserAccount userAccount = new UserAccount();
+            try
+            {
+                string userName = HttpContext.User.Identity.Name;
+                var filter = _userAccountService.GetDefaultSpecification();
+                filter = filter.And(s => s.UserName == userName).And(p => p.Active == true);
+                userAccount = _userAccountService.GetBy(filter);
+
+            }
+            catch (Exception)
+            {
+
+            }
+            return userAccount;
+
+        }
         [HttpPost]
         public ActionResult DailySalesSummary(FormCollection Form)
         {
             DailySaleReportModel model = new DailySaleReportModel();
             try
             {
+                UserAccount account = GetCurrentUser();
                 TryUpdateModel(model);
                 model.IsSet = true;
                 DateTime FromDate = model.EffectiveDate.Date;
                 DateTime ToDate = model.EffectiveDate.Date.AddDays(1).AddTicks(-1);
                 //Breakafast
-                var filterDutyB = _menuOrderItemDetailService.GetDefaultSpecification();
+                var filterDutyB = _menuOrderItemDetailService.GetDefaultSpecification().And(p=>p.MenuOrderHeader.LocationUId==account.LocationUId);
                 filterDutyB = filterDutyB.And(p => p.Active == true).And(p=>p.MenuOrderHeader.EffectiveDate>= FromDate).And(p=>p.MenuOrderHeader.EffectiveDate<= ToDate);
                 filterDutyB = filterDutyB.And(p=>p.MenuItemUId== (int)DataStruct.MainCourse.Rma_Breakfast);
                 List<MenuOrderItemDetail> BreakfastMenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterDutyB,p=>p.CreationDate).ToList();
@@ -155,7 +174,7 @@ namespace MIMS.Controllers
                 model.DutyBreakfastReceivableAmt = BreakfastMenuOrderItemDetailList.Where(p=>p.MenuOrderHeader.MenuHeaderType== (int)DataStruct.MenuHeaderType.Duty).Sum(p => p.MenuOrderHeader.F140TotalAmt);
                 model.DutyBreakfastExpenditureAmt = model.DutyBreakfastReceivableAmt;
                 //Lunch
-                var filterDutyL = _menuOrderItemDetailService.GetDefaultSpecification();
+                var filterDutyL = _menuOrderItemDetailService.GetDefaultSpecification().And(p => p.MenuOrderHeader.LocationUId == account.LocationUId); 
                 filterDutyL = filterDutyL.And(p => p.Active == true).And(p => p.MenuOrderHeader.EffectiveDate >= FromDate).And(p => p.MenuOrderHeader.EffectiveDate <= ToDate);
                 filterDutyL = filterDutyL.And(p => p.MenuItemUId == (int)DataStruct.MainCourse.Rma_Lunch);
                 List<MenuOrderItemDetail> LunchMenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterDutyL, p => p.CreationDate).ToList();
@@ -170,7 +189,7 @@ namespace MIMS.Controllers
                 model.DutyLunchReceivableAmt = LunchMenuOrderItemDetailList.Where(p => p.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Duty).Sum(p => p.MenuOrderHeader.F140TotalAmt);
                 model.DutyLunchExpenditureAmt = model.DutyLunchReceivableAmt;
                 //Dinner
-                var filterDutyD = _menuOrderItemDetailService.GetDefaultSpecification();
+                var filterDutyD = _menuOrderItemDetailService.GetDefaultSpecification().And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
                 filterDutyD = filterDutyD.And(p => p.Active == true).And(p => p.MenuOrderHeader.EffectiveDate >= FromDate).And(p => p.MenuOrderHeader.EffectiveDate <= ToDate);
                 filterDutyD = filterDutyD.And(p => p.MenuItemUId == (int)DataStruct.MainCourse.Rma_Dinner);
                 List<MenuOrderItemDetail> DinnerMenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterDutyD, p => p.CreationDate).ToList();
@@ -194,7 +213,7 @@ namespace MIMS.Controllers
                 model.CasualDinnerCash = DinnerMenuOrderItemDetailList.Where(c => c.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Casual && c.MenuOrderHeader.PaymentMethod == (int)DataStruct.PaymentMethod.Cash).Sum(p => p.MenuOrderHeader.F140TotalAmt);
                 model.CasualDinnerCredit = DinnerMenuOrderItemDetailList.Where(c => c.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Casual && c.MenuOrderHeader.PaymentMethod == (int)DataStruct.PaymentMethod.Credit).Sum(p => p.MenuOrderHeader.F140TotalAmt);
                 model.CasualDinnerExpenditure = model.CasualDinnerCash + model.CasualDinnerCredit;
-                var filterCasual = _menuOrderItemDetailService.GetDefaultSpecification();
+                var filterCasual = _menuOrderItemDetailService.GetDefaultSpecification().And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
                 filterCasual = filterCasual.And(p => p.Active == true).And(p => p.MenuOrderHeader.EffectiveDate >= FromDate).And(p => p.MenuOrderHeader.EffectiveDate <= ToDate);
                 filterCasual = filterCasual.And(p => p.MenuItemUId != (int)DataStruct.MainCourse.Rma_Breakfast).And(p => p.MenuItemUId != (int)DataStruct.MainCourse.Rma_Lunch).And(p => p.MenuItemUId != (int)DataStruct.MainCourse.Rma_Dinner);
                 List<MenuOrderItemDetail> CasualOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterCasual, p => p.CreationDate).ToList();
