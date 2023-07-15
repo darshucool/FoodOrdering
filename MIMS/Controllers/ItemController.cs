@@ -339,6 +339,16 @@ namespace MIMS.Controllers
             List<IngredientInfo> IngredientInfoList = _ingredientInfoService.GetCollection(filter, p => p.CreationDate).ToList();
             return View(IngredientInfoList);
         }
+
+
+        public ActionResult GetMeasurementUnit(int ingriedientUId)
+        {
+            string Unit = new CustomDataBaseManger().GetMeasurementUnit(ingriedientUId);
+
+            return Json(new { Unit }, JsonRequestBehavior.AllowGet);
+        }
+
+
         public ActionResult TotalStockBOCValue()
         {
             List<BOCTotalModel> List = new List<BOCTotalModel>();

@@ -38,6 +38,7 @@ using Dinota.Domain.MenuOrderHeader;
 using Dinota.Domain.MenuOrderItemDetail;
 using Dinota.Domain.MenuOrderOfficer;
 using AlfasiWeb;
+using Dinota.Domain.IngredientInfo;
 
 namespace MIMS.Controllers
 {
@@ -65,7 +66,8 @@ namespace MIMS.Controllers
         private readonly MenuOrderHeaderService _menuOrderHeaderService;
         private readonly MenuOrderItemDetailService _menuOrderItemDetailService;
         private readonly MenuOrderOfficerService _menuOrderOfficerService;
-        public MenuController(IDomainContext dataContext, MenuOrderOfficerService menuOrderOfficerService, MenuOrderItemDetailService menuOrderItemDetailService, MenuOrderHeaderService menuOrderHeaderService, BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, F140HeaderService f140HeaderService, F140DataService f140DataService, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuMultiOptionService menuMultiOptionService, MeasurementUnitService measurementUnitService, MenuOptionService menuOptionService, EventAttendanceService eventAttendanceService, EventParticipationKidService eventParticipationKidService, EventParticipationService eventParticipationService, EventService eventService, MenuOrderService menuOrderService, MenuItemService menuItemService, MenuCategoryService menuCategoryService, UserAccountService userAccountService)
+        private readonly IngredientInfoService _ingredientInfoService;
+        public MenuController(IDomainContext dataContext, IngredientInfoService ingredientInfoService, MenuOrderOfficerService menuOrderOfficerService, MenuOrderItemDetailService menuOrderItemDetailService, MenuOrderHeaderService menuOrderHeaderService, BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, F140HeaderService f140HeaderService, F140DataService f140DataService, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuMultiOptionService menuMultiOptionService, MeasurementUnitService measurementUnitService, MenuOptionService menuOptionService, EventAttendanceService eventAttendanceService, EventParticipationKidService eventParticipationKidService, EventParticipationService eventParticipationService, EventService eventService, MenuOrderService menuOrderService, MenuItemService menuItemService, MenuCategoryService menuCategoryService, UserAccountService userAccountService)
             : base(dataContext)
         {
             _userAccountService = userAccountService;
@@ -89,6 +91,7 @@ namespace MIMS.Controllers
             _menuOrderHeaderService = menuOrderHeaderService;
             _menuOrderItemDetailService =menuOrderItemDetailService;
             _menuOrderOfficerService = menuOrderOfficerService;
+            _ingredientInfoService = ingredientInfoService;
         }
         //[AuthorizeUserAccessLevel()]
         public ActionResult MenuItemIndex(int id)
@@ -746,6 +749,54 @@ namespace MIMS.Controllers
             }
             return View();
         }
+        public void BindMeasurementList()
+        {
+            try
+            {
+                var filter = _measurementUnitService.GetDefaultSpecification().And(s => s.Active == true);
+                var TypeList = _measurementUnitService.GetCollection(filter, d => d.UId);
+                SelectList list = new SelectList(TypeList, "UId", "Unit");
+                ViewData[ViewDataKeys.MeasurementUnitListList] = list;
+            }
+            catch (Exception ex)
+            {
+                TempData[ViewDataKeys.Message] = new FailMessage(ex.Message.ToString());
+
+            }
+
+        }
+        public void BindMeanuCategoryList(int id)
+        {
+            try
+            {
+                var filter = _menuCategoryService.GetDefaultSpecification().And(s => s.Active == true).And(p=>p.SLAFLocationUId==id);
+                var TypeList = _menuCategoryService.GetCollection(filter, d => d.UId);
+                SelectList list = new SelectList(TypeList, "UId", "Name");
+                ViewData[ViewDataKeys.MenuCategoryList] = list;
+            }
+            catch (Exception ex)
+            {
+                TempData[ViewDataKeys.Message] = new FailMessage(ex.Message.ToString());
+
+            }
+
+        }
+        public void BindIngriendientList(int id)
+        {
+            try
+            {
+                var filter = _ingredientInfoService.GetDefaultSpecification().And(s => s.Active == true).And(p => p.LocationUId == id);
+                var TypeList = _ingredientInfoService.GetCollection(filter, d => d.UId);
+                SelectList list = new SelectList(TypeList, "UId", "ItemName");
+                ViewData[ViewDataKeys.IngredientInfoList] = list;
+            }
+            catch (Exception ex)
+            {
+                TempData[ViewDataKeys.Message] = new FailMessage(ex.Message.ToString());
+
+            }
+
+        }
         public ActionResult MenuOrderList()
         {
             
@@ -849,9 +900,86 @@ namespace MIMS.Controllers
             filterC = filterC.And(p => p.Active == true).And(p => p.MenuItemId == id);
             MenuItemDetailList = _menuItemDetailService.GetCollection(filterC, p => p.CreationDate).OrderBy(p => p.CreationDate).ToList();
             MenuItem item = _menuItemService.GetByKey(id);
-            TempData["MenuItem"] = item.Name; 
+            TempData["MenuItem"] = item.Name;
+            TempData["MenuItemId"] = item.UId;
             return View(MenuItemDetailList);
         }
+        public ActionResult AddIngridient(int id)
+        {
+            MenuItem item = _menuItemService.GetByKey(id);
+            MenuItemDetail detail = new MenuItemDetail();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                BindIngriendientList(account.LocationUId);
+                detail.MenuItemId = item.UId;
+                detail.PortionMeasurementUId = item.MeasurementUnitId;
+                TempData["MenuItem"] = item.Name;
+                TempData["PortionQty"] = item.PortionQty;
+                TempData["MeasureUnit"] = item.MeasurementUnit.Unit;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(detail);
+        }
+        [HttpPost]
+        public ActionResult AddIngridient(FormCollection Form, int id)
+        {
+            MenuItem item = _menuItemService.GetByKey(id);
+            MenuItemDetail detail = new MenuItemDetail();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                BindIngriendientList(account.LocationUId);
+                detail.MenuItemId = item.UId;
+                TempData["MenuItem"] = item.Name;
+                TempData["PortionQty"] = item.PortionQty;
+                TempData["MeasureUnit"] = item.MeasurementUnit.Unit;
+                detail.PortionMeasurementUId = item.MeasurementUnitId;
+                TryUpdateModel(detail);
+                detail.Active = true;
+                IngredientInfo info = _ingredientInfoService.GetByKey(detail.IngriedientUId);
+                detail.IngriedientMeasurementUId = info.MeasurementUnitUId;
+                _menuItemDetailService.Add(detail);
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new FailMessage("Successfully Added");
+                return RedirectToAction("IngriedientList", new { id = detail.MenuItemId });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(detail);
+        }
+        public ActionResult UpdatePortionQty()
+        {
+           
+            var filter = _menuItemService.GetDefaultSpecification();
+            filter = filter.And(p => p.Active == true);
+            List<MenuItem> MenuItemList = _menuItemService.GetCollection(filter, p => p.CreationDate).ToList();
+            foreach (MenuItem item in MenuItemList)
+            {
+                var filterD = _menuItemDetailService.GetDefaultSpecification();
+                filterD = filterD.And(p => p.Active == true).And(p => p.MenuItemId == item.UId);
+                List<MenuItemDetail> MenuItemDetailList = _menuItemDetailService.GetCollection(filterD, p => p.CreationDate).ToList();
+                MenuItem it = _menuItemService.GetByKey(item.UId);
+                if (MenuItemDetailList.Count > 0)
+                {
+                   
+                    it.PortionQty = MenuItemDetailList[0].PortionQty;
+                    DataContext.SaveChanges();
+                 }
+                else {
+                    it.PortionQty = 1;
+                    DataContext.SaveChanges();
+                }
+            }
+            return View();   
+         }
         public ActionResult IngriedientEdit(int id)
         {
             MenuItemDetail detail = new MenuItemDetail();
@@ -1873,6 +2001,70 @@ namespace MIMS.Controllers
         {
             Event oEvent = new Event();
             return View(oEvent);
+        }
+        public ActionResult MenuEdit(int id)
+        {
+            MenuItem item = new MenuItem();
+            item = _menuItemService.GetByKey(id);
+            UserAccount account = GetCurrentUser();
+            BindMeasurementList();
+            BindMeanuCategoryList(account.LocationUId);
+            return View(item);
+        }
+        [HttpPost]
+        public ActionResult MenuEdit(FormCollection Form,int id)
+        {
+            MenuItem item = new MenuItem();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                BindMeasurementList();
+                BindMeanuCategoryList(account.LocationUId);
+                item = _menuItemService.GetByKey(id);
+                TryUpdateModel(item);
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Menu Item updated.");
+                return RedirectToAction("MenuList");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(item);
+        }
+        public ActionResult MenuRegister()
+        {
+            MenuItem item = new MenuItem();
+            UserAccount account = GetCurrentUser();
+            BindMeasurementList();
+            BindMeanuCategoryList(account.LocationUId);
+            return View(item);
+        }
+        [HttpPost]
+        public ActionResult MenuRegister(FormCollection Form)
+        {
+            MenuItem item = new MenuItem();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                BindMeasurementList();
+                BindMeanuCategoryList(account.LocationUId);
+                TryUpdateModel(item);
+                item.MenuTypeId = 1;
+                item.SLAFLocationUId = account.LocationUId;
+                item.Active = true;
+                _menuItemService.Add(item);
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Menu Item Added.");
+                return RedirectToAction("MenuList");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(item);
         }
         public ActionResult EventIndex()
         {

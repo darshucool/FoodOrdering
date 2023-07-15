@@ -386,7 +386,6 @@ D:\03200\MIMS\GIT\FoodOrdering\MIMS\obj\Release\AlfasiWeb.dll
 D:\03200\MIMS\GIT\FoodOrdering\MIMS\obj\Release\AlfasiWeb.pdb
 D:\03200\MIMS\GIT\FoodOrdering\MIMS\bin\Microsoft.ReportViewer.Common.dll
 D:\03200\MIMS\GIT\FoodOrdering\MIMS\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
-D:\AF\FoodOrdering\MIMS\obj\Release\MIMS.csprojResolveAssemblyReference.cache
 D:\AF\FoodOrdering\MIMS\obj\Release\AlfasiWeb.Properties.Resources.resources
 D:\AF\FoodOrdering\MIMS\obj\Release\MIMS.csproj.GenerateResource.Cache
 D:\AF\FoodOrdering\MIMS\obj\Release\AlfasiWeb.dll
@@ -653,3 +652,9 @@ D:\AF Programming\FoodOrdering\MIMS\obj\Release\MIMS.csproj.CoreCompileInputs.ca
 D:\AF Programming\FoodOrdering\MIMS\obj\Release\MIMS.csproj.CopyComplete
 D:\AF Programming\FoodOrdering\MIMS\obj\Release\AlfasiWeb.dll
 D:\AF Programming\FoodOrdering\MIMS\obj\Release\AlfasiWeb.pdb
+D:\AF\FoodOrdering\MIMS\bin\AlfasiWeb.dll.config
+D:\AF\FoodOrdering\MIMS\bin\Microsoft.ReportViewer.Common.dll
+D:\AF\FoodOrdering\MIMS\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\AF\FoodOrdering\MIMS\obj\Release\MIMS.csproj.AssemblyReference.cache
+D:\AF\FoodOrdering\MIMS\obj\Release\MIMS.csproj.CoreCompileInputs.cache
+D:\AF\FoodOrdering\MIMS\obj\Release\MIMS.csproj.CopyComplete

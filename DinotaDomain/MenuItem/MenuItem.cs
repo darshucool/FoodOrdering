@@ -21,6 +21,7 @@ namespace Dinota.Domain.MenuItem
         public decimal GasChargePercent { get; set; }
         public bool IsCombine { set; get; }
         public int MenuTypeId { set; get; }
+        public decimal PortionQty { get; set; }
         public virtual MenuCategory.MenuCategory MenuCategory { get; set; }
         public virtual MeasurementUnit.MeasurementUnit MeasurementUnit { get; set; }
     }

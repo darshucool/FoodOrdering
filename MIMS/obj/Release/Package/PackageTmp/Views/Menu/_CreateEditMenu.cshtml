@@ -1,0 +1,63 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.MenuItem
+@using Dinota.Domain.Event
+@using AlfasiWeb.Models
+@model MenuItem
+@{
+    ViewBag.Title = "_CreateEdit";
+}
+
+<div class="form-group">
+    <label for="exampleInputName1">Menu Item Name</label>
+    @Html.TextBoxFor(m => m.Name, new { @placeholder = "Enter Item Name", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true" })
+    @Html.ValidationMessageFor(m => m.Name, "")
+</div>
+<div class="form-group">
+    <label for="exampleInputName1">Portion Qty</label>
+    @Html.TextBoxFor(m => m.PortionQty, new { @placeholder = "Enter portion Qty", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true",@type="number" })
+    @Html.ValidationMessageFor(m => m.PortionQty, "")
+</div>
+<div class="form-group">
+    <label for="exampleInputName1">Select Measurement Unit</label>
+    @Html.DropDownListFor(model => model.MeasurementUnitId, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.MeasurementUnitListList], "-- Select Measure Unit  --", new { @class = "full-width form-control", @required = "true" })
+    @Html.ValidationMessageFor(m => m.MeasurementUnitId, null, new { @class = "help-inline" })
+
+
+
+
+</div>
+
+<div class="form-group">
+    <label for="exampleInputName1">Select Categorty</label>
+    @Html.DropDownListFor(model => model.MenuCategoryUId, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.MenuCategoryList], "-- Select Category  --", new { @class = "full-width form-control", @required = "true" })
+    @Html.ValidationMessageFor(m => m.MenuCategoryUId, null, new { @class = "help-inline" })
+
+
+
+
+</div>
+@if (Model.UId == 0)
+{
+
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </div>
+
+
+}
+else
+{
+    <div class="form-group">
+        <label for="exampleInputName1">Active</label>
+        @Html.CheckBoxFor(m => m.Active)
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-block">Update</button>
+    </div>
+}
+
+
+

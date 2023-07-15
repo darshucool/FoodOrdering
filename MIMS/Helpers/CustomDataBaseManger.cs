@@ -197,6 +197,8 @@ namespace MIMS.Helpers
 	        }
             return Amount;
         }
+
+        
         public int CheckVehicleSserviceNoExist(string ServiceNo)
         {
             int count = 0;
@@ -300,6 +302,32 @@ namespace MIMS.Helpers
                 throw;
             }
             return queueno;
+        }
+
+
+        public string GetMeasurementUnit(int IngriedientUId)
+        {
+            string measurementUnit = "";
+
+            try
+            {
+                //string sql = "SELECT MeasurementUnitUId FROM IngredientInfo where UId='" + IngriedientUId + "'";
+                string sql = "SELECT MeasurementUnit.Unit as Unit FROM IngredientInfo INNER JOIN MeasurementUnit ON IngredientInfo.MeasurementUnitUId = MeasurementUnit.UId where IngredientInfo.UId='" + IngriedientUId + "'";
+                DataTable dt = SelectData(sql);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    //measurementUId = int.Parse(dr["MeasurementUnitUId"].ToString());
+                    measurementUnit = dr["Unit"].ToString();
+                }
+                return measurementUnit;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return measurementUnit;
         }
 
         public UserAccount SelectUser(string Username)

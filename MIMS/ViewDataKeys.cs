@@ -107,5 +107,6 @@ namespace MIMS
         public static readonly string UserStatusList = "UserStatusList";
         public static readonly string MenuItemList = "MenuItemList";
         public static readonly string PaymentMethodList = "PaymentMethodList";
+        public static readonly string MenuCategoryList = "MenuCategoryList";
     }
 }
