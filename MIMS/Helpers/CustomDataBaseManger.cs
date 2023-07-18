@@ -10,8 +10,7 @@ using System.Text;
 using Dinota.Domain.User;
 using Dinota.Domain.PageObject;
 using Dinota.Domain.UserPermission;
-
-
+using MIMS.Models;
 
 namespace MIMS.Helpers
 {
@@ -171,6 +170,123 @@ namespace MIMS.Helpers
 		
 		        throw;
 	        }
+            return count;
+        }
+        public decimal GetMainMealCountCount(int MealType,DateTime FromDate,DateTime ToDate,List<int> MealIdList)
+        {
+            decimal count = 0;
+            try
+            {
+                string mealIds = "(";
+                int Count = MealIdList.Count;
+                int i = 0;
+                foreach (int id in MealIdList)
+                {
+                    i++;
+                    mealIds += "'"+id+"'";
+                    if (i< Count)
+                    {
+                        mealIds += ",";
+                    }
+                }
+                mealIds += ")";
+                string sql = "select Sum(MD.Qty) AS QtyCount from  MenuOrderItemDetail AS MD,MenuOrderHeader AS MH where MenuItemUId "+
+                "    in "+ mealIds + " "+
+                "    and MD.MeanuOrderHeaderUId = MH.UId AND MH.Active = 'TRUE' AND MH.OrderDate between '2023-07-16 00:00:00' and '2023-07-16 23:59:00' AND " +
+                "    MH.MenuHeaderType = '"+ MealType + "'";
+                DataTable dt = SelectData(sql);
+                foreach(DataRow dr in dt.Rows)
+                {
+                    if (!string.IsNullOrEmpty(dr["QtyCount"].ToString()))
+                    {
+                        count = decimal.Parse(dr["QtyCount"].ToString());
+                    }
+                    
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return count;
+        }
+        public decimal GetMainMealF140Sum(int MealType, DateTime FromDate, DateTime ToDate, List<int> MealIdList)
+        {
+            decimal count = 0;
+            try
+            {
+                string mealIds = "(";
+                int Count = MealIdList.Count;
+                int i = 0;
+                foreach (int id in MealIdList)
+                {
+                    i++;
+                    mealIds += "'" + id + "'";
+                    if (i < Count)
+                    {
+                        mealIds += ",";
+                    }
+                }
+                mealIds += ")";
+                string sql = "select Sum(MH.F140TotalAmt) AS F140TotalAmt from  MenuOrderItemDetail AS MD,MenuOrderHeader AS MH where MenuItemUId " +
+                "    in " + mealIds + " " +
+                "    and MD.MeanuOrderHeaderUId = MH.UId AND MH.Active = 'TRUE' AND MH.OrderDate between '2023-07-16 00:00:00' and '2023-07-16 23:59:00' AND " +
+                "    MH.MenuHeaderType = '" + MealType + "'";
+                DataTable dt = SelectData(sql);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (!string.IsNullOrEmpty(dr["F140TotalAmt"].ToString()))
+                    {
+                        count = decimal.Parse(dr["F140TotalAmt"].ToString());
+                    }
+                    
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return count;
+        }
+        public decimal GetCasualAmount(int MealType, DateTime FromDate, DateTime ToDate, List<int> MealIdList,int PaymentMethod)
+        {
+            decimal count = 0;
+            try
+            {
+                string mealIds = "(";
+                int Count = MealIdList.Count;
+                int i = 0;
+                foreach (int id in MealIdList)
+                {
+                    i++;
+                    mealIds += "'" + id + "'";
+                    if (i < Count)
+                    {
+                        mealIds += ",";
+                    }
+                }
+                mealIds += ")";
+                string sql = "select Sum(MH.F140TotalAmt) AS F140TotalAmt from  MenuOrderItemDetail AS MD,MenuOrderHeader AS MH where MenuItemUId " +
+                "    in " + mealIds + " " +
+                "    and MD.MeanuOrderHeaderUId = MH.UId AND MH.Active = 'TRUE' AND MH.OrderDate between '2023-07-16 00:00:00' and '2023-07-16 23:59:00' AND " +
+                "    MH.MenuHeaderType = '" + MealType + "' AND MH.PaymentMethod='"+ PaymentMethod + "'";
+                DataTable dt = SelectData(sql);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (!string.IsNullOrEmpty(dr["F140TotalAmt"].ToString()))
+                    {
+                        count = decimal.Parse(dr["F140TotalAmt"].ToString());
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             return count;
         }
         public decimal GetOrderF140Amount(int OrderId)

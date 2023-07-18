@@ -29,4 +29,8 @@ namespace MIMS.Models
 
         public int PageSize { get; set; }
     }
+
+    public class MealId {
+        public int Id { get; set; }
+    }
 }

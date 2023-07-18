@@ -29,30 +29,30 @@ namespace AlfasiWeb.Models
 
         public bool IsSet { get; set; }
         public DateTime EffectiveDate { get; set; }
-        public int DutyBreakfastCount { get; set; }
+        public decimal DutyBreakfastCount { get; set; }
         public decimal DutyBreakfastReceivableAmt { get; set; }
         public decimal DutyBreakfastExpenditureAmt { get; set; }
 
-        public int DutyLunchCount { get; set; }
+        public decimal DutyLunchCount { get; set; }
         public decimal DutyLunchReceivableAmt { get; set; }
         public decimal DutyLunchExpenditureAmt { get; set; }
 
-        public int DutyDinnerCount { get; set; }
+        public decimal DutyDinnerCount { get; set; }
         public decimal DutyDinnerReceivableAmt { get; set; }
         public decimal DutyDinnerExpenditureAmt { get; set; }
 
 
-        public int CasualBreakfastCount { get; set; }
+        public decimal CasualBreakfastCount { get; set; }
         public decimal CasualBreakfastCredit { get; set; }
         public decimal CasualBreakfastCash { get; set; }
         public decimal CasualBreakfastExpenditure { get; set; }
 
-        public int CasualLunchCount { get; set; }
+        public decimal CasualLunchCount { get; set; }
         public decimal CasualLunchCredit { get; set; }
         public decimal CasualLunchCash { get; set; }
         public decimal CasualLunchExpenditure { get; set; }
 
-        public int CasualDinnerCount { get; set; }
+        public decimal CasualDinnerCount { get; set; }
         public decimal CasualDinnerCredit { get; set; }
         public decimal CasualDinnerCash { get; set; }
         public decimal CasualDinnerExpenditure { get; set; }
@@ -90,6 +90,11 @@ namespace AlfasiWeb.Models
         public decimal TotalCommodotiesAmount { get; set; }
         public decimal TotalIncomeAmount { get; set; }
         public decimal TotalExpenditureAmount { get; set; }
+
+        public decimal BreakfastCommodities { get; set; }
+        public decimal LunchCommodities { get; set; }
+        public decimal DinnerCommodities { get; set; }
+        public decimal TotalCommodities { get; set; }
     }
     public class StockSheetTransactionModel {
         public List<IngredientInfo> IngredientInfoList { get; set; }
