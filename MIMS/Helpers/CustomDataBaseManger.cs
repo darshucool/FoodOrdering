@@ -192,7 +192,7 @@ namespace MIMS.Helpers
                 mealIds += ")";
                 string sql = "select Sum(MD.Qty) AS QtyCount from  MenuOrderItemDetail AS MD,MenuOrderHeader AS MH where MenuItemUId "+
                 "    in "+ mealIds + " "+
-                "    and MD.MeanuOrderHeaderUId = MH.UId AND MH.Active = 'TRUE' AND MH.OrderDate between '2023-07-16 00:00:00' and '2023-07-16 23:59:00' AND " +
+                "    and MD.MeanuOrderHeaderUId = MH.UId AND MH.Active = 'TRUE' AND MH.OrderDate between '"+ FromDate + "' and '"+ToDate+"' AND " +
                 "    MH.MenuHeaderType = '"+ MealType + "'";
                 DataTable dt = SelectData(sql);
                 foreach(DataRow dr in dt.Rows)
@@ -231,7 +231,7 @@ namespace MIMS.Helpers
                 mealIds += ")";
                 string sql = "select Sum(MH.F140TotalAmt) AS F140TotalAmt from  MenuOrderItemDetail AS MD,MenuOrderHeader AS MH where MenuItemUId " +
                 "    in " + mealIds + " " +
-                "    and MD.MeanuOrderHeaderUId = MH.UId AND MH.Active = 'TRUE' AND MH.OrderDate between '2023-07-16 00:00:00' and '2023-07-16 23:59:00' AND " +
+                "    and MD.MeanuOrderHeaderUId = MH.UId AND MH.Active = 'TRUE' AND MH.OrderDate between '"+FromDate+"' and '"+ToDate+"' AND " +
                 "    MH.MenuHeaderType = '" + MealType + "'";
                 DataTable dt = SelectData(sql);
                 foreach (DataRow dr in dt.Rows)
@@ -270,7 +270,7 @@ namespace MIMS.Helpers
                 mealIds += ")";
                 string sql = "select Sum(MH.F140TotalAmt) AS F140TotalAmt from  MenuOrderItemDetail AS MD,MenuOrderHeader AS MH where MenuItemUId " +
                 "    in " + mealIds + " " +
-                "    and MD.MeanuOrderHeaderUId = MH.UId AND MH.Active = 'TRUE' AND MH.OrderDate between '2023-07-16 00:00:00' and '2023-07-16 23:59:00' AND " +
+                "    and MD.MeanuOrderHeaderUId = MH.UId AND MH.Active = 'TRUE' AND MH.OrderDate between '"+FromDate+"' and '"+ToDate+"' AND " +
                 "    MH.MenuHeaderType = '" + MealType + "' AND MH.PaymentMethod='"+ PaymentMethod + "'";
                 DataTable dt = SelectData(sql);
                 foreach (DataRow dr in dt.Rows)
