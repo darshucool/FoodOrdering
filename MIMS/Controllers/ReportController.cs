@@ -178,13 +178,13 @@ namespace MIMS.Controllers
                 BreakfastMealIdList.Add((int)DataStruct.MainCourse.Rma_Breakfast);
                 BreakfastMealIdList.Add((int)DataStruct.MainCourse.Rma_Breakfast_diet);
                 BreakfastMealIdList.Add((int)DataStruct.MainCourse.Rma_Breakfast_veg);
-                model.DutyBreakfastCount = new CustomDataBaseManger().GetMainMealCountCount((int)DataStruct.MenuHeaderType.Duty, FromDate, ToDate, BreakfastMealIdList);
-                model.CasualBreakfastCount = new CustomDataBaseManger().GetMainMealCountCount((int)DataStruct.MenuHeaderType.Casual, FromDate, ToDate, BreakfastMealIdList);
+                model.DutyBreakfastCount = new CustomDataBaseManger().GetMainMealCountCount((int)DataStruct.MenuHeaderType.Duty, FromDate, ToDate, BreakfastMealIdList, account.LocationUId);
+                model.CasualBreakfastCount = new CustomDataBaseManger().GetMainMealCountCount((int)DataStruct.MenuHeaderType.Casual, FromDate, ToDate, BreakfastMealIdList, account.LocationUId);
                 //if (BreakfastMenuOrderItemDetailList.Where(p => p.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Casual).ToList().Count > 0)
                 //{
                 //    model.CasualBreakfastCount = BreakfastMenuOrderItemDetailList.Where(p => p.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Casual).ToList().Sum(p=>p.Qty);
                 //}
-                model.DutyBreakfastReceivableAmt =new CustomDataBaseManger().GetMainMealF140Sum((int)DataStruct.MenuHeaderType.Duty, FromDate, ToDate, BreakfastMealIdList); 
+                model.DutyBreakfastReceivableAmt =new CustomDataBaseManger().GetMainMealF140Sum((int)DataStruct.MenuHeaderType.Duty, FromDate, ToDate, BreakfastMealIdList, account.LocationUId); 
                 model.DutyBreakfastExpenditureAmt = model.DutyBreakfastReceivableAmt;
                 //Lunch
                 var filterDutyL = _menuOrderItemDetailService.GetDefaultSpecification().And(p => p.MenuOrderHeader.LocationUId == account.LocationUId); 
@@ -195,8 +195,8 @@ namespace MIMS.Controllers
                 LunchMealIdList.Add((int)DataStruct.MainCourse.Rma_Lunch);
                 LunchMealIdList.Add((int)DataStruct.MainCourse.Rma_Lunch_diet);
                 LunchMealIdList.Add((int)DataStruct.MainCourse.Rma_Lunch_veg);
-                model.DutyLunchCount = new CustomDataBaseManger().GetMainMealCountCount((int)DataStruct.MenuHeaderType.Duty, FromDate, ToDate, LunchMealIdList);
-                model.CasualLunchCount = new CustomDataBaseManger().GetMainMealCountCount((int)DataStruct.MenuHeaderType.Casual, FromDate, ToDate, LunchMealIdList);
+                model.DutyLunchCount = new CustomDataBaseManger().GetMainMealCountCount((int)DataStruct.MenuHeaderType.Duty, FromDate, ToDate, LunchMealIdList, account.LocationUId);
+                model.CasualLunchCount = new CustomDataBaseManger().GetMainMealCountCount((int)DataStruct.MenuHeaderType.Casual, FromDate, ToDate, LunchMealIdList, account.LocationUId);
                 //if (LunchMenuOrderItemDetailList.Where(p => p.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Duty).ToList().Count > 0)
                 //{
                 //    model.DutyLunchCount = LunchMenuOrderItemDetailList.Where(p => p.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Duty).First().Qty;
@@ -205,7 +205,7 @@ namespace MIMS.Controllers
                 //{
                 //    model.CasualLunchCount = BreakfastMenuOrderItemDetailList.Where(p => p.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Casual).ToList().Sum(p=>p.Qty);
                 //}
-                model.DutyLunchReceivableAmt = new CustomDataBaseManger().GetMainMealF140Sum((int)DataStruct.MenuHeaderType.Duty, FromDate, ToDate, LunchMealIdList);
+                model.DutyLunchReceivableAmt = new CustomDataBaseManger().GetMainMealF140Sum((int)DataStruct.MenuHeaderType.Duty, FromDate, ToDate, LunchMealIdList, account.LocationUId);
                 model.DutyLunchExpenditureAmt = model.DutyLunchReceivableAmt;
                 //Dinner
                 var filterDutyD = _menuOrderItemDetailService.GetDefaultSpecification().And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
@@ -216,8 +216,8 @@ namespace MIMS.Controllers
                 DinerMealIdList.Add((int)DataStruct.MainCourse.Rma_Dinner);
                 DinerMealIdList.Add((int)DataStruct.MainCourse.Rma_Dinner_diet);
                 DinerMealIdList.Add((int)DataStruct.MainCourse.Rma_Dinner_veg);
-                model.DutyDinnerCount = new CustomDataBaseManger().GetMainMealCountCount((int)DataStruct.MenuHeaderType.Duty, FromDate, ToDate, DinerMealIdList);
-                model.CasualDinnerCount = new CustomDataBaseManger().GetMainMealCountCount((int)DataStruct.MenuHeaderType.Casual, FromDate, ToDate, DinerMealIdList);
+                model.DutyDinnerCount = new CustomDataBaseManger().GetMainMealCountCount((int)DataStruct.MenuHeaderType.Duty, FromDate, ToDate, DinerMealIdList, account.LocationUId);
+                model.CasualDinnerCount = new CustomDataBaseManger().GetMainMealCountCount((int)DataStruct.MenuHeaderType.Casual, FromDate, ToDate, DinerMealIdList, account.LocationUId);
                 //if (DinnerMenuOrderItemDetailList.Where(p => p.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Duty).ToList().Count > 0)
                 //{
                 //    model.DutyDinnerCount = DinnerMenuOrderItemDetailList.Where(p => p.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Duty).First().Qty;
@@ -226,17 +226,17 @@ namespace MIMS.Controllers
                 //{
                 //    model.CasualDinnerCount = DinnerMenuOrderItemDetailList.Where(p => p.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Casual).ToList().Sum(p => p.Qty);
                 //}
-                model.DutyDinnerReceivableAmt = new CustomDataBaseManger().GetMainMealF140Sum((int)DataStruct.MenuHeaderType.Duty, FromDate, ToDate, DinerMealIdList);
+                model.DutyDinnerReceivableAmt = new CustomDataBaseManger().GetMainMealF140Sum((int)DataStruct.MenuHeaderType.Duty, FromDate, ToDate, DinerMealIdList, account.LocationUId);
                 model.DutyDinnerExpenditureAmt = model.DutyDinnerReceivableAmt;
 
-                model.CasualBreakfastCash = new CustomDataBaseManger().GetCasualAmount((int)DataStruct.MenuHeaderType.Casual,FromDate,ToDate,BreakfastMealIdList, (int)DataStruct.PaymentMethod.Cash);
-                model.CasualBreakfastCredit = new CustomDataBaseManger().GetCasualAmount((int)DataStruct.MenuHeaderType.Casual, FromDate, ToDate, BreakfastMealIdList, (int)DataStruct.PaymentMethod.Credit);
+                model.CasualBreakfastCash = new CustomDataBaseManger().GetCasualAmount((int)DataStruct.MenuHeaderType.Casual,FromDate,ToDate,BreakfastMealIdList, (int)DataStruct.PaymentMethod.Cash, account.LocationUId);
+                model.CasualBreakfastCredit = new CustomDataBaseManger().GetCasualAmount((int)DataStruct.MenuHeaderType.Casual, FromDate, ToDate, BreakfastMealIdList, (int)DataStruct.PaymentMethod.Credit, account.LocationUId);
                 model.CasualBreakfastExpenditure = model.CasualBreakfastCash + model.CasualBreakfastCredit;
-                model.CasualLunchCash = new CustomDataBaseManger().GetCasualAmount((int)DataStruct.MenuHeaderType.Casual, FromDate, ToDate, LunchMealIdList, (int)DataStruct.PaymentMethod.Cash);
-                model.CasualLunchCredit = new CustomDataBaseManger().GetCasualAmount((int)DataStruct.MenuHeaderType.Casual, FromDate, ToDate, LunchMealIdList, (int)DataStruct.PaymentMethod.Credit);
+                model.CasualLunchCash = new CustomDataBaseManger().GetCasualAmount((int)DataStruct.MenuHeaderType.Casual, FromDate, ToDate, LunchMealIdList, (int)DataStruct.PaymentMethod.Cash, account.LocationUId);
+                model.CasualLunchCredit = new CustomDataBaseManger().GetCasualAmount((int)DataStruct.MenuHeaderType.Casual, FromDate, ToDate, LunchMealIdList, (int)DataStruct.PaymentMethod.Credit, account.LocationUId);
                 model.CasualLunchExpenditure = model.CasualLunchCash + model.CasualLunchCredit;
-                model.CasualDinnerCash = new CustomDataBaseManger().GetCasualAmount((int)DataStruct.MenuHeaderType.Casual, FromDate, ToDate, DinerMealIdList, (int)DataStruct.PaymentMethod.Cash);
-                model.CasualDinnerCredit = new CustomDataBaseManger().GetCasualAmount((int)DataStruct.MenuHeaderType.Casual, FromDate, ToDate, DinerMealIdList, (int)DataStruct.PaymentMethod.Credit);
+                model.CasualDinnerCash = new CustomDataBaseManger().GetCasualAmount((int)DataStruct.MenuHeaderType.Casual, FromDate, ToDate, DinerMealIdList, (int)DataStruct.PaymentMethod.Cash, account.LocationUId);
+                model.CasualDinnerCredit = new CustomDataBaseManger().GetCasualAmount((int)DataStruct.MenuHeaderType.Casual, FromDate, ToDate, DinerMealIdList, (int)DataStruct.PaymentMethod.Credit, account.LocationUId);
                 model.CasualDinnerExpenditure = model.CasualDinnerCash + model.CasualDinnerCredit;
                 var filterCasual = _menuOrderItemDetailService.GetDefaultSpecification().And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
                 filterCasual = filterCasual.And(p => p.Active == true).And(p => p.MenuOrderHeader.OrderDate >= FromDate).And(p => p.MenuOrderHeader.OrderDate <= ToDate);

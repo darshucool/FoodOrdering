@@ -172,7 +172,7 @@ namespace MIMS.Helpers
 	        }
             return count;
         }
-        public decimal GetMainMealCountCount(int MealType,DateTime FromDate,DateTime ToDate,List<int> MealIdList)
+        public decimal GetMainMealCountCount(int MealType,DateTime FromDate,DateTime ToDate,List<int> MealIdList,int LocationUId)
         {
             decimal count = 0;
             try
@@ -192,8 +192,8 @@ namespace MIMS.Helpers
                 mealIds += ")";
                 string sql = "select Sum(MD.Qty) AS QtyCount from  MenuOrderItemDetail AS MD,MenuOrderHeader AS MH where MenuItemUId "+
                 "    in "+ mealIds + " "+
-                "    and MD.MeanuOrderHeaderUId = MH.UId AND MH.Active = 'TRUE' AND MH.OrderDate between '"+ FromDate + "' and '"+ToDate+"' AND " +
-                "    MH.MenuHeaderType = '"+ MealType + "'";
+                "    and MD.MeanuOrderHeaderUId = MH.UId AND MH.Active = 'TRUE' AND MH.OrderDate between '"+ FromDate.ToString("MM/dd/yyyy HH:mm:ss") + "' and '"+ToDate.ToString("MM/dd/yyyy HH:mm:ss") + "' AND " +
+                "    MH.MenuHeaderType = '"+ MealType + "'  AND MH.LocationUId='"+ LocationUId + "'";
                 DataTable dt = SelectData(sql);
                 foreach(DataRow dr in dt.Rows)
                 {
@@ -211,7 +211,7 @@ namespace MIMS.Helpers
             }
             return count;
         }
-        public decimal GetMainMealF140Sum(int MealType, DateTime FromDate, DateTime ToDate, List<int> MealIdList)
+        public decimal GetMainMealF140Sum(int MealType, DateTime FromDate, DateTime ToDate, List<int> MealIdList,int LocationUId)
         {
             decimal count = 0;
             try
@@ -231,8 +231,8 @@ namespace MIMS.Helpers
                 mealIds += ")";
                 string sql = "select Sum(MH.F140TotalAmt) AS F140TotalAmt from  MenuOrderItemDetail AS MD,MenuOrderHeader AS MH where MenuItemUId " +
                 "    in " + mealIds + " " +
-                "    and MD.MeanuOrderHeaderUId = MH.UId AND MH.Active = 'TRUE' AND MH.OrderDate between '"+FromDate+"' and '"+ToDate+"' AND " +
-                "    MH.MenuHeaderType = '" + MealType + "'";
+                "    and MD.MeanuOrderHeaderUId = MH.UId AND MH.Active = 'TRUE' AND MH.OrderDate between '"+FromDate.ToString("MM/dd/yyyy HH:mm:ss") + "' and '"+ToDate.ToString("MM/dd/yyyy HH:mm:ss") + "' AND " +
+                "    MH.MenuHeaderType = '" + MealType + "' AND MH.LocationUId = '"+ LocationUId + "'";
                 DataTable dt = SelectData(sql);
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -250,7 +250,7 @@ namespace MIMS.Helpers
             }
             return count;
         }
-        public decimal GetCasualAmount(int MealType, DateTime FromDate, DateTime ToDate, List<int> MealIdList,int PaymentMethod)
+        public decimal GetCasualAmount(int MealType, DateTime FromDate, DateTime ToDate, List<int> MealIdList,int PaymentMethod,int LocationUId)
         {
             decimal count = 0;
             try
@@ -270,8 +270,8 @@ namespace MIMS.Helpers
                 mealIds += ")";
                 string sql = "select Sum(MH.F140TotalAmt) AS F140TotalAmt from  MenuOrderItemDetail AS MD,MenuOrderHeader AS MH where MenuItemUId " +
                 "    in " + mealIds + " " +
-                "    and MD.MeanuOrderHeaderUId = MH.UId AND MH.Active = 'TRUE' AND MH.OrderDate between '"+FromDate+"' and '"+ToDate+"' AND " +
-                "    MH.MenuHeaderType = '" + MealType + "' AND MH.PaymentMethod='"+ PaymentMethod + "'";
+                "    and MD.MeanuOrderHeaderUId = MH.UId AND MH.Active = 'TRUE' AND MH.OrderDate between '"+FromDate.ToString("MM/dd/yyyy HH:mm:ss") + "' and '"+ToDate.ToString("MM/dd/yyyy HH:mm:ss") + "' AND " +
+                "    MH.MenuHeaderType = '" + MealType + "' AND MH.LocationUId = '" + LocationUId + "'  AND MH.PaymentMethod='"+ PaymentMethod + "'";
                 DataTable dt = SelectData(sql);
                 foreach (DataRow dr in dt.Rows)
                 {
