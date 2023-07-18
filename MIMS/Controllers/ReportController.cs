@@ -160,8 +160,8 @@ namespace MIMS.Controllers
                 DateTime ToDate = model.EffectiveDate.Date.AddDays(1).AddTicks(-1);
                 //Breakafast
                 var filterDutyB = _menuOrderItemDetailService.GetDefaultSpecification().And(p=>p.MenuOrderHeader.LocationUId==account.LocationUId);
-                filterDutyB = filterDutyB.And(p => p.Active == true).And(p=>p.MenuOrderHeader.EffectiveDate>= FromDate).And(p=>p.MenuOrderHeader.EffectiveDate<= ToDate);
-                filterDutyB = filterDutyB.And(p=>p.MenuItemUId== (int)DataStruct.MainCourse.Rma_Breakfast);
+                filterDutyB = filterDutyB.And(p => p.Active == true).And(p=>p.MenuOrderHeader.OrderDate>= FromDate).And(p=>p.MenuOrderHeader.OrderDate <= ToDate);
+                filterDutyB = filterDutyB.And(p=>p.MenuItemUId== (int)DataStruct.MainCourse.Rma_Breakfast).And(p => p.MenuItemUId == (int)DataStruct.MainCourse.Rma_Breakfast_diet).And(p => p.MenuItemUId == (int)DataStruct.MainCourse.Rma_Breakfast_veg);
                 List<MenuOrderItemDetail> BreakfastMenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterDutyB,p=>p.CreationDate).ToList();
                 if (BreakfastMenuOrderItemDetailList.Where(p=>p.MenuOrderHeader.MenuHeaderType==(int)DataStruct.MenuHeaderType.Duty).ToList().Count > 0)
                 {
@@ -175,7 +175,7 @@ namespace MIMS.Controllers
                 model.DutyBreakfastExpenditureAmt = model.DutyBreakfastReceivableAmt;
                 //Lunch
                 var filterDutyL = _menuOrderItemDetailService.GetDefaultSpecification().And(p => p.MenuOrderHeader.LocationUId == account.LocationUId); 
-                filterDutyL = filterDutyL.And(p => p.Active == true).And(p => p.MenuOrderHeader.EffectiveDate >= FromDate).And(p => p.MenuOrderHeader.EffectiveDate <= ToDate);
+                filterDutyL = filterDutyL.And(p => p.Active == true).And(p => p.MenuOrderHeader.OrderDate >= FromDate).And(p => p.MenuOrderHeader.OrderDate <= ToDate);
                 filterDutyL = filterDutyL.And(p => p.MenuItemUId == (int)DataStruct.MainCourse.Rma_Lunch);
                 List<MenuOrderItemDetail> LunchMenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterDutyL, p => p.CreationDate).ToList();
                 if (LunchMenuOrderItemDetailList.Where(p => p.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Duty).ToList().Count > 0)
@@ -190,7 +190,7 @@ namespace MIMS.Controllers
                 model.DutyLunchExpenditureAmt = model.DutyLunchReceivableAmt;
                 //Dinner
                 var filterDutyD = _menuOrderItemDetailService.GetDefaultSpecification().And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
-                filterDutyD = filterDutyD.And(p => p.Active == true).And(p => p.MenuOrderHeader.EffectiveDate >= FromDate).And(p => p.MenuOrderHeader.EffectiveDate <= ToDate);
+                filterDutyD = filterDutyD.And(p => p.Active == true).And(p => p.MenuOrderHeader.OrderDate >= FromDate).And(p => p.MenuOrderHeader.OrderDate <= ToDate);
                 filterDutyD = filterDutyD.And(p => p.MenuItemUId == (int)DataStruct.MainCourse.Rma_Dinner);
                 List<MenuOrderItemDetail> DinnerMenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterDutyD, p => p.CreationDate).ToList();
                 if (DinnerMenuOrderItemDetailList.Where(p => p.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Duty).ToList().Count > 0)
@@ -214,7 +214,7 @@ namespace MIMS.Controllers
                 model.CasualDinnerCredit = DinnerMenuOrderItemDetailList.Where(c => c.MenuOrderHeader.MenuHeaderType == (int)DataStruct.MenuHeaderType.Casual && c.MenuOrderHeader.PaymentMethod == (int)DataStruct.PaymentMethod.Credit).Sum(p => p.MenuOrderHeader.F140TotalAmt);
                 model.CasualDinnerExpenditure = model.CasualDinnerCash + model.CasualDinnerCredit;
                 var filterCasual = _menuOrderItemDetailService.GetDefaultSpecification().And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
-                filterCasual = filterCasual.And(p => p.Active == true).And(p => p.MenuOrderHeader.EffectiveDate >= FromDate).And(p => p.MenuOrderHeader.EffectiveDate <= ToDate);
+                filterCasual = filterCasual.And(p => p.Active == true).And(p => p.MenuOrderHeader.OrderDate >= FromDate).And(p => p.MenuOrderHeader.OrderDate <= ToDate);
                 filterCasual = filterCasual.And(p => p.MenuItemUId != (int)DataStruct.MainCourse.Rma_Breakfast).And(p => p.MenuItemUId != (int)DataStruct.MainCourse.Rma_Lunch).And(p => p.MenuItemUId != (int)DataStruct.MainCourse.Rma_Dinner);
                 List<MenuOrderItemDetail> CasualOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterCasual, p => p.CreationDate).ToList();
                 

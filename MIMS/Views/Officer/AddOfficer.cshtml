@@ -25,7 +25,7 @@
 
                 <div class="col-md-12 mb-3">
                     <div class="rounded shadow-sm p-4 bg-white">
-                        <h5 class="mb-4">BOC</h5>
+                        <h5 class="mb-4">Add Officer</h5>
                         <div id="edit_profile">
                             <div>
                                 @Html.Message()
@@ -37,7 +37,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="exampleInputName1">Service No</label>
-                                                @Html.TextBoxFor(m => m.ServiceNo, new { @placeholder = "Enter Service No", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @type = "date" })
+                                                @Html.TextBoxFor(m => m.ServiceNo, new { @placeholder = "Enter Service No", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true"})
                                                 @Html.ValidationMessageFor(m => m.ServiceNo, "")
                                             </div>
                                         </div>
