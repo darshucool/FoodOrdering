@@ -237,7 +237,7 @@ namespace MIMS.Controllers
             try
             {
                 TryUpdateModel(header);
-                header.OrderDate = DateTime.Now;
+                header.OrderDate = header.EffectiveDate;
                 header.Active = true;
                 header.Status = 10;
                 header.PaymentMethod = (int)DataStruct.PaymentMethod.Credit;
@@ -254,6 +254,26 @@ namespace MIMS.Controllers
             }
             return View(header);
         }
+       [HttpPost]
+        public ActionResult UpdateDate(FormCollection Form,int id)
+        {
+            OfficerMenuOrderModel model = new OfficerMenuOrderModel();
+            try
+            {
+                TryUpdateModel(model);
+               MenuOrderHeader MenuOrderHeader = _menuOrderHeaderService.GetByKey(id);
+                MenuOrderHeader.OrderDate = model.EffectiveDate;
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Date successfully have been updated");
+                return RedirectToAction("MenuCreate", "Order", new {id=id });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();    
+        }
         public ActionResult MenuCreate(int id)
         {
             OfficerMenuOrderModel model = new OfficerMenuOrderModel();
@@ -267,7 +287,7 @@ namespace MIMS.Controllers
                 model.MenuItemList = MenuItemList;
                 model.MenuOrderId = id;
                 model.MenuOrderHeader = _menuOrderHeaderService.GetByKey(id);
-
+                model.EffectiveDate = model.MenuOrderHeader.OrderDate;
                 var filterO = _menuOrderItemDetailService.GetDefaultSpecification();
                 filterO = filterO.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == id);
                 model.MenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterO, p => p.CreationDate).ToList();

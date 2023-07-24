@@ -107,6 +107,7 @@ namespace AlfasiWeb.Models
         public List<UserAccount> UserAccountList { get; set; }
         public int MenuOrderId { get; set; }
         public int MenuItemId { get; set; }
+        public DateTime EffectiveDate { get; set; }
     }
     public class StockCheckModel {
         public string ServiceNo { get; set; }
