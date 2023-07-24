@@ -134,7 +134,7 @@ namespace MIMS.Controllers
                 DateTime ToDate = model.EffectiveDate.Date.AddDays(1).AddTicks(-1);
                 var filter = _menuOrderHeaderService.GetDefaultSpecification();
                 filter = filter.And(p => p.Active == true).And(p=>p.OrderDate>= FromDate).And(p=>p.OrderDate<= ToDate);
-                List<MenuOrderHeader> MenuOrderHeaderList = _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p=>p.OrderDate).Take(30).ToList();
+                List<MenuOrderHeader> MenuOrderHeaderList = _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p=>p.OrderDate).Take(60).ToList();
                 foreach (MenuOrderHeader order in MenuOrderHeaderList.OrderBy(p => p.OrderDate))
                 {
                     MenuOrderHeaderModel mod = new MenuOrderHeaderModel();
@@ -263,6 +263,7 @@ namespace MIMS.Controllers
                 TryUpdateModel(model);
                MenuOrderHeader MenuOrderHeader = _menuOrderHeaderService.GetByKey(id);
                 MenuOrderHeader.OrderDate = model.EffectiveDate;
+                MenuOrderHeader.EffectiveDate = model.EffectiveDate;
                 DataContext.SaveChanges();
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Date successfully have been updated");
                 return RedirectToAction("MenuCreate", "Order", new {id=id });
