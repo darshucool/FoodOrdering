@@ -21,7 +21,7 @@ namespace Dinota.Domain.OfficerRequest
       
         public int? PaymentMethod { get; set; }
         public bool Active { set; get; }
-
+        public int Status { get; set; }
        public virtual UserAccount UserAccount { get; set; }
         public virtual MenuItem.MenuItem FromMealInfo { get; set; }
         public virtual MenuItem.MenuItem ToMealInfo { get; set; }

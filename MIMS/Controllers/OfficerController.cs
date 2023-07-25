@@ -71,11 +71,11 @@ namespace MIMS.Controllers
         }
         // [AuthorizeUserAccessLevel()]
 
-        public void BindMainMealItemList()
+        public void BindMainMealItemList(int accountid)
         {
             try
             {
-                var filter = _menuItemService.GetDefaultSpecification().And(s => s.Active == true).And(p=>p.IsCombine==true);
+                var filter = _menuItemService.GetDefaultSpecification().And(s => s.Active == true).And(p=>p.IsCombine==true).And(p=>p.SLAFLocationUId== accountid);
                 var TypeList = _menuItemService.GetCollection(filter, d => d.UId);
                 SelectList list = new SelectList(TypeList, "UId", "Name");
                 ViewData[ViewDataKeys.MenuItemList] = list;
@@ -204,8 +204,8 @@ namespace MIMS.Controllers
         public ActionResult AddOfficerRequest(int id)
         {
             OfficerRequest profile = new OfficerRequest();
-            UserAccount account = new UserAccount();
-            BindMainMealItemList();
+            UserAccount account = _userAccountService.GetByKey(id);
+            BindMainMealItemList(account.LocationUId);
             BindPaymentMethodList();
             if (id > 0)
             {
@@ -218,6 +218,20 @@ namespace MIMS.Controllers
             return View(profile);
         }
 
+        public ActionResult AddOfficerWarningOut(int id)
+        {
+
+        }
+        public ActionResult OfficerRequesMessList(int id)
+        {
+            List<OfficerRequest> profile = new List<OfficerRequest>();
+            UserAccount account = GetCurrentUser();
+            var filter = _officerRequestService.GetDefaultSpecification();
+            filter = filter.And(p => p.Active == true).And(p=>p.UserId==id);
+            profile = _officerRequestService.GetCollection(filter, p => p.CreationDate).ToList();
+            TempData["ÜserId"] = account.Id;
+            return View(profile);
+        }
         public ActionResult OfficerRequestList()
         {
             List<OfficerRequest> profile = new List<OfficerRequest>();
@@ -234,7 +248,7 @@ namespace MIMS.Controllers
             OfficerRequest profile = new OfficerRequest();
             try
             {
-                UserAccount user = GetCurrentUser();
+                UserAccount user = _userAccountService.GetByKey(id);
                 TryUpdateModel(profile);
                 var filter = _userAccountService.GetDefaultSpecification();
                 filter = filter.And(p => p.Id == id).And(p => p.Active == true);
@@ -244,12 +258,13 @@ namespace MIMS.Controllers
                     account.LocationUId = user.LocationUId;
                     profile.Active = true;
                     profile.UserId = id;
+                    profile.Status = 10;
                     _officerRequestService.Add(profile);
                     DataContext.SaveChanges();
                 }
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Record successfully added");
 
-                return RedirectToAction("OfficerList");
+                return RedirectToAction("OfficerRequesMessList", new { id= id });
             }
             catch (Exception)
             {

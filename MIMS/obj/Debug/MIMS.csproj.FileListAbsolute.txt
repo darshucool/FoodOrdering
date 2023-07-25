@@ -515,8 +515,6 @@ D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.GenerateResource.
 D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.CopyComplete
 D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\obj\Debug\AlfasiWeb.dll
 D:\MY PROJECT\MIMS\git\FoodOrdering\MIMS\obj\Debug\AlfasiWeb.pdb
-D:\03200\MIMS\GIT\FoodOrdering\MIMS\bin\Microsoft.ReportViewer.Common.dll
-D:\03200\MIMS\GIT\FoodOrdering\MIMS\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
 D:\AF\FoodOrderingNew\MIMS\bin\AlfasiWeb.dll
 D:\AF\FoodOrderingNew\MIMS\bin\AlfasiWeb.pdb
 D:\AF\FoodOrderingNew\MIMS\bin\Antlr3.Runtime.dll
