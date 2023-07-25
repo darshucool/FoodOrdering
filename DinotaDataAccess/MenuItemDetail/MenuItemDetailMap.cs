@@ -18,7 +18,8 @@ namespace Dinota.DataAccces.MenuItemDetail
             HasRequired(f => f.MeasurementUnit).WithMany().HasForeignKey(f => f.IngriedientMeasurementUId);
             HasRequired(f => f.MenuItemMeasurementUnit).WithMany().HasForeignKey(f => f.PortionMeasurementUId);
             HasRequired(f => f.MenuItem).WithMany().HasForeignKey(f => f.MenuItemId);
-            Property(x => x.IngriedientQty).HasPrecision(18, 4);
+            Property(x => x.IngriedientQty).HasPrecision(18, 5);
+            Property(x => x.PortionQty).HasPrecision(18, 5);
         }
     }
 }

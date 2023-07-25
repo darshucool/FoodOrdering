@@ -63,10 +63,10 @@
 
 
                             @*  <a href="#" class="widget-header mr-4 text-dark">
-<div class="icon d-flex align-items-center">
-<i class="feather-search h6 mr-2 mb-0"></i> <span>Search</span>
-</div>
-</a>*@
+                                <div class="icon d-flex align-items-center">
+                                <i class="feather-search h6 mr-2 mb-0"></i> <span>Search</span>
+                                </div>
+                                </a>*@
 
                             <a href="@Url.Content("~/News/Index/")" class="widget-header mr-4 text-white btn bg-primary m-none">
                                 <div class="icon d-flex align-items-center">
@@ -86,7 +86,7 @@
                                 </div>
                             </div>
                             @if (account.UserTypeId == 1)
-                            { 
+                            {
                                 <a href="@Url.Content("~/Menu/MyOrders")" class="widget-header mr-4 text-dark">
                                     <div class="icon d-flex align-items-center">
                                         <i class="feather-shopping-cart h6 mr-2 mb-0"></i><span>Orders</span>
@@ -94,7 +94,7 @@
                                 </a>
                             }
                             else if (account.UserTypeId == 3)
-                            { 
+                            {
                                 <a href="@Url.Content("~/Menu/MyOrders")" class="widget-header mr-4 text-dark">
                                     <div class="icon d-flex align-items-center">
                                         <i class="feather-shopping-cart h6 mr-2 mb-0"></i><span>Orders</span>
@@ -144,36 +144,37 @@
                 <li><a href="@Url.Content("~/Menu/AddEvent")"><i class="feather-list mr-2"></i>Add Event</a></li>
                 <li><a href="@Url.Content("~/Menu/EventIndex")"><i class="feather-list mr-2"></i>Event List</a></li>
                 <li><a href="@Url.Content("~/Menu/MenuList")"><i class="feather-list mr-2"></i>Menu List</a></li>
-                
+
                 <li>
                     <a href="#"><i class="feather-list mr-2"></i>Stock Sheet</a>
                     <ul>
                         <li><a href="@Url.Content("~/Item/StockSheet/1")"><i class="feather-list mr-2"></i>Dry</a></li>
                         <li><a href="@Url.Content("~/Item/StockSheet/2")"><i class="feather-list mr-2"></i>Fresh</a></li>
-                       
+
                     </ul>
                 </li>
                 <li><a href="@Url.Content("~/Item/Index")"><i class="feather-list mr-2"></i>Stock Item List</a></li>
                 <li><a href="@Url.Content("~/ItemBOC/Index")"><i class="feather-list mr-2"></i>Item BOC</a></li>
                 <li><a href="@Url.Content("~/Order/OrderList/")"><i class="feather-list mr-2"></i>Create Order</a></li>
-               
-                <li><a href="#"><i class="feather-list mr-2"></i>Officer Information</a>
+
+                <li>
+                    <a href="#"><i class="feather-list mr-2"></i>Officer Information</a>
                     <ul>
                         <li><a href="@Url.Content("~/Officer/OfficerList")"><i class="feather-list mr-2"></i>Officer List</a></li>
                         <li><a href="@Url.Content("~/Officer/OfficerRequestList")"><i class="feather-list mr-2"></i>Officer Warning In/Out List</a></li>
                         <li><a href="@Url.Content("~/Room/RoomInfoRegister")"><i class="feather-list mr-2"></i>Officer Room Allocation</a></li>
                         <li><a href="@Url.Content("~/Room/Index")"><i class="feather-list mr-2"></i>Room Info</a></li>
                     </ul>
-            </li>
-            <li>
-                <a href="#"><i class="feather-list mr-2"></i>Report</a>
-                <ul>
-                    <li><a href="@Url.Content("~/Report/DailySalesSummary/")"><i class="feather-list mr-2"></i>Daily Sales Summary</a></li>
-                    <li><a href="@Url.Content("~/Item/TotalStockBOCValue/")"><i class="feather-list mr-2"></i>BOC Total</a></li>
-                    <li><a href="@Url.Content("~/Item/StockCheck/")"><i class="feather-list mr-2"></i>Stock Check</a></li>
-                    <li><a href="@Url.Content("~/Officer/OfficerRecoveryList/")"><i class="feather-list mr-2"></i>Mess Bill List</a></li>
-                </ul>
-            </li>
+                </li>
+                <li>
+                    <a href="#"><i class="feather-list mr-2"></i>Report</a>
+                    <ul>
+                        <li><a href="@Url.Content("~/Report/DailySalesSummary/")"><i class="feather-list mr-2"></i>Daily Sales Summary</a></li>
+                        <li><a href="@Url.Content("~/Item/TotalStockBOCValue/")"><i class="feather-list mr-2"></i>BOC Total</a></li>
+                        <li><a href="@Url.Content("~/Item/StockCheck/")"><i class="feather-list mr-2"></i>Stock Check</a></li>
+                        <li><a href="@Url.Content("~/Officer/OfficerRecoveryList/")"><i class="feather-list mr-2"></i>Mess Bill List</a></li>
+                    </ul>
+                </li>
                 <li><a href="@Url.Content("~/News/Index")"><i class="feather-list mr-2"></i>News List</a></li>
                 <li><a href="@Url.Content("~/Account/ChangePassword")"><i class="feather-list mr-2"></i>Change Password</a></li>
                 <li><a href="@Url.Content("~/Account/LogOff")"><i class="feather-list mr-2"></i>Logoff</a></li>
@@ -317,14 +318,15 @@
         </div>
     }
 
-@if (ViewContext.RouteData.Values["Controller"].ToString() == "Order" && ViewContext.RouteData.Values["Action"].ToString() == "ProcessOrder")
-{
-    <script type="text/javascript" src="@Url.Content("~/Asset/js/jquery-3.6.0.min.js")"></script>   
-}
-else
-{
-    <script type="457a562786498bfc8c87c2bf-text/javascript" src="@Url.Content("~/Asset/vendor/jquery/jquery.min.js")"></script>
-}
+    @if (ViewContext.RouteData.Values["Controller"].ToString() == "Order" && ViewContext.RouteData.Values["Action"].ToString() == "ProcessOrder")
+    {
+        <script type="text/javascript" src="@Url.Content("~/Asset/js/jquery-3.6.0.min.js")"></script>
+
+    }
+    else
+    {
+        <script type="457a562786498bfc8c87c2bf-text/javascript" src="@Url.Content("~/Asset/vendor/jquery/jquery.min.js")"></script>
+    }
 
 
 
@@ -339,7 +341,13 @@ else
     <script src="@Url.Content("~/Asset/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js")" data-cf-settings="457a562786498bfc8c87c2bf-|49" defer=""></script>
     <script defer="" src="@Url.Content("~/Asset/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194")" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"72a8dc1c29b0b305","version":"2022.6.0","r":1,"token":"dd471ab1978346bbb991feaa79e6ce5c","si":100}' crossorigin="anonymous"></script>
     <script src="@Url.Content("~/Asset/js/sweetalert.min.js")"></script>
+
+    @if (ViewContext.RouteData.Values["Controller"].ToString() == "Menu" && ViewContext.RouteData.Values["Action"].ToString() == "AddIngridient")
+    {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    }
+
+    
     <script>
 
         $('#IngriedientUId').change(function () {
@@ -358,7 +366,7 @@ else
             });
         });
 
-        
+
         function AssignOrderValue(value1) {
             $("#menuorderid").val(value1);
         }
@@ -370,10 +378,9 @@ else
         }
         /*document.getElementById("delete_Row").style.display = "none";*/
 
-        function addRow()
-        {
+        function addRow() {
             var kcount = $('#kidscount').val();
-            kcount=parseInt(kcount);
+            kcount = parseInt(kcount);
             var i = $('#kidrowcount').val();
 
             if (kcount > 0) {
@@ -385,13 +392,12 @@ else
                     $('#kidstbody').append($new_row);
                     $('#kidrowcount').val(i);
                 }
-            document.getElementById("add_Row").style.display = "none";
+                document.getElementById("add_Row").style.display = "none";
+            }
         }
-        }
-        function addRow_val()
-        {
+        function addRow_val() {
             var kcount = $('#kidscount').val();
-            kcount=parseInt(kcount);
+            kcount = parseInt(kcount);
             var i = $('#kidrowcount').val();
 
             if (kcount > 0) {
@@ -403,8 +409,8 @@ else
                     $('#kidstbody').append($new_row);
                     $('#kidrowcount').val(i);
                 }
-            document.getElementById("add_Row").style.display = "none";
-        }
+                document.getElementById("add_Row").style.display = "none";
+            }
         }
         function removeRow_val() {
             document.getElementById("delete_Row_btn").style.display = "none";
@@ -420,24 +426,22 @@ else
             $('#kidscount').val(0);
             $('#add_Row').fadeIn();
         }
-        $(document).ready(function() {
-         $('#IsGuestNonVeg1').fadeOut();
+        $(document).ready(function () {
+            $('#IsGuestNonVeg1').fadeOut();
             $('#IsGuestNonVeg2').fadeOut();
-         });
-         function getGuestNovVeg() {
+        });
+        function getGuestNovVeg() {
             var count = $("#memcount").val();
-              count = parseInt(count);
-       
-                if(count>0)
-                {
-                    $('#IsGuestNonVeg1').fadeIn();
-                    $('#IsGuestNonVeg2').fadeIn();
-                }
-                else
-                {
-             $('#IsGuestNonVeg1').fadeOut();
-            $('#IsGuestNonVeg2').fadeOut();
-                }
+            count = parseInt(count);
+
+            if (count > 0) {
+                $('#IsGuestNonVeg1').fadeIn();
+                $('#IsGuestNonVeg2').fadeIn();
+            }
+            else {
+                $('#IsGuestNonVeg1').fadeOut();
+                $('#IsGuestNonVeg2').fadeOut();
+            }
         }
         function getGuestCount() {
             var count = $("#memcount").val();
@@ -445,37 +449,34 @@ else
             rank = parseInt(rank);
             count = parseInt(count);
 
-            if (rank == 27)
-            {
+            if (rank == 27) {
 
                 if (count > 4) {
                     alert("you are not allowed to enter more than 4 guests");
                     $("#memcount").empty();
                     $("#memcount").val(4);
                 }
-                else if (count <= 4)  {
+                else if (count <= 4) {
                     $("#memcount").val(count);
                 }
             }
-            else if(rank == 10)
-            {
+            else if (rank == 10) {
                 if (count > 4) {
                     alert("you are not allowed to enter more than 4 guests");
                     $("#memcount").empty();
                     $("#memcount").val(4);
                 }
-                else if (count <= 4)  {
+                else if (count <= 4) {
                     $("#memcount").val(count);
                 }
             }
-            else if(rank == 147)
-            {
+            else if (rank == 147) {
                 if (count > 4) {
                     alert("you are not allowed to enter more than 4 guests");
                     $("#memcount").empty();
                     $("#memcount").val(4);
                 }
-                else if (count <= 4)  {
+                else if (count <= 4) {
                     $("#memcount").val(count);
                 }
             }
@@ -492,8 +493,7 @@ else
             }
 
         }
-        function roomFunction()
-        {
+        function roomFunction() {
             var val = $('#delilocation').val();
             if (val == "Room") {
 
@@ -505,8 +505,7 @@ else
                 $('#roomno').remove();
             }
         }
-        function changeSpouseState1()
-        {
+        function changeSpouseState1() {
 
             $('#spousevegnon1').fadeIn();
             $('#spousevegnon2').fadeIn();
@@ -521,36 +520,31 @@ else
             $('#IsOMTVeg1').fadeIn();
             $('#IsOMTVeg2').fadeIn();
         }
-        function changeSpouseState2()
-        {
+        function changeSpouseState2() {
 
             $('#spousevegnon1').fadeOut();
             $('#spousevegnon2').fadeOut();
             $('#IsSpouseAlcohol2').fadeOut();
             $('#IsSpouseAlcohol1').fadeOut();
-         $('#IsSpouseNonVeg1').fadeOut();
+            $('#IsSpouseNonVeg1').fadeOut();
             $('#IsSpouseNonVeg2').fadeOut();
         }
-         function changeNonVegState1()
-        {
+        function changeNonVegState1() {
 
             $('#IsNonVeg1').fadeIn();
             $('#IsNonVeg2').fadeIn();
         }
-         function changeNonVegState2()
-        {
+        function changeNonVegState2() {
 
             $('#IsNonVeg1').fadeOut();
             $('#IsNonVeg2').fadeOut();
         }
-           function changeNonSpouseVegState1()
-        {
+        function changeNonSpouseVegState1() {
 
             $('#IsSpouseNonVeg1').fadeIn();
             $('#IsSpouseNonVeg2').fadeIn();
         }
-         function changeNonSpouseVegState2()
-        {
+        function changeNonSpouseVegState2() {
 
             $('#IsSpouseNonVeg1').fadeOut();
             $('#IsSpouseNonVeg2').fadeOut();
@@ -564,10 +558,10 @@ else
 
         }
 
-         function hideParticipateBtn() {
+        function hideParticipateBtn() {
 
-             //$('#pbtn1').fadeOut();
-             //$('#pbtn2').fadeOut();
+            //$('#pbtn1').fadeOut();
+            //$('#pbtn2').fadeOut();
         }
         function changeVehileNo1() {
 
@@ -613,56 +607,56 @@ else
         //});
 
 
-       function isNumberKey(txt, evt) {
-      var charCode = (evt.which) ? evt.which : evt.keyCode;
-      if (charCode == 46) {
-        //Check if the text already contains the . character
-        if (txt.value.indexOf('.') === -1) {
-          return true;
-        } else {
-          return false;
-        }
-      } else {
-        if (charCode > 31 &&
-          (charCode < 48 || charCode > 57))
-          return false;
-      }
-      return true;
-    }
-    </script>
-<script>
-    $(document).ready(function() {
-        // Input change event handler
-        $("body").on("input", ".quantity-input", function() {
-            var ingredientId = $(this).data("ingredient-id");
-            var quantity = parseFloat($(this).val()) || 0;
-
-            // Update the total quantity in the first table
-            $(this).closest("tr").find(".total-quantity").text(quantity);
-
-            // Update the total quantity in the second table
-            var totalQty = 0;
-            $("#table1 tr[data-ingredient-id='" + ingredientId + "']").each(function() {
-                var rowQty = parseFloat($(this).find(".quantity-input").val()) || 0;
-                totalQty += rowQty;
-            });
-            $("#table2 tr[data-ingredient-id='" + ingredientId + "'] .total-qty").text(totalQty);
-
-            // Update the insufficient-stock class
-            var stockQty = parseFloat($("#table2 tr[data-ingredient-id='" + ingredientId + "'] .current-stock-qty").text()) || 0;
-            if (totalQty > stockQty) {
-                $("#table1 tr[data-ingredient-id='" + ingredientId + "']").addClass("insufficient-stock");
-                $("#table2 tr[data-ingredient-id='" + ingredientId + "']").addClass("insufficient-stock");
+        function isNumberKey(txt, evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode == 46) {
+                //Check if the text already contains the . character
+                if (txt.value.indexOf('.') === -1) {
+                    return true;
+                } else {
+                    return false;
+                }
             } else {
-                $("#table1 tr[data-ingredient-id='" + ingredientId + "']").removeClass("insufficient-stock");
-                $("#table2 tr[data-ingredient-id='" + ingredientId + "']").removeClass("insufficient-stock");
+                if (charCode > 31 &&
+                    (charCode < 48 || charCode > 57))
+                    return false;
             }
+            return true;
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Input change event handler
+            $("body").on("input", ".quantity-input", function () {
+                var ingredientId = $(this).data("ingredient-id");
+                var quantity = parseFloat($(this).val()) || 0;
+
+                // Update the total quantity in the first table
+                $(this).closest("tr").find(".total-quantity").text(quantity);
+
+                // Update the total quantity in the second table
+                var totalQty = 0;
+                $("#table1 tr[data-ingredient-id='" + ingredientId + "']").each(function () {
+                    var rowQty = parseFloat($(this).find(".quantity-input").val()) || 0;
+                    totalQty += rowQty;
+                });
+                $("#table2 tr[data-ingredient-id='" + ingredientId + "'] .total-qty").text(totalQty);
+
+                // Update the insufficient-stock class
+                var stockQty = parseFloat($("#table2 tr[data-ingredient-id='" + ingredientId + "'] .current-stock-qty").text()) || 0;
+                if (totalQty > stockQty) {
+                    $("#table1 tr[data-ingredient-id='" + ingredientId + "']").addClass("insufficient-stock");
+                    $("#table2 tr[data-ingredient-id='" + ingredientId + "']").addClass("insufficient-stock");
+                } else {
+                    $("#table1 tr[data-ingredient-id='" + ingredientId + "']").removeClass("insufficient-stock");
+                    $("#table2 tr[data-ingredient-id='" + ingredientId + "']").removeClass("insufficient-stock");
+                }
+            });
         });
-    });
-      $(document).ready(function () {
-        $('#example2').DataTable();
-    });
-</script>
+        $(document).ready(function () {
+            $('#example2').DataTable();
+        });
+    </script>
 
 
 

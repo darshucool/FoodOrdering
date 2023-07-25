@@ -558,6 +558,10 @@ namespace MIMS.Helpers
             {
                 finalQty = Qty * MultipleQty;
             }
+            else if (DemandMeasureUnit == (int)DataStruct.MeasurementUnit.Pkt)
+            {
+                finalQty = Qty * MultipleQty;
+            }
             //else if (QtyMeasureUnit == (int)DataStruct.MeasurementUnit.ml)
             //{
             //    if (DemandMeasureUnit == (int)DataStruct.MeasurementUnit.ml)

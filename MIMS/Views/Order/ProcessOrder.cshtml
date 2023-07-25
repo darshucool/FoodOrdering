@@ -42,7 +42,7 @@
                                     foreach (MenuItemDetailListModel d in detail.MenuItemDetailListModelList)
                                     {
                                         decimal DemandQty = Html.GetQtyTotal(d.MenuItemDetail.IngriedientQty, AskQty, d.MenuItemDetail.IngriedientMeasurementUId, d.MenuItemDetail.PortionMeasurementUId, Model.MultipleQty);
-                                        string stylerow = DemandQty <= 0 ? "hidden" : (DemandQty > d.CurrentStockQty ? "style=background-color:#fba6a8" : "");
+                                        string stylerow = DemandQty <= 0 ? "" : (DemandQty > d.CurrentStockQty ? "style=background-color:#fba6a8" : "");
 
                                         <tr data-ingredient-id="@d.MenuItemDetail.IngriedientUId" @stylerow>
                                             <td><input type="hidden" name="menuing_@d.MenuItemDetail.IngriedientUId">@d.MenuItemDetail.IngredientInfo.ItemName</td>

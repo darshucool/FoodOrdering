@@ -470,7 +470,11 @@ namespace MIMS.Controllers
                                 item.Qty = 1;
                             if (i == 1)
                             {
-                                model.MultipleQty = item.Qty / det.PortionQty;
+                                if (det.PortionQty > 0)
+                                {
+                                    model.MultipleQty = item.Qty / det.PortionQty;
+                                }
+                                
                             }
                             MenuItemDetailListModel itemdetail = new MenuItemDetailListModel();
                             var filterBOC = _ingredientBOCService.GetDefaultSpecification();
@@ -489,7 +493,7 @@ namespace MIMS.Controllers
                 model.MenuOrderId = id;
                 model.MenuItemList = MenuItemIngridientList;
             }
-            catch (Exception)
+             catch (Exception)
             {
 
                 throw;

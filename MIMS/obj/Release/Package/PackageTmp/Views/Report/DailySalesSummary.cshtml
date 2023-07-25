@@ -16,6 +16,7 @@
 </style>
 @using (Html.BeginForm("DailySalesSummary", "Report", null, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
 {
+    <a class="btn btn-default" href="@Url.Content("~/Order/OrderList")"> << Back</a>
     <div class="form-group">
         <label for="exampleInputName1">Event Name</label>
         @Html.TextBoxFor(m => m.EffectiveDate, new { @placeholder = "Enter Date", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @type = "date" })
@@ -57,93 +58,93 @@
             </tr>
             <tr>
                 <td>Breakfast</td>
-                <td>@Model.DutyBreakfastCount</td>
-                <td>@Model.DutyBreakfastReceivableAmt</td>
-                <td>@Model.DutyBreakfastExpenditureAmt</td>
-                <td>@Model.CasualBreakfastCount</td>
-                <td>@Model.CasualBreakfastCredit</td>
-                <td>@Model.CasualBreakfastCash</td>
-                <td>@Model.CasualBreakfastExpenditure</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>@Model.BreakfastGasCharges</td>
-                <td></td>
-                <td>@Model.TotalIncomeBreakfast</td>
-                <td>@Model.TotalExpenditureBreakfast</td>
-                <td></td>
+                <td style="text-align:right">@Model.DutyBreakfastCount.ToString("00")</td>
+                <td style="text-align:right">@Model.DutyBreakfastReceivableAmt.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.DutyBreakfastExpenditureAmt.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.CasualBreakfastCount.ToString("00")</td>
+                <td style="text-align:right">@Model.CasualBreakfastCredit.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.CasualBreakfastCash.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.CasualBreakfastExpenditure.ToString("#0.00")</td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right">@Model.BreakfastGasCharges.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.BreakfastCommodities.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.TotalIncomeBreakfast.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.TotalExpenditureBreakfast.ToString("#0.00")</td>
+                <td style="text-align:right"></td>
             </tr>
             <tr>
                 <td>Lunch</td>
-                <td>@Model.DutyLunchCount</td>
-                <td>@Model.DutyLunchReceivableAmt</td>
-                <td>@Model.DutyLunchExpenditureAmt</td>
-                <td>@Model.CasualLunchCount</td>
-                <td>@Model.CasualLunchCredit</td>
-                <td>@Model.CasualLunchCash</td>
-                <td>@Model.CasualLunchExpenditure</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>@Model.LunchGasCharges</td>
-                <td></td>
-                <td>@Model.TotalIncomeLunch</td>
-                <td>@Model.TotalExpenditureLunch</td>
-                <td></td>
+                <td style="text-align:right">@Model.DutyLunchCount.ToString("00")</td>
+                <td style="text-align:right">@Model.DutyLunchReceivableAmt.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.DutyLunchExpenditureAmt.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.CasualLunchCount.ToString("00")</td>
+                <td style="text-align:right">@Model.CasualLunchCredit.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.CasualLunchCash.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.CasualLunchExpenditure.ToString("#0.00")</td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right">@Model.LunchGasCharges.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.LunchCommodities.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.TotalIncomeLunch.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.TotalExpenditureLunch.ToString("#0.00")</td>
+                <td style="text-align:right"></td>
             </tr>
             <tr>
                 <td>Dinner</td>
-                <td>@Model.DutyDinnerCount</td>
-                <td>@Model.DutyDinnerReceivableAmt</td>
-                <td>@Model.DutyDinnerExpenditureAmt</td>
-                <td>@Model.CasualDinnerCount</td>
-                <td>@Model.CasualDinnerCredit</td>
-                <td>@Model.CasualDinnerCash</td>
-                <td>@Model.CasualDinnerExpenditure</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>@Model.DinnerGasCharges</td>
-                <td></td>
-                <td>@Model.TotalIncomeDinner</td>
-                <td>@Model.TotalExpenditureDinner</td>
-                <td></td>
+                <td style="text-align:right">@Model.DutyDinnerCount.ToString("00")</td>
+                <td style="text-align:right">@Model.DutyDinnerReceivableAmt.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.DutyDinnerExpenditureAmt.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.CasualDinnerCount.ToString("00")</td>
+                <td style="text-align:right">@Model.CasualDinnerCredit.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.CasualDinnerCash.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.CasualDinnerExpenditure.ToString("#0.00")</td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right">@Model.DinnerGasCharges.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.DinnerCommodities.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.TotalIncomeDinner.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.TotalExpenditureDinner.ToString("#0.00")</td>
+                <td style="text-align:right"></td>
             </tr>
             <tr>
-                <td>Extra Messing</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>@Model.ExtraMessingCreditAmount</td>
-                <td>@Model.ExtraMessingCashAmount</td>
-                <td>@Model.ExtraMessingExpenditureAmount</td>
-                <td>@Model.ExtraMessingGasCharges</td>
-                <td>@Model.Commodities</td>
-                <td>@Model.TotalIncomeExtramessing</td>
-                <td>@Model.TotalExpenditureExtramessing</td>
-                <td></td>
+                <td style="text-align:right">Extra Messing</td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right">@Model.ExtraMessingCreditAmount.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.ExtraMessingCashAmount.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.ExtraMessingExpenditureAmount.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.ExtraMessingGasCharges.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.Commodities</td>
+                <td style="text-align:right">@Model.TotalIncomeExtramessing.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.TotalExpenditureExtramessing.ToString("#0.00")</td>
+                <td style="text-align:right"></td>
             </tr>
             <tr style="font-weight:bold">
-                <td>TOTAL</td>
-                <td></td>
-                <td>@Model.TotalDutyReceivableAmount</td>
-                <td>@Model.TotalDutyExpenditureAmount</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>@Model.TotalExtraMessingCredit</td>
-                <td>@Model.TotalExtraMessingCash</td>
-                <td>@Model.TotalExtraMessingExpenditure</td>
-                <td>@Model.TotalGasAmount</td>
-                <td>@Model.TotalCommodotiesAmount</td>
-                <td>@Model.TotalIncomeAmount</td>
-                <td>@Model.TotalExpenditureAmount</td>
-                <td></td>
+                <td style="text-align:right">TOTAL</td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right">@Model.TotalDutyReceivableAmount.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.TotalDutyExpenditureAmount.ToString("#0.00")</td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right"></td>
+                <td style="text-align:right">@Model.TotalExtraMessingCredit.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.TotalExtraMessingCash.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.TotalExtraMessingExpenditure.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.TotalGasAmount.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.TotalCommodotiesAmount.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.TotalIncomeAmount.ToString("#0.00")</td>
+                <td style="text-align:right">@Model.TotalExpenditureAmount.ToString("#0.00")</td>
+                <td style="text-align:right"></td>
             </tr>
         </table>
     </div>

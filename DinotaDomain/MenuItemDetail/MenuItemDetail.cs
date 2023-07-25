@@ -12,6 +12,7 @@ namespace Dinota.Domain.MenuItemDetail
        
       
         public int MenuItemId { set; get; }
+       
         public decimal PortionQty { set; get; }
      public int PortionMeasurementUId { set; get; }
         public int IngriedientUId { set; get; }

@@ -134,12 +134,6 @@ D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\bin\Release\System.ComponentModel.Data
 D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\bin\Release\Autofac.xml
 D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\obj\Release\DinotaCore.dll
 D:\03200\MIMS\GIT\FoodOrdering\DinotaCore\obj\Release\DinotaCore.pdb
-D:\AF\FoodOrdering\DinotaCore\bin\Release\DinotaCore.dll
-D:\AF\FoodOrdering\DinotaCore\bin\Release\DinotaCore.pdb
-D:\AF\FoodOrdering\DinotaCore\bin\Release\Autofac.xml
-D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csprojResolveAssemblyReference.cache
-D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.dll
-D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.pdb
 D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\bin\Release\DinotaCore.dll
 D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\bin\Release\DinotaCore.pdb
 D:\MY PROJECT\MIMS\git\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.Common.dll
@@ -176,3 +170,14 @@ D:\AF Programming\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CoreComp
 D:\AF Programming\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CopyComplete
 D:\AF Programming\FoodOrdering\DinotaCore\obj\Release\DinotaCore.dll
 D:\AF Programming\FoodOrdering\DinotaCore\obj\Release\DinotaCore.pdb
+D:\AF\FoodOrdering\DinotaCore\bin\Release\DinotaCore.dll
+D:\AF\FoodOrdering\DinotaCore\bin\Release\DinotaCore.pdb
+D:\AF\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.Common.dll
+D:\AF\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\AF\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+D:\AF\FoodOrdering\DinotaCore\bin\Release\System.ComponentModel.DataAnnotations.dll
+D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.AssemblyReference.cache
+D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CoreCompileInputs.cache
+D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CopyComplete
+D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.dll
+D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.pdb
