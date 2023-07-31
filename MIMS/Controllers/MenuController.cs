@@ -1315,7 +1315,29 @@ namespace MIMS.Controllers
                 MenuOrderHeader header = _menuOrderHeaderService.GetByKey(oMenuOrder.MeanuOrderHeaderUId);
                 header.Status = (int)DataStruct.MenuOrderItemStatus.Accepted;
                 DataContext.SaveChanges();
+                List<MenuOrderOfficer> MenuOrderOfficerList = new List<MenuOrderOfficer>();
+                var filterM = _menuOrderOfficerService.GetDefaultSpecification();
+                filterM = filterM.And(p => p.MeanuOrderHeaderUId == oMenuOrder.MeanuOrderHeaderUId).And(p => p.Active == true);
+                MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filterM,p=>p.CreationDate).ToList();
+                foreach (MenuOrderOfficer off in MenuOrderOfficerList)
+                {
+                    if (!string.IsNullOrEmpty(off.UserBase.Telephone1))
+                    {
+                        string menu = oMenuOrder.MenuItem.Name;
+                        menu = menu.Replace(" ","%20");
+                        if (!string.IsNullOrEmpty(off.UserBase.Telephone1))
+                        {
+                            //TempData["WhatMsg"] = "http://api.whatsapp.com/send?phone=" + MobNo + "%&%&";
+                            TempData["WhatMsg1"] = "http://api.whatsapp.com/send?phone=" + off.UserBase.Telephone1 + "";
+                            TempData["WhatMsg2"] = "text=Your order " + menu + " has been accpeted and being processed.";
+                        }
+                        Process.Start(new ProcessStartInfo("http://api.whatsapp.com/send?phone=" + off.UserBase.Telephone1 + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'") { UseShellExecute = true });
+                        //System.Diagnostics.Process.Start("","http://api.whatsapp.com/send?phone=" + MobNo + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'");
+                    }
+                }
+                
                 return RedirectToAction("ProcessOrder", "Order", new { id = oMenuOrder.MeanuOrderHeaderUId });
+
             }
             catch (Exception ex)
             {

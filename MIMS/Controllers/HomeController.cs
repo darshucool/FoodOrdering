@@ -135,7 +135,16 @@ namespace MIMS.Controllers
                
                 if (account.UserTypeId == 2|| account.UserTypeId == 4|| account.UserTypeId == 5)
                 {
-                    return RedirectToAction("OrderList", "Order");
+                    if (account.LocationUId == 18)
+                    {
+                        return RedirectToAction("OrderList", "Order");
+                    }
+                    else
+                    {
+                        return RedirectToAction("MenuOrderList", "Menu");
+                    }
+
+
                 }
             }
             catch (Exception)
@@ -203,9 +212,9 @@ namespace MIMS.Controllers
             Excel.Range xlRange = xlWorksheet.UsedRange;
             int rowCount = xlRange.Rows.Count;
             int colCount = xlRange.Columns.Count;
-            int UID = 43709;
-            bool insertNew = false;
-            int PastHouseRefId = 0;
+            //int UID = 43709;
+            //bool insertNew = false;
+            //int PastHouseRefId = 0;
             for (int i = 0; i <= rowCount; i++)
             {
                 if (i > 0)

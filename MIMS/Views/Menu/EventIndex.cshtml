@@ -16,49 +16,58 @@
     </div>
 </div>
 <section class="py-4 osahan-main-body">
+    <center><h4>Event List</h4></center>
     <div class="container">
         <div class="row">
-            
+
             <div class="tab-content col-md-12" id="myTabContent">
                 <div class="tab-pane fade show active" id="progress" role="tabpanel" aria-labelledby="progress-tab">
                     <div class="order-body">
-                        @foreach (Event eve in Model.OrderByDescending(p=>p.EffectiveDate))
+                        @if (Model.Count > 0)
                         {
-                            var base64 = Convert.ToBase64String(eve.Img);
-                            var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
-                            <div class="pb-3">
-                                <div class="p-3 rounded shadow-sm bg-white">
+                            foreach (Event eve in Model.OrderByDescending(p => p.EffectiveDate))
+                            {
+                                var base64 = Convert.ToBase64String(eve.Img);
+                                var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+                                <div class="pb-3">
+                                    <div class="p-3 rounded shadow-sm bg-white">
 
-                                    <div class="d-flex border-bottom pb-3">
-                                        <div class="text-muted mr-3">
-                                            <img alt="#" src="@imgSrc" class="img-fluid order_img rounded">
+                                        <div class="d-flex border-bottom pb-3">
+                                            <div class="text-muted mr-3">
+                                                <img alt="#" src="@imgSrc" class="img-fluid order_img rounded">
+                                            </div>
+                                            <div>
+                                                <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@eve.EventName</a></p>
+                                                <p>Date : @eve.EffectiveDate.ToString("dd/MM/yyyy")</p>
+
+                                                @*<p class="mb-0 small"><a href="status_onprocess.html">View Details</a></p>*@
+                                            </div>
+
+
                                         </div>
-                                        <div>
-                                            <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@eve.EventName</a></p>
-                                            <p>Date : @eve.EffectiveDate.ToString("dd/MM/yyyy")</p>
+                                        <div class="d-flex pt-3">
 
-                                            @*<p class="mb-0 small"><a href="status_onprocess.html">View Details</a></p>*@
+                                            <div class="text-right">
+                                                <a href="@Url.Content("~/Menu/EventDetail/")@eve.UId" class="btn btn-primary px-3">View Participants</a>
+
+                                            </div> @*<a href="@Url.Content("~/Menu/SearchProfile/")@eve.UId" class="btn btn-primary px-3">Attendance</a>
+                                                <a href="@Url.Content("~/Menu/AttendanceList/")@eve.UId" class="btn btn-primary px-3">Attendance List</a>*@
+
                                         </div>
-
 
                                     </div>
-                                    <div class="d-flex pt-3">
-
-                                        <div class="text-right">
-                                            <a href="@Url.Content("~/Menu/EventDetail/")@eve.UId" class="btn btn-primary px-3">View Participants</a>
-
-                                        </div> @*<a href="@Url.Content("~/Menu/SearchProfile/")@eve.UId" class="btn btn-primary px-3">Attendance</a>
-                                        <a href="@Url.Content("~/Menu/AttendanceList/")@eve.UId" class="btn btn-primary px-3">Attendance List</a>*@
-
-                                    </div>
-
                                 </div>
-                            </div>
+                            }
                         }
+                        else
+                        {
+                            <center><p style="font-size:18px;margin-top:50px;">No Events..</p></center>
+                        }
+
 
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>

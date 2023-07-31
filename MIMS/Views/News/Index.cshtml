@@ -29,16 +29,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (News info in Model)
+                    @if (Model.Count > 0)
                     {
-                        <tr>
-                            <td>@info.NewsHeader</td>
-                            <td>@Html.Raw(info.Description)</td>
-                            <td>@info.CreationDate.ToString("dd/MM/yyyy")</td>
+                        foreach (News info in Model)
+                        {
+                            <tr>
+                                <td>@info.NewsHeader</td>
+                                <td>@Html.Raw(info.Description)</td>
+                                <td>@info.CreationDate.ToString("dd/MM/yyyy")</td>
 
-                        </tr>
+                            </tr>
+                        }
                     }
-                </tbody>
+                    else
+                    { 
+                <tr>
+                    <td colspan="3"><b>No Events</b></td>
+                    </tr>
+                    }
+
+</tbody>
             </table>
         </div>
     </div>

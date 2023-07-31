@@ -220,7 +220,7 @@ namespace MIMS.Controllers
 
         public ActionResult AddOfficerWarningOut(int id)
         {
-
+            return View();
         }
         public ActionResult OfficerRequesMessList(int id)
         {

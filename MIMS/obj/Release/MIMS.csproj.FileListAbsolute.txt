@@ -656,3 +656,7 @@ D:\AF\FoodOrdering\MIMS\obj\Release\MIMS.csproj.CoreCompileInputs.cache
 D:\AF\FoodOrdering\MIMS\obj\Release\MIMS.csproj.CopyComplete
 D:\AF\FoodOrdering\MIMS\obj\Release\AlfasiWeb.dll
 D:\AF\FoodOrdering\MIMS\obj\Release\AlfasiWeb.pdb
+F:\FoodOrdering\FoodOrdering\MIMS\obj\Release\MIMS.csproj.AssemblyReference.cache
+F:\FoodOrdering\FoodOrdering\MIMS\obj\Release\AlfasiWeb.Properties.Resources.resources
+F:\FoodOrdering\FoodOrdering\MIMS\obj\Release\MIMS.csproj.GenerateResource.cache
+F:\FoodOrdering\FoodOrdering\MIMS\obj\Release\MIMS.csproj.CoreCompileInputs.cache

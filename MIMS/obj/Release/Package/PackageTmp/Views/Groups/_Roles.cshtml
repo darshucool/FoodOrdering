@@ -1,9 +1,0 @@
-﻿@model AlfasiWeb.Models.GrantRoleModel
-@if (Model.HasPermission() && !Model.HasWritePermission())
-{
-    <div>Read</div>
-}
-@if (Model.HasWritePermission())
-{
-    <div>Write</div>
-}
