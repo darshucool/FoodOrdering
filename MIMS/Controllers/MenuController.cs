@@ -1336,18 +1336,18 @@ namespace MIMS.Controllers
                             TempData["WhatMsg1"] = "http://api.whatsapp.com/send?phone=" + off.UserBase.Telephone1 + "";
                             TempData["WhatMsg2"] = "text=Your order " + menu + " has been accpeted and being processed.";
                         }
-                        Process.Start(new ProcessStartInfo("http://api.whatsapp.com/send?phone=" + off.UserBase.Telephone1 + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'") { UseShellExecute = true });
+                        //Process.Start(new ProcessStartInfo("http://api.whatsapp.com/send?phone=" + off.UserBase.Telephone1 + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'") { UseShellExecute = true });
                         //System.Diagnostics.Process.Start("","http://api.whatsapp.com/send?phone=" + MobNo + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'");
                     }
                 }
-                AlertNotify oAlertNotify = new AlertNotify();
-                oAlertNotify.Active = true;
-                oAlertNotify.AlertText = "Your order " + MenuStr + " has been accpeted and being processed.";
-                oAlertNotify.AlertType = 1;
-                oAlertNotify.Status = 10;
-                oAlertNotify.UserId = account.Id;
-                _alertNotifyService.Add(oAlertNotify);
-                DataContext.SaveChanges();
+                //AlertNotify oAlertNotify = new AlertNotify();
+                //oAlertNotify.Active = true;
+                //oAlertNotify.AlertText = "Your order " + MenuStr + " has been accpeted and being processed.";
+                //oAlertNotify.AlertType = 1;
+                //oAlertNotify.Status = 10;
+                //oAlertNotify.UserId = account.Id;
+                //_alertNotifyService.Add(oAlertNotify);
+                //DataContext.SaveChanges();
                 return RedirectToAction("ProcessOrder", "Order", new { id = oMenuOrder.MeanuOrderHeaderUId });
 
             }
@@ -1865,18 +1865,18 @@ namespace MIMS.Controllers
                             TempData["WhatMsg1"] = "http://api.whatsapp.com/send?phone=" + off.UserBase.Telephone1 + "";
                             TempData["WhatMsg2"] = "text=Your order " + menu + " has been delivered.";
                         }
-                        Process.Start(new ProcessStartInfo("http://api.whatsapp.com/send?phone=" + off.UserBase.Telephone1 + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'") { UseShellExecute = true });
+                        //Process.Start(new ProcessStartInfo("http://api.whatsapp.com/send?phone=" + off.UserBase.Telephone1 + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'") { UseShellExecute = true });
                         //System.Diagnostics.Process.Start("","http://api.whatsapp.com/send?phone=" + MobNo + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'");
                     }
                 }
-                AlertNotify oAlertNotify = new AlertNotify();
-                oAlertNotify.Active = true;
-                oAlertNotify.AlertText = "Your order " + MenuStr + " has been delivered.";
-                oAlertNotify.AlertType = 1;
-                oAlertNotify.Status = 10;
-                oAlertNotify.UserId = account.Id;
-                _alertNotifyService.Add(oAlertNotify);
-                DataContext.SaveChanges();
+                //AlertNotify oAlertNotify = new AlertNotify();
+                //oAlertNotify.Active = true;
+                //oAlertNotify.AlertText = "Your order " + MenuStr + " has been delivered.";
+                //oAlertNotify.AlertType = 1;
+                //oAlertNotify.Status = 10;
+                //oAlertNotify.UserId = account.Id;
+                //_alertNotifyService.Add(oAlertNotify);
+                //DataContext.SaveChanges();
                 return RedirectToAction("MenuOrderList");
             }
             catch (Exception)
