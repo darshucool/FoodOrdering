@@ -1,0 +1,59 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.MenuOrderHeader
+@using Dinota.Domain.Event
+@using AlfasiWeb.Models
+@model MenuOrderHeader
+@{
+    ViewBag.Title = "_CreateEdit";
+}
+
+
+<div class="form-group">
+    <label for="exampleInputName1">Select Date</label>
+    @Html.TextBoxFor(m => m.EffectiveDate, new { @placeholder = "Enter Date", @class = "form-control", @type = "date",@Required= "true" })
+    @Html.ValidationMessageFor(m => m.EffectiveDate, "")
+</div>
+<div class="form-group">
+    <label for="exampleInputName1">Time</label>
+    @Html.TextBoxFor(m => m.Time, new { @placeholder = "Enter Date", @class = "form-control", @type = "time", @Required = "true" })
+    @Html.ValidationMessageFor(m => m.Time, "")
+</div>
+<div class="form-group">
+    <label for="exampleInputName1">Order Type</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="radio" name="MenuHeaderType" value="1">&nbsp; Duty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="MenuHeaderType" value="2" checked>&nbsp; Casual
+</div>
+<div class="form-group">
+    <label for="exampleInputName1">Time</label>
+    <select name="Location" id="Location" class="form-control" required>
+        <option value>-- Select Location --</option>
+        <option value="Dining Hall">Dining Hall</option>
+        <option value="Reception">Reception</option>
+        <option value="Bar">Bar</option>
+    </select>
+</div>
+@if (Model.UId == 0)
+{
+
+    
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </div>
+
+
+}
+else
+{
+    <div class="form-group">
+        <label for="exampleInputName1">Active</label>
+        @Html.CheckBoxFor(m => m.Active)
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-block">Update</button>
+    </div>
+}
+
+
+

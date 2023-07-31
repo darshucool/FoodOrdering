@@ -1,0 +1,107 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.MenuItem
+@using Dinota.Domain.MenuOption
+@using Dinota.Domain.MenuMultiOption
+@using Dinota.Domain.Event
+@using AlfasiWeb.Models
+@model MenuItem
+@{
+    ViewBag.Title = "MenuOrderList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<MenuOption> MenuOptionList = (List<MenuOption>)TempData["MenuOptionList"];
+    List<MenuMultiOption> MenuMultiOptionList = (List<MenuMultiOption>)TempData["MenuMultiOptionList"];
+}
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Menu Detail</h4>
+    </div>
+</div>
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+
+        <div class="col-md-12 mb-3">
+            <div class="rounded shadow-sm p-4 bg-white">
+                <h5 class="mb-4">Menu Detail</h5>
+                <div id="edit_profile">
+                    <div>
+                        @Html.Message()
+                        @using (Html.BeginForm("MenuDetail", "Menu", new { id = Model.UId }, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+                        {
+                            <div class="form-group">
+                                <label for="exampleInputName1">Menu Name</label>
+                                @Html.TextBoxFor(m => m.Name, new { @placeholder = "Menu Name", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true" })
+                                @Html.ValidationMessageFor(m => m.Name, "")
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Description</label>
+                                @Html.TextAreaFor(m => m.Description, new { @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @type = "date" })
+                                @Html.ValidationMessageFor(m => m.Description, "")
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Availability</label>
+                                @Html.CheckBoxFor(m => m.Active)
+                                @Html.ValidationMessageFor(m => m.Active, "")
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Menu Parameter</label>
+                                <input type="text" name="menuparam" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Menu Options</label>
+                                <table border="1" width="100%" cellspacing="5" cellpadding="5">
+                                    @foreach (MenuOption opt in MenuOptionList)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @opt.Parameter
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Content("~/Menu/RemoveOption/")@opt.UId">X</a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </table>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Menu Multi Option</label>
+                                <input type="text" name="multimenuparam" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Menu Options (YES and NO)</label>
+                                <table border="1" width="100%" cellspacing="5" cellpadding="5">
+                                    @foreach (MenuMultiOption opt in MenuMultiOptionList)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @opt.Parameter
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Content("~/Menu/RemoveMultiOption/")@opt.UId">X</a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </table>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Measurement Unit</label>
+                                @Html.DropDownListFor(model => model.MeasurementUnitId, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.MeasurementUnitListList], "-- Select Unit  --", new { @class = "form-control", @aria_required = "true", @required = "" })
+                                @Html.ValidationMessageFor(m => m.MeasurementUnitId, null, new { @class = "help-inline" })
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

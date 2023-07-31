@@ -181,3 +181,14 @@ D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CoreCompileInputs.ca
 D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CopyComplete
 D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.dll
 D:\AF\FoodOrdering\DinotaCore\obj\Release\DinotaCore.pdb
+F:\FoodOrdering\FoodOrdering\DinotaCore\bin\Release\DinotaCore.dll
+F:\FoodOrdering\FoodOrdering\DinotaCore\bin\Release\DinotaCore.pdb
+F:\FoodOrdering\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.Common.dll
+F:\FoodOrdering\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+F:\FoodOrdering\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+F:\FoodOrdering\FoodOrdering\DinotaCore\bin\Release\System.ComponentModel.DataAnnotations.dll
+F:\FoodOrdering\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.AssemblyReference.cache
+F:\FoodOrdering\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CoreCompileInputs.cache
+F:\FoodOrdering\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CopyComplete
+F:\FoodOrdering\FoodOrdering\DinotaCore\obj\Release\DinotaCore.dll
+F:\FoodOrdering\FoodOrdering\DinotaCore\obj\Release\DinotaCore.pdb

@@ -1,0 +1,120 @@
+﻿@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.MenuItemDetail
+@using Dinota.Domain.MenuOrder
+@using AlfasiWeb.Models
+@model MenuBOCModel
+@{
+    ViewBag.Title = "MenuOrderList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int NoStockCount = 0;
+}
+
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Automate F.140</h4>
+    </div>
+</div>
+
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+        <div class="col-md-12 mb-3">
+            <div class="rounded shadow-sm p-4 bg-white">
+                <h5 class="mb-4">F.140</h5>
+                <div id="edit_profile">
+                    <div>
+                        @Html.Message()
+                        @using (Html.BeginForm("ProcessOrder", "Order", new { id = Model.MenuOrderId }, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+                        {
+                            @Html.HiddenFor(p => p.MenuOrderId)
+                            <table id="table1" width="100%" cellpadding="10" cellspacing="10" border="1">
+                                @foreach (MenuItemDetailModel detail in Model.MenuItemList)
+                                {
+                                    decimal AskQty = detail.Detail.Qty;
+                                    <tr data-ingredient-id="@detail.MenuItem.UId">
+                                        <td colspan="2"><b>@detail.MenuItem.Name</b></td>
+                                        <td><a href="@Url.Content("~/Order/AddIngridient?MenuItemId=" + detail.MenuItem.UId + "&&OrderId=" + Model.MenuOrderId + "")" class="btn btn-primary">Add more Ingredient</a></td>
+                                        <td>Current Stock</td>
+                                        <td></td>
+                                    </tr>
+
+                                    foreach (MenuItemDetailListModel d in detail.MenuItemDetailListModelList)
+                                    {
+                                        decimal DemandQty = Html.GetQtyTotal(d.MenuItemDetail.IngriedientQty, AskQty, d.MenuItemDetail.IngriedientMeasurementUId, d.MenuItemDetail.PortionMeasurementUId, Model.MultipleQty);
+                                        string stylerow = DemandQty <= 0 ? "" : (DemandQty > d.CurrentStockQty ? "style=background-color:#fba6a8" : "");
+
+                                        <tr data-ingredient-id="@d.MenuItemDetail.IngriedientUId" @stylerow>
+                                            <td><input type="hidden" name="menuing_@d.MenuItemDetail.IngriedientUId">@d.MenuItemDetail.IngredientInfo.ItemName</td>
+                                            <td><input type="text" class="quantity-input" data-ingredient-id="@d.MenuItemDetail.IngriedientUId" name="menuingqty_@d.MenuItemDetail.IngriedientUId@d.MenuItemDetail.UId" value="@DemandQty"></td>
+                                            <td><input type="text" readonly name="menuingunit_@d.MenuItemDetail.IngriedientUId" value="@d.MenuItemDetail.MeasurementUnit.Unit"></td>
+                                            <td>@d.CurrentStockQty @d.MenuItemDetail.IngredientInfo.MeasurementUnit.Unit</td>
+                                            <td><a href="@Url.Content("~/Order/RemoveIngridient?ItemDetailId="+d.MenuItemDetail.UId+"&&MenuOrderId="+Model.MenuOrderId+"")"><img src="~/Asset/img/remove.png" width="20" /></a></td>
+                                        </tr>
+                                    }
+                                }
+                            </table>
+
+                            <hr />
+                            <h3>Total Ingredient Requirement</h3>
+
+                           
+                                var groupedItems = Model.MenuItemList
+                                    .SelectMany(detail => detail.MenuItemDetailListModelList, (detail, d) => new { detail, d })
+                                    .GroupBy(item => item.d.MenuItemDetail.IngriedientUId)
+                                    .Select(group => new
+                                    {
+                                        IngredientId = group.Key,
+                                        TotalQty = group.Sum(item => Html.GetQtyTotal(item.d.MenuItemDetail.IngriedientQty, item.detail.Detail.Qty, item.d.MenuItemDetail.IngriedientMeasurementUId, item.d.MenuItemDetail.PortionMeasurementUId, Model.MultipleQty)),
+                                        Items = group.ToList()
+                                    })
+                                    .ToList();
+                           
+
+                            <table id="table2" width="100%" cellpadding="10" cellspacing="10" border="1">
+                                <tr>
+                                    <th>Ingredient Name</th>
+                                    <th>Demanded Total Qty</th>
+                                    <th>Measurement Unit</th>
+                                    <th>Quantity in Stock</th>
+                                </tr>
+
+                                @foreach (var group in groupedItems)
+                                {
+                                    int ingredientId = group.IngredientId;
+                                    decimal totalQty = group.TotalQty;
+                                    var items = group.Items;
+
+                                    foreach (var item in items)
+                                    {
+                                        MenuItemDetailModel detail = item.detail;
+                                        MenuItemDetailListModel d = item.d;
+
+                                        string stylerow = totalQty > d.CurrentStockQty ? "style=background-color:#fba6a8" : "";
+
+                                        <tr data-ingredient-id="@d.MenuItemDetail.IngriedientUId" @stylerow>
+                                            @if (items.First() == item)
+                                            {
+                                                <td>@d.MenuItemDetail.IngredientInfo.ItemName</td>
+                                                <td><span class="total-qty">@totalQty</span></td>
+                                                <td>@d.MenuItemDetail.MeasurementUnit.Unit</td>
+                                                <td class="current-stock-qty">@d.CurrentStockQty</td>
+                                            }
+                                        </tr>
+                                    }
+                                }
+                            </table>
+
+                            if (NoStockCount == 0)
+                            {
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

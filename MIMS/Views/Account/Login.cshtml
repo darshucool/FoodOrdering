@@ -34,42 +34,43 @@
                     <h2 class="text-dark my-0">Welcome </h2>
                     <p class="text-50">Sign in to continue</p>
                     @Html.Message()
-                      @using (Html.BeginForm("Login", "Account", FormMethod.Post,new{@class="mt-5 mb-4"}))
-                {
-                   
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "mt-5 mb-4" }))
+                    {
+
                         <div class="form-group">
-                              <label for="exampleInputEmail1" class="text-dark">Username</label>
-                              @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Enter Username",@id="exampleInputEmail1",@aria_describedby="emailHelp" })
-                        <span class="help-inline">@Html.ValidationMessageFor(model => model.UserName)</span>
-                         
-                            
+                            <label for="exampleInputEmail1" class="text-dark">Username</label>
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Enter Username", @id = "exampleInputEmail1", @aria_describedby = "emailHelp" })
+                            <span class="help-inline">@Html.ValidationMessageFor(model => model.UserName)</span>
+
+
                         </div>
                         <div class="form-group">
-                               <label for="exampleInputPassword1" class="text-dark">Password</label>
-                             @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Enter Password" })
-                        <span class="help-inline">
-                            @Html.ValidationMessageFor(m => m.Password)</span>
-                         
-                            
+                            <label for="exampleInputPassword1" class="text-dark">Password</label>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Enter Password" })
+                            <span class="help-inline">
+                                @Html.ValidationMessageFor(m => m.Password)
+                            </span>
+
+
                         </div>
-                       
+
                         <div class="py-2">
                             <button class="btn btn-lg btn-facebook btn-block"><i class="feather-user"></i>LOGIN </button>
                         </div>
-                      }
-                   @* <a href="forgot_password.html" class="text-decoration-none">
-                        <p class="text-center">Forgot your password?</p>
-                    </a>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <a href="signup.html">
-                            <p class="text-center m-0">Don't have an account? Sign up</p>
+                    }
+                    @* <a href="forgot_password.html" class="text-decoration-none">
+                            <p class="text-center">Forgot your password?</p>
                         </a>
-                    </div>*@
+                        <div class="d-flex align-items-center justify-content-center">
+                            <a href="signup.html">
+                                <p class="text-center m-0">Don't have an account? Sign up</p>
+                            </a>
+                        </div>*@
                 </div>
             </div>
         </div>
     </div>
-    
+
 
     <script type="ec73d80907b0eb4557eb9681-text/javascript" src="@Url.Content("~/Asset/vendor/jquery/jquery.min.js")"></script>
     <script type="ec73d80907b0eb4557eb9681-text/javascript" src="@Url.Content("~/Asset/vendor/bootstrap/js/bootstrap.bundle.min.js")"></script>

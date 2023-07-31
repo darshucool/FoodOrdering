@@ -39,6 +39,7 @@ using Dinota.Domain.MenuOrderItemDetail;
 using Dinota.Domain.MenuOrderOfficer;
 using AlfasiWeb;
 using Dinota.Domain.IngredientInfo;
+using Dinota.Domain.AlertNotify;
 
 namespace MIMS.Controllers
 {
@@ -67,7 +68,8 @@ namespace MIMS.Controllers
         private readonly MenuOrderItemDetailService _menuOrderItemDetailService;
         private readonly MenuOrderOfficerService _menuOrderOfficerService;
         private readonly IngredientInfoService _ingredientInfoService;
-        public MenuController(IDomainContext dataContext, IngredientInfoService ingredientInfoService, MenuOrderOfficerService menuOrderOfficerService, MenuOrderItemDetailService menuOrderItemDetailService, MenuOrderHeaderService menuOrderHeaderService, BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, F140HeaderService f140HeaderService, F140DataService f140DataService, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuMultiOptionService menuMultiOptionService, MeasurementUnitService measurementUnitService, MenuOptionService menuOptionService, EventAttendanceService eventAttendanceService, EventParticipationKidService eventParticipationKidService, EventParticipationService eventParticipationService, EventService eventService, MenuOrderService menuOrderService, MenuItemService menuItemService, MenuCategoryService menuCategoryService, UserAccountService userAccountService)
+        private readonly AlertNotifyService _alertNotifyService;
+        public MenuController(IDomainContext dataContext, AlertNotifyService alertNotifyService, IngredientInfoService ingredientInfoService, MenuOrderOfficerService menuOrderOfficerService, MenuOrderItemDetailService menuOrderItemDetailService, MenuOrderHeaderService menuOrderHeaderService, BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, F140HeaderService f140HeaderService, F140DataService f140DataService, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuMultiOptionService menuMultiOptionService, MeasurementUnitService measurementUnitService, MenuOptionService menuOptionService, EventAttendanceService eventAttendanceService, EventParticipationKidService eventParticipationKidService, EventParticipationService eventParticipationService, EventService eventService, MenuOrderService menuOrderService, MenuItemService menuItemService, MenuCategoryService menuCategoryService, UserAccountService userAccountService)
             : base(dataContext)
         {
             _userAccountService = userAccountService;
@@ -92,6 +94,7 @@ namespace MIMS.Controllers
             _menuOrderItemDetailService =menuOrderItemDetailService;
             _menuOrderOfficerService = menuOrderOfficerService;
             _ingredientInfoService = ingredientInfoService;
+            _alertNotifyService = alertNotifyService;
         }
         //[AuthorizeUserAccessLevel()]
         public ActionResult MenuItemIndex(int id)
@@ -1319,11 +1322,13 @@ namespace MIMS.Controllers
                 var filterM = _menuOrderOfficerService.GetDefaultSpecification();
                 filterM = filterM.And(p => p.MeanuOrderHeaderUId == oMenuOrder.MeanuOrderHeaderUId).And(p => p.Active == true);
                 MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filterM,p=>p.CreationDate).ToList();
+                string menu = oMenuOrder.MenuItem.Name;
+                string MenuStr = "";
                 foreach (MenuOrderOfficer off in MenuOrderOfficerList)
                 {
                     if (!string.IsNullOrEmpty(off.UserBase.Telephone1))
                     {
-                        string menu = oMenuOrder.MenuItem.Name;
+                        MenuStr = menu;
                         menu = menu.Replace(" ","%20");
                         if (!string.IsNullOrEmpty(off.UserBase.Telephone1))
                         {
@@ -1335,7 +1340,14 @@ namespace MIMS.Controllers
                         //System.Diagnostics.Process.Start("","http://api.whatsapp.com/send?phone=" + MobNo + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'");
                     }
                 }
-                
+                AlertNotify oAlertNotify = new AlertNotify();
+                oAlertNotify.Active = true;
+                oAlertNotify.AlertText = "Your order " + MenuStr + " has been accpeted and being processed.";
+                oAlertNotify.AlertType = 1;
+                oAlertNotify.Status = 10;
+                oAlertNotify.UserId = account.Id;
+                _alertNotifyService.Add(oAlertNotify);
+                DataContext.SaveChanges();
                 return RedirectToAction("ProcessOrder", "Order", new { id = oMenuOrder.MeanuOrderHeaderUId });
 
             }
@@ -1835,21 +1847,37 @@ namespace MIMS.Controllers
                 //    MobNo = MobNo.Remove(0, 1);
                 //}
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Order successfully accepted");
-                //if (!string.IsNullOrEmpty(oMenuOrder.UserBase.Telephone1))
-                //{
-                //    string menu = oMenuOrder.MenuItem.Name;
-                //    //menu = menu.Replace(" ", "%20");
-                //    string loc = oMenuOrder.Location;
-                //    //loc = loc.Replace(" ", "%20");
-                //    if (!string.IsNullOrEmpty(MobNo))
-                //    {
-                //        //TempData["WhatMsg1"] = "http://api.whatsapp.com/send?phone=" + MobNo + "\"" + "&text=Your%20order%20" + menu + "%20has%20been%20prepared%20and%20delivered%20to%20" + loc + "";
-                //        TempData["WhatMsg1"] = "http://api.whatsapp.com/send?phone=" + MobNo + "";
-                //        TempData["WhatMsg2"] = "text=Your%20order%20" + menu + "%20has%20been%20prepared%20and%20delivered%20to%20" + loc + "";
-                //        //System.Diagnostics.Process.Start("");
-                //    }
-                //}
-                    return RedirectToAction("MenuOrderList");
+                List<MenuOrderOfficer> MenuOrderOfficerList = new List<MenuOrderOfficer>();
+                var filterM = _menuOrderOfficerService.GetDefaultSpecification();
+                filterM = filterM.And(p => p.MeanuOrderHeaderUId == oMenuOrder.MeanuOrderHeaderUId).And(p => p.Active == true);
+                MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filterM, p => p.CreationDate).ToList();
+                string menu = oMenuOrder.MenuItem.Name;
+                string MenuStr = menu;
+                foreach (MenuOrderOfficer off in MenuOrderOfficerList)
+                {
+                    if (!string.IsNullOrEmpty(off.UserBase.Telephone1))
+                    {
+                       
+                        menu = menu.Replace(" ", "%20");
+                        if (!string.IsNullOrEmpty(off.UserBase.Telephone1))
+                        {
+                            //TempData["WhatMsg"] = "http://api.whatsapp.com/send?phone=" + MobNo + "%&%&";
+                            TempData["WhatMsg1"] = "http://api.whatsapp.com/send?phone=" + off.UserBase.Telephone1 + "";
+                            TempData["WhatMsg2"] = "text=Your order " + menu + " has been delivered.";
+                        }
+                        Process.Start(new ProcessStartInfo("http://api.whatsapp.com/send?phone=" + off.UserBase.Telephone1 + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'") { UseShellExecute = true });
+                        //System.Diagnostics.Process.Start("","http://api.whatsapp.com/send?phone=" + MobNo + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'");
+                    }
+                }
+                AlertNotify oAlertNotify = new AlertNotify();
+                oAlertNotify.Active = true;
+                oAlertNotify.AlertText = "Your order " + MenuStr + " has been delivered.";
+                oAlertNotify.AlertType = 1;
+                oAlertNotify.Status = 10;
+                oAlertNotify.UserId = account.Id;
+                _alertNotifyService.Add(oAlertNotify);
+                DataContext.SaveChanges();
+                return RedirectToAction("MenuOrderList");
             }
             catch (Exception)
             {
@@ -3036,7 +3064,6 @@ namespace MIMS.Controllers
 
                 throw;
             }
-            return View(item);
         }
     }
 }

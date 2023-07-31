@@ -1,0 +1,467 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.MenuCategory
+@using Dinota.Domain.MenuPackage
+@using Dinota.Domain.MenuItem
+@using AlfasiWeb.Models
+@model MenuModel
+@{
+    int i = 1;
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="d-none">
+    <div class="bg-primary p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Officers' Mess</h4>
+    </div>
+</div>
+<div class="offer-section py-4">
+    <div class="container position-relative">
+        <img alt="#" src="@Url.Content("~/Asset/img/menucat/" + @Model.oMenuCategory.ImgName + ".jpg")" style="width:200px" align="right">
+        <div class="pt-3 text-white">
+            <h2 class="font-weight-bold">@Model.oMenuCategory.Name</h2>
+
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+
+<div class="container">
+    <div class="">
+        @Html.Message()
+
+        <div class="trending-slider rounded">
+            @foreach (MenuItemModel item in Model.MenuItemModel)
+            {
+                i++;
+                <div class="osahan-slider-item">
+                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                        <div class="list-card-image">
+                            <div class="favourite-heart text-danger position-absolute"><a href="@Url.Content("~/Home/AddMenuFavorite/")@item.MenuItem.UId"><i class="feather-heart"></i></a></div>
+                            <a href="#">
+                                <img alt="#" src="@Url.Content("~/Asset/img/menu/" + @item.MenuItem.ImgName + ".jpg")" class="img-fluid item-img w-100">
+                            </a>
+                        </div>
+                        <div class="p-3 position-relative">
+                            <div class="list-card-body">
+                                <span class="float-right"><a href="@Url.Content("~/Menu/OrderMenu/")@item.MenuItem.UId" class="btn btn-outline-secondary btn-sm" @*data-toggle="modal" data-target="#extras" onclick="AssignValue(@item.MenuItem.UId,@item.MenuItem.MenuTypeId)"*@>ADD</a></span>
+                                <h6 class="mb-1">
+                                    <a href="#" class="text-black">@item.MenuItem.Name</a>
+                                </h6>
+
+                            </div>
+                        </div>
+                        <div class="accordion mb-3 rounded shadow-sm bg-white overflow-hidden" id="accordionExample">
+                            <div class="osahan-card bg-white overflow-hidden">
+                                <div class="osahan-card-header" id="heading_@i">
+                                    <h2 class="mb-0">
+                                        <button class="d-flex p-3 align-items-center btn btn-link w-100" type="button" data-toggle="collapse" data-target="#collapse_@i" aria-expanded="false" aria-controls="collapse_@i">
+                                            More Information
+                                            <i class="feather-chevron-down ml-auto"></i>
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse_@i" class="collapse" aria-labelledby="heading_@i" data-parent="#accordionExample">
+                                    <div class="card-body border-top">
+
+                                        <p class="m-0">
+                                            @foreach (MenuPackage pack in item.MenuPackageList)
+                                            { 
+                                                @pack.MenuItem.Name <br/>
+                                            }
+                                           
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                }
+        </div>
+    </div>
+</div>
+
+
+@if (Model.oMenuCategory.MenuTypeId == 1)
+{
+
+    <div class="modal fade" id="extras" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Extras</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @using (Html.BeginForm("OrderMenu", "Menu", new { id = Model.oMenuCategory.UId }, FormMethod.Post))
+                {
+                    <div class="modal-body">
+
+                        <input type="hidden" name="menuitemid" id="menuitemid" />
+                        <input type="hidden" name="menutypeid" id="menutypeid" />
+                        <div class="recepie-body">
+                            <label><b>Veg/Non Veg</b></label>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="radio" id="customRadio1f" value="TRUE" name="vegrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio1f">Veg </label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="radio" id="customRadio2f" value="FALSE" name="vegrad" class="custom-control-input" checked>
+                                <label class="custom-control-label" for="customRadio2f">Non Veg </label>
+                            </div>
+                            <label><br /><b>Quantity</b></label>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="radio" id="customDiefRadio3f" value="TRUE" name="dietrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio3f">Diet </label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="radio" id="customDiefRadio4f" value="FALSE" name="dietrad" class="custom-control-input" checked>
+                                <label class="custom-control-label" for="customRadio4f">Normal </label>
+                            </div>
+                            <h6 class="font-weight-bold mt-4">QUANTITY</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="number" name="menucount" min="1" value="1" class="form-control" required>
+
+                            </div>
+                            <h6 class="font-weight-bold mt-4">Delivery Location</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+
+                                <select name="delilocation" id="delilocation" class="form-control" onchange="roomFunction()" required>
+                                    <option value>-- Select Location --</option>
+                                    <option value="Room">Room</option>
+                                    <option value="Reception">Reception</option>
+                                    <option value="AFHQ Dining Hall">AFHQ Dining Hall</option>
+                                    <option value="Bar">Bar</option>
+                                </select>
+                                <div id="roomoption" style="width:100%"></div>
+                            </div>
+                            <h6 class="font-weight-bold mt-4">Date</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="date" name="delidate" class="form-control" required>
+
+                            </div>
+                            <h6 class="font-weight-bold mt-4">Time</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="time" name="delitime" class="form-control" required>
+
+                            </div>
+                            <h6 class="font-weight-bold mt-4">Remark</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="text" name="remark" class="form-control">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer p-0 border-0">
+                        <div class="col-6 m-0 p-0">
+                            <button type="button" class="btn border-top btn-lg btn-block" data-dismiss="modal">Close</button>
+                        </div>
+                        <div class="col-6 m-0 p-0">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Order</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+else if (Model.oMenuCategory.MenuTypeId == 2)
+{
+    <div class="modal fade" id="extras" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Extras</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @using (Html.BeginForm("OrderMenu", "Menu", new { id = Model.oMenuCategory.UId }, FormMethod.Post))
+                {
+                    <div class="modal-body">
+
+                        <input type="hidden" name="menuitemid" id="menuitemid" />
+                        <input type="hidden" name="menutypeid" id="menutypeid" />
+                        <div class="recepie-body">
+                            <label><b>With Eggs</b></label>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="radio" id="customRadio1f" value="TRUE" name="eggrad" class="custom-control-input" checked>
+                                <label class="custom-control-label" for="customRadio1f">Yes </label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="radio" id="customRadio2f" value="FALSE" name="eggrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio2f">No </label>
+                            </div>
+                            <label><br /><b>With Vegetables</b></label>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="radio" id="customRadio3f" value="TRUE" name="vegrad" class="custom-control-input" checked>
+                                <label class="custom-control-label" for="customRadio3f">Yes </label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="radio" id="customRadio4f" value="FALSE" name="vegrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio4f">No </label>
+                            </div>
+                            <br /><h6 class="font-weight-bold mt-4">QUANTITY</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="number" name="menucount" min="1" value="1" class="form-control">
+
+                            </div>
+                            <h6 class="font-weight-bold mt-4">Delivery Location</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+
+                                <select name="delilocation" id="delilocation" class="form-control" onchange="roomFunction()" required>
+                                    <option value>-- Select Location --</option>
+                                    <option value="Room">Room</option>
+                                    <option value="Reception">Reception</option>
+                                    <option value="AFHQ Dining Hall">AFHQ Dining Hall</option>
+                                    <option value="Bar">Bar</option>
+                                </select>
+                                <div id="roomoption" style="width:100%"></div>
+                            </div>
+                            <h6 class="font-weight-bold mt-4">Date</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="date" name="delidate" class="form-control" required>
+
+                            </div>
+                            <h6 class="font-weight-bold mt-4">Time</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="time" name="delitime" class="form-control" required>
+
+                            </div>
+                            <h6 class="font-weight-bold mt-4">Remark</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="text" name="remark" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer p-0 border-0">
+                        <div class="col-6 m-0 p-0">
+                            <button type="button" class="btn border-top btn-lg btn-block" data-dismiss="modal">Close</button>
+                        </div>
+                        <div class="col-6 m-0 p-0">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Order</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+}
+else if (Model.oMenuCategory.MenuTypeId == 3)
+{
+    <div class="modal fade" id="extras" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Extras</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @using (Html.BeginForm("OrderMenu", "Menu", new { id = Model.oMenuCategory.UId }, FormMethod.Post))
+                {
+                    <div class="modal-body">
+
+                        <input type="hidden" name="menuitemid" id="menuitemid" />
+                        <input type="hidden" name="menutypeid" id="menutypeid" />
+                        <div class="recepie-body">
+                            <label><b>Select Option</b></label>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio1">
+                                <input type="radio" id="customRadio1f" value="1" name="optrad" class="custom-control-input" checked>
+                                <label class="custom-control-label" for="customRadio1f">Devilled </label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio2">
+                                <input type="radio" id="customRadio2f" value="2" name="optrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio2f">Papper Devilled </label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio3">
+                                <input type="radio" id="customRadio3f" value="3" name="optrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio3f">Backed </label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio4">
+                                <input type="radio" id="customRadio4f" value="4" name="optrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio4f">Deep Fried </label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio5">
+                                <input type="radio" id="customRadio5f" value="5" name="optrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio5f">Grilled </label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio6">
+                                <input type="radio" id="customRadio6f" value="6" name="optrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio6f">Saute Fried </label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio7">
+                                <input type="radio" id="customRadio7f" value="7" name="optrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio7f">Batter Fried</label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio8">
+                                <input type="radio" id="customRadio8f" value="8" name="optrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio8f">Grub Fried</label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio9">
+                                <input type="radio" id="customRadio9f" value="9" name="optrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio9f">Hot Butter</label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio10">
+                                <input type="radio" id="customRadio10f" value="10" name="optrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio10f">Boiled</label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio11">
+                                <input type="radio" id="customRadio11f" value="11" name="optrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio11f">Raw seasonal</label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio12">
+                                <input type="radio" id="customRadio12f" value="12" name="optrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio12f">Raw Unseasonal</label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio13">
+                                <input type="radio" id="customRadio13f" value="13" name="optrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio13f">Omelette</label>
+                            </div>
+                            <br /><h6 class="font-weight-bold mt-4">QUANTITY</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="number" name="menucount" min="1" value="1" class="form-control">
+
+                            </div>
+                            <h6 class="font-weight-bold mt-4">Delivery Location</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+
+                                <select name="delilocation" id="delilocation" class="form-control" onchange="roomFunction()" required>
+                                    <option value>-- Select Location --</option>
+                                    <option value="Room">Room</option>
+                                    <option value="Reception">Reception</option>
+                                    <option value="AFHQ Dining Hall">AFHQ Dining Hall</option>
+                                    <option value="Bar">Bar</option>
+                                </select>
+                                <div id="roomoption" style="width:100%"></div>
+                            </div>
+                            <h6 class="font-weight-bold mt-4">Date</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="date" name="delidate" class="form-control" required>
+
+                            </div>
+                            <h6 class="font-weight-bold mt-4">Time</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="time" name="delitime" class="form-control" required>
+
+                            </div>
+                            <h6 class="font-weight-bold mt-4">Remark</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="text" name="remark" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer p-0 border-0">
+                        <div class="col-6 m-0 p-0">
+                            <button type="button" class="btn border-top btn-lg btn-block" data-dismiss="modal">Close</button>
+                        </div>
+                        <div class="col-6 m-0 p-0">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Order</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+}
+else if (Model.oMenuCategory.MenuTypeId == 4)
+{
+    <div class="modal fade" id="extras" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Extras</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @using (Html.BeginForm("OrderMenu", "Menu", new { id = Model.oMenuCategory.UId }, FormMethod.Post))
+                {
+                    <div class="modal-body">
+
+                        <input type="hidden" name="menuitemid" id="menuitemid" />
+                        <input type="hidden" name="menutypeid" id="menutypeid" />
+                        <div class="recepie-body">
+                            @*<label><b>Select Option</b></label>*@
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio1">
+                                <input type="radio" id="customRadio1f" value="1" name="optrad" class="custom-control-input" checked>
+                                <label class="custom-control-label" for="customRadio1f">Plain </label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio2">
+                                <input type="radio" id="customRadio2f" value="2" name="optrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio2f">with Milk </label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio3">
+                                <input type="radio" id="customRadio3f" value="3" name="optrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio3f">Chocalate </label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio4">
+                                <input type="radio" id="customRadio4f" value="4" name="optrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio4f">Strawberry </label>
+                            </div>
+                            <div class="custom-control custom-radio border-bottom py-2" id="customRadio5">
+                                <input type="radio" id="customRadio5f" value="5" name="optrad" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadio5f">Vanilla </label>
+                            </div>
+
+                            <br /><h6 class="font-weight-bold mt-4">QUANTITY</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="number" name="menucount" min="1" value="1" class="form-control">
+
+                            </div>
+                            <h6 class="font-weight-bold mt-4">Delivery Location</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+
+                                <select name="delilocation" id="delilocation" class="form-control" onchange="roomFunction()" required>
+                                    <option value>-- Select Location --</option>
+                                    <option value="Room">Room</option>
+                                    <option value="Reception">Reception</option>
+                                    <option value="AFHQ Dining Hall">AFHQ Dining Hall</option>
+                                    <option value="Bar">Bar</option>
+                                </select>
+                                <div id="roomoption" style="width:100%"></div>
+                            </div>
+                            <h6 class="font-weight-bold mt-4">Date</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="date" name="delidate" class="form-control" required>
+
+                            </div>
+                            <h6 class="font-weight-bold mt-4">Time</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="time" name="delitime" class="form-control" required>
+
+                            </div>
+                            <h6 class="font-weight-bold mt-4">Remark</h6>
+                            <div class="custom-control custom-radio border-bottom py-2">
+                                <input type="text" name="remark" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer p-0 border-0">
+                        <div class="col-6 m-0 p-0">
+                            <button type="button" class="btn border-top btn-lg btn-block" data-dismiss="modal">Close</button>
+                        </div>
+                        <div class="col-6 m-0 p-0">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Order</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+}

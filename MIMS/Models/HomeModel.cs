@@ -1,4 +1,5 @@
-﻿using Dinota.Domain.BOCTransaction;
+﻿using Dinota.Domain.AlertNotify;
+using Dinota.Domain.BOCTransaction;
 using Dinota.Domain.Event;
 using Dinota.Domain.EventParticipation;
 using Dinota.Domain.EventParticipationKid;
@@ -24,6 +25,7 @@ namespace AlfasiWeb.Models
         public List<MenuCategory> MenuCategoryList { get; set; }
         public List<MenuOrder> MenuOrderList { get; set; }
         public List<MenuOrder> PastOrderList { get; set; }
+        public List<AlertNotify> AlertNotifyList { get; set; }
         public List<MenuFavorite> MenuFavoriteList { get; set; }
         public int SLAFLocationUId { get; set; }
     }

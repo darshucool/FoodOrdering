@@ -1,0 +1,16 @@
+﻿@using AlfasiWeb.Helpers
+@model Dinota.Security.Group.Group
+@* This partial view defines form fields that will appear when creating and editing entities *@
+<div class="row-fluid">
+    <div class="span5">
+        <div class="control-group">
+            @Html.Custom().LabelFor(model => model.Name)
+            <div class="controls">
+                @Html.Custom().TextBoxFor(model => model.Name)
+                <span class="help-inline">@Html.ValidationMessageFor(model => model.Name)</span>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+</div>

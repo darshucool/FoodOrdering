@@ -1,0 +1,121 @@
+﻿@using AlfasiWeb
+@using AlfasiWeb.Models
+@using AlfasiWeb.Util;
+@using AlfasiWeb.Helpers
+@using AlfasiWeb.Properties
+@using Dinota.Security
+@model ReferenceDataSearchModel
+@{
+    ViewBag.Title = "Reference Data";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/bundles/TableSorter")
+@Html.GetDeleteDiv()
+@*div element for permission popup*@
+@Html.GetBootsrapDiv("AssignPermissionPopUp-Element", "AssignPermissionPopUp", "Group Permissions")
+<div id="group_table" class="login_bk">
+    @Html.Message()
+    <div class="content-bk">
+        <h3 id="form_head">
+            Reference Data</h3>
+        <br />
+         <div >
+                <h4>Select Type </h4><br />
+                @using (@Html.BeginForm("Index", "ReferenceData", FormMethod.Post, new { id = "demoForm", name = "demoForm" }))
+                {
+                    <div class="controls">
+                        @Html.DropDownListFor(model => model.ReferenceDataTypeId, (IEnumerable<SelectListItem>)ViewData[ViewDataKeys.ReferenceDataType], null, new { style = "width:750px;", onchange = "SelectedIndexChanged()" })
+                    <span class="help-inline">@Html.ValidationMessageFor(model => model.ReferenceDataTypeId)</span>
+                    </div>
+                    <div class="clear">
+                    </div>
+                }
+            </div>
+        <div>
+            @{
+                RolePermission rolePermission = ViewData.ContainsKey(ViewDataKeys.Permission)
+                                                    ? (RolePermission)ViewData[ViewDataKeys.Permission]
+                                                    : new RolePermission(false);
+
+                var refDatas = (IEnumerable<Dinota.Domain.ReferenceData.ReferenceData>)ViewData[ViewDataKeys.List];
+                Html.Custom().Grid(refDatas, "GrdGroups", false).Sort(Model.GetGridSortOptions())
+                    .Columns(column =>
+                                 {
+                                     column.For(group => group.Description).Attributes(a => new Dictionary<string, object> { { "class", "span9 g_links" } }).Sortable(false).ShowFilter(false);
+                                     column.For(group => Html.ActionLink("Edit", "Edit", new { id = group.UID }));
+                                     column.For(group => Html.Partial("_gridLinksMini", new { id = group.UID, isFrom = "", mainKey = 100 })).Attributes(a => new Dictionary<string, object> { { "class", "span9 g_links" } }).Sortable(false);
+                                                                         
+                                 }).Render();
+            }
+        </div>
+        <div class="link_bar">
+           
+                @Html.ActionLink("New Reference Data", "Create", "ReferenceData", null, new { @class = "link-btn" })
+                <br />
+                 @* @Html.ActionLink("Data", "Test", "Report", null, new { @class = "link-btn" })*@
+        </div>
+     
+    </div>
+</div>
+<script language="javascript" type="text/javascript" src="@Url.Content("~/Scripts/custom/commonscript.js")"> </script>
+<script type="text/javascript">
+
+    var dTable = null;
+
+    $(document).ready(function () {
+
+        try {
+
+            SetFilterColumnCount(0);
+
+            dTable = $('#GrdGroups').dataTable({
+                "aoColumns": [null],
+                "bPaginate": false,
+                "bLengthChange": false,
+                "bFilter": false,
+                "bSort": true,
+                "bInfo": false,
+                "bAutoWidth": false,
+                "sScrollY": "300px",
+                "bScrollCollapse": false,
+                "bSortCellsTop": true,
+                "bRetrieve": true
+            });
+
+            $(window).bind('resize', CustomResize);
+        }
+        catch (e) {
+        }
+
+    });
+
+    function CustomResize() {
+        try {
+            $(window).unbind('resize');
+            if (dTable != null) {
+                dTable.css({ width: dTable.parent().width() });
+                dTable.fnAdjustColumnSizing();
+            }
+            $(window).bind('resize', CustomResize);
+        } catch (e) {
+        }
+
+    }
+
+   
+        $('#ddlRefType').change(function () {
+           // var selectedDescription = $(this).find('option:selected').text();
+            //$('#description').html(selectedDescription);
+            alert("selecting");
+        });
+
+        function SelectedIndexChanged() {
+            //JavaScript way to post form
+            document.demoForm.submit();
+            //Or
+            //jQuery way to post form
+            $('#demoForm').submit();
+        }
+   
+
+</script>

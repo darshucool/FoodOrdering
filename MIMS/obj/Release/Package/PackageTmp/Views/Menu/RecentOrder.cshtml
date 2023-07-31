@@ -1,0 +1,156 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.MenuCategory
+@using Dinota.Domain.MenuOrder
+@using AlfasiWeb.Models
+@model List<MenuOrder>
+@{
+    ViewBag.Title = "MenuOrderList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Recent Orders</h4>
+    </div>
+</div>
+<section class="py-4 osahan-main-body">
+    <div class="container">
+        <div class="row">
+            
+            <div class="tab-content col-md-12" id="myTabContent">
+                <div class="tab-pane fade show active" id="progress" role="tabpanel" aria-labelledby="progress-tab">
+                    <div class="order-body">
+                        @foreach (MenuOrder ord in Model)
+                        {
+                            <div class="pb-3">
+                                <div class="p-3 rounded shadow-sm bg-white">
+
+                                    <div class="d-flex border-bottom pb-3">
+                                        <div class="text-muted mr-3">
+                                            <img alt="#" src="@Url.Content("~/Asset/img/menu/" + ord.MenuItem.ImgName + ".jpg")" class="img-fluid order_img rounded">
+                                        </div>
+                                        <div>
+                                            <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuItem.Name</a></p>
+                                            <p>Quantity : @ord.Qty</p>
+                                            @if (ord.MenuItem.MenuCategory.MenuTypeId == 1)
+                                            {
+                                                bool IsVeg = bool.Parse(ord.IsVeg.ToString());
+                                                bool IsDiet = bool.Parse(ord.IsDiet.ToString());
+                                                <p class="text- font-weight-bold mb-0">
+                                                    @if (IsVeg)
+                                                    {
+                                                        <span>Vegetarian</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>Non-Vegetarian</span>
+                                                    }
+                                                </p>
+                                                    <p class="text- font-weight-bold mb-0">
+                                                        @if (IsDiet)
+                                                        {
+                                                            <span>Diet Menu</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span>Normal Menu</span>
+                                                        }
+                                                    </p>
+                                            }
+                                            else if (ord.MenuItem.MenuCategory.MenuTypeId == 2)
+                                            {
+                                                bool EggAdd = bool.Parse(ord.IsEgg.ToString());
+                                                bool VegAdd = bool.Parse(ord.WithVeg.ToString());
+                                                <p class="text- font-weight-bold mb-0">
+                                                    @if (EggAdd)
+                                                    {
+                                                        <span>With Eggs</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>No Eggs</span>
+                                                    }
+                                                </p>
+                                                <p class="text- font-weight-bold mb-0">
+                                                    @if (VegAdd)
+                                                    {
+                                                        <span>With Vegetables</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>No Vegetables</span>
+                                                    }
+                                                </p>
+                                            }
+                                            else if (ord.MenuItem.MenuCategory.MenuTypeId == 3)
+                                            {
+                                                int opt = int.Parse(ord.BiteOpt.ToString());
+                                                <p class="text- font-weight-bold mb-0">
+                                                    @if (opt == 1)
+                                                    {<span>Devilled</span>}
+                                                    @if (opt == 2)
+                                                    {<span>Papper Devilled</span>}
+                                                    @if (opt == 3)
+                                                    {<span>Backed</span>}
+                                                    @if (opt == 4)
+                                                    {<span>Deep Fried</span>}
+                                                    @if (opt == 5)
+                                                    {<span>Grilled</span>}
+                                                    @if (opt == 6)
+                                                    {<span>Saute Fried </span>}
+                                                    @if (opt == 7)
+                                                    {<span>Batter Fried</span>}
+                                                    @if (opt == 8)
+                                                    {<span>Grunb Fried</span>}
+                                                    @if (opt == 9)
+                                                    {<span>Hot Butter</span>}
+                                                    @if (opt == 10)
+                                                    {<span>Boiled</span>}
+                                                    @if (opt == 11)
+                                                    {<span>Raw Seasonela</span>}
+                                                    @if (opt == 12)
+                                                    {<span>Raw Unseasonela</span>}
+                                                    @if (opt == 13)
+                                                    {<span>Omlette</span>}
+                                                </p>
+                                            }
+                                            else if (ord.MenuItem.MenuCategory.MenuTypeId == 4)
+                                            {
+                                                int opt = int.Parse(ord.BiteOpt.ToString());
+                                                <p class="text- font-weight-bold mb-0">
+                                                    @if (opt == 1)
+                                                    {<span>Plain</span>}
+                                                    @if (opt == 2)
+                                                    {<span>with Milk</span>}
+                                                    @if (opt == 3)
+                                                    {<span>Chocalate</span>}
+                                                    @if (opt == 4)
+                                                    {<span>Strawberry</span>}
+                                                    @if (opt == 5)
+                                                    {<span>Vanilla</span>}
+
+                                                </p>
+                                            }
+                                            @*<p class="mb-0 small"><a href="status_onprocess.html">View Details</a></p>*@
+                                        </div>
+                                        <div class="ml-auto">
+                                            <p class="bg-dark text-white py-1 px-2 rounded small mb-1">Accepted</p>
+                                            <p class="small font-weight-bold text-center"><i class="feather-clock"></i> @ord.CreationDate</p>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,268 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.MenuCategory
+@using Dinota.Domain.MenuOrder
+@using AlfasiWeb.Models
+@model MenuOrderModel
+@{
+    ViewBag.Title = "MenuOrderList";
+    Layout = "~/Views/Shared/_NoLoginLayout.cshtml";
+}
+<meta http-equiv="Refresh" content="30">
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Accepted Order List</h4>
+    </div>
+</div>
+<section class="py-4 osahan-main-body">
+    <div class="container">
+        <div class="row">
+            
+            <div class="tab-content col-md-12" id="myTabContent">
+                <div class="tab-pane  show active" id="completed" role="tabpanel" aria-labelledby="completed-tab">
+                    <div class="order-body">
+                        <table border="1" width="100%" cellspacing="5">
+                            <thead>
+                                <tr>
+                                    <th>Officer</th>
+                                    <th>Tele No</th>
+                                    <th>Menu Item</th>
+                                    <th>Qty</th>
+                                    <th>Delivery Location</th>
+                                    <th>Date and Time</th>
+                                    <th>Remark</th>
+
+
+                                    @*<th></th>*@
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                @foreach (MenuOrder ord in Model.CompleteMenuOrderList)
+                                {
+                                    <tr>
+                                        @using (Html.BeginForm("MenuOrderDelivery", "Menu", new { id = ord.UId }, FormMethod.Post))
+                                        {
+                                            <td>
+                                                @ord.UserBase.UserName &nbsp;
+                                                @if (ord.UserBase.Rank != null)
+                                                {
+                                                    @ord.UserBase.Rank.Name
+                                                }
+                                                &nbsp;@ord.UserBase.Name
+                                            </td>
+
+                                            <td>
+
+
+                                                @if (!string.IsNullOrEmpty(ord.UserBase.Telephone1))
+                                                {
+                                                    if (ord.UserBase.Telephone1 != "111111")
+                                                    {
+                                                        @ord.UserBase.Telephone1
+                                                    }
+
+                                                }
+
+                                            </td>
+                                            <td>
+                                                <big> @ord.MenuItem.Name</big>
+                                                @if (!string.IsNullOrEmpty(ord.OptionType1.ToString()))
+                                                {
+                                                    <p class="text- font-weight-bold mb-0">
+                                                        @if (ord.MenuOption != null)
+                                                        {
+                                                            @ord.MenuOption.Parameter
+                                                        }
+                                                    </p>
+                                                }
+                                                @if (!string.IsNullOrEmpty(ord.OptionType2.ToString()))
+                                                {
+                                                    <p class="text- font-weight-bold mb-0">
+                                                        @if (ord.MenuMultiOption != null)
+                                                        {
+                                                            @ord.MenuMultiOption.Parameter
+                                                        }
+                                                    </p>
+                                                }
+                                                @if (ord.MenuItem.MenuCategory.MenuTypeId == 1)
+                                                {
+                                                    if (!string.IsNullOrEmpty(ord.IsVeg.ToString()))
+                                                    {
+                                                        bool IsVeg = bool.Parse(ord.IsVeg.ToString());
+                                                        <p class="text- font-weight-bold mb-0">
+                                                            @if (IsVeg)
+                                                            {
+                                                                <span>Vegetarian</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span>Non-Vegetarian</span>
+                                                            }
+
+                                                        </p>
+                                                    }
+                                                    if (!string.IsNullOrEmpty(ord.IsDiet.ToString()))
+                                                    {
+                                                        bool IsDiet = bool.Parse(ord.IsDiet.ToString());
+                                                        <p class="text- font-weight-bold mb-0">
+                                                            @if (IsDiet)
+                                                            {
+                                                                <span>Diet Menu</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span>Normal Menu</span>
+                                                            }
+                                                        </p>
+                                                    }
+                                                }
+                                                else if (ord.MenuItem.MenuCategory.MenuTypeId == 2)
+                                                {
+                                                    if (!string.IsNullOrEmpty(ord.IsEgg.ToString()))
+                                                    {
+                                                        bool EggAdd = bool.Parse(ord.IsEgg.ToString());
+
+                                                        <p class="text- font-weight-bold mb-0">
+                                                            @if (EggAdd)
+                                                            {
+                                                                <span>With Eggs</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span>No Eggs</span>
+                                                            }
+                                                        </p>
+                                                    }
+                                                    if (!string.IsNullOrEmpty(ord.WithVeg.ToString()))
+                                                    {
+                                                        bool VegAdd = bool.Parse(ord.WithVeg.ToString());
+                                                        <p class="text- font-weight-bold mb-0">
+                                                            @if (VegAdd)
+                                                            {
+                                                                <span>With Vegetables</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span>No Vegetables</span>
+                                                            }
+                                                        </p>
+                                                    }
+                                                }
+                                                else if (ord.MenuItem.MenuCategory.MenuTypeId == 3)
+                                                {
+                                                    if (!string.IsNullOrEmpty(ord.BiteOpt.ToString()))
+                                                    {
+                                                        int opt = int.Parse(ord.BiteOpt.ToString());
+                                                        <p class="text- font-weight-bold mb-0">
+                                                            @if (opt == 1)
+                                                            {<span>Devilled</span>}
+                                                            @if (opt == 2)
+                                                            {<span>Papper Devilled</span>}
+                                                            @if (opt == 3)
+                                                            {<span>Backed</span>}
+                                                            @if (opt == 4)
+                                                            {<span>Deep Fried</span>}
+                                                            @if (opt == 5)
+                                                            {<span>Grilled</span>}
+                                                            @if (opt == 6)
+                                                            {<span>Saute Fried </span>}
+                                                            @if (opt == 7)
+                                                            {<span>Batter Fried</span>}
+                                                            @if (opt == 8)
+                                                            {<span>Grunb Fried</span>}
+                                                            @if (opt == 9)
+                                                            {<span>Hot Butter</span>}
+                                                            @if (opt == 10)
+                                                            {<span>Boiled</span>}
+                                                            @if (opt == 11)
+                                                            {<span>Raw Seasonela</span>}
+                                                            @if (opt == 12)
+                                                            {<span>Raw Unseasonela</span>}
+                                                            @if (opt == 13)
+                                                            {<span>Omlette</span>}
+                                                        </p>
+                                                    }
+                                                }
+                                                else if (ord.MenuItem.MenuCategory.MenuTypeId == 4)
+                                                {
+                                                    if (!string.IsNullOrEmpty(ord.BiteOpt.ToString()))
+                                                    {
+                                                        int opt = int.Parse(ord.BiteOpt.ToString());
+                                                        <p class="text- font-weight-bold mb-0">
+                                                            @if (opt == 1)
+                                                            {<span>Plain</span>}
+                                                            @if (opt == 2)
+                                                            {<span>with Milk</span>}
+                                                            @if (opt == 3)
+                                                            {<span>Chocalate</span>}
+                                                            @if (opt == 4)
+                                                            {<span>Strawberry</span>}
+                                                            @if (opt == 5)
+                                                            {<span>Vanilla</span>}
+
+                                                        </p>
+                                                    }
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (ord.MenuItem.MeasurementUnitId == 1)
+                                                {
+                                                    <span>  @ord.Qty</span>
+                                                }
+                                                else if (ord.MenuItem.MeasurementUnitId == 2)
+                                                {
+                                                    <span>  @ord.Qty KG</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @ord.Location
+                                                @if (!string.IsNullOrEmpty(ord.LocationRef))
+                                                {
+                                                    <span>(Room No: @ord.LocationRef)</span>
+                                                }
+                                            </td>
+                                            <td>@ord.OrderDate.ToString("dd/MM/yyyy") @ord.Time</td>
+                                            <td>@ord.Remark</td>
+
+
+                                            @*<td>
+                <div class="text-right">
+                    <button type="submit" name="btnSubmit" value="SUBMIT" class="btn btn-primary px-3">Delivered</button>
+                    <button type="button" name="btnSubmit" value="CANCEL" class="btn btn-outline-primary px-3" data-toggle="modal" data-target="#extras" onclick="AssignOrderValue(@ord.UId)">REJECT</button>
+                </div>
+            </td>*@
+                                        }
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+
+
+</script>
+
+@if (TempData["WhatMsg1"] != null)
+{
+    string Part1 = @TempData["WhatMsg1"].ToString();
+    string Part2 = @TempData["WhatMsg2"].ToString();
+
+    <script>
+
+        window.open("@Part1&&@Part2", "_blank");
+
+    </script>
+
+}

@@ -1,0 +1,52 @@
+﻿@using AlfasiWeb.Helpers
+@using AlfasiWeb
+
+@model Dinota.Domain.ReferenceData.ReferenceData
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   // var a = ViewData["test"].ToString(); 
+    //var test =new  MvcHtmlString(a);
+}
+<div id="group_table" class="login_bk">
+                        <div class="content-bk">
+                            <h3 id="form_head">
+                                Create Reference Data </h3>
+          
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <br />
+        <div class="control-group">
+            @Html.LabelFor(model => model.Description)
+            <div class="controls">
+                @Html.TextBoxFor(model => model.Description)
+                <span class="help-inline">@Html.ValidationMessageFor(model => model.Description)</span>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        
+         <div class="control-group">
+                @Html.Custom().LabelFor(model => model.ReferenceDataTypeId)
+                <div class="controls">
+                    @Html.DropDownListFor(model => model.ReferenceDataTypeId, (IEnumerable<SelectListItem>)ViewData[ViewDataKeys.ReferenceDataType], "-", new { @class = "DropDownListFor" })
+                    <span class="help-inline">@Html.ValidationMessageFor(model => model.ReferenceDataTypeId)</span>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        
+        <div class="control-group">
+            <label class="control-label" for="button1id">
+            </label>
+            <div class="controls">
+                <button id="button1id" name="button1id" class="btn btn-primary" type="submit" value="Save">
+                    Save</button>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "link-btn" })
+            </div>
+        </div>
+    }
+</div></div>
+
+

@@ -1,0 +1,84 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.IngredientInfo
+@using Dinota.Domain.Event
+@using AlfasiWeb.Models
+@model IngredientInfo
+@{
+    ViewBag.Title = "_CreateEdit";
+}
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleInputName1">Date</label>
+            @Html.TextBoxFor(m => m.ItemName, new { @placeholder = "Enter Date", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @type = "date" })
+            @Html.ValidationMessageFor(m => m.ItemName, "")
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleInputName1">Select Ingredient Item</label>
+            @Html.DropDownListFor(model => model.MeasurementUnitUId, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.IngredientInfoList], "-- Select Item  --", new { @class = "full-width form-control", @required = "true" })
+            @Html.ValidationMessageFor(m => m.MeasurementUnitUId, null, new { @class = "help-inline" })
+
+
+
+
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleInputName1">Select Measurement Unit</label>
+            @Html.DropDownListFor(model => model.MeasurementUnitUId, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.MeasurementUnitListList], "-- Select Unit  --", new { @class = "full-width form-control", @required = "true" })
+            @Html.ValidationMessageFor(m => m.MeasurementUnitUId, null, new { @class = "help-inline" })
+
+
+
+
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleInputName1">Qty</label>
+            @Html.TextBoxFor(m => m.ItemName, new { @placeholder = "Enter Qty", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true" })
+            @Html.ValidationMessageFor(m => m.ItemName, "")
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleInputName1">Price</label>
+            @Html.TextBoxFor(m => m.ItemName, new { @placeholder = "Price", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true" })
+            @Html.ValidationMessageFor(m => m.ItemName, "")
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleInputName1">Receipt no</label>
+            @Html.TextBoxFor(m => m.ItemName, new { @placeholder = "Receipt No", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true" })
+            @Html.ValidationMessageFor(m => m.ItemName, "")
+        </div>
+    </div>
+        @if (Model.UId == 0)
+        {
+
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </div>
+
+
+        }
+        else
+        {
+            <div class="form-group">
+                <label for="exampleInputName1">Active</label>
+                @Html.CheckBoxFor(m => m.Active)
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-block">Update</button>
+            </div>
+        }
+
+
+    </div>

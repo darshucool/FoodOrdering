@@ -17,6 +17,7 @@ using Dinota.Domain.MenuCategory;
 using Dinota.Domain.MenuOrder;
 using Dinota.Domain.MenuFavorite;
 using Dinota.Domain.MenuItem;
+using Dinota.Domain.AlertNotify;
 
 namespace MIMS.Controllers
 {
@@ -29,8 +30,9 @@ namespace MIMS.Controllers
         private readonly MenuOrderService _menuOrderService;
         private readonly MenuFavoriteService _menuFavoriteService;
         private readonly MenuItemService _menuItemService;
+        private readonly AlertNotifyService _alertNotifyService;
 
-        public HomeController(IDomainContext dataContext, MenuItemService menuItemService, MenuFavoriteService menuFavoriteService, MenuOrderService menuOrderService, MenuCategoryService menuCategoryService, UserAccountService userAccountService)
+        public HomeController(IDomainContext dataContext, AlertNotifyService alertNotifyService, MenuItemService menuItemService, MenuFavoriteService menuFavoriteService, MenuOrderService menuOrderService, MenuCategoryService menuCategoryService, UserAccountService userAccountService)
             : base(dataContext)
         {
             _userAccountService = userAccountService;
@@ -38,6 +40,7 @@ namespace MIMS.Controllers
             _menuOrderService = menuOrderService;
             _menuFavoriteService = menuFavoriteService;
             _menuItemService = menuItemService;
+            _alertNotifyService = alertNotifyService;
         }
         //[AuthorizeUserAccessLevel()]
         public ActionResult Index()
@@ -117,22 +120,26 @@ namespace MIMS.Controllers
                 UserAccount account = GetCurrentUser();
                 model.SLAFLocationUId = account.LocationUId;
                 var filterF = _menuOrderService.GetDefaultSpecification();
-                filterF = filterF.And(p => p.Active == true);
+                filterF = filterF.And(p => p.Active == true).And(p=>p.SLAFLocationUId==account.LocationUId);
                 model.MenuOrderList = _menuOrderService.GetCollection(filterF, p => p.CreationDate).OrderByDescending(p => p.UId).Take(3).ToList();
 
 
                 var filterP = _menuOrderService.GetDefaultSpecification();
-                filterP = filterP.And(p => p.Active == true).And(p => p.UserId == account.Id);
+                filterP = filterP.And(p => p.Active == true).And(p => p.UserId == account.Id).And(p => p.SLAFLocationUId == account.LocationUId);
                 model.PastOrderList = _menuOrderService.GetCollection(filterP, p => p.CreationDate).OrderByDescending(p => p.UId).Take(5).ToList();
 
                 var filterFav = _menuFavoriteService.GetDefaultSpecification();
                 filterFav = filterFav.And(p => p.Active == true).And(p => p.UserId == account.Id);
                 model.MenuFavoriteList = _menuFavoriteService.GetCollection(filterFav, p => p.CreationDate).OrderByDescending(p => p.UId).Take(5).ToList();
+
+                var filterAN = _alertNotifyService.GetDefaultSpecification();
+                filterAN = filterAN.And(p => p.Active == true).And(p => p.UserId == account.Id).And(p=>p.Status==10);
+                model.AlertNotifyList = _alertNotifyService.GetCollection(filterAN, p => p.CreationDate).OrderByDescending(p => p.UId).ToList();
                 //var filterT = _fuelDrawInfoService.GetDefaultSpecification();
                 //filterT = filterT.And(p => p.Active == true);
                 //model.DrawQty = _fuelDrawInfoService.GetCollection(filterF, p => p.CreationDate).ToList().Sum(p=>p.DrawQty);
 
-               
+
                 if (account.UserTypeId == 2|| account.UserTypeId == 4|| account.UserTypeId == 5)
                 {
                     if (account.LocationUId == 18)

@@ -1,0 +1,669 @@
+﻿@using MIMS.Helpers
+@using AlfasiWeb.Models
+@using Dinota.Domain.User
+@{
+    //UserAccount account = Html.GetCurrentUserInfo();
+    List<SessionNaviModel> SessionNaviModelList = new List<SessionNaviModel>();
+    UserAccount account = Html.GetCurrentUserInfo();
+    if (account == null)
+    {
+        Response.Redirect("~/Account/Login");
+    }
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="@Url.Content("~/Asset/image/png")" href="img/fav.png">
+    <title>Officers' Mess AFHQ</title>
+
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Asset/vendor/slick/slick.min.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Asset/vendor/slick/slick-theme.min.css")">
+
+    <link href="@Url.Content("~/Asset/vendor/icons/feather.css")" rel="stylesheet" type="text/css">
+
+    <link href="@Url.Content("~/Asset/vendor/bootstrap/css/bootstrap.min.css")" rel="stylesheet">
+
+    <link href="@Url.Content("~/Asset/css/style.css")" rel="stylesheet">
+
+    <link href="@Url.Content("~/Asset/vendor/sidebar/demo.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Asset/css/dataTables.bootstrap4.min.css")" rel="stylesheet">
+    <style>
+  .insufficient-stock {
+    background-color: #fba6a8 !important;
+  }
+</style>
+    
+</head>
+<body class="fixed-bottom-bar">
+    <header class="section-header">
+        <section class="header-main shadow-sm bg-white">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-3">
+                        <a href="@Url.Content("~/Home/MasterMenu")" class="brand-wrap mb-0">
+                            <img alt="#" class="img-fluid" src="@Url.Content("~/Asset/img/logo_web.png")">
+                        </a>
+                        <p style="float: right; font-weight: bold; font-size: 16px; padding-top: 10px; color: #0f46a8">
+                            @if (account.SLAFLocation != null)
+                            {
+                                @account.SLAFLocation.MessName
+                            }
+
+                        </p>
+                    </div>
+                    <div class="col-1 d-flex align-items-center m-none">
+                    </div>
+
+                    <div class="col-8">
+                        <div class="d-flex align-items-center justify-content-end pr-5">
+
+
+                            @*  <a href="#" class="widget-header mr-4 text-dark">
+                                <div class="icon d-flex align-items-center">
+                                <i class="feather-search h6 mr-2 mb-0"></i> <span>Search</span>
+                                </div>
+                                </a>*@
+
+                            <a href="@Url.Content("~/News/Index/")" class="widget-header mr-4 text-white btn bg-primary m-none">
+                                <div class="icon d-flex align-items-center">
+                                    <i class="feather-disc h6 mr-2 mb-0"></i><span>News</span>
+                                </div>
+                            </a>
+
+
+                            <div class="dropdown mr-4 m-none">
+                                <a href="#" class="dropdown-toggle text-dark py-3 d-block" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                    @account.Name
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+
+                                    <a class="dropdown-item" href="@Url.Content("~/Account/LogOff")">Logout</a>
+                                </div>
+                            </div>
+                            @if (account.UserTypeId == 1)
+                            {
+                                <a href="@Url.Content("~/Menu/MyOrders")" class="widget-header mr-4 text-dark">
+                                    <div class="icon d-flex align-items-center">
+                                        <i class="feather-shopping-cart h6 mr-2 mb-0">0 Order</i><span>Orders</span>
+                                    </div>
+                                </a>
+                            }
+                            else if (account.UserTypeId == 3)
+                            {
+                                <a href="@Url.Content("~/Menu/MyOrders")" class="widget-header mr-4 text-dark">
+                                    <div class="icon d-flex align-items-center">
+                                        <i class="feather-shopping-cart h6 mr-2 mb-0"></i><span>Orders</span>
+                                    </div>
+                                </a>
+                            }
+                            <a class="toggle" href="#">
+                                <span></span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </header>
+
+    @RenderBody()
+    <footer class="section-footer border-top bg-dark">
+
+        <section class="footer-copyright border-top py-3 bg-light">
+            <div class="container d-flex align-items-center">
+                <p class="mb-0">© 2022 No 1 Information Technology Wing. All rights reserved </p>
+
+            </div>
+        </section>
+    </footer>
+    <nav id="main-nav">
+        <ul class="second-nav">
+            @if (account.UserTypeId == 1)
+            {
+                <li><a href="@Url.Content("~/Home/MasterMenu")"><i class="feather-home mr-2"></i>Homepage</a></li>
+                <li><a href="@Url.Content("~/Menu/MyOrders")"><i class="feather-list mr-2"></i>My Orders</a></li>
+
+                <li><a href="@Url.Content("~/Menu/EventIndex")"><i class="feather-list mr-2"></i>Event List</a></li>
+                <li><a href="@Url.Content("~/News/Index")"><i class="feather-list mr-2"></i>News List</a></li>
+                <li><a href="@Url.Content("~/Account/ChangePassword")"><i class="feather-list mr-2"></i>Change Password</a></li>
+                <li><a href="@Url.Content("~/Account/LogOff")"><i class="feather-list mr-2"></i>Logoff</a></li>
+            }
+            else if (account.UserTypeId == 2 || account.UserTypeId == 4 || account.UserTypeId == 5)
+            {
+                <li><a href="@Url.Content("~/Menu/MenuOrderList")"><i class="feather-list mr-2"></i>Order List</a></li>
+                <li><a href="@Url.Content("~/Menu/AddEvent")"><i class="feather-list mr-2"></i>Add Event</a></li>
+                <li><a href="@Url.Content("~/Menu/EventIndex")"><i class="feather-list mr-2"></i>Event List</a></li>
+                <li><a href="@Url.Content("~/Menu/MenuList")"><i class="feather-list mr-2"></i>Menu List</a></li>
+
+                <li>
+                    <a href="#"><i class="feather-list mr-2"></i>Stock Sheet</a>
+                    <ul>
+                        <li><a href="@Url.Content("~/Item/StockSheet/1")"><i class="feather-list mr-2"></i>Dry</a></li>
+                        <li><a href="@Url.Content("~/Item/StockSheet/2")"><i class="feather-list mr-2"></i>Fresh</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="@Url.Content("~/Item/Index")"><i class="feather-list mr-2"></i>Stock Item List</a></li>
+                <li><a href="@Url.Content("~/ItemBOC/Index")"><i class="feather-list mr-2"></i>Item BOC</a></li>
+                <li><a href="@Url.Content("~/Order/OrderList/")"><i class="feather-list mr-2"></i>Create Order</a></li>
+
+                <li>
+                    <a href="#"><i class="feather-list mr-2"></i>Officer Information</a>
+                    <ul>
+                        <li><a href="@Url.Content("~/Officer/OfficerList")"><i class="feather-list mr-2"></i>Officer List</a></li>
+                        <li><a href="@Url.Content("~/Officer/OfficerRequestList")"><i class="feather-list mr-2"></i>Officer Warning In/Out List</a></li>
+                        <li><a href="@Url.Content("~/Room/RoomInfoRegister")"><i class="feather-list mr-2"></i>Officer Room Allocation</a></li>
+                        <li><a href="@Url.Content("~/Room/Index")"><i class="feather-list mr-2"></i>Room Info</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="feather-list mr-2"></i>Report</a>
+                    <ul>
+                        <li><a href="@Url.Content("~/Report/DailySalesSummary/")"><i class="feather-list mr-2"></i>Daily Sales Summary</a></li>
+                        <li><a href="@Url.Content("~/Item/TotalStockBOCValue/")"><i class="feather-list mr-2"></i>BOC Total</a></li>
+                        <li><a href="@Url.Content("~/Item/StockCheck/")"><i class="feather-list mr-2"></i>Stock Check</a></li>
+                        <li><a href="@Url.Content("~/Officer/OfficerRecoveryList/")"><i class="feather-list mr-2"></i>Mess Bill List</a></li>
+                    </ul>
+                </li>
+                <li><a href="@Url.Content("~/News/Index")"><i class="feather-list mr-2"></i>News List</a></li>
+                <li><a href="@Url.Content("~/Account/ChangePassword")"><i class="feather-list mr-2"></i>Change Password</a></li>
+                <li><a href="@Url.Content("~/Account/LogOff")"><i class="feather-list mr-2"></i>Logoff</a></li>
+            }
+            else if (account.UserTypeId == 3)
+            {
+                <li><a href="@Url.Content("~/Home/Index")"><i class="feather-home mr-2"></i>Homepage</a></li>
+                <li><a href="@Url.Content("~/Menu/MyOrders")"><i class="feather-list mr-2"></i>My Orders</a></li>
+                <li><a href="@Url.Content("~/Menu/EventIndex")"><i class="feather-list mr-2"></i>Event List</a></li>
+                <li><a href="@Url.Content("~/News/Index")"><i class="feather-list mr-2"></i>News List</a></li>
+                <li><a href="@Url.Content("~/Menu/MessBill")"><i class="feather-list mr-2"></i>Mess Bill</a></li>
+                @*<li><a href="@Url.Content("~/Officer/AddOfficerRequest/")@account.Id"><i class="feather-list mr-2"></i>Attach Meal In</a></li>*@
+                <li><a href="@Url.Content("~/Account/ChangePassword")"><i class="feather-list mr-2"></i>Change Password</a></li>
+                <li><a href="@Url.Content("~/Account/LogOff")"><i class="feather-list mr-2"></i>Logoff</a></li>
+            }
+        </ul>
+
+    </nav>
+
+    <div class="modal fade" id="filters" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Filters</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="osahan-filter">
+                        <div class="filter">
+
+                            <div class="p-3 bg-light border-bottom">
+                                <h6 class="m-0">SORT BY</h6>
+                            </div>
+                            <div class="custom-control border-bottom px-0  custom-radio">
+                                <input type="radio" id="customRadio1" name="location" class="custom-control-input" checked="">
+                                <label class="custom-control-label py-3 w-100 px-3" for="customRadio1">Top Rated</label>
+                            </div>
+                            <div class="custom-control border-bottom px-0  custom-radio">
+                                <input type="radio" id="customRadio2" name="location" class="custom-control-input">
+                                <label class="custom-control-label py-3 w-100 px-3" for="customRadio2">Nearest Me</label>
+                            </div>
+                            <div class="custom-control border-bottom px-0  custom-radio">
+                                <input type="radio" id="customRadio3" name="location" class="custom-control-input">
+                                <label class="custom-control-label py-3 w-100 px-3" for="customRadio3">Cost High to Low</label>
+                            </div>
+                            <div class="custom-control border-bottom px-0  custom-radio">
+                                <input type="radio" id="customRadio4" name="location" class="custom-control-input">
+                                <label class="custom-control-label py-3 w-100 px-3" for="customRadio4">Cost Low to High</label>
+                            </div>
+                            <div class="custom-control border-bottom px-0  custom-radio">
+                                <input type="radio" id="customRadio5" name="location" class="custom-control-input">
+                                <label class="custom-control-label py-3 w-100 px-3" for="customRadio5">Most Popular</label>
+                            </div>
+
+                            <div class="p-3 bg-light border-bottom">
+                                <h6 class="m-0">FILTER</h6>
+                            </div>
+                            <div class="custom-control border-bottom px-0  custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="defaultCheck1" checked="">
+                                <label class="custom-control-label py-3 w-100 px-3" for="defaultCheck1">Open Now</label>
+                            </div>
+                            <div class="custom-control border-bottom px-0  custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="defaultCheck2">
+                                <label class="custom-control-label py-3 w-100 px-3" for="defaultCheck2">Credit Cards</label>
+                            </div>
+                            <div class="custom-control border-bottom px-0  custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="defaultCheck3">
+                                <label class="custom-control-label py-3 w-100 px-3" for="defaultCheck3">Alcohol Served</label>
+                            </div>
+
+                            <div class="p-3 bg-light border-bottom">
+                                <h6 class="m-0">ADDITIONAL FILTERS</h6>
+                            </div>
+                            <div class="px-3 pt-3">
+                                <input type="range" class="custom-range" min="0" max="100" name="minmax">
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label>Min</label>
+                                        <input class="form-control" placeholder="$0" type="number">
+                                    </div>
+                                    <div class="form-group text-right col-6">
+                                        <label>Max</label>
+                                        <input class="form-control" placeholder="$1,0000" type="number">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer p-0 border-0">
+                    <div class="col-6 m-0 p-0">
+                        <a href="#" class="btn border-top btn-lg btn-block" data-dismiss="modal">Close</a>
+                    </div>
+                    <div class="col-6 m-0 p-0">
+                        <a href="most_popular.html" class="btn btn-primary btn-lg btn-block">Apply</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (account.UserTypeId == 1 || account.UserTypeId == 3)
+    {
+        <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none" style="height: 98px">
+
+            <div class="row">
+
+                <div class="col">
+                    <a href="@Url.Content("~/Home/MasterMenu")" class="text-dark small font-weight-bold text-decoration-none">
+                        <p class="h4 m-0"><i class="feather-home"></i></p>
+                        Home
+                    </a>
+                </div>
+                <div class="col selected">
+                    <a href="@Url.Content("~/Menu/EventHome/")" class="text-danger small font-weight-bold text-decoration-none">
+                        <p class="h4 m-0"><i class="feather-eye text-danger"></i></p>
+                        Events
+                    </a>
+                </div>
+                <div class="col bg-white rounded-circle mt-n4 px-3 py-2">
+                    <div class="bg-danger rounded-circle mt-n0 shadow">
+                        <a href="@Url.Content("~/Menu/MyOrders")" class="text-white small font-weight-bold text-decoration-none">
+                            <i class="feather-shopping-cart"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <a href="@Url.Content("~/Menu/RecentOrder")" class="text-dark small font-weight-bold text-decoration-none">
+                        <p class="h4 m-0"><i class="feather-heart"></i></p>
+                        Recent
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="@Url.Content("~/Home/Profile")" class="text-dark small font-weight-bold text-decoration-none">
+                        <p class="h4 m-0"><i class="feather-user"></i></p>
+                        Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (ViewContext.RouteData.Values["Controller"].ToString() == "Order" && ViewContext.RouteData.Values["Action"].ToString() == "ProcessOrder")
+    {
+        <script type="text/javascript" src="@Url.Content("~/Asset/js/jquery-3.6.0.min.js")"></script>
+
+    }
+    else
+    {
+        <script type="457a562786498bfc8c87c2bf-text/javascript" src="@Url.Content("~/Asset/vendor/jquery/jquery.min.js")"></script>
+    }
+
+
+
+    
+    <script type="457a562786498bfc8c87c2bf-text/javascript" src="@Url.Content("~/Asset/vendor/bootstrap/js/bootstrap.bundle.min.js")"></script>
+
+    <script type="457a562786498bfc8c87c2bf-text/javascript" src="@Url.Content("~/Asset/vendor/slick/slick.min.js")"></script>
+
+    <script type="457a562786498bfc8c87c2bf-text/javascript" src="@Url.Content("~/Asset/vendor/sidebar/hc-offcanvas-nav.js")"></script>
+
+    <script type="457a562786498bfc8c87c2bf-text/javascript" src="@Url.Content("~/Asset/js/osahan.js")"></script>
+    <script src="@Url.Content("~/Asset/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js")" data-cf-settings="457a562786498bfc8c87c2bf-|49" defer=""></script>
+    <script defer="" src="@Url.Content("~/Asset/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194")" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"72a8dc1c29b0b305","version":"2022.6.0","r":1,"token":"dd471ab1978346bbb991feaa79e6ce5c","si":100}' crossorigin="anonymous"></script>
+    <script src="@Url.Content("~/Asset/js/sweetalert.min.js")"></script>
+
+    @if (ViewContext.RouteData.Values["Controller"].ToString() == "Menu" && ViewContext.RouteData.Values["Action"].ToString() == "AddIngridient")
+    {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    }
+
+    
+    <script>
+
+        $('#IngriedientUId').change(function () {
+            var selectedIngriedientUId = $(this).val();
+            $.ajax({
+                url: '/Item/GetMeasurementUnit',
+                type: 'GET',
+                dataType: 'json',
+                data: { ingriedientUId: selectedIngriedientUId },
+                success: function (response) {
+                    $('#ing_measure_unit').text(response.Unit);
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log('Error: ' + errorThrown);
+                }
+            });
+        });
+
+
+        function AssignOrderValue(value1) {
+            $("#menuorderid").val(value1);
+        }
+        function AssignEventValue(value1) {
+            $("#eventuid").val(value1);
+        }
+        function AssignEventValue2(value1) {
+            $("#eventuid2").val(value1);
+        }
+        /*document.getElementById("delete_Row").style.display = "none";*/
+
+        function addRow() {
+            var kcount = $('#kidscount').val();
+            kcount = parseInt(kcount);
+            var i = $('#kidrowcount').val();
+
+            if (kcount > 0) {
+                $('#delete_Row').fadeIn();
+                for (let i = 1; i <= kcount; i++) {
+
+                    var $new_row = '<tr><td><input type="number" name="kidno' + i + '" value="' + i + '" class="form-control" readonly required/></td><td><select name="kidage' + i + '" class="form-control" required><option value>-- age --</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option></select></td><td><select  name="kidveg' + i + '" class="form-control" required><option value>-- Veg/Non Veg --</option><option value="Non-Veg">Non-Veg</option><option value="Veg">Veg</option></select></td></tr>';
+
+                    $('#kidstbody').append($new_row);
+                    $('#kidrowcount').val(i);
+                }
+                document.getElementById("add_Row").style.display = "none";
+            }
+        }
+        function addRow_val() {
+            var kcount = $('#kidscount').val();
+            kcount = parseInt(kcount);
+            var i = $('#kidrowcount').val();
+
+            if (kcount > 0) {
+                $('#delete_Row_btn').fadeIn();
+                for (let i = 1; i <= kcount; i++) {
+
+                    var $new_row = '<tr><td><input type="number" name="kidno_' + i + '" value="' + i + '" class="form-control" readonly required/></td><td><select name="kidage_' + i + '" class="form-control" required><option value>-- age --</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option></select></td><td><select  name="kidveg_' + i + '" class="form-control" required><option value>-- Veg/Non Veg --</option><option value="Non-Veg">Non-Veg</option><option value="Veg">Veg</option></select></td></tr>';
+
+                    $('#kidstbody').append($new_row);
+                    $('#kidrowcount').val(i);
+                }
+                document.getElementById("add_Row").style.display = "none";
+            }
+        }
+        function removeRow_val() {
+            document.getElementById("delete_Row_btn").style.display = "none";
+            $('#kidstbody').empty();
+            $('#kidrowcount').val(0);
+            $('#kidscount').val(0);
+            $('#add_Row').fadeIn();
+        }
+        function removeRow() {
+            document.getElementById("delete_Row").style.display = "none";
+            $('#kidstbody').empty();
+            $('#kidrowcount').val(0);
+            $('#kidscount').val(0);
+            $('#add_Row').fadeIn();
+        }
+        $(document).ready(function () {
+            $('#IsGuestNonVeg1').fadeOut();
+            $('#IsGuestNonVeg2').fadeOut();
+        });
+        function getGuestNovVeg() {
+            var count = $("#memcount").val();
+            count = parseInt(count);
+
+            if (count > 0) {
+                $('#IsGuestNonVeg1').fadeIn();
+                $('#IsGuestNonVeg2').fadeIn();
+            }
+            else {
+                $('#IsGuestNonVeg1').fadeOut();
+                $('#IsGuestNonVeg2').fadeOut();
+            }
+        }
+        function getGuestCount() {
+            var count = $("#memcount").val();
+            var rank = $("#RankVal").val();
+            rank = parseInt(rank);
+            count = parseInt(count);
+
+            if (rank == 27) {
+
+                if (count > 4) {
+                    alert("you are not allowed to enter more than 4 guests");
+                    $("#memcount").empty();
+                    $("#memcount").val(4);
+                }
+                else if (count <= 4) {
+                    $("#memcount").val(count);
+                }
+            }
+            else if (rank == 10) {
+                if (count > 4) {
+                    alert("you are not allowed to enter more than 4 guests");
+                    $("#memcount").empty();
+                    $("#memcount").val(4);
+                }
+                else if (count <= 4) {
+                    $("#memcount").val(count);
+                }
+            }
+            else if (rank == 147) {
+                if (count > 4) {
+                    alert("you are not allowed to enter more than 4 guests");
+                    $("#memcount").empty();
+                    $("#memcount").val(4);
+                }
+                else if (count <= 4) {
+                    $("#memcount").val(count);
+                }
+            }
+            else if (rank >= 28 && rank <= 44) {
+
+                if (count > 2) {
+                    alert("you are not allowed to enter more than 2 guests");
+                    $("#memcount").empty();
+                    $("#memcount").val(2);
+                }
+                else if (count <= 2) {
+                    $("#memcount").val(count);
+                }
+            }
+
+        }
+        function roomFunction() {
+            var val = $('#delilocation').val();
+            if (val == "Room") {
+
+                var $new_row2 = '<input type="number" placeholder="Enter Room no" name="roomno" id="roomno"  class="form-control" required/>';
+                $('#roomoption').append($new_row2);
+            }
+            else {
+                $('#roomoption').empty();
+                $('#roomno').remove();
+            }
+        }
+        function changeSpouseState1() {
+
+            $('#spousevegnon1').fadeIn();
+            $('#spousevegnon2').fadeIn();
+            $('#IsSpouseAlcohol2').fadeIn();
+            $('#IsSpouseAlcohol1').fadeIn();
+            $('#IsSpouseNonVeg1').fadeIn();
+            $('#IsSpouseNonVeg2').fadeIn();
+
+        }
+        function changeOMTState1() {
+
+            $('#IsOMTVeg1').fadeIn();
+            $('#IsOMTVeg2').fadeIn();
+        }
+        function changeSpouseState2() {
+
+            $('#spousevegnon1').fadeOut();
+            $('#spousevegnon2').fadeOut();
+            $('#IsSpouseAlcohol2').fadeOut();
+            $('#IsSpouseAlcohol1').fadeOut();
+            $('#IsSpouseNonVeg1').fadeOut();
+            $('#IsSpouseNonVeg2').fadeOut();
+        }
+        function changeNonVegState1() {
+
+            $('#IsNonVeg1').fadeIn();
+            $('#IsNonVeg2').fadeIn();
+        }
+        function changeNonVegState2() {
+
+            $('#IsNonVeg1').fadeOut();
+            $('#IsNonVeg2').fadeOut();
+        }
+        function changeNonSpouseVegState1() {
+
+            $('#IsSpouseNonVeg1').fadeIn();
+            $('#IsSpouseNonVeg2').fadeIn();
+        }
+        function changeNonSpouseVegState2() {
+
+            $('#IsSpouseNonVeg1').fadeOut();
+            $('#IsSpouseNonVeg2').fadeOut();
+        }
+        function changeOMTState2() {
+
+            $('#IsOMTVeg1').fadeOut();
+            $('#IsOMTVeg2').fadeOut();
+            $('#IsValet1').fadeIn();
+            $('#IsValet2').fadeIn();
+
+        }
+
+        function hideParticipateBtn() {
+
+            //$('#pbtn1').fadeOut();
+            //$('#pbtn2').fadeOut();
+        }
+        function changeVehileNo1() {
+
+            //$('#vehiclenodiv1').fadeOut();
+            //$('#vehiclenodiv2').fadeOut();
+        }
+        window.onload = function () {
+            ChangeValletParking1();
+        };
+
+        function ChangeValletParking1() {
+            $('#IsValet1').fadeOut();
+            $('#IsValet2').fadeOut();
+            $('#IsTransport1').fadeOut();
+            $('#IsTransport2').fadeOut();
+        }
+        function changeValetState1() {
+            $('#IsTransport1').fadeOut();
+            $('#IsTransport2').fadeOut();
+        }
+        function changeValetState2() {
+            $('#IsTransport1').fadeIn();
+            $('#IsTransport2').fadeIn();
+        }
+        function hideVehicleNo() {
+            alert("");
+            $('#vehiclenodiv1').fadeOut();
+            $('#vehiclenodiv2').fadeOut();
+            document.getElementById("IsTransport1").style.display = "none";
+            document.getElementById("IsTransport2").style.display = "none";
+            document.getElementById("IsChanging1").style.display = "none";
+            document.getElementById("IsChanging2").style.display = "none";
+        }
+        //$(document).ready(function () {
+        //    alert($("#RankVal").val());
+        //    var rank = $("#RankVal").val();
+        //    rank = parseInt(rank);
+
+        //    if (rank != 27 && rank != 10) {
+        //        $('#participateBtn').fadeOut();
+        //        $('#notparticipateBtn').fadeOut();
+        //    }
+        //});
+
+
+        function isNumberKey(txt, evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode == 46) {
+                //Check if the text already contains the . character
+                if (txt.value.indexOf('.') === -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                if (charCode > 31 &&
+                    (charCode < 48 || charCode > 57))
+                    return false;
+            }
+            return true;
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Input change event handler
+            $("body").on("input", ".quantity-input", function () {
+                var ingredientId = $(this).data("ingredient-id");
+                var quantity = parseFloat($(this).val()) || 0;
+
+                // Update the total quantity in the first table
+                $(this).closest("tr").find(".total-quantity").text(quantity);
+
+                // Update the total quantity in the second table
+                var totalQty = 0;
+                $("#table1 tr[data-ingredient-id='" + ingredientId + "']").each(function () {
+                    var rowQty = parseFloat($(this).find(".quantity-input").val()) || 0;
+                    totalQty += rowQty;
+                });
+                $("#table2 tr[data-ingredient-id='" + ingredientId + "'] .total-qty").text(totalQty);
+
+                // Update the insufficient-stock class
+                var stockQty = parseFloat($("#table2 tr[data-ingredient-id='" + ingredientId + "'] .current-stock-qty").text()) || 0;
+                if (totalQty > stockQty) {
+                    $("#table1 tr[data-ingredient-id='" + ingredientId + "']").addClass("insufficient-stock");
+                    $("#table2 tr[data-ingredient-id='" + ingredientId + "']").addClass("insufficient-stock");
+                } else {
+                    $("#table1 tr[data-ingredient-id='" + ingredientId + "']").removeClass("insufficient-stock");
+                    $("#table2 tr[data-ingredient-id='" + ingredientId + "']").removeClass("insufficient-stock");
+                }
+            });
+        });
+        $(document).ready(function () {
+            $('#example2').DataTable();
+        });
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>

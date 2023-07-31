@@ -57,6 +57,8 @@
     <Compile Include="AdminUser\AdminUserMap.cs" />
     <Compile Include="AdminUser\AdminUserRepo.cs" />
     <Compile Include="AutofacModule.cs" />
+    <Compile Include="AlertNotify\AlertNotifyMap.cs" />
+    <Compile Include="AlertNotify\AlertNotifyRepo.cs" />
     <Compile Include="MenuOrderExtraItemDetail\MenuOrderExtraItemDetailMap.cs" />
     <Compile Include="MenuOrderExtraItemDetail\MenuOrderExtraItemDetailRepo.cs" />
     <Compile Include="PaymentMethod\PaymentMethodMap.cs" />
