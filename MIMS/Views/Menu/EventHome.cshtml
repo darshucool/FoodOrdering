@@ -25,54 +25,58 @@
                         <div class="d-flex flex-column">
                             <h6 class="mb-3 font-weight-bold">Officers' Mess Events</h6>
                             <div class="row" id="eventPlace">
-                                @Html.Message()
-                                @foreach (EventParticipateModel e in Model)
+                                @if (Model.Count > 0)
                                 {
-                                    var base64 = Convert.ToBase64String(e.Event.Img);
-                                    var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
-                                    <div class="custom-control col-lg-12 custom-radio mb-3 position-relative border-custom-radio">
-                                        <img src="@imgSrc" class="img-responsive" style="width:100%" />
-                                        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" checked="">
+                                    @Html.Message()
+                                    @foreach (EventParticipateModel e in Model)
+                                    {
+                                        var base64 = Convert.ToBase64String(e.Event.Img);
+                                        var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+                                        <div class="custom-control col-lg-12 custom-radio mb-3 position-relative border-custom-radio">
+                                            <img src="@imgSrc" class="img-responsive" style="width:100%" />
+                                            <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" checked="">
 
 
-                                        <div class="p-3 bg-white rounded shadow-sm w-100">
-                                            <div class="d-flex align-items-center mb-2">
-                                                <h6 class="mb-0" style="text-transform: uppercase">@e.Event.EventName</h6>
+                                            <div class="p-3 bg-white rounded shadow-sm w-100">
+                                                <div class="d-flex align-items-center mb-2">
+                                                    <h6 class="mb-0" style="text-transform: uppercase">@e.Event.EventName</h6>
 
-                                            </div>
-                                            <p class=" m-0"><b>Event Date: </b>@e.Event.EffectiveDate.ToString("dd/MM/yyyy")</p>
-                                            @if (!string.IsNullOrEmpty(e.Event.Description))
-                                            {
-                                                <p style="font-size: 12px; padding-top: 10px; text-align: justify"><b>Event Description: </b>@Html.Raw(e.Event.Description)</p>
-                                            }
-                                        </div>
-                                        <div class="row">
-                                            @if (e.ParticipationSubmit)
-                                            {
-                                                if (e.IsParticipated)
+                                                </div>
+                                                <p class=" m-0"><b>Event Date: </b>@e.Event.EffectiveDate.ToString("dd/MM/yyyy")</p>
+                                                @if (!string.IsNullOrEmpty(e.Event.Description))
                                                 {
-                                                    <p style="padding: 10px; background-color: #b6ff00; color: #000; font-size: 14px; width: 100%">Willing to participate for the Event.</p>
-                                                    @*<a href="@Url.Content("~/Menu/UpdateEventStatus/")@e.EventParticipation.UId" class="btn btn-dark" style="width:100%;padding:10px">Update Paticipation Details</a>*@
+                                                    <p style="font-size: 12px; padding-top: 10px; text-align: justify"><b>Event Description: </b>@Html.Raw(e.Event.Description)</p>
+                                                }
+                                            </div>
+                                            <div class="row">
+                                                @if (e.ParticipationSubmit)
+                                                {
+                                                    if (e.IsParticipated)
+                                                    {
+                                                        <p style="padding: 10px; background-color: #b6ff00; color: #000; font-size: 14px; width: 100%">Willing to participate for the Event.</p>
+                                                        @*<a href="@Url.Content("~/Menu/UpdateEventStatus/")@e.EventParticipation.UId" class="btn btn-dark" style="width:100%;padding:10px">Update Paticipation Details</a>*@
+                                                    }
+                                                    else
+                                                    {
+                                                        <p style="padding: 10px; background-color: #d17474; color: #000; font-size: 14px; width: 100%">Not willing to participate for the Event.</p>
+
+                                                    }
                                                 }
                                                 else
                                                 {
-                                                    <p style="padding: 10px; background-color: #d17474; color: #000; font-size: 14px; width: 100%">Not willing to participate for the Event.</p>
-
+                                                    <div class="col-md-6" id="participateBtn">
+                                                        @*<a href="#" data-toggle="modal" data-target="#exampleModal" id="pbtn1" class="btn btn-block btn-dark border-top" onclick="AssignEventValue2(@e.Event.UId)">Click here to participate</a>*@
+                                                    </div>
+                                                    <div class="col-md-6" id="notparticipateBtn">
+                                                        @*<a href="#" data-toggle="modal" data-target="#notModal" id="pbtn2" class="btn btn-block btn-primary border-top" onclick="AssignEventValue(@e.Event.UId)">Not Participating</a>*@
+                                                    </div>
                                                 }
-                                            }
-                                            else
-                                            {
-                                                <div class="col-md-6" id="participateBtn">
-                                                    @*<a href="#" data-toggle="modal" data-target="#exampleModal" id="pbtn1" class="btn btn-block btn-dark border-top" onclick="AssignEventValue2(@e.Event.UId)">Click here to participate</a>*@
-                                                </div>
-                                                <div class="col-md-6" id="notparticipateBtn">
-                                                    @*<a href="#" data-toggle="modal" data-target="#notModal" id="pbtn2" class="btn btn-block btn-primary border-top" onclick="AssignEventValue(@e.Event.UId)">Not Participating</a>*@
-                                                </div>
-                                            }
-                                        </div>
+                                            </div>
 
-                                    </div>
+                                        </div>
+                                    }
                                 }
+
                             </div>
 
                         </div>
@@ -85,7 +89,7 @@
     </div>
 </div>
 
-@if (Model.Count > 0)
+@*@if (Model.Count > 0)
 {
     <input type="hidden" value="@Model[0].RankUId" name="RankVal" id="RankVal">
     if (Model[0].UserMode == "1")
@@ -103,24 +107,24 @@
         </script>
     }
     else if (Model[0].UserMode == "2")
-    {
+    {-->
 
-        @*<script>
+        <script>
                 document.getElementById("pbtn1").style.display = "none";
                 document.getElementById("pbtn2").style.display = "none";
-            </script>*@
+            </script>
     }
     else
     {
-        @*<script>
+        <script>
             document.getElementById("pbtn1").style.display = "none";
             document.getElementById("pbtn2").style.display = "none";
-        </script>*@
+        </script>
     }
 
 
 
-    @*if (Model[0].RankUId != 27 && Model[0].RankUId != 10)
+    if (Model[0].RankUId != 27 && Model[0].RankUId != 10)
         {
         <script>
             document.getElementById("participateBtn").style.display = "none";
@@ -133,14 +137,14 @@
             document.getElementById("participateBtn").style.display = "block";
             document.getElementById("notparticipateBtn").style.display = "block";
         </script>
-        }*@
+        }
         
         
         <script>
             document.getElementById("participateBtn").style.display = "block";
             document.getElementById("notparticipateBtn").style.display = "block";
         </script>
-}
+}*@
 
 <div class="modal fade" id="notModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -300,12 +304,12 @@
                                 </table>
 
                             </div>
-                            @if (Model[0].RankUId == 37|| Model[0].RankUId == 36|| Model[0].RankUId == 38 || Model[0].RankUId == 44 || Model[0].RankUId == 148)
+                            @*@if (Model[0].RankUId == 37|| Model[0].RankUId == 36|| Model[0].RankUId == 38 || Model[0].RankUId == 44 || Model[0].RankUId == 148)
                             {
-                            <label class="form-label" @*id="IsTransport1"*@>
+                            <label class="form-label" id="IsTransport1">
                                 <br /><b>Do you require Transport ?</b>
                             </label>
-                            <div class="btn-group btn-group-toggle w-100" data-toggle="buttons" @*id="IsTransport2"*@>
+                            <div class="btn-group btn-group-toggle w-100" data-toggle="buttons" id="IsTransport2">
                                 <label class="btn btn-outline-secondary active">
                                     <input type="radio" name="IsTransport" value="1" >
                                     Yes
@@ -316,7 +320,7 @@
                                 </label>
                                 <p></p>
                             </div>
-                            }
+                            }*@
                             @*<label class="form-label" id="IsSpouseAlcohol1"><br /><b>Spouse Alcohol / Wine preference</b></label>
                             <div class="btn-group btn-group-toggle w-100" data-toggle="buttons" id="IsSpouseAlcohol2">
                                 <label class="btn btn-outline-secondary active">
@@ -383,7 +387,7 @@
                             @if (Model.Count > 0)
                             {
 
-                                if (Model[0].UserMode == "2")
+                                @*if (Model[0].UserMode == "2")
                                 {
                                     <label class="form-label" id="IsTransport1">
                                         <br /><b>Do you require Transport ?</b>
@@ -425,7 +429,7 @@
 
                                         <input type="text" name="VehicleNo" id="VehicleNo" class="form-control">
                                     </div>
-                                }
+                                }*@
 
 
 
