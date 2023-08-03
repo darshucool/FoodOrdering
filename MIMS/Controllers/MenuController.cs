@@ -828,9 +828,12 @@ namespace MIMS.Controllers
                 }
               
                 model.PendingMenuOrderList = PendingMenuOrderList;
+                DateTime EffectiveDate = DateTime.Now;
+                DateTime FromDate = EffectiveDate.Date;
+                DateTime ToDate = EffectiveDate.Date.AddDays(1).AddTicks(-1);
                 var filterC = _menuOrderItemDetailService.GetDefaultSpecification();
                 List<MenuDetailItemOfficerModel> CompleteMenuOrderList = new List<MenuDetailItemOfficerModel>();
-                filterC = filterC.And(p => p.Status == (int)DataStruct.MenuOrderItemStatus.Accepted);
+                filterC = filterC.And(p => p.Status == (int)DataStruct.MenuOrderItemStatus.Accepted).And(p=>p.MenuOrderHeader.OrderDate>= FromDate).And(p=>p.MenuOrderHeader.OrderDate<= ToDate);
                 filterC = filterC.And(p => p.Active == true).And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
                 List<MenuOrderItemDetail> CompleteMenuItemList = _menuOrderItemDetailService.GetCollection(filterC, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).ToList();
                 foreach (MenuOrderItemDetail item in CompleteMenuItemList)

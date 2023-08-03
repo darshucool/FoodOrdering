@@ -187,7 +187,8 @@ namespace MIMS.Controllers
                 UserAccount account = _userAccountService.GetBy(filter);
                 if (account != null)
                 {
-                    account.LocationUId = user.LocationUId;
+                    UserAccount updateacc = _userAccountService.GetByKey(account.Id);
+                    updateacc.LocationUId = user.LocationUId;
                     DataContext.SaveChanges();
                 }
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Officer successfully added");
@@ -273,7 +274,42 @@ namespace MIMS.Controllers
             }
             return View(profile);
         }
+        public ActionResult WarningOut(int id)
+        {
+            OfficerRequest oOfficerRequest = new OfficerRequest();
+            try
+            {
+                oOfficerRequest = _officerRequestService.GetByKey(id);
 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(oOfficerRequest);
+        }
+        [HttpPost]
+        public ActionResult WarningOut(FormCollection Form,int id)
+        {
+            OfficerRequest oOfficerRequest = new OfficerRequest();
+            try
+            {
+                oOfficerRequest = _officerRequestService.GetByKey(id);
+                TryUpdateModel(oOfficerRequest);
+                DataContext.SaveChanges();
+
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Record successfully added");
+
+                return RedirectToAction("OfficerList");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(oOfficerRequest);
+        }
         public ActionResult OfficerRecoveryList()
         {
             List<OffcerRecoveryList> ModelList = new List<OffcerRecoveryList>();

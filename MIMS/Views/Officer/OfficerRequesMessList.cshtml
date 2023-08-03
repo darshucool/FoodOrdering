@@ -34,7 +34,7 @@
                         <th>To Date</th>
                         <th>To Meal</th>
                         <th>Payment Method</th>
-                        @*<th></th>*@
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,11 +53,28 @@
                         <td>@info.FromDate</td>
                         <td>@info.FromMealInfo.Name</td>
                         <td>@info.ToDate</td>
-                        <td>@info.ToMealInfo.Name</td>
-                        <td>@info.PaymentMethodInfo.Method</td>
-                        @*<td><a href="@Url.Content("~/Officer/UpdateStatus/")@info.UId" class="">Edit</a></td>*@
-                        @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
-                    </tr>
+                        <td>@if (info.ToMeal != null)
+                        { 
+                        @info.ToMealInfo.Name
+                        }
+
+                   </td>
+                        <td>
+                            @if (info.PaymentMethodInfo != null)
+                            {
+                                @info.PaymentMethodInfo.Method
+
+
+                            }
+                            </td>
+                            <td>
+                        @if (info.Status == 10)
+                        { 
+                                <a href="@Url.Content("~/Officer/WarningOut/")@info.UId" class="">Warning Out</a>
+                        }
+                        </td>
+                            @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
+</tr>
                     }
                 </tbody>
             </table>
