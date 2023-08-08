@@ -114,7 +114,7 @@ namespace MIMS.Controllers
                     mod.MenuItem = item;
                     MenuItemModelList.Add(mod);
                     var filterPackage = _menuPackageService.GetDefaultSpecification();
-                    filterPackage = filterPackage.And(p=>p.MenuItemId== item.UId);
+                    filterPackage = filterPackage.And(p=>p.MenuItemId== item.UId).And(p=>p.Active==true);
                     List<MenuPackage> MenuPackageList = _menuPackageService.GetCollection(filterPackage,p=>p.CreationDate).ToList();
                     mod.MenuPackageList = MenuPackageList;
                 }
