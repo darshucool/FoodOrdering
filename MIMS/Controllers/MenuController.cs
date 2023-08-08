@@ -1080,7 +1080,7 @@ namespace MIMS.Controllers
                         if (oheader.OrderDate < DateTime.Now.Date)
                         {
                             TempData[ViewDataKeys.Message] = new FailMessage("Order Date should be today or future date.");
-                            return RedirectToAction("MenuItemIndex", new { id = id });
+                            return RedirectToAction("OrderMenu", new { id = id });
                         }
                     }
                     else
@@ -1099,6 +1099,14 @@ namespace MIMS.Controllers
                     {
                         oheader.Time = "";
                     }
+                }
+
+                string combinetime = oheader.OrderDate.ToShortDateString() + " " + oheader.Time;
+                DateTime dateCheck = DateTime.Parse(combinetime);
+                if (dateCheck < DateTime.Now)
+                {
+                    TempData[ViewDataKeys.Message] = new FailMessage("Order Date should be today or future date.");
+                    return RedirectToAction("OrderMenu", new { id = id });
                 }
                 oheader.Status = 10;
                 oheader.PaymentMethod= (int)DataStruct.PaymentMethod.Credit;
