@@ -348,7 +348,20 @@ namespace MIMS.Controllers
             return Json(new { Unit }, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult DayEnd()
+        {
 
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();
+        }
         public ActionResult TotalStockBOCValue()
         {
             List<BOCTotalModel> List = new List<BOCTotalModel>();

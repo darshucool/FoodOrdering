@@ -1,0 +1,52 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.MenuOrderHeader
+@using Dinota.Domain.MenuOrderItemDetail
+@using Dinota.Domain.Event
+@using AlfasiWeb.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Day End Process</h4>
+    </div>
+</div>
+<div class="container position-relative">
+    @using (Html.BeginForm("OrderList", "Order", null, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleInputName1">Process Date</label>
+                    <input type="date" class="form-control" value="@DateTime.Now"/>
+                   
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="text-center">
+                    <label for="exampleInputName1">&nbsp;</label>
+                    <button type="submit" class="btn btn-primary btn-block">Process Day End</button>
+                </div>
+            </div>
+        </div>
+    }
+  
+</div>
+<script src="~/Asset/js/jquery-3.5.1.js"></script>
+<script src="~/Asset/js/jquery.dataTables.min.js"></script>
+<script src="~/Asset/js/dataTables.bootstrap4.min.js"></script>
+@*<script>
+    $(document).ready(function () {
+
+        $('#example').DataTable({
+        order: [[0, 'desc']],
+    });
+    });
+
+</script>*@

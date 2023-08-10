@@ -33,29 +33,201 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (UserAccount info in Model)
+                    @foreach (UserAccount info in Model.Where(p => p.RankUId == 27).OrderBy(p => p.UserName))
                     {
-                    <tr>
+                        <tr>
 
-                        <td>@info.UserName</td>
-                        <td>
-                            @if (info.Rank != null)
-                            {
-                                @info.Rank.Name
-                            }
-                    </td>
-                    <td>@info.Name</td>
-                    <td>@if(info.UserStatus!=null)
-                        { 
-                        @info.UserStatus.Status
-                        }
-                        </td>
-    
-                        <td><a href="@Url.Content("~/Officer/UpdateStatus/")@info.Id" class="">Update Status</a></td>
-                        <td><a href="@Url.Content("~/Officer/OfficerRequesMessList/")@info.Id" class=""> Warning In/Out
-                            </a></td>
-                    @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
-                    </tr>
+                            <td>@info.UserName</td>
+                            <td>
+                                @if (info.Rank != null)
+                                {
+                                    @info.Rank.Name
+                                }
+                            </td>
+                            <td>@info.Name</td>
+                            <td>
+                                @if (info.UserStatus != null)
+                                {
+                                    @info.UserStatus.Status
+                                }
+                            </td>
+
+                            <td><a href="@Url.Content("~/Officer/UpdateStatus/")@info.Id" class="">Update Status</a></td>
+                            <td>
+                                <a href="@Url.Content("~/Officer/OfficerRequesMessList/")@info.Id" class="">
+                                    Warning In/Out
+                                </a>
+                            </td>
+                            @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
+                        </tr>
+                    }
+                    @foreach (UserAccount info in Model.Where(p => p.RankUId == 28).OrderBy(p => p.UserName))
+                    {
+                        <tr>
+
+                            <td>@info.UserName</td>
+                            <td>
+                                @if (info.Rank != null)
+                                {
+                                    @info.Rank.Name
+                                }
+                            </td>
+                            <td>@info.Name</td>
+                            <td>
+                                @if (info.UserStatus != null)
+                                {
+                                    @info.UserStatus.Status
+                                }
+                            </td>
+
+                            <td><a href="@Url.Content("~/Officer/UpdateStatus/")@info.Id" class="">Update Status</a></td>
+                            <td>
+                                <a href="@Url.Content("~/Officer/OfficerRequesMessList/")@info.Id" class="">
+                                    Warning In/Out
+                                </a>
+                            </td>
+                            @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
+                        </tr>
+                    }
+                    @foreach (UserAccount info in Model.Where(p => p.RankUId == 35).OrderBy(p => p.UserName))
+                    {
+                        <tr>
+
+                            <td>@info.UserName</td>
+                            <td>
+                                @if (info.Rank != null)
+                                {
+                                    @info.Rank.Name
+                                }
+                            </td>
+                            <td>@info.Name</td>
+                            <td>
+                                @if (info.UserStatus != null)
+                                {
+                                    @info.UserStatus.Status
+                                }
+                            </td>
+
+                            <td><a href="@Url.Content("~/Officer/UpdateStatus/")@info.Id" class="">Update Status</a></td>
+                            <td>
+                                <a href="@Url.Content("~/Officer/OfficerRequesMessList/")@info.Id" class="">
+                                    Warning In/Out
+                                </a>
+                            </td>
+                            @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
+                        </tr>
+                    }
+                    @foreach (UserAccount info in Model.Where(p => p.RankUId == 36).OrderBy(p => p.UserName))
+                    {
+                        <tr>
+
+                            <td>@info.UserName</td>
+                            <td>
+                                @if (info.Rank != null)
+                                {
+                                    @info.Rank.Name
+                                }
+                            </td>
+                            <td>@info.Name</td>
+                            <td>
+                                @if (info.UserStatus != null)
+                                {
+                                    @info.UserStatus.Status
+                                }
+                            </td>
+
+                            <td><a href="@Url.Content("~/Officer/UpdateStatus/")@info.Id" class="">Update Status</a></td>
+                            <td>
+                                <a href="@Url.Content("~/Officer/OfficerRequesMessList/")@info.Id" class="">
+                                    Warning In/Out
+                                </a>
+                            </td>
+                            @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
+                        </tr>
+                    }
+                    @foreach (UserAccount info in Model.Where(p => p.RankUId == 37).OrderBy(p => p.UserName))
+                    {
+                        <tr>
+
+                            <td>@info.UserName</td>
+                            <td>
+                                @if (info.Rank != null)
+                                {
+                                    @info.Rank.Name
+                                }
+                            </td>
+                            <td>@info.Name</td>
+                            <td>
+                                @if (info.UserStatus != null)
+                                {
+                                    @info.UserStatus.Status
+                                }
+                            </td>
+
+                            <td><a href="@Url.Content("~/Officer/UpdateStatus/")@info.Id" class="">Update Status</a></td>
+                            <td>
+                                <a href="@Url.Content("~/Officer/OfficerRequesMessList/")@info.Id" class="">
+                                    Warning In/Out
+                                </a>
+                            </td>
+                            @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
+                        </tr>
+                    }
+                    @foreach (UserAccount info in Model.Where(p => p.RankUId == 38).OrderBy(p => p.UserName))
+                    {
+                        <tr>
+
+                            <td>@info.UserName</td>
+                            <td>
+                                @if (info.Rank != null)
+                                {
+                                    @info.Rank.Name
+                                }
+                            </td>
+                            <td>@info.Name</td>
+                            <td>
+                                @if (info.UserStatus != null)
+                                {
+                                    @info.UserStatus.Status
+                                }
+                            </td>
+
+                            <td><a href="@Url.Content("~/Officer/UpdateStatus/")@info.Id" class="">Update Status</a></td>
+                            <td>
+                                <a href="@Url.Content("~/Officer/OfficerRequesMessList/")@info.Id" class="">
+                                    Warning In/Out
+                                </a>
+                            </td>
+                            @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
+                        </tr>
+                    }
+                    @foreach (UserAccount info in Model.Where(p => p.RankUId == 44).OrderBy(p => p.UserName))
+                    {
+                        <tr>
+
+                            <td>@info.UserName</td>
+                            <td>
+                                @if (info.Rank != null)
+                                {
+                                    @info.Rank.Name
+                                }
+                            </td>
+                            <td>@info.Name</td>
+                            <td>
+                                @if (info.UserStatus != null)
+                                {
+                                    @info.UserStatus.Status
+                                }
+                            </td>
+
+                            <td><a href="@Url.Content("~/Officer/UpdateStatus/")@info.Id" class="">Update Status</a></td>
+                            <td>
+                                <a href="@Url.Content("~/Officer/OfficerRequesMessList/")@info.Id" class="">
+                                    Warning In/Out
+                                </a>
+                            </td>
+                            @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
+                        </tr>
                     }
                 </tbody>
             </table>
@@ -67,6 +239,8 @@
 <script src="~/Asset/js/dataTables.bootstrap4.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#example').DataTable();
+        $('#example').DataTable({
+            "order": []  // Passing an empty array as the order option
+        });
     });
 </script>

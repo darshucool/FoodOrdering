@@ -824,6 +824,7 @@
     <Content Include="Views\Menu\MenuEdit.cshtml" />
     <Content Include="Views\Menu\AddIngridient.cshtml" />
     <Content Include="Views\Officer\OfficerRequesMessList.cshtml" />
+    <Content Include="Views\Item\DayEnd.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -2906,7 +2906,7 @@ namespace MIMS.Controllers
             UserAccount account = GetCurrentUser();
             List<MenuItem> MenuItemList = new List<MenuItem>();
             var filter = _menuItemService.GetDefaultSpecification();
-            filter = filter.And(p => p.Active == true).And(p=>p.SLAFLocationUId==account.LocationUId);
+            filter = filter.And(p => p.Active == true).And(p=>p.SLAFLocationUId==account.LocationUId).And(p=>p.MenuCategoryUId!=16);
             MenuItemList = _menuItemService.GetCollection(filter, p => p.CreationDate).ToList();
             return View(MenuItemList);
         }
