@@ -2953,8 +2953,9 @@ namespace MIMS.Controllers
             MenuPackageEditModel model = new MenuPackageEditModel();
             try
             {
+                UserAccount account = GetCurrentUser();
                 var filter = _menuItemService.GetDefaultSpecification();
-                filter= filter.And(p=>p.Active==true).And(p=>p.MenuCategoryUId==(int)DataStruct.MenuCategory.Rma_Curry);
+                filter = filter.And(p => p.Active == true).And(p => p.SLAFLocationUId == account.LocationUId);
                 List<MenuItem> MenuitemList = _menuItemService.GetCollection(filter, p => p.CreationDate).ToList();
                 model.MenuItemList = MenuitemList;
 
