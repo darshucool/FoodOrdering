@@ -58,18 +58,18 @@
                             <hr />
                             <h3>Total Ingredient Requirement</h3>
 
-                           
-                                var groupedItems = Model.MenuItemList
-                                    .SelectMany(detail => detail.MenuItemDetailListModelList, (detail, d) => new { detail, d })
-                                    .GroupBy(item => item.d.MenuItemDetail.IngriedientUId)
-                                    .Select(group => new
-                                    {
-                                        IngredientId = group.Key,
-                                        TotalQty = group.Sum(item => Html.GetQtyTotal(item.d.MenuItemDetail.IngriedientQty, item.detail.Detail.Qty, item.d.MenuItemDetail.IngriedientMeasurementUId, item.d.MenuItemDetail.PortionMeasurementUId, Model.MultipleQty)),
-                                        Items = group.ToList()
-                                    })
-                                    .ToList();
-                           
+
+                            var groupedItems = Model.MenuItemList
+                                .SelectMany(detail => detail.MenuItemDetailListModelList, (detail, d) => new { detail, d })
+                                .GroupBy(item => item.d.MenuItemDetail.IngriedientUId)
+                                .Select(group => new
+                                {
+                                    IngredientId = group.Key,
+                                    TotalQty = group.Sum(item => Html.GetQtyTotal(item.d.MenuItemDetail.IngriedientQty, item.detail.Detail.Qty, item.d.MenuItemDetail.IngriedientMeasurementUId, item.d.MenuItemDetail.PortionMeasurementUId, Model.MultipleQty)),
+                                    Items = group.ToList()
+                                })
+                                .ToList();
+
 
                             <table id="table2" width="100%" cellpadding="10" cellspacing="10" border="1">
                                 <tr>
@@ -118,3 +118,16 @@
         </div>
     </div>
 </div>
+
+@if (TempData["WhatMsg1"] != null)
+{
+    string Part1 = @TempData["WhatMsg1"].ToString();
+    string Part2 = @TempData["WhatMsg2"].ToString();
+
+    <script>
+
+        window.open("@Part1&&@Part2", "_blank");
+
+    </script>
+
+}

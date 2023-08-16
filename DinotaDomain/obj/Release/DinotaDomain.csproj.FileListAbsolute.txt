@@ -289,7 +289,6 @@ D:\AF\MIMS\FoodOrdering\DinotaDomain\bin\Release\DinotaDomain.pdb
 D:\AF\MIMS\FoodOrdering\DinotaDomain\bin\Release\DinotaCore.dll
 D:\AF\MIMS\FoodOrdering\DinotaDomain\bin\Release\System.ComponentModel.DataAnnotations.dll
 D:\AF\MIMS\FoodOrdering\DinotaDomain\bin\Release\DinotaCore.pdb
-D:\AF\MIMS\FoodOrdering\DinotaDomain\bin\Release\Autofac.xml
 D:\AF\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.AssemblyReference.cache
 D:\AF\MIMS\FoodOrdering\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
 D:\AF\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.cache

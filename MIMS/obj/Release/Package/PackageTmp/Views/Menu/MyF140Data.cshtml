@@ -35,19 +35,23 @@
                                 </tr>
                                 @foreach (MenuOrderHeaderDetailModel detail in Model.MenuOrders)
                                 {
-                                    
+                                    if(detail.MyAmount>0)
+                                    { 
                                         <tr>
                                             <td>@detail.F140Header.EffectiveDate.ToString("dd/MM/yyyy")</td>
                                             <td>
-                                                @foreach(MenuOrderItemDetail menu in detail.MenuOrderItemDetailList)
-                                                { 
-                                                <p>@menu.MenuItem.Name @menu.Qty @menu.MenuItem.MeasurementUnit.Unit</p>    
+                                                @foreach (MenuOrderItemDetail menu in detail.MenuOrderItemDetailList)
+                                                {
+                                                    <p>@menu.MenuItem.Name @menu.Qty @menu.MenuItem.MeasurementUnit.Unit</p>
                                                 }
                                             </td>
                                             <td>@detail.MyAmount.ToString("00.00")</td>
-                                           <td><a href="@Url.Content("~/Menu/F140Detail/")@detail.F140Header.UId" class="btn btn-primary px-3">View Detail</a>
-</td>
+                                            <td>
+                                                <a href="@Url.Content("~/Menu/F140Detail/")@detail.F140Header.UId" class="btn btn-primary px-3">View Detail</a>
+                                            </td>
                                         </tr>
+                                    }
+                                        
                                    
                                 }
                             </table>

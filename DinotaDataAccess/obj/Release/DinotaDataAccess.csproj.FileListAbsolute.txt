@@ -342,7 +342,6 @@ D:\AF\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\System.ComponentModel.DataA
 D:\AF\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\DinotaCore.pdb
 D:\AF\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\DinotaDomain.pdb
 D:\AF\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\DinotaSecurity.pdb
-D:\AF\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\Autofac.xml
 D:\AF\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.AssemblyReference.cache
 D:\AF\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.CoreCompileInputs.cache
 D:\AF\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.CopyComplete

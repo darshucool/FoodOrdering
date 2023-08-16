@@ -201,7 +201,6 @@ D:\AF\MIMS\FoodOrdering\DinotaSecurity\bin\Release\DinotaCore.dll
 D:\AF\MIMS\FoodOrdering\DinotaSecurity\bin\Release\DinotaDomain.dll
 D:\AF\MIMS\FoodOrdering\DinotaSecurity\bin\Release\DinotaCore.pdb
 D:\AF\MIMS\FoodOrdering\DinotaSecurity\bin\Release\DinotaDomain.pdb
-D:\AF\MIMS\FoodOrdering\DinotaSecurity\bin\Release\Autofac.xml
 D:\AF\MIMS\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csproj.AssemblyReference.cache
 D:\AF\MIMS\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csproj.CoreCompileInputs.cache
 D:\AF\MIMS\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csproj.CopyComplete

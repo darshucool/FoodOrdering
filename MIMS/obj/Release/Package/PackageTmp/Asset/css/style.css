@@ -11,3 +11,7 @@ background-color:#f79ca5;
 color:black;
 padding:10px;
 }
+.alert-error{
+    background-color:#dc375d;
+    color:#fff;
+    }

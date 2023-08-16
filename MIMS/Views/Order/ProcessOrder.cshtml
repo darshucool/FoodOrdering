@@ -34,7 +34,7 @@
                                     decimal AskQty = detail.Detail.Qty;
                                     <tr data-ingredient-id="@detail.MenuItem.UId">
                                         <td colspan="2"><b>@detail.MenuItem.Name</b></td>
-                                        <td><a href="@Url.Content("~/Order/AddIngridient?MenuItemId=" + detail.MenuItem.UId + "&&OrderId=" + Model.MenuOrderId + "")" class="btn btn-primary">Add more Ingredient</a></td>
+                                        <td>@*<a href="@Url.Content("~/Order/AddIngridient?MenuItemId=" + detail.MenuItem.UId + "&&OrderId=" + Model.MenuOrderId + "")" class="btn btn-primary">Add more Ingredient</a>*@</td>
                                         <td>Current Stock</td>
                                         <td></td>
                                     </tr>

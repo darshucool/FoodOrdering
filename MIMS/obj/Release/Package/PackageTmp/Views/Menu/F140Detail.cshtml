@@ -35,7 +35,8 @@
                                 </tr>
                                 @foreach (F140Data detail in Model)
                                 {
-                                    
+                                    if (detail.Qty > 0&& detail.Amount>0)
+                                    {
                                         <tr>
                                             <td>@detail.MenuItem.Name</td>
                                             <td>@detail.IngredientInfo.ItemName</td>
@@ -44,7 +45,7 @@
                                             <td>@detail.Amount</td>
                                           
                                         </tr>
-                                   
+                                    }
                                 }
                             </table>
                             
