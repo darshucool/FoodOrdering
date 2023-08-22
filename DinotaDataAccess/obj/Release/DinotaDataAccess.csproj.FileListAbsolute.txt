@@ -390,3 +390,17 @@ F:\FoodOrdering\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.cspro
 F:\FoodOrdering\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.CopyComplete
 F:\FoodOrdering\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.dll
 F:\FoodOrdering\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.pdb
+G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\DinotaDataAccess.dll
+G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\DinotaDataAccess.pdb
+G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\DinotaCore.dll
+G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\DinotaDomain.dll
+G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\DinotaSecurity.dll
+G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\System.ComponentModel.DataAnnotations.dll
+G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\DinotaCore.pdb
+G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\DinotaDomain.pdb
+G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\DinotaSecurity.pdb
+G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.AssemblyReference.cache
+G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.CoreCompileInputs.cache
+G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.CopyComplete
+G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.dll
+G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.pdb

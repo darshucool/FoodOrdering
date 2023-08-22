@@ -192,7 +192,7 @@ namespace MIMS.Helpers
                 mealIds += ")";
                 string sql = "select Sum(MD.Qty) AS QtyCount from  MenuOrderItemDetail AS MD,MenuOrderHeader AS MH where MenuItemUId "+
                 "    in "+ mealIds + " "+
-                "    and MD.MeanuOrderHeaderUId = MH.UId AND MH.Active = 'TRUE' AND MH.OrderDate between '"+ FromDate.ToString("MM/dd/yyyy HH:mm:ss") + "' and '"+ToDate.ToString("MM/dd/yyyy HH:mm:ss") + "' AND " +
+                "    and MD.MeanuOrderHeaderUId = MH.UId AND MD.Active='TRUE' AND MH.Active = 'TRUE' AND MH.OrderDate between '"+ FromDate.ToString("MM/dd/yyyy HH:mm:ss") + "' and '"+ToDate.ToString("MM/dd/yyyy HH:mm:ss") + "' AND " +
                 "    MH.MenuHeaderType = '"+ MealType + "'  AND MH.LocationUId='"+ LocationUId + "'";
                 DataTable dt = SelectData(sql);
                 foreach(DataRow dr in dt.Rows)

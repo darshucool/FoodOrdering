@@ -236,12 +236,14 @@ namespace MIMS.Controllers
             MenuOrderHeader header = new MenuOrderHeader();
             try
             {
+                UserAccount account = GetCurrentUser();
                 TryUpdateModel(header);
                 header.OrderDate = header.EffectiveDate;
                 header.Active = true;
                 header.Status = 10;
                 header.PaymentMethod = (int)DataStruct.PaymentMethod.Credit;
                 header.OfficerCount = 0;
+                header.LocationUId = account.LocationUId;
                 _menuOrderHeaderService.Add(header);
                 DataContext.SaveChanges();
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Order created. Add menu items");
@@ -470,9 +472,9 @@ namespace MIMS.Controllers
                                 item.Qty = 1;
                             if (i == 1)
                             {
-                                if (det.PortionQty > 0)
+                                if (det.MenuItem.PortionQty > 0)
                                 {
-                                    model.MultipleQty = item.Qty / det.PortionQty;
+                                    model.MultipleQty = item.Qty / det.MenuItem.PortionQty;
                                 }
                                 
                             }

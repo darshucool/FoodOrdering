@@ -163,7 +163,7 @@ namespace MIMS.Controllers
                 var filterDutyB = _menuOrderItemDetailService.GetDefaultSpecification().And(p=>p.MenuOrderHeader.LocationUId==account.LocationUId);
                 //filterDutyB = filterDutyB.And(p => p.Active == true).And(p=>p.MenuOrderHeader.OrderDate>= FromDate).And(p=>p.MenuOrderHeader.OrderDate <= ToDate);
                 //filterDutyB = filterDutyB.And(p=>p.MenuItemUId== (int)DataStruct.MainCourse.Rma_Breakfast).And(p => p.MenuItemUId == (int)DataStruct.MainCourse.Rma_Breakfast_diet).And(p => p.MenuItemUId == (int)DataStruct.MainCourse.Rma_Breakfast_veg);
-                filterDutyB = filterDutyB.And(p => p.Active == true)
+                filterDutyB = filterDutyB.And(p => p.Active == true).And(p=>p.MenuOrderHeader.Active==true)
                 .And(p => p.MenuOrderHeader.OrderDate >= FromDate)
                 .And(p => p.MenuOrderHeader.OrderDate <= ToDate)
                 .Or(p => p.MenuItemUId == (int)DataStruct.MainCourse.Rma_Breakfast)
