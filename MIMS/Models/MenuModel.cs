@@ -12,6 +12,8 @@ using Dinota.Domain.MenuOrderHeader;
 using Dinota.Domain.MenuOrderItemDetail;
 using Dinota.Domain.MenuOrderOfficer;
 using Dinota.Domain.MenuPackage;
+using Dinota.Domain.SetMenuDetail;
+using Dinota.Domain.SetMenuHeader;
 using Dinota.Domain.User;
 using System;
 using System.Collections.Generic;
@@ -128,5 +130,15 @@ namespace AlfasiWeb.Models
     {
         public UserAccount oUserAccount { get; set; }
         public decimal MessBill { get; set; }
+    }
+
+    public class SetMenuModel { 
+        public SetMenuHeader SetMenuHeader { get; set; }
+        public string SetMenuName { get; set; }
+        public List<SetMenuDetail> SetMenuDetailList { get; set; }
+        public List<MenuItem> MenuItemList { get; set; }
+        public List<SetMenuHeader> SetMenuHeaderList { get; set; }
+
+        public int MenuItemId { get; set; }
     }
 }

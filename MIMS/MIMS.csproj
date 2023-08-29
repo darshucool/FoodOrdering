@@ -225,6 +225,7 @@
     <Compile Include="Controllers\AuthorizeUserAccessLevel.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ItemBOCController.cs" />
+    <Compile Include="Controllers\SetMenuController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
@@ -825,6 +826,11 @@
     <Content Include="Views\Menu\AddIngridient.cshtml" />
     <Content Include="Views\Officer\OfficerRequesMessList.cshtml" />
     <Content Include="Views\Item\DayEnd.cshtml" />
+    <Content Include="Views\SetMenu\SetMenuList.cshtml" />
+    <Content Include="Views\SetMenu\SetMenuRegister.cshtml" />
+    <Content Include="Views\SetMenu\_CreateEditMenu.cshtml" />
+    <Content Include="Views\SetMenu\SetMenuEdit.cshtml" />
+    <Content Include="Views\SetMenu\SetMenuPackageList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

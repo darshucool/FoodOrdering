@@ -59,6 +59,10 @@
     <Compile Include="AutofacModule.cs" />
     <Compile Include="AlertNotify\AlertNotifyMap.cs" />
     <Compile Include="AlertNotify\AlertNotifyRepo.cs" />
+    <Compile Include="SetMenuDetail\SetMenuDetailMap.cs" />
+    <Compile Include="SetMenuDetail\SetMenuDetailRepo.cs" />
+    <Compile Include="SetMenuHeader\SetMenuHeaderMap.cs" />
+    <Compile Include="SetMenuHeader\SetMenuHeaderRepo.cs" />
     <Compile Include="MenuOrderExtraItemDetail\MenuOrderExtraItemDetailMap.cs" />
     <Compile Include="MenuOrderExtraItemDetail\MenuOrderExtraItemDetailRepo.cs" />
     <Compile Include="PaymentMethod\PaymentMethodMap.cs" />

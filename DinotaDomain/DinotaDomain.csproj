@@ -59,6 +59,12 @@
     <Compile Include="AlertNotify\AlertNotify.cs" />
     <Compile Include="AlertNotify\AlertNotifyService.cs" />
     <Compile Include="AlertNotify\IAlertNotifyRepo.cs" />
+    <Compile Include="SetMenuDetail\ISetMenuDetailRepo.cs" />
+    <Compile Include="SetMenuDetail\SetMenuDetail.cs" />
+    <Compile Include="SetMenuDetail\SetMenuDetailService.cs" />
+    <Compile Include="SetMenuHeader\ISetMenuHeaderRepo.cs" />
+    <Compile Include="SetMenuHeader\SetMenuHeader.cs" />
+    <Compile Include="SetMenuHeader\SetMenuHeaderService.cs" />
     <Compile Include="MenuOrderExtraItemDetail\IMenuOrderExtraItemDetailRepo.cs" />
     <Compile Include="MenuOrderExtraItemDetail\MenuOrderExtraItemDetail.cs" />
     <Compile Include="MenuOrderExtraItemDetail\MenuOrderExtraItemDetailService.cs" />
