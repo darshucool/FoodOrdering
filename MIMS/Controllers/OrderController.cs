@@ -32,6 +32,7 @@ using Dinota.Domain.F140Header;
 using Dinota.Domain.F140Data;
 using AlfasiWeb;
 using Dinota.Domain.MenuOrderExtraItemDetail;
+using System.Media;
 
 namespace MIMS.Controllers
 {
@@ -122,6 +123,8 @@ namespace MIMS.Controllers
             }
 
         }
+
+        
         [HttpPost]
         public ActionResult OrderList(FormCollection Form)
         {
@@ -129,11 +132,12 @@ namespace MIMS.Controllers
             List<MenuOrderHeaderModel> MenuOrderHeaderModelList = new List<MenuOrderHeaderModel>();
             try
             {
+                UserAccount account = GetCurrentUser();
                 TryUpdateModel(model);
                 DateTime FromDate = model.EffectiveDate.Date;
                 DateTime ToDate = model.EffectiveDate.Date.AddDays(1).AddTicks(-1);
                 var filter = _menuOrderHeaderService.GetDefaultSpecification();
-                filter = filter.And(p => p.Active == true).And(p=>p.OrderDate>= FromDate).And(p=>p.OrderDate<= ToDate);
+                filter = filter.And(p => p.Active == true).And(p=>p.OrderDate>= FromDate).And(p=>p.OrderDate<= ToDate).And(p=>p.LocationUId== account.LocationUId);
                 List<MenuOrderHeader> MenuOrderHeaderList = _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p=>p.OrderDate).Take(60).ToList();
                 foreach (MenuOrderHeader order in MenuOrderHeaderList.OrderBy(p => p.OrderDate))
                 {

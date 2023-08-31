@@ -40,6 +40,7 @@ using Dinota.Domain.MenuOrderOfficer;
 using AlfasiWeb;
 using Dinota.Domain.IngredientInfo;
 using Dinota.Domain.AlertNotify;
+using System.Media;
 
 namespace MIMS.Controllers
 {
@@ -814,7 +815,7 @@ namespace MIMS.Controllers
                 //    filter = filter.And(p => p.Status == 20);
                 //else 
                 List<MenuDetailItemOfficerModel> PendingMenuOrderList = new List<MenuDetailItemOfficerModel>();
-                filter = filter.And(p => p.Status == (int)DataStruct.MenuOrderItemStatus.Pending);
+                filter = filter.And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Pending);
                 filter = filter.And(p => p.Active == true).And(p=>p.MenuOrderHeader.LocationUId==account.LocationUId);
                 List<MenuOrderItemDetail> MenuItemList = _menuOrderItemDetailService.GetCollection(filter, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).ToList();
                 foreach (MenuOrderItemDetail item in MenuItemList)
@@ -826,14 +827,14 @@ namespace MIMS.Controllers
                     det.MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filterO, p=>p.CreationDate).ToList();
                     PendingMenuOrderList.Add(det);
                 }
-              
+               
                 model.PendingMenuOrderList = PendingMenuOrderList;
                 DateTime EffectiveDate = DateTime.Now;
                 DateTime FromDate = EffectiveDate.Date;
                 DateTime ToDate = EffectiveDate.Date.AddDays(1).AddTicks(-1);
                 var filterC = _menuOrderItemDetailService.GetDefaultSpecification();
                 List<MenuDetailItemOfficerModel> CompleteMenuOrderList = new List<MenuDetailItemOfficerModel>();
-                filterC = filterC.And(p => p.Status == (int)DataStruct.MenuOrderItemStatus.Accepted).And(p=>p.MenuOrderHeader.OrderDate>= FromDate).And(p=>p.MenuOrderHeader.OrderDate<= ToDate);
+                filterC = filterC.And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Accepted).And(p=>p.MenuOrderHeader.OrderDate>= FromDate).And(p=>p.MenuOrderHeader.OrderDate<= ToDate);
                 filterC = filterC.And(p => p.Active == true).And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
                 List<MenuOrderItemDetail> CompleteMenuItemList = _menuOrderItemDetailService.GetCollection(filterC, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).ToList();
                 foreach (MenuOrderItemDetail item in CompleteMenuItemList)
@@ -847,8 +848,9 @@ namespace MIMS.Controllers
                 }
                 model.CompleteMenuOrderList = CompleteMenuOrderList;
                 var filterCan = _menuOrderItemDetailService.GetDefaultSpecification();
+
                 List<MenuDetailItemOfficerModel> CancelledMenuItemList = new List<MenuDetailItemOfficerModel>();
-                filterCan = filterCan.And(p => p.Status == (int)DataStruct.MenuOrderItemStatus.Cancel);
+                filterCan = filterCan.And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Cancel);
                 filterCan = filterCan.And(p => p.Active == true).And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
                 List<MenuOrderItemDetail> CancelMenuItemList = _menuOrderItemDetailService.GetCollection(filterCan, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).ToList();
                 foreach (MenuOrderItemDetail item in CancelMenuItemList)
@@ -862,10 +864,11 @@ namespace MIMS.Controllers
                 }
                 model.CancelledMenuOrderList = CancelledMenuItemList;
                 var filterD = _menuOrderItemDetailService.GetDefaultSpecification();
+
                 List<MenuDetailItemOfficerModel> DeliveredMenuItemList = new List<MenuDetailItemOfficerModel>();
-                filterD = filterD.And(p => p.Status == (int)DataStruct.MenuOrderItemStatus.Delivered);
+                filterD = filterD.And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Delivered);
                 filterD = filterD.And(p => p.Active == true).And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
-                List<MenuOrderItemDetail> DeliMenuItemList = _menuOrderItemDetailService.GetCollection(filterD, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).ToList();
+                List<MenuOrderItemDetail> DeliMenuItemList = _menuOrderItemDetailService.GetCollection(filterD, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).Take(10).ToList();
                 foreach (MenuOrderItemDetail item in DeliMenuItemList)
                 {
                     MenuDetailItemOfficerModel det = new MenuDetailItemOfficerModel();
@@ -876,6 +879,13 @@ namespace MIMS.Controllers
                     DeliveredMenuItemList.Add(det);
                 }
                 model.DeliveredMenuOrderList = DeliveredMenuItemList;
+                if (PendingMenuOrderList.Count > 0)
+                {
+                    using (var soundPlayer = new SoundPlayer(System.Web.Hosting.HostingEnvironment.MapPath(@"~/Asset/calltoattention.wav")))
+                    {
+                        soundPlayer.Play(); // can also use soundPlayer.PlaySync()
+                    }
+                }
             }
             catch (Exception)
             {
@@ -1932,7 +1942,7 @@ namespace MIMS.Controllers
                 //    menu = menu.Replace(" ", "%20");
                 //    System.Diagnostics.Process.Start("http://api.whatsapp.com/send?phone=94" + MobNo + "&text=Your%20order%20" + menu + "%20has%20been%20cancelled");
                 //}
-                    return RedirectToAction("MenuOrderList");
+                    return RedirectToAction("MyOrders");
             }
             catch (Exception)
             {

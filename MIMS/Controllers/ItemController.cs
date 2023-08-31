@@ -143,6 +143,8 @@ namespace MIMS.Controllers
         }
         public ActionResult StockSheet(int id)
         {
+            UserAccount account = GetCurrentUser();
+
             StockSheetTransactionModel StockSheetTransactionModelList = new StockSheetTransactionModel();
             var firstDayOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
@@ -156,7 +158,7 @@ namespace MIMS.Controllers
             DateTime CurrentFromDate = DateTime.Now.Date;
             DateTime CurrentToDate = DateTime.Now.Date.AddDays(1).AddTicks(-1);
             var filterI = _ingredientInfoService.GetDefaultSpecification();
-            filterI = filterI.And(p => p.Active == true).And(p => p.ItemTypeId == id);
+            filterI = filterI.And(p => p.Active == true).And(p => p.ItemTypeId == id).And(p => p.LocationUId == account.LocationUId);
             List<IngredientInfo> IngredientInfoList = _ingredientInfoService.GetCollection(filterI, p => p.CreationDate).ToList();
             List<IngredientInfo> IngredientList = new List<IngredientInfo>();
             List<BOCAmountList> BOCAmountList = new List<BOCAmountList>();
