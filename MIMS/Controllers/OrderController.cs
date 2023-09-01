@@ -188,7 +188,10 @@ namespace MIMS.Controllers
                 var filter = _paymentInfoService.GetDefaultSpecification();
                 filter = filter.And(p => p.Active == true).And(p => p.MenuOrderHeaderId == id);
                 PaymentInfo info = _paymentInfoService.GetBy(filter);
-                mod.PaymentInfo = info;
+                if (info != null)
+                    mod.PaymentInfo = info;
+                else
+                    mod.PaymentInfo = new PaymentInfo();
             }
             catch (Exception)
             {
@@ -205,7 +208,28 @@ namespace MIMS.Controllers
             {
                 MenuOrderHeader oMenuOrderHeader = _menuOrderHeaderService.GetByKey(id);
                 mod.MenuOrderHeader = oMenuOrderHeader;
-
+                var filter = _paymentInfoService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p => p.MenuOrderHeaderId == id);
+                PaymentInfo info = _paymentInfoService.GetBy(filter);
+                PaymentInfo payment = new PaymentInfo();
+                if (info == null)
+                {
+                    payment = info;
+                }
+                TryUpdateModel(mod);
+                payment= mod.PaymentInfo;
+                payment.Active = true;
+                if (info == null)
+                {
+                    _paymentInfoService.Add(payment);
+                    DataContext.SaveChanges();
+                }
+                else
+                {
+                    DataContext.SaveChanges();
+                }
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Payment Information successfully Saved");
+                return RedirectToAction("OrderList","Order", new { id = id });
             }
             catch (Exception)
             {

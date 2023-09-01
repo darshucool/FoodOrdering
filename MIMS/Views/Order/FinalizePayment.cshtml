@@ -29,24 +29,49 @@
                     <div id="edit_profile">
                         <div>
 
-                            @using (Html.BeginForm("FinalizePayment", "Order", new { id = Model.MenuOrderId }, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+                            @using (Html.BeginForm("FinalizePayment", "Order", new { id = Model.MenuOrderHeader.UId }, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
                             {
                                 <div class="form-group">
                                     <label for="exampleInputName1">Select Payment Method</label>
 
-                                    @if (!string.IsNullOrEmpty(Model.PaymentInfo.ToString()))
+                                    @if (Model.PaymentInfo.UId != 0)
                                     {
-                                        date = DateTime.Parse(Model.EffectiveDate.ToString());
+                                        date = DateTime.Parse(Model.PaymentInfo.PaymentDate.ToString());
 
 
-                                        @Html.TextBoxFor(m => m.EffectiveDate, "{0:yyyy-MM-dd}", new { @placeholder = "Enter Date", @class = "form-control", @type = "date", @Required = "true", @value = @date.ToString("MM/dd/yyyy") })
+                                        @Html.TextBoxFor(m => m.PaymentInfo.PaymentDate, "{0:yyyy-MM-dd}", new { @placeholder = "Enter Date", @class = "form-control", @type = "date", @Required = "true", @value = @date.ToString("MM/dd/yyyy") })
                                     }
                                     else
                                     {
-                                        @Html.TextBoxFor(s => s.EffectiveDate, new { @class = "form-control ", @placeholder = "Date of Birth", @type = "date" })
+                                        @Html.TextBoxFor(s => s.PaymentInfo.PaymentDate, new { @class = "form-control ", @placeholder = "Date of Birth", @type = "date" })
 
 
                                     }
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">Select Payment Method</label>
+
+                                    <select name="PaymentMethodId" id="PaymentMethodId" class="form-control" Required>
+                                        <option>-- Select Payment Method --</option>
+                                        <option value="2">Cash</option>
+                                        <option value="3">Credit Card</option>
+                                        <option value="4">Cheque</option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">Payment Amount</label>
+
+                                    @Html.TextBoxFor(s => s.PaymentInfo.PaymentAmount, new { @class = "form-control ", @placeholder = "Amount" })
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">Payment Reference</label>
+
+                                    @Html.TextBoxFor(s => s.PaymentInfo.PaymentReference, new { @class = "form-control ", @placeholder = "Reference" })
 
 
                                 </div>
