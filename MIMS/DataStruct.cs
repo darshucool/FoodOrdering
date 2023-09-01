@@ -77,7 +77,9 @@ namespace AlfasiWeb
         public enum PaymentMethod
         {
             Credit = 1,
-            Cash = 2
+            Cash = 2,
+            Credit_Card=3,
+            CHeque=4
         };
         public enum MenuOrderItemStatus
         {

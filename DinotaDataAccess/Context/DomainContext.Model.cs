@@ -43,8 +43,7 @@ using Dinota.DataAccces.MenuOrderExtraItemDetail;
 using Dinota.DataAccces.AlertNotify;
 using Dinota.DataAccces.SetMenuHeader;
 using Dinota.DataAccces.SetMenuDetail;
-
-
+using Dinota.DataAccces.PaymentInfo;
 
 namespace Dinota.DataAccces.Context
 {
@@ -100,6 +99,7 @@ namespace Dinota.DataAccces.Context
             modelBuilder.Configurations.Add(new AlertNotifyMap());
             modelBuilder.Configurations.Add(new SetMenuDetailMap());
             modelBuilder.Configurations.Add(new SetMenuHeaderMap());
+            modelBuilder.Configurations.Add(new PaymentInfoMap());
         }
     }
 }
