@@ -206,6 +206,7 @@ namespace MIMS.Controllers
             MenuOrderHeaderModel mod = new MenuOrderHeaderModel();
             try
             {
+                UserAccount account = GetCurrentUser();
                 MenuOrderHeader oMenuOrderHeader = _menuOrderHeaderService.GetByKey(id);
                 mod.MenuOrderHeader = oMenuOrderHeader;
                 var filter = _paymentInfoService.GetDefaultSpecification();
@@ -217,8 +218,12 @@ namespace MIMS.Controllers
                     payment = info;
                 }
                 TryUpdateModel(mod);
-                payment= mod.PaymentInfo;
+               
+                payment = mod.PaymentInfo;
                 payment.Active = true;
+                payment.PaymentMethodId = int.Parse(Form["PaymentMethodId"].ToString());
+                payment.SLAFLocationId = account.LocationUId;
+                payment.MenuOrderHeaderId = id;
                 if (info == null)
                 {
                     _paymentInfoService.Add(payment);
@@ -228,6 +233,9 @@ namespace MIMS.Controllers
                 {
                     DataContext.SaveChanges();
                 }
+                MenuOrderHeader MenuOrderHeader = _menuOrderHeaderService.GetByKey(id);
+                MenuOrderHeader.PaymentMethod =payment.PaymentMethodId;
+                DataContext.SaveChanges();
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Payment Information successfully Saved");
                 return RedirectToAction("OrderList","Order", new { id = id });
             }
@@ -465,6 +473,8 @@ namespace MIMS.Controllers
                 }
 
                 DataContext.SaveChanges();
+
+                
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Item added to the order. Add more menu items");
                 return RedirectToAction("MenuCreate", new { id });
             }

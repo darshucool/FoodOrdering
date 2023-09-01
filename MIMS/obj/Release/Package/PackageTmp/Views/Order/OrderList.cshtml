@@ -54,57 +54,65 @@
                         <th></th>
                         <th></th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (MenuOrderHeaderModel info in Model.MenuOrderHeaderModelList)
                     {
-                        <tr>
+                    <tr>
 
-                            <td>@info.MenuOrderHeader.OrderDate.ToString("yyyy/MM/dd")</td>
-                            <td>
-                                @if (info.MenuOrderItemDetailList != null)
+                        <td>@info.MenuOrderHeader.OrderDate.ToString("yyyy/MM/dd")</td>
+                        <td>
+                            @if (info.MenuOrderItemDetailList != null)
+                            {
+                                foreach (MenuOrderItemDetail det in info.MenuOrderItemDetailList)
                                 {
-                                    foreach (MenuOrderItemDetail det in info.MenuOrderItemDetailList)
-                                    {
-                                        @det.MenuItem.Name<br />
+                                    @det.MenuItem.Name<br />
 
-                                    }
                                 }
+                            }
 
-                            </td>
-                            <td>
-                                @if (info.MenuOrderItemDetailList != null)
+                        </td>
+                        <td>
+                            @if (info.MenuOrderItemDetailList != null)
+                            {
+                                foreach (MenuOrderItemDetail det in info.MenuOrderItemDetailList)
                                 {
-                                    foreach (MenuOrderItemDetail det in info.MenuOrderItemDetailList)
-                                    {
-                                        <span>@det.Qty.ToString("00")&nbsp; @det.MenuItem.MeasurementUnit.Unit</span><br />
+                                    <span>@det.Qty.ToString("00")&nbsp; @det.MenuItem.MeasurementUnit.Unit</span><br />
 
-                                    }
                                 }
-                            </td>
-                            @*<td>@info.MenuOrderHeader.Location</td>*@
-                            <td style="text-align:right">
-                                @if (info.F140Header != null)
-                                {
-                                    <span> @info.TotalAmount.ToString("00.00")</span>
-                                }
+                            }
+                        </td>
+                        @*<td>@info.MenuOrderHeader.Location</td>*@
+                        <td style="text-align:right">
+                            @if (info.F140Header != null)
+                            {
+                                <span> @info.TotalAmount.ToString("00.00")</span>
+                            }
 
-                            </td>
+                        </td>
 
 
-                            <td><a href="@Url.Content("~/Order/OfficerList/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Officer List</a></td>
-                            <td><a href="@Url.Content("~/Order/MenuCreate/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Detail</a></td>
-                            <td>
-                                @if (info.F140Header != null)
-                                {
-                                    <a href="@Url.Content("~/Menu/F140Detail/")@info.F140Header.UId" class="btn btn-primary px-3">F140 Detail</a>
-                                }
+                        <td><a href="@Url.Content("~/Order/OfficerList/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Officer List</a></td>
+                        <td><a href="@Url.Content("~/Order/MenuCreate/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Detail</a></td>
+                        <td>
+                            @if (info.F140Header != null)
+                            {
+                                <a href="@Url.Content("~/Menu/F140Detail/")@info.F140Header.UId" class="btn btn-primary px-3">F140 Detail</a>
+                            }
 
-                            </td>
-                            <td><a href="@Url.Content("~/Order/DeleteOrder/")@info.MenuOrderHeader.UId" class=""><img src="~/Asset/img/remove.png" width="20" /></a></td>
-                            @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
-                        </tr>
+                        </td>
+                        <td>
+                            @if (info.F140Header != null)
+                            {
+                                <a href="@Url.Content("~/Order/FinalizePayment/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Payment</a>
+                            }
+
+                        </td>
+                        <td><a href="@Url.Content("~/Order/DeleteOrder/")@info.MenuOrderHeader.UId" class=""><img src="~/Asset/img/remove.png" width="20" /></a></td>
+                        @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
+                    </tr>
                     }
                 </tbody>
             </table>

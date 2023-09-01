@@ -835,7 +835,7 @@ namespace MIMS.Controllers
                 DateTime ToDate = EffectiveDate.Date.AddDays(1).AddTicks(-1);
                 var filterC = _menuOrderItemDetailService.GetDefaultSpecification();
                 List<MenuDetailItemOfficerModel> CompleteMenuOrderList = new List<MenuDetailItemOfficerModel>();
-                filterC = filterC.And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Accepted).And(p=>p.MenuOrderHeader.OrderDate>= FromDate).And(p=>p.MenuOrderHeader.OrderDate<= ToDate);
+                filterC = filterC.And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Accepted);
                 filterC = filterC.And(p => p.Active == true).And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
                 List<MenuOrderItemDetail> CompleteMenuItemList = _menuOrderItemDetailService.GetCollection(filterC, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).ToList();
                 
@@ -1710,7 +1710,7 @@ namespace MIMS.Controllers
 
                 List<MenuOrderHeaderDetailModel> MenuOrderHeaderList = new List<MenuOrderHeaderDetailModel>();
                 UserAccount account = GetCurrentUser();
-                var filter = _menuOrderOfficerService.GetDefaultSpecification();
+                var filter = _menuOrderOfficerService.GetDefaultSpecification().And(p=>p.MenuOrderHeader.PaymentMethod==(int)DataStruct.PaymentMethod.Credit);
                 filter = filter.And(p => p.Active == true).And(p=>p.UserId==account.Id).And(p=>p.MenuOrderHeader.Status==(int)DataStruct.MenuOrderItemStatus.Delivered).And(p=>p.MenuOrderHeader.OrderDate>= firstDayOfMonth).And(p => p.MenuOrderHeader.OrderDate <= lastDayOfMonth);
                 List<MenuOrderOfficer> MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filter, p => p.CreationDate).ToList();
                 foreach (MenuOrderOfficer head in MenuOrderOfficerList)
@@ -2918,7 +2918,7 @@ namespace MIMS.Controllers
             UserAccount account = GetCurrentUser();
             List<MenuItem> MenuItemList = new List<MenuItem>();
             var filter = _menuItemService.GetDefaultSpecification();
-            filter = filter.And(p => p.Active == true).And(p=>p.SLAFLocationUId==account.LocationUId).And(p=>p.MenuCategoryUId!=16);
+            filter = filter.And(p => p.Active == true).And(p=>p.SLAFLocationUId==account.LocationUId);
             MenuItemList = _menuItemService.GetCollection(filter, p => p.CreationDate).ToList();
             return View(MenuItemList);
         }
