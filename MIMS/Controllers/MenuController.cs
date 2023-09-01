@@ -818,6 +818,7 @@ namespace MIMS.Controllers
                 filter = filter.And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Pending);
                 filter = filter.And(p => p.Active == true).And(p=>p.MenuOrderHeader.LocationUId==account.LocationUId);
                 List<MenuOrderItemDetail> MenuItemList = _menuOrderItemDetailService.GetCollection(filter, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).ToList();
+                
                 foreach (MenuOrderItemDetail item in MenuItemList)
                 {
                     MenuDetailItemOfficerModel det=new MenuDetailItemOfficerModel();
@@ -837,6 +838,7 @@ namespace MIMS.Controllers
                 filterC = filterC.And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Accepted).And(p=>p.MenuOrderHeader.OrderDate>= FromDate).And(p=>p.MenuOrderHeader.OrderDate<= ToDate);
                 filterC = filterC.And(p => p.Active == true).And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
                 List<MenuOrderItemDetail> CompleteMenuItemList = _menuOrderItemDetailService.GetCollection(filterC, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).ToList();
+                
                 foreach (MenuOrderItemDetail item in CompleteMenuItemList)
                 {
                     MenuDetailItemOfficerModel det = new MenuDetailItemOfficerModel();
@@ -850,7 +852,7 @@ namespace MIMS.Controllers
                 var filterCan = _menuOrderItemDetailService.GetDefaultSpecification();
 
                 List<MenuDetailItemOfficerModel> CancelledMenuItemList = new List<MenuDetailItemOfficerModel>();
-                filterCan = filterCan.And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Cancel);
+                filterCan = filterCan.And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Cancel).And(p => p.MenuOrderHeader.OrderDate >= FromDate).And(p => p.MenuOrderHeader.OrderDate <= ToDate);
                 filterCan = filterCan.And(p => p.Active == true).And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
                 List<MenuOrderItemDetail> CancelMenuItemList = _menuOrderItemDetailService.GetCollection(filterCan, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).ToList();
                 foreach (MenuOrderItemDetail item in CancelMenuItemList)
@@ -866,9 +868,9 @@ namespace MIMS.Controllers
                 var filterD = _menuOrderItemDetailService.GetDefaultSpecification();
 
                 List<MenuDetailItemOfficerModel> DeliveredMenuItemList = new List<MenuDetailItemOfficerModel>();
-                filterD = filterD.And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Delivered);
+                filterD = filterD.And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Delivered).And(p => p.MenuOrderHeader.OrderDate >= FromDate).And(p => p.MenuOrderHeader.OrderDate <= ToDate);
                 filterD = filterD.And(p => p.Active == true).And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
-                List<MenuOrderItemDetail> DeliMenuItemList = _menuOrderItemDetailService.GetCollection(filterD, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).Take(10).ToList();
+                List<MenuOrderItemDetail> DeliMenuItemList = _menuOrderItemDetailService.GetCollection(filterD, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).ToList();
                 foreach (MenuOrderItemDetail item in DeliMenuItemList)
                 {
                     MenuDetailItemOfficerModel det = new MenuDetailItemOfficerModel();
@@ -879,13 +881,13 @@ namespace MIMS.Controllers
                     DeliveredMenuItemList.Add(det);
                 }
                 model.DeliveredMenuOrderList = DeliveredMenuItemList;
-                if (PendingMenuOrderList.Count > 0)
-                {
-                    using (var soundPlayer = new SoundPlayer(System.Web.Hosting.HostingEnvironment.MapPath(@"~/Asset/calltoattention.wav")))
-                    {
-                        soundPlayer.Play(); // can also use soundPlayer.PlaySync()
-                    }
-                }
+                //if (PendingMenuOrderList.Count > 0)
+                //{
+                //    using (var soundPlayer = new SoundPlayer(System.Web.Hosting.HostingEnvironment.MapPath(@"~/Asset/calltoattention.wav")))
+                //    {
+                //        soundPlayer.Play(); // can also use soundPlayer.PlaySync()
+                //    }
+                //}
             }
             catch (Exception)
             {

@@ -9,6 +9,8 @@
     ViewBag.Title = "MenuOrderList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
 <meta http-equiv="Refresh" content="30">
 <div class="d-none">
     <div class="bg-primary border-bottom p-3 d-flex align-items-center">
@@ -16,8 +18,16 @@
         <h4 class="font-weight-bold m-0 text-white">Order List</h4>
     </div>
 </div>
+
+<div>
+    @if(Model.PendingMenuOrderList.Count>0){
+        <audio id="audio" src="~/Asset/ding.mp3"></audio>
+    }
+</div>
+
 <section class="py-4 osahan-main-body">
     <div class="container">
+        
         <div class="row">
             @Html.Message()
             <div class="col-md-3 mb-3">
@@ -69,21 +79,106 @@
 
                                 @foreach (MenuDetailItemOfficerModel ord in Model.CompleteMenuOrderList)
                                 {
+                                    <tr>
+                                        @using (Html.BeginForm("MenuOrderDelivery", "Menu", new { id = ord.MenuOrderItemDetail.UId }, FormMethod.Post))
+                                        {
+                                            <td>
+                                                @foreach (MenuOrderOfficer off in ord.MenuOrderOfficerList)
+                                                {
+                                                    <p>
+                                                        @off.UserBase.UserName
+                                                        @if (off.UserBase.Rank != null)
+                                                        {
+                                                            @off.UserBase.Rank.Name
+                                                        }
+                                                        @off.UserBase.Name
+                                                    </p>
+                                                }
+                                            </td>
+
+                                            <td>
+                                                @foreach (MenuOrderOfficer off in ord.MenuOrderOfficerList)
+                                                {
+                                                    <p>
+                                                        @if (!string.IsNullOrEmpty(off.UserBase.Telephone1))
+                                                        {
+                                                            if (off.UserBase.Telephone1 != "111111")
+                                                            {
+                                                                @off.UserBase.Telephone1
+                                                            }
+
+                                                        }
+                                                    </p>
+                                                }
+                                            </td>
+                                            <td>
+                                                <big> @ord.MenuOrderItemDetail.MenuItem.Name</big>
+
+
+                                            </td>
+                                            <td>
+
+                                                <span>  @ord.MenuOrderItemDetail.MenuItem.MeasurementUnit.Unit</span>
+
+                                            </td>
+                                            <td>
+                                                @ord.MenuOrderItemDetail.MenuOrderHeader.Location
+
+                                            </td>
+                                            <td>@ord.MenuOrderItemDetail.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @ord.MenuOrderItemDetail.MenuOrderHeader.Time</td>
+                                            <td>@ord.MenuOrderItemDetail.Remark</td>
+
+
+                                            <td>
+                                                <div class="text-right">
+                                                    <button type="submit" name="btnSubmit" value="SUBMIT" class="btn btn-primary px-3">Delivered</button>
+                                                    <button type="button" name="btnSubmit" value="CANCEL" class="btn btn-outline-primary px-3" data-toggle="modal" data-target="#extras" onclick="AssignOrderValue(@ord.MenuOrderItemDetail.UId">REJECT</button>
+                                                </div>
+                                            </td>
+                                        }
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade show active" id="progress" role="tabpanel" aria-labelledby="progress-tab">
+                    <div class="order-body">
+                        <table border="1" width="100%" cellspacing="5">
+                            <thead>
                                 <tr>
-                                    @using (Html.BeginForm("MenuOrderDelivery", "Menu", new { id = ord.MenuOrderItemDetail.UId }, FormMethod.Post))
-                                    {
+                                    <th>Officer</th>
+                                    <th>Tele No</th>
+                                    <th>Menu Item</th>
+                                    <th>Qty</th>
+                                    <th>Delivery Location</th>
+                                    <th>Date and Time</th>
+                                    <th>Remark</th>
+
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                @foreach (MenuDetailItemOfficerModel ord in Model.PendingMenuOrderList)
+                                {
+                                    <tr>
                                         <td>
                                             @foreach (MenuOrderOfficer off in ord.MenuOrderOfficerList)
                                             {
-                                                <p>@off.UserBase.UserName  
-                                                @if (off.UserBase.Rank != null)
-                                                {
-                                                    @off.UserBase.Rank.Name
-                                                }
-                                                 @off.UserBase.Name</p>
+                                                <p>
+                                                    @off.UserBase.UserName
+                                                    @if (off.UserBase.Rank != null)
+                                                    {
+                                                        @off.UserBase.Rank.Name
+                                                    }
+                                                    @off.UserBase.Name
+                                                </p>
                                             }
                                         </td>
-                                       
+
                                         <td>
                                             @foreach (MenuOrderOfficer off in ord.MenuOrderOfficerList)
                                             {
@@ -96,127 +191,44 @@
                                                         }
 
                                                     }
-                                            </p>
+                                                </p>
                                             }
                                         </td>
-                                        <td>
-                                            <big> @ord.MenuOrderItemDetail.MenuItem.Name</big>
-                                            
-                                            
-                                        </td>
-                                        <td>
-                                            
+
+                                        @using (Html.BeginForm("MenuOrderConfirm", "Menu", new { id = ord.MenuOrderItemDetail.UId }, FormMethod.Post))
+                                        {
+                                            <td>
+                                                <big> @ord.MenuOrderItemDetail.MenuItem.Name</big>
+
+                                            </td>
+                                            <td>
+
                                                 <span>  @ord.MenuOrderItemDetail.MenuItem.MeasurementUnit.Unit</span>
-                                            
-                                        </td>
-                                        <td>
-                                            @ord.MenuOrderItemDetail.MenuOrderHeader.Location
-                                       
-                                    </td>
-                                    <td>@ord.MenuOrderItemDetail.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @ord.MenuOrderItemDetail.MenuOrderHeader.Time</td>
-                                    <td>@ord.MenuOrderItemDetail.Remark</td>
+
+                                            </td>
+                                            <td>
+                                                @ord.MenuOrderItemDetail.MenuOrderHeader.Location
+
+                                            </td>
+                                            <td>@ord.MenuOrderItemDetail.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @ord.MenuOrderItemDetail.MenuOrderHeader.Time</td>
+                                            <td>@ord.MenuOrderItemDetail.Remark</td>
 
 
-                                    <td>
-                                        <div class="text-right">
-                                            <button type="submit" name="btnSubmit" value="SUBMIT" class="btn btn-primary px-3">Delivered</button>
-                                            <button type="button" name="btnSubmit" value="CANCEL" class="btn btn-outline-primary px-3" data-toggle="modal" data-target="#extras" onclick="AssignOrderValue(@ord.MenuOrderItemDetail.UId)">REJECT</button>
-                                        </div>
-                                    </td>
-                                    }
-                                </tr>
-                                    
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="tab-pane fade show active" id="progress" role="tabpanel" aria-labelledby="progress-tab">
-                    <div class="order-body">
-                        <table border="1" width="100%" cellspacing="5">
-                            <thead>
-                                <tr>
-                                  <th>Officer</th>
-                                    <th>Tele No</th>
-                                    <th>Menu Item</th>
-                                    <th>Qty</th>
-                                    <th>Delivery Location</th>
-                                    <th>Date and Time</th>
-                                    <th>Remark</th>
-                                    
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-
-                                @foreach (MenuDetailItemOfficerModel ord in Model.PendingMenuOrderList)
-                                {
-                                <tr>
-                                    <td>
-                                        @foreach (MenuOrderOfficer off in ord.MenuOrderOfficerList)
-                                        {
-                                            <p>
-                                                @off.UserBase.UserName
-                                            @if (off.UserBase.Rank != null)
-                                            {
-                                                @off.UserBase.Rank.Name
-                                            }
-                                            @off.UserBase.Name
-                                        </p>
+                                            <td>
+                                                <div class="text-right">
+                                                    <button type="submit" name="btnSubmit" value="SUBMIT" class="btn btn-primary px-3">ACCEPT</button>
+                                                    <button type="button" name="btnSubmit" value="CANCEL" class="btn btn-outline-primary px-3" data-toggle="modal" data-target="#extras" onclick="@ord.MenuOrderItemDetail.UId">REJECT</button>
+                                                </div>
+                                            </td>
                                         }
-                                    </td>
-
-                                    <td>
-                                        @foreach (MenuOrderOfficer off in ord.MenuOrderOfficerList)
-                                        {
-                                            <p>
-                                                @if (!string.IsNullOrEmpty(off.UserBase.Telephone1))
-                                                {
-                                                    if (off.UserBase.Telephone1 != "111111")
-                                                    {
-                                                        @off.UserBase.Telephone1
-                                                    }
-
-                                                }
-                                            </p>
-                                        }
-                                    </td>
-
-                                @using (Html.BeginForm("MenuOrderConfirm", "Menu", new { id = ord.MenuOrderItemDetail.UId }, FormMethod.Post))
-                                {
-                                    <td>
-                                        <big> @ord.MenuOrderItemDetail.MenuItem.Name</big>
-                                        
-                                    </td>
-                                    <td>
-
-                                        <span>  @ord.MenuOrderItemDetail.MenuItem.MeasurementUnit.Unit</span>
-
-                                    </td>
-                                    <td>
-                                        @ord.MenuOrderItemDetail.MenuOrderHeader.Location
-                                   
-                                </td>
-                                <td>@ord.MenuOrderItemDetail.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @ord.MenuOrderItemDetail.MenuOrderHeader.Time</td>
-                                <td>@ord.MenuOrderItemDetail.Remark</td>
-
-
-                                <td>
-                                    <div class="text-right">
-                                        <button type="submit" name="btnSubmit" value="SUBMIT" class="btn btn-primary px-3">ACCEPT</button>
-                                        <button type="button" name="btnSubmit" value="CANCEL" class="btn btn-outline-primary px-3" data-toggle="modal" data-target="#extras" onclick="AssignOrderValue(@ord.MenuOrderItemDetail.UId)">REJECT</button>
-                                    </div>
-                                </td>
-                            }
-                                </tr>
+                                    </tr>
 
                                 }
                             </tbody>
                         </table>
 
 
-                       
+
                     </div>
                 </div>
                 <div class="tab-pane fade" id="canceled" role="tabpanel" aria-labelledby="canceled-tab">
@@ -224,14 +236,14 @@
                         <table border="1" width="100%" cellspacing="5">
                             <thead>
                                 <tr>
-                                     <th>Officer</th>
+                                    <th>Officer</th>
                                     <th>Tele No</th>
                                     <th>Menu Item</th>
                                     <th>Qty</th>
                                     <th>Delivery Location</th>
                                     <th>Date and Time</th>
                                     <th>Remark</th>
-                                   
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -239,52 +251,52 @@
 
                                 @foreach (MenuDetailItemOfficerModel ord in Model.CancelledMenuOrderList)
                                 {
-                                <tr>
-                                    <td>
-                                        @foreach (MenuOrderOfficer off in ord.MenuOrderOfficerList)
-                                        {
-                                            <p>
-                                                @off.UserBase.UserName
-                                                @if (off.UserBase.Rank != null)
-                                                {
-                                                    @off.UserBase.Rank.Name
-                                                }
-                                                @off.UserBase.Name
-                                            </p>
-                                        }
-                                    </td>
-
-                                    <td>
-                                        @foreach (MenuOrderOfficer off in ord.MenuOrderOfficerList)
-                                        {
-                                            <p>
-                                                @if (!string.IsNullOrEmpty(off.UserBase.Telephone1))
-                                                {
-                                                    if (off.UserBase.Telephone1 != "111111")
+                                    <tr>
+                                        <td>
+                                            @foreach (MenuOrderOfficer off in ord.MenuOrderOfficerList)
+                                            {
+                                                <p>
+                                                    @off.UserBase.UserName
+                                                    @if (off.UserBase.Rank != null)
                                                     {
-                                                        @off.UserBase.Telephone1
+                                                        @off.UserBase.Rank.Name
                                                     }
+                                                    @off.UserBase.Name
+                                                </p>
+                                            }
+                                        </td>
 
-                                                }
-                                            </p>
-                                        }
-                                    </td>
-                                <td>
-                                    <big> @ord.MenuOrderItemDetail.MenuItem.Name</big>
-                                 
-                                </td>
-                                    <td>
+                                        <td>
+                                            @foreach (MenuOrderOfficer off in ord.MenuOrderOfficerList)
+                                            {
+                                                <p>
+                                                    @if (!string.IsNullOrEmpty(off.UserBase.Telephone1))
+                                                    {
+                                                        if (off.UserBase.Telephone1 != "111111")
+                                                        {
+                                                            @off.UserBase.Telephone1
+                                                        }
 
-                                        <span>  @ord.MenuOrderItemDetail.MenuItem.MeasurementUnit.Unit</span>
+                                                    }
+                                                </p>
+                                            }
+                                        </td>
+                                        <td>
+                                            <big> @ord.MenuOrderItemDetail.MenuItem.Name</big>
 
-                                    </td>
-                                    <td>
-                                        @ord.MenuOrderItemDetail.MenuOrderHeader.Location
+                                        </td>
+                                        <td>
 
-                                    </td>
-                                <td>@ord.MenuOrderItemDetail.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @ord.MenuOrderItemDetail.MenuOrderHeader.Time</td>
-                                <td>@ord.MenuOrderItemDetail.Remark</td>
-                                </tr>
+                                            <span>  @ord.MenuOrderItemDetail.MenuItem.MeasurementUnit.Unit</span>
+
+                                        </td>
+                                        <td>
+                                            @ord.MenuOrderItemDetail.MenuOrderHeader.Location
+
+                                        </td>
+                                        <td>@ord.MenuOrderItemDetail.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @ord.MenuOrderItemDetail.MenuOrderHeader.Time</td>
+                                        <td>@ord.MenuOrderItemDetail.Remark</td>
+                                    </tr>
 
                                 }
                             </tbody>
@@ -294,7 +306,7 @@
 
 
 
-                      
+
 
                     </div>
                 </div>
@@ -350,7 +362,7 @@
                                         </td>
                                         <td>
                                             <big> @ord.MenuOrderItemDetail.MenuItem.Name</big>
-                                            
+
                                         </td>
                                         <td>
 
@@ -361,7 +373,7 @@
                                             @ord.MenuOrderItemDetail.MenuOrderHeader.Location
 
                                         </td>
-                                       
+
                                         <td>@ord.MenuOrderItemDetail.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @ord.MenuOrderItemDetail.MenuOrderHeader.Time</td>
                                         <td>@ord.MenuOrderItemDetail.Remark</td>
 
@@ -422,20 +434,20 @@
         </div>
     </div>
 </div>
- <script>
-        
-    
-        </script>
-  
+<script></script>
+
+<script type="text/javascript">
+    window.onload = function () {
+        document.getElementById("audio").play();
+    }
+</script>
+
 @if (TempData["WhatMsg1"] != null)
 {
     string Part1 = @TempData["WhatMsg1"].ToString();
     string Part2 = @TempData["WhatMsg2"].ToString();
-   
-    <script>
-        
-        window.open("@Part1&&@Part2", "_blank"); 
-       
-        </script>
-  
+
+    <script>@Part1@Part2</script>
+
 }
+
