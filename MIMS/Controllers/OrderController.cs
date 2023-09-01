@@ -33,6 +33,7 @@ using Dinota.Domain.F140Data;
 using AlfasiWeb;
 using Dinota.Domain.MenuOrderExtraItemDetail;
 using System.Media;
+using Dinota.Domain.PaymentInfo;
 
 namespace MIMS.Controllers
 {
@@ -61,8 +62,9 @@ namespace MIMS.Controllers
         private readonly MenuItemDetailService _menuItemDetailService;
         private readonly F140HeaderService _f140HeaderService;
         private readonly F140DataService _f140DataService;
+        private readonly PaymentInfoService _paymentInfoService;
 
-        public OrderController(IDomainContext dataContext, MenuOrderExtraItemDetailService menuOrderExtraItemDetailService, F140DataService f140DataService, F140HeaderService f140HeaderService, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuOrderOfficerService menuOrderOfficerService, MenuOrderItemDetailService menuOrderItemDetailService, MenuOrderHeaderService menuOrderHeaderService, MenuItemService menuItemService, BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, MeasurementUnitService measurementUnitService, IngredientInfoService ingredientInfoService, UserAccountService userAccountService, RoomNoService roomNoService, RoomInfoService roomInfoService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
+        public OrderController(IDomainContext dataContext, PaymentInfoService paymentInfoService, MenuOrderExtraItemDetailService menuOrderExtraItemDetailService, F140DataService f140DataService, F140HeaderService f140HeaderService, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuOrderOfficerService menuOrderOfficerService, MenuOrderItemDetailService menuOrderItemDetailService, MenuOrderHeaderService menuOrderHeaderService, MenuItemService menuItemService, BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, MeasurementUnitService measurementUnitService, IngredientInfoService ingredientInfoService, UserAccountService userAccountService, RoomNoService roomNoService, RoomInfoService roomInfoService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
             : base(dataContext)
         {
             _divisionService = divisionService;
@@ -86,6 +88,7 @@ namespace MIMS.Controllers
             _f140HeaderService = f140HeaderService;
             _f140DataService = f140DataService;
             _menuOrderExtraItemDetailService = menuOrderExtraItemDetailService;
+            _paymentInfoService = paymentInfoService;
         }
         // [AuthorizeUserAccessLevel()]
 
@@ -174,7 +177,43 @@ namespace MIMS.Controllers
             }
             return View(model);
         }
-        
+        public ActionResult FinalizePayment(int id)
+        {
+            MenuOrderHeaderModel mod = new MenuOrderHeaderModel();
+            try
+            {
+
+                MenuOrderHeader oMenuOrderHeader = _menuOrderHeaderService.GetByKey(id);
+                mod.MenuOrderHeader = oMenuOrderHeader;
+                var filter = _paymentInfoService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p => p.MenuOrderHeaderId == id);
+                PaymentInfo info = _paymentInfoService.GetBy(filter);
+                mod.PaymentInfo = info;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(mod);
+        }
+        [HttpPost]
+        public ActionResult FinalizePayment(FormCollection Form,int id)
+        {
+            MenuOrderHeaderModel mod = new MenuOrderHeaderModel();
+            try
+            {
+                MenuOrderHeader oMenuOrderHeader = _menuOrderHeaderService.GetByKey(id);
+                mod.MenuOrderHeader = oMenuOrderHeader;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();
+        }
         public ActionResult OrderList()
         {
             OrdeerListViewModel model = new OrdeerListViewModel();

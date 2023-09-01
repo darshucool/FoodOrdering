@@ -12,6 +12,7 @@ using Dinota.Domain.MenuOrderHeader;
 using Dinota.Domain.MenuOrderItemDetail;
 using Dinota.Domain.MenuOrderOfficer;
 using Dinota.Domain.MenuPackage;
+using Dinota.Domain.PaymentInfo;
 using Dinota.Domain.SetMenuDetail;
 using Dinota.Domain.SetMenuHeader;
 using Dinota.Domain.User;
@@ -74,10 +75,12 @@ namespace AlfasiWeb.Models
         public List<MenuOrderHeaderModel> MenuOrderHeaderModelList { get; set; }
     }
     public class MenuOrderHeaderModel {
+        public DateTime EffectiveDate { get; set; }
         public MenuOrderHeader MenuOrderHeader { get; set; }
         public F140Header F140Header { get; set; }
         public List<MenuOrderItemDetail> MenuOrderItemDetailList { get; set; }
         public decimal TotalAmount { get; set; }
+        public PaymentInfo PaymentInfo { get; set; }
     }
     public class F140Model
     {
