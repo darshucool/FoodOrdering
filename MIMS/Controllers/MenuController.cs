@@ -1351,13 +1351,14 @@ namespace MIMS.Controllers
                 {
                     if (!string.IsNullOrEmpty(off.UserBase.Telephone1))
                     {
+                        
                         MenuStr = menu;
                         menu = menu.Replace(" ","%20");
                         if (!string.IsNullOrEmpty(off.UserBase.Telephone1))
                         {
                             //TempData["WhatMsg"] = "http://api.whatsapp.com/send?phone=" + MobNo + "%&%&";
                             TempData["WhatMsg1"] = "http://api.whatsapp.com/send?phone=" + off.UserBase.Telephone1 + "";
-                            TempData["WhatMsg2"] = "text=Your order " + menu + " has been accpeted and being processed.";
+                            TempData["WhatMsg2"] = "text="+ off.UserBase.Rank.Name +" "+ off.UserBase.Name+", Your order " + menu + " has been accpeted and being processed.";
                         }
                         //Process.Start(new ProcessStartInfo("http://api.whatsapp.com/send?phone=" + off.UserBase.Telephone1 + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'") { UseShellExecute = true });
                         //System.Diagnostics.Process.Start("","http://api.whatsapp.com/send?phone=" + MobNo + "&text='Your%20order%20" + menu + "%20has%20been%20accpeted%20and%20being%20processed.'");
