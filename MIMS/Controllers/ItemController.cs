@@ -25,6 +25,7 @@ using Dinota.Domain.BOCTransaction;
 using Dinota.Domain.StockSheetTransaction;
 using Dinota.Domain.F140Header;
 using Dinota.Domain.F140Data;
+using AlfasiWeb;
 
 namespace MIMS.Controllers
 {
@@ -130,7 +131,7 @@ namespace MIMS.Controllers
                 List<IngredientBOC> IngredientBOCList = _ingredientBOCService.GetCollection(filter, p => p.CreationDate).ToList();
                 model.IngredientBOCList = IngredientBOCList;
                 var filterTr = _bOCTransactionService.GetDefaultSpecification();
-                filterTr = filterTr.And(p => p.Active == true).And(p => p.IngredientBOC.IngredientUId == id);
+                filterTr = filterTr.And(p => p.Active == true).And(p => p.IngredientBOC.IngredientUId == id).And(p=>p.MenuOrderHeader.Active==true).And(p=>p.MenuOrderHeader.Status>(int)DataStruct.MenuOrderItemStatus.Pending).And(p => p.MenuOrderHeader.Status < (int)DataStruct.MenuOrderItemStatus.Cancel);
                 List<BOCTransaction> BOCTransactionList = _bOCTransactionService.GetCollection(filterTr, p => p.CreationDate).ToList();
                 model.BOCTransactionList = BOCTransactionList;
             }

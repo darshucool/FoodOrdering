@@ -962,10 +962,13 @@ namespace MIMS.Controllers
 
         public ActionResult AddOfficerLivingInStatus(int id)
         {
+            UserAccount user = new UserAccount();
+            user = GetCurrentUser();
+
             try
             {
                 var filterU = _userAccountService.GetDefaultSpecification();
-                filterU = filterU.And(p => p.Active == true).And(p => p.LivingStatus == 1);
+                filterU = filterU.And(p => p.Active == true).And(p => p.LivingStatus == 1).And(p => p.LocationUId == user.LocationUId);
                 List<UserAccount> UserAccountList = _userAccountService.GetCollection(filterU, p => p.CreationDate).ToList();
                 foreach (UserAccount account in UserAccountList)
                 {
@@ -993,6 +996,53 @@ namespace MIMS.Controllers
             }
             return View();
         }
+
+        public ActionResult AddAllOfficers(int id)
+        {
+            UserAccount user = new UserAccount();
+            user = GetCurrentUser();
+            try
+            {
+                var filterU = _userAccountService.GetDefaultSpecification();
+                filterU = filterU.And(p => p.Active == true).And(p => p.LocationUId == user.LocationUId);
+                List<UserAccount> UserAccountList = _userAccountService.GetCollection(filterU, p => p.CreationDate).ToList();
+                int OfficerCount = 0;
+                MenuOrderHeader header = _menuOrderHeaderService.GetByKey(id);
+                OfficerCount = header.OfficerCount;
+                foreach (UserAccount account in UserAccountList)
+                {
+
+                    var filterO = _menuOrderOfficerService.GetDefaultSpecification();
+                    filterO = filterO.And(p => p.Active == true).And(p => p.UserId == account.Id).And(p => p.MeanuOrderHeaderUId == id);
+                    MenuOrderOfficer oMenuOrderOfficer = _menuOrderOfficerService.GetBy(filterO);
+                    if (oMenuOrderOfficer == null)
+                    {
+                        MenuOrderOfficer off = new MenuOrderOfficer();
+                        off.UserId = account.Id;
+                        off.Active = true;
+                        off.MeanuOrderHeaderUId = id;
+                        _menuOrderOfficerService.Add(off);
+                        DataContext.SaveChanges();
+                        
+                        OfficerCount = OfficerCount + 1;
+                    }
+                    
+                }
+                MenuOrderHeader headerInfo = _menuOrderHeaderService.GetByKey(id);
+                headerInfo.OfficerCount = OfficerCount;
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Officers are successfully added.");
+
+                return RedirectToAction("OfficerList", new { id = id });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();
+        }
+
         public ActionResult OfficerList(int id)
         {
             OfficerMenuOrderModel model = new OfficerMenuOrderModel();
@@ -1124,6 +1174,25 @@ namespace MIMS.Controllers
             }
             return userAccount;
 
+        }
+        public ActionResult SearchItem()
+        {
+            MenuSearchModel model = new MenuSearchModel();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                var filter = _menuItemService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p => p.MenuCategoryUId!=(int)DataStruct.MenuCategory.Rma_Curry).And(p=>p.SLAFLocationUId== account.LocationUId);
+                List<MenuItem> MenuItemList = _menuItemService.GetCollection(filter, p => p.CreationDate).ToList();
+                model.MenuItemList = MenuItemList;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
         }
     }
 }

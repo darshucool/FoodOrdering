@@ -832,6 +832,7 @@
     <Content Include="Views\SetMenu\SetMenuEdit.cshtml" />
     <Content Include="Views\SetMenu\SetMenuPackageList.cshtml" />
     <Content Include="Views\Order\FinalizePayment.cshtml" />
+    <Content Include="Views\Order\SearchItem.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

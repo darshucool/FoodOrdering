@@ -18,7 +18,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="@Url.Content("~/Asset/image/png")" href="img/fav.png">
-    <title>Officers' Mess AFHQ</title>
+    <title>Officers' Mess @account.SLAFLocation.Name</title> 
 
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Asset/vendor/slick/slick.min.css")">
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Asset/vendor/slick/slick-theme.min.css")">
@@ -63,16 +63,22 @@
 
 
                             @*  <a href="#" class="widget-header mr-4 text-dark">
-                                <div class="icon d-flex align-items-center">
-                                <i class="feather-search h6 mr-2 mb-0"></i> <span>Search</span>
-                                </div>
-                                </a>*@
+        <div class="icon d-flex align-items-center">
+        <i class="feather-search h6 mr-2 mb-0"></i> <span>Search</span>
+        </div>
+        </a>*@
 
+                            <a href="@Url.Content("~/Home/Profile/")" class="widget-header mr-4 text-white btn bg-dark m-none">
+                                <div class="icon d-flex align-items-center">
+                                    <i class="feather-disc h6 mr-2 mb-0"></i><span>Profile</span>
+                                </div>
+                            </a>
                             <a href="@Url.Content("~/News/Index/")" class="widget-header mr-4 text-white btn bg-primary m-none">
                                 <div class="icon d-flex align-items-center">
                                     <i class="feather-disc h6 mr-2 mb-0"></i><span>News</span>
                                 </div>
                             </a>
+                            
 
 
                             <div class="dropdown mr-4 m-none">

@@ -7,6 +7,7 @@ using Dinota.Domain.IngredientBOC;
 using Dinota.Domain.IngredientInfo;
 using Dinota.Domain.MenuCategory;
 using Dinota.Domain.MenuFavorite;
+using Dinota.Domain.MenuItem;
 using Dinota.Domain.MenuOrder;
 using Dinota.Domain.MenuOrderItemDetail;
 using Dinota.Domain.MenuOrderOfficer;
@@ -70,5 +71,7 @@ namespace AlfasiWeb.Models
         public List<IngredientBOC> IngredientBOCList { get; set; }
         public List<BOCTransaction> BOCTransactionList { get; set; }
     }
-
+    public class MenuSearchModel {
+        public List<MenuItem> MenuItemList { get; set; }
+    }
 }

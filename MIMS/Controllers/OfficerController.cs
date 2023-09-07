@@ -164,6 +164,35 @@ namespace MIMS.Controllers
             return RedirectToAction("OfficerList");
             return View(account);
         }
+
+        public ActionResult UpdateProfile(int id)
+        {
+            UserAccount account = _userAccountService.GetByKey(id);
+            BindUserStatusList();
+            return View(account);
+        }
+        [HttpPost]
+        public ActionResult UpdateProfile(FormCollection Form, int id)
+        {
+            try
+            {
+                UserAccount account = _userAccountService.GetByKey(id);
+                BindUserStatusList();
+                TryUpdateModel(account);
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Officer Details successfully updated");
+
+                return RedirectToAction("Profile", "Home");
+                return View(account);
+
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Profile", "Home");
+            }
+            
+        }
+
         public ActionResult CreateRequest()
         {
             OfficerRequest profile = new OfficerRequest();
