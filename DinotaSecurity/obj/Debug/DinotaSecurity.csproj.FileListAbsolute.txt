@@ -314,3 +314,14 @@ G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csproj.CoreCom
 G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csproj.CopyComplete
 G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.dll
 G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.pdb
+F:\SLAF Projects\FoodOrdering\DinotaSecurity\bin\Debug\DinotaSecurity.dll
+F:\SLAF Projects\FoodOrdering\DinotaSecurity\bin\Debug\DinotaSecurity.pdb
+F:\SLAF Projects\FoodOrdering\DinotaSecurity\bin\Debug\DinotaCore.dll
+F:\SLAF Projects\FoodOrdering\DinotaSecurity\bin\Debug\DinotaDomain.dll
+F:\SLAF Projects\FoodOrdering\DinotaSecurity\bin\Debug\DinotaCore.pdb
+F:\SLAF Projects\FoodOrdering\DinotaSecurity\bin\Debug\DinotaDomain.pdb
+F:\SLAF Projects\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csproj.AssemblyReference.cache
+F:\SLAF Projects\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csproj.CoreCompileInputs.cache
+F:\SLAF Projects\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.csproj.CopyComplete
+F:\SLAF Projects\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.dll
+F:\SLAF Projects\FoodOrdering\DinotaSecurity\obj\Debug\DinotaSecurity.pdb

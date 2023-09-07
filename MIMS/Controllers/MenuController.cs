@@ -2118,6 +2118,8 @@ namespace MIMS.Controllers
         public ActionResult MenuRegister(FormCollection Form)
         {
             MenuItem item = new MenuItem();
+            int CatId = Convert.ToInt32(Form["MenuCategoryUId"].ToString());
+
             try
             {
                 UserAccount account = GetCurrentUser();
@@ -2127,6 +2129,33 @@ namespace MIMS.Controllers
                 item.MenuTypeId = 1;
                 item.SLAFLocationUId = account.LocationUId;
                 item.Active = true;
+
+                var CatName = _menuCategoryService.GetByKey(CatId);
+
+                if (CatName.Name == "Curry") {
+                    item.ImgName = Convert.ToString(value : 50);
+                }
+                else if (CatName.Name == "Kitchen Items")
+                {
+                    item.ImgName = Convert.ToString(value: 1);
+                }
+                else if (CatName.Name == "Snacks")
+                {
+                    item.ImgName = Convert.ToString(value: 100);
+                }
+                else if (CatName.Name == "Bites")
+                {
+                    item.ImgName = Convert.ToString(value: 101);
+                }
+                else if (CatName.Name == "Beverages")
+                {
+                    item.ImgName = Convert.ToString(value: 102);
+                }
+                else
+                {
+                    item.ImgName = Convert.ToString(value: 103);
+                }
+
                 _menuItemService.Add(item);
                 DataContext.SaveChanges();
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Menu Item Added.");

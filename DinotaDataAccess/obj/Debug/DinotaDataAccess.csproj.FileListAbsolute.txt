@@ -432,3 +432,17 @@ G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.csproj.Cor
 G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.csproj.CopyComplete
 G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.dll
 G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.pdb
+F:\SLAF Projects\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaDataAccess.dll
+F:\SLAF Projects\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaDataAccess.pdb
+F:\SLAF Projects\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaCore.dll
+F:\SLAF Projects\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaDomain.dll
+F:\SLAF Projects\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaSecurity.dll
+F:\SLAF Projects\FoodOrdering\DinotaDataAccess\bin\Debug\System.ComponentModel.DataAnnotations.dll
+F:\SLAF Projects\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaCore.pdb
+F:\SLAF Projects\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaDomain.pdb
+F:\SLAF Projects\FoodOrdering\DinotaDataAccess\bin\Debug\DinotaSecurity.pdb
+F:\SLAF Projects\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.csproj.AssemblyReference.cache
+F:\SLAF Projects\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.csproj.CoreCompileInputs.cache
+F:\SLAF Projects\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.csproj.CopyComplete
+F:\SLAF Projects\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.dll
+F:\SLAF Projects\FoodOrdering\DinotaDataAccess\obj\Debug\DinotaDataAccess.pdb
