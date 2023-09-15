@@ -28,8 +28,12 @@
 
                             <div class="row">
                                 <div class="col-md-3">&nbsp;</div>
+
                                 <div class="col-md-6 " style="background-color: #e3e3e3 !important; padding: 10px;">
+                                   
+                                   
                                     @Html.Message()
+                                    <button onclick="history.back()" class="btn btn-primary px-3" style="float:right">Go Back</button>
                                     <h6 class="mb-3 font-weight-bold">Order @Model.MenuItem.Name</h6>
 
                                     @using (Html.BeginForm("OrderMenu", "Menu", new { id = Model.MenuItem.UId }, FormMethod.Post))
@@ -65,6 +69,8 @@
                                                 <option value="Dining Hall">Dining Hall</option>
                                                 <option value="Reception">Reception</option>
                                                 <option value="Bar">Bar</option>
+                                                <option value="Stores">Stores</option>
+                                                
                                             </select>
                                             <div id="roomoption" style="width: 100%"></div>
                                         </div>

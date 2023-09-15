@@ -338,10 +338,10 @@ G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\bin\Release\DinotaDomain.pdb
 G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\bin\Release\DinotaCore.dll
 G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\bin\Release\System.ComponentModel.DataAnnotations.dll
 G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\bin\Release\DinotaCore.pdb
-G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.AssemblyReference.cache
 G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
 G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.cache
-G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.CoreCompileInputs.cache
-G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.CopyComplete
 G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.dll
 G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.pdb
+G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.AssemblyReference.cache
+G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.CoreCompileInputs.cache
+G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.CopyComplete

@@ -399,8 +399,8 @@ G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\System.ComponentModel.Dat
 G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\DinotaCore.pdb
 G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\DinotaDomain.pdb
 G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\bin\Release\DinotaSecurity.pdb
+G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.dll
+G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.pdb
 G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.AssemblyReference.cache
 G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.CoreCompileInputs.cache
 G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.csproj.CopyComplete
-G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.dll
-G:\WRJJ\MIMS\FoodOrdering\DinotaDataAccess\obj\Release\DinotaDataAccess.pdb

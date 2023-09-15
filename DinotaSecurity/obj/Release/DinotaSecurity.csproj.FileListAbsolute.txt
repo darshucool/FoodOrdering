@@ -246,8 +246,8 @@ G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\bin\Release\DinotaCore.dll
 G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\bin\Release\DinotaDomain.dll
 G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\bin\Release\DinotaCore.pdb
 G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\bin\Release\DinotaDomain.pdb
+G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.dll
+G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.pdb
 G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csproj.AssemblyReference.cache
 G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csproj.CoreCompileInputs.cache
 G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csproj.CopyComplete
-G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.dll
-G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.pdb

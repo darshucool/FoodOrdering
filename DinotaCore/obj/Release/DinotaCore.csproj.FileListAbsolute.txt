@@ -197,8 +197,8 @@ G:\WRJJ\MIMS\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.Common.d
 G:\WRJJ\MIMS\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
 G:\WRJJ\MIMS\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.WebForms.DLL
 G:\WRJJ\MIMS\FoodOrdering\DinotaCore\bin\Release\System.ComponentModel.DataAnnotations.dll
+G:\WRJJ\MIMS\FoodOrdering\DinotaCore\obj\Release\DinotaCore.dll
+G:\WRJJ\MIMS\FoodOrdering\DinotaCore\obj\Release\DinotaCore.pdb
 G:\WRJJ\MIMS\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.AssemblyReference.cache
 G:\WRJJ\MIMS\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CoreCompileInputs.cache
 G:\WRJJ\MIMS\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CopyComplete
-G:\WRJJ\MIMS\FoodOrdering\DinotaCore\obj\Release\DinotaCore.dll
-G:\WRJJ\MIMS\FoodOrdering\DinotaCore\obj\Release\DinotaCore.pdb

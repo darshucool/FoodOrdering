@@ -72,6 +72,7 @@ namespace AlfasiWeb.Models
     }
     public class OrdeerListViewModel { 
         public DateTime EffectiveDate { get; set; }
+        public DateTime OrderDate { get; set; }
         public List<MenuOrderHeaderModel> MenuOrderHeaderModelList { get; set; }
     }
     public class MenuOrderHeaderModel {

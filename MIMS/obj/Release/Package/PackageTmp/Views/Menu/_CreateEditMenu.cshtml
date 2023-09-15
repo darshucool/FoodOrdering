@@ -34,9 +34,6 @@
     @Html.DropDownListFor(model => model.MenuCategoryUId, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.MenuCategoryList], "-- Select Category  --", new { @class = "full-width form-control", @required = "true" })
     @Html.ValidationMessageFor(m => m.MenuCategoryUId, null, new { @class = "help-inline" })
 
-
-
-
 </div>
 @if (Model.UId == 0)
 {

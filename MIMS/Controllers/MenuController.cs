@@ -1917,8 +1917,12 @@ namespace MIMS.Controllers
             {
                 int menuOrderId = 0;
                 if (Form["menuorderid"] != null)
+                {
                     menuOrderId = int.Parse(Form["menuorderid"].ToString());
+                } 
                 MenuOrderItemDetail oMenuOrder = _menuOrderItemDetailService.GetByKey(menuOrderId);
+                MenuOrderHeader oMenuHeader = _menuOrderHeaderService.GetByKey(oMenuOrder.MeanuOrderHeaderUId);
+
                 UserAccount account = GetCurrentUser();
                 if (account == null)
                 {
@@ -1926,6 +1930,9 @@ namespace MIMS.Controllers
                 }
                 oMenuOrder.Status = (int)DataStruct.MenuOrderItemStatus.Cancel;
                 oMenuOrder.Remark = Form["reasontxt"].ToString();
+
+                oMenuHeader.Status = (int)DataStruct.MenuOrderItemStatus.Cancel;
+
                 DataContext.SaveChanges();
                 //string s = "";
                 //string MobNo = oMenuOrder.UserBase.Telephone1;
@@ -1945,7 +1952,8 @@ namespace MIMS.Controllers
                 //    menu = menu.Replace(" ", "%20");
                 //    System.Diagnostics.Process.Start("http://api.whatsapp.com/send?phone=94" + MobNo + "&text=Your%20order%20" + menu + "%20has%20been%20cancelled");
                 //}
-                    return RedirectToAction("MyOrders");
+               
+                return RedirectToAction("MenuOrderList");
             }
             catch (Exception)
             {
@@ -2917,7 +2925,7 @@ namespace MIMS.Controllers
             {
                 UserAccount account = GetCurrentUser();
                 var filter = _menuOrderService.GetDefaultSpecification();
-                filter = filter.And(p=>p.Active==true).And(p=>p.UserId== account.Id);
+                filter = filter.And(p => p.Active == true).And(p => p.UserId == account.Id);
                 MenuOrderList = _menuOrderService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p => p.CreationDate).ToList();
             }
             catch (Exception)
@@ -2925,6 +2933,37 @@ namespace MIMS.Controllers
                 throw;
             }
             return View(MenuOrderList);
+
+            //UserAccount account = GetCurrentUser();
+            //if (account == null)
+            //{
+            //    return RedirectToAction("Login", "Account");
+            //}
+            //DateTime date = DateTime.Now;
+            //List<MenuDetailItemOfficerModel> CompleteMenuOrderList = new List<MenuDetailItemOfficerModel>();
+            //var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+            //var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+            //MenuOrderModel model = new MenuOrderModel();
+            //var filter = _menuOrderOfficerService.GetDefaultSpecification();
+            //filter = filter.And(p => p.Active == true).And(p => p.UserId == account.Id).And(p => p.MenuOrderHeader.OrderDate >= firstDayOfMonth).And(p => p.MenuOrderHeader.OrderDate <= lastDayOfMonth);
+            //List<MenuOrderOfficer> MenuItemList = _menuOrderOfficerService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p => p.CreationDate).ToList();
+            //List<MenuOrderItemDetail> pendingList = new List<MenuOrderItemDetail>();
+            //foreach (MenuOrderOfficer det in MenuItemList)
+            //{
+            //    var filterM = _menuOrderItemDetailService.GetDefaultSpecification();
+            //    filterM = filterM.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == det.MeanuOrderHeaderUId);
+            //    List<MenuOrderItemDetail> MenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterM, p => p.CreationDate).ToList();
+            //    foreach (MenuOrderItemDetail detail in MenuOrderItemDetailList)
+            //    {
+            //        MenuDetailItemOfficerModel mod = new MenuDetailItemOfficerModel();
+            //        mod.MenuOrderItemDetail = detail;
+
+            //        CompleteMenuOrderList.Add(mod);
+            //    }
+            //}
+            //model.CompleteMenuOrderList = CompleteMenuOrderList;
+
+            //return View(model);
         }
         public ActionResult TopPicks()
         {

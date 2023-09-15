@@ -141,7 +141,7 @@ namespace MIMS.Controllers
                 DateTime ToDate = model.EffectiveDate.Date.AddDays(1).AddTicks(-1);
                 var filter = _menuOrderHeaderService.GetDefaultSpecification();
                 filter = filter.And(p => p.Active == true).And(p=>p.OrderDate>= FromDate).And(p=>p.OrderDate<= ToDate).And(p=>p.LocationUId== account.LocationUId);
-                List<MenuOrderHeader> MenuOrderHeaderList = _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p=>p.OrderDate).Take(60).ToList();
+                List<MenuOrderHeader> MenuOrderHeaderList = _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p=>p.OrderDate).Take(100).ToList();
                 foreach (MenuOrderHeader order in MenuOrderHeaderList.OrderBy(p => p.OrderDate))
                 {
                     MenuOrderHeaderModel mod = new MenuOrderHeaderModel();
@@ -255,7 +255,7 @@ namespace MIMS.Controllers
                 UserAccount account = GetCurrentUser();
                 var filter = _menuOrderHeaderService.GetDefaultSpecification();
                 filter = filter.And(p => p.Active == true).And(p=>p.LocationUId== account.LocationUId);
-                List<MenuOrderHeader> MenuOrderHeaderList = _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p=>p.OrderDate).Take(30).ToList();
+                List<MenuOrderHeader> MenuOrderHeaderList = _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p=>p.OrderDate).Take(80).ToList();
                 foreach (MenuOrderHeader order in MenuOrderHeaderList.OrderBy(p => p.OrderDate))
                 {
                     MenuOrderHeaderModel mod = new MenuOrderHeaderModel();
