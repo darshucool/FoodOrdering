@@ -2150,7 +2150,7 @@ namespace MIMS.Controllers
                 }
                 else if (CatName.Name == "Snacks")
                 {
-                    item.ImgName = Convert.ToString(value: 100);
+                    item.ImgName = Convert.ToString(value: 99);
                 }
                 else if (CatName.Name == "Bites")
                 {
@@ -2160,9 +2160,13 @@ namespace MIMS.Controllers
                 {
                     item.ImgName = Convert.ToString(value: 102);
                 }
-                else
+                else if (CatName.Name == "Dessert")
                 {
                     item.ImgName = Convert.ToString(value: 103);
+                }
+                else
+                {
+                    item.ImgName = Convert.ToString(value: 104);
                 }
 
                 _menuItemService.Add(item);

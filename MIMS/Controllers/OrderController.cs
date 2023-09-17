@@ -164,6 +164,10 @@ namespace MIMS.Controllers
                         filterOD = filterOD.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == order.UId);
                         List<MenuOrderItemDetail> MenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterOD, p => p.CreationDate).ToList();
                         mod.MenuOrderItemDetailList = MenuOrderItemDetailList;
+                        var filterOff = _menuOrderOfficerService.GetDefaultSpecification();
+                        filterOff = filterOff.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == order.UId);
+                        List<MenuOrderOfficer> MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filterOff, p => p.UserId).ToList();
+                        mod.MenuOrderOfficerList = MenuOrderOfficerList;
                     }
                     MenuOrderHeaderModelList.Add(mod);
                 }

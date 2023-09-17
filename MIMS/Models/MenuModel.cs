@@ -74,12 +74,15 @@ namespace AlfasiWeb.Models
         public DateTime EffectiveDate { get; set; }
         public DateTime OrderDate { get; set; }
         public List<MenuOrderHeaderModel> MenuOrderHeaderModelList { get; set; }
+        
+
     }
     public class MenuOrderHeaderModel {
         public DateTime EffectiveDate { get; set; }
         public MenuOrderHeader MenuOrderHeader { get; set; }
         public F140Header F140Header { get; set; }
         public List<MenuOrderItemDetail> MenuOrderItemDetailList { get; set; }
+        public List<MenuOrderOfficer> MenuOrderOfficerList { get; set; }
         public decimal TotalAmount { get; set; }
         public PaymentInfo PaymentInfo { get; set; }
     }
