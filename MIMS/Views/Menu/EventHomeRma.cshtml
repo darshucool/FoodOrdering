@@ -49,25 +49,29 @@
                                         <div class="row">
                                             @if (e.ParticipationSubmit)
                                             {
-                                            if (e.IsParticipated)
-                                            {
-                                            <p style="padding: 10px; background-color: #b6ff00; color: #000; font-size: 14px; width: 100%">Willing to participate for the Event.</p>
-                                            <a href="@Url.Content(" ~/Menu/UpdateEventStatus/")@e.EventParticipation.UId" class="btn btn-dark" style="width:100%;padding:10px">Update Paticipation Details</a>
-                                            }
-                                            else
-                                            {
-                                            <p style="padding: 10px; background-color: #d17474; color: #000; font-size: 14px; width: 100%">Not willing to participate for the Event.</p>
+                                                if (e.IsParticipated)
+                                                {
+                                                    <p style="padding: 10px; background-color: #b6ff00; color: #000; font-size: 14px; width: 100%">Willing to participate for the Event.</p>
+                                                    <a href="@Url.Content(" ~/Menu/UpdateEventStatus/")@e.EventParticipation.UId" class="btn btn-dark" style="width:100%;padding:10px">Update Paticipation Details</a>
+                                                }
+                                                else
+                                                {
+                                                    <p style="padding: 10px; background-color: #d17474; color: #000; font-size: 14px; width: 100%">Not willing to participate for the Event.</p>
 
-                                            }
+                                                }
                                             }
                                             else
                                             {
-                                            <div class="col-md-6" id="participateBtn">
-                                                <a href="#" data-toggle="modal" data-target="#exampleModal" id="pbtn1" class="btn btn-block btn-dark border-top" onclick="AssignEventValue2(@e.Event.UId)">Click here to participate</a>
-                                            </div>
-                                            <div class="col-md-6" id="notparticipateBtn">
-                                                <a href="#" data-toggle="modal" data-target="#notModal" id="pbtn2" class="btn btn-block btn-primary border-top" onclick="AssignEventValue(@e.Event.UId)">Not Participating</a>
-                                            </div>
+                                                if (e.Event.BtnActive == true)
+                                                {
+                                                    <div class="col-md-6" id="participateBtn">
+                                                        <a href="#" data-toggle="modal" data-target="#exampleModal" id="pbtn1" class="btn btn-block btn-dark border-top" onclick="AssignEventValue2(@e.Event.UId)">Click here to participate</a>
+                                                    </div>
+                                                    <div class="col-md-6" id="notparticipateBtn">
+                                                        <a href="#" data-toggle="modal" data-target="#notModal" id="pbtn2" class="btn btn-block btn-primary border-top" onclick="AssignEventValue(@e.Event.UId)">Not Participating</a>
+                                                    </div>
+                                                }
+
                                             }
                                         </div>
 

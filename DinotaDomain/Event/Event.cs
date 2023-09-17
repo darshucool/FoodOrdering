@@ -15,6 +15,8 @@ namespace Dinota.Domain.Event
         public byte[] Img { set; get; }
         public string Description { get; set; }
         public bool Active { set; get; }
+        public bool BtnActive { set; get; }
+
         public int SLAFLocationUId { get; set; }
         public DateTime EffectiveDate { get; set; }
     }
