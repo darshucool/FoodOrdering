@@ -2166,7 +2166,7 @@ namespace MIMS.Controllers
                 }
                 else
                 {
-                    item.ImgName = Convert.ToString(value: 104);
+                    item.ImgName = Convert.ToString(value: 105);
                 }
 
                 _menuItemService.Add(item);
