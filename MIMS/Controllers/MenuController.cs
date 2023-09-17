@@ -2920,19 +2920,28 @@ namespace MIMS.Controllers
         }
         public ActionResult RecentOrder()
         {
-            List<MenuOrder> MenuOrderList = new List<MenuOrder>();
+            List<MenuOrderItemDetail> MenuOrderItemDetailList = new List<MenuOrderItemDetail>();
             try
             {
+                List<MenuOrderOfficer> MenuOrderList = new List<MenuOrderOfficer>();
                 UserAccount account = GetCurrentUser();
-                var filter = _menuOrderService.GetDefaultSpecification();
+                var filter = _menuOrderOfficerService.GetDefaultSpecification();
                 filter = filter.And(p => p.Active == true).And(p => p.UserId == account.Id);
-                MenuOrderList = _menuOrderService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p => p.CreationDate).ToList();
+                MenuOrderList = _menuOrderOfficerService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p => p.CreationDate).ToList();
+                foreach(MenuOrderOfficer off in MenuOrderList)
+                {
+                    MenuOrderHeader header = _menuOrderHeaderService.GetByKey(off.MeanuOrderHeaderUId);
+                    var filterMD = _menuOrderItemDetailService.GetDefaultSpecification();
+                    filterMD = filterMD.And(p => p.MeanuOrderHeaderUId == header.UId).And(p => p.Active == true).And(p=>p.Status>=(int)DataStruct.MenuOrderItemStatus.Accepted);
+                    List<MenuOrderItemDetail> MenuOrderItemDetailSubList = _menuOrderItemDetailService.GetCollection(filterMD, p => p.CreationDate).ToList();
+                    MenuOrderItemDetailList.AddRange(MenuOrderItemDetailSubList);
+                }
             }
             catch (Exception)
             {
                 throw;
             }
-            return View(MenuOrderList);
+            return View(MenuOrderItemDetailList);
 
             //UserAccount account = GetCurrentUser();
             //if (account == null)
