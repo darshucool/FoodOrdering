@@ -67,7 +67,7 @@
                                     <th>Officer</th>
                                     <th>Tele No</th>
                                     <th>Menu Item</th>
-                                    <th>Qty</th>
+                                    @*<th>Qty</th>*@
                                     <th>Qty Type</th>
                                     <th>Delivery Location</th>
                                     <th>Date and Time</th>
@@ -119,10 +119,10 @@
 
 
                                         </td>
-                                        <td>
+                                        @*<td>
                                             @ord.MenuOrderItemDetail.MenuOrderHeader.OfficerCount
 
-                                        </td>
+                                        </td>*@
                                         <td>
 
                                             <span> @ord.MenuOrderItemDetail.Qty @ord.MenuOrderItemDetail.MenuItem.MeasurementUnit.Unit</span>

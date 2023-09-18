@@ -85,7 +85,10 @@ namespace AlfasiWeb.Models
         public MenuOrderOfficer MenuOrderOfficer{ get; set; }
         public decimal TotalAmount { get; set; }
         public PaymentInfo PaymentInfo { get; set; }
+        //public List<MenuDetailItemOfficerModel> DeliveredMenuOrderList { get; set; }
     }
+
+
     public class F140Model
     {
         public F140Header F140Header { get; set; }
