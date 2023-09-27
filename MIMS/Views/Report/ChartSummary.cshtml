@@ -1,0 +1,58 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.MenuOrderHeader
+@using AlfasiWeb.Models
+@model DailySaleReportModel
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+<div id="content_wrapper" class="card-overlay">
+    @*<div id="header_wrapper" class="header-md ">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <header id="header">
+                        <h1>Daily Summary</h1>
+                        <ol class="breadcrumb">
+                            <li><a href="@Url.Content("~/Home/Index")">Dashboard</a></li>
+                            <li><a href="javascript:void(0)">Daily Summary</a></li>
+                        </ol>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </div>*@
+    <div id="content" class="container">
+
+        <div class="content-body">
+            <div class="row">
+                <div class="col-xl-auto">
+                    <div class="card">
+                        <header class="card-heading ">
+                            <h2 class="card-title">Daily Summary</h2>
+                        </header>
+
+                        <div class="card-body">
+                            <canvas id="myChart"></canvas>
+
+
+                        </div>
+                        <div class="card-body">
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="myLineChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+

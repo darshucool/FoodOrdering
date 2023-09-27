@@ -835,6 +835,7 @@
     <Content Include="Views\Order\FinalizePayment.cshtml" />
     <Content Include="Views\Order\SearchItem.cshtml" />
     <Content Include="Views\Event\AddCount.cshtml" />
+    <Content Include="Views\Report\ChartSummary.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

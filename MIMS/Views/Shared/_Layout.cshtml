@@ -63,10 +63,10 @@
 
 
                             @*  <a href="#" class="widget-header mr-4 text-dark">
-                            <div class="icon d-flex align-items-center">
-                            <i class="feather-search h6 mr-2 mb-0"></i> <span>Search</span>
-                            </div>
-                            </a>*@
+                                <div class="icon d-flex align-items-center">
+                                <i class="feather-search h6 mr-2 mb-0"></i> <span>Search</span>
+                                </div>
+                                </a>*@
                             @if (account.UserTypeId == 3)
                             {
                                 <a href="@Url.Content("~/Home/Profile/")" class="widget-header mr-4 text-white btn bg-dark m-none">
@@ -142,9 +142,9 @@
                 <li><a href="@Url.Content("~/Home/MasterMenu")"><i class="feather-home mr-2"></i>Homepage</a></li>
                 <li><a href="@Url.Content("~/Menu/MyOrders")"><i class="feather-list mr-2"></i>My Orders</a></li>
                 @*if (account.LocationUId == 18)
-                {
-                    <li><a href="@Url.Content("~/Menu/EventHomeRma")"><i class="feather-list mr-2"></i>Event List</a></li>
-                }*@
+                    {
+                        <li><a href="@Url.Content("~/Menu/EventHomeRma")"><i class="feather-list mr-2"></i>Event List</a></li>
+                    }*@
                 <li><a href="@Url.Content("~/Menu/EventIndex")"><i class="feather-list mr-2"></i>Event List</a></li>
                 <li><a href="@Url.Content("~/News/Index")"><i class="feather-list mr-2"></i>News List</a></li>
                 <li><a href="@Url.Content("~/Account/ChangePassword")"><i class="feather-list mr-2"></i>Change Password</a></li>
@@ -203,9 +203,9 @@
                 <li><a href="@Url.Content("~/Home/Index")"><i class="feather-home mr-2"></i>Homepage</a></li>
                 <li><a href="@Url.Content("~/Menu/MyOrders")"><i class="feather-list mr-2"></i>My Orders</a></li>
                 @*if (account.LocationUId == 18)
-                {
-                    <li><a href="@Url.Content("~/Menu/EventHomeRma")"><i class="feather-list mr-2"></i>Event List</a></li>
-                }*@
+                    {
+                        <li><a href="@Url.Content("~/Menu/EventHomeRma")"><i class="feather-list mr-2"></i>Event List</a></li>
+                    }*@
                 <li><a href="@Url.Content("~/Menu/EventIndex")"><i class="feather-list mr-2"></i>Event List</a></li>
                 <li><a href="@Url.Content("~/News/Index")"><i class="feather-list mr-2"></i>News List</a></li>
                 <li><a href="@Url.Content("~/Menu/MessBill")"><i class="feather-list mr-2"></i>Mess Bill</a></li>
@@ -353,7 +353,7 @@
 
 
 
-    
+
     <script type="457a562786498bfc8c87c2bf-text/javascript" src="@Url.Content("~/Asset/vendor/bootstrap/js/bootstrap.bundle.min.js")"></script>
 
     <script type="457a562786498bfc8c87c2bf-text/javascript" src="@Url.Content("~/Asset/vendor/slick/slick.min.js")"></script>
@@ -367,10 +367,122 @@
 
     @if (ViewContext.RouteData.Values["Controller"].ToString() == "Menu" && ViewContext.RouteData.Values["Action"].ToString() == "AddIngridient")
     {
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    
+    <script>
+        $(document).ready(function () {
+            // Data for the chart
+            var data = {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [
+                    {
+                        label: "Sample Data",
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: [
+                            "red",
+                            "blue",
+                            "yellow",
+                            "green",
+                            "purple",
+                            "orange",
+                        ],
+                    },
+                ],
+            };
+
+            // Configuration options
+            var options = {
+                responsive: true,
+                maintainAspectRatio: false,
+            };
+
+            // Create a chart on the canvas element
+            var ctx = document.getElementById("myChart").getContext("2d");
+            var myChart = new Chart(ctx, {
+                type: "bar", // You can change the chart type here (e.g., bar, pie, line, etc.)
+                data: data,
+                options: options,
+            });
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            // Data for the pie chart
+            var data = {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [
+                    {
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: [
+                            "red",
+                            "blue",
+                            "yellow",
+                            "green",
+                            "purple",
+                            "orange",
+                        ],
+                    },
+                ],
+            };
+
+            // Configuration options
+            var options = {
+                responsive: true,
+                maintainAspectRatio: false,
+            };
+
+            // Create a pie chart on the canvas element
+            var ctx = document.getElementById("myPieChart").getContext("2d");
+            var myPieChart = new Chart(ctx, {
+                type: "pie", // Specify the chart type as 'pie'
+                data: data,
+                options: options,
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            // Data for the line chart
+            var data = {
+                labels: ["January", "February", "March", "April", "May"],
+                datasets: [
+                    {
+                        label: "Sample Data",
+                        data: [10, 25, 15, 30, 20],
+                        borderColor: "blue",
+                        borderWidth: 2,
+                        fill: false,
+                    },
+                ],
+            };
+
+            // Configuration options
+            var options = {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            };
+
+            // Create a line chart on the canvas element
+            var ctx = document.getElementById("myLineChart").getContext("2d");
+            var myLineChart = new Chart(ctx, {
+                type: "line", // Specify the chart type as 'line'
+                data: data,
+                options: options,
+            });
+        });
+    </script>
+
     <script>
 
         $('#IngriedientUId').change(function () {
