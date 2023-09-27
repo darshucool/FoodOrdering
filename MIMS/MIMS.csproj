@@ -225,6 +225,7 @@
     <Compile Include="Controllers\AuthorizeUserAccessLevel.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ItemBOCController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\SetMenuController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -833,6 +834,7 @@
     <Content Include="Views\SetMenu\SetMenuPackageList.cshtml" />
     <Content Include="Views\Order\FinalizePayment.cshtml" />
     <Content Include="Views\Order\SearchItem.cshtml" />
+    <Content Include="Views\Event\AddCount.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

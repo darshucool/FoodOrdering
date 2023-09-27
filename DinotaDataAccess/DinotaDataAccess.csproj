@@ -145,6 +145,8 @@
     <Compile Include="PageObject\PageObjectRepo.cs" />
     <Compile Include="UserPermission\UserPermissionMap.cs" />
     <Compile Include="UserPermission\UserPermissionRepo.cs" />
+    <Compile Include="EventCount\EventCountMap.cs" />
+    <Compile Include="EventCount\EventCountRepo.cs" />
     <Compile Include="UserType\UserTypeMap.cs" />
     <Compile Include="UserType\UserTypeRepo.cs" />
     <Compile Include="Division\DivisionMap.cs" />

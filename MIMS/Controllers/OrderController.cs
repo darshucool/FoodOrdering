@@ -146,10 +146,7 @@ namespace MIMS.Controllers
                 {
                     MenuOrderHeaderModel mod = new MenuOrderHeaderModel();
                     mod.MenuOrderHeader = order;
-                    var filterOff = _menuOrderOfficerService.GetDefaultSpecification();
-                    filterOff = filterOff.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == order.UId);
-                    MenuOrderOfficer MenuOrderOfficer = _menuOrderOfficerService.GetBy(filterOff);
-                    mod.MenuOrderOfficer = MenuOrderOfficer;
+
                     if (order.Status > (int)DataStruct.MenuOrderItemStatus.Accepted)
                     {
                         var filter140 = _f140HeaderService.GetDefaultSpecification();
@@ -168,7 +165,10 @@ namespace MIMS.Controllers
                         filterOD = filterOD.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == order.UId);
                         List<MenuOrderItemDetail> MenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterOD, p => p.CreationDate).ToList();
                         mod.MenuOrderItemDetailList = MenuOrderItemDetailList;
-                        
+                        var filterO = _menuOrderOfficerService.GetDefaultSpecification();
+                        filterO = filterO.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == order.UId);
+                        mod.MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filterO, p => p.CreationDate).ToList();
+
                     }
                     MenuOrderHeaderModelList.Add(mod);
                 }

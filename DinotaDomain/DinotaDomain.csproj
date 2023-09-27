@@ -172,6 +172,9 @@
     <Compile Include="UserPermission\UserPermission.cs" />
     <Compile Include="UserPermission\UserPermissionRepo.cs" />
     <Compile Include="UserPermission\UserPermissionService.cs" />
+    <Compile Include="EventCount\IEventCountRepo.cs" />
+    <Compile Include="EventCount\EventCount.cs" />
+    <Compile Include="EventCount\EventCountService.cs" />
     <Compile Include="UserType\UserType.cs" />
     <Compile Include="UserType\UserTypeService.cs" />
     <Compile Include="UserType\IUserTypeRepo.cs" />

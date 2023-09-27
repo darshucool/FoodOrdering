@@ -3,6 +3,7 @@
 @using Dinota.Security
 @using Dinota.Domain.MenuOrderHeader
 @using Dinota.Domain.MenuOrderItemDetail
+@using Dinota.Domain.MenuOrderOfficer
 @using Dinota.Domain.Event
 @using AlfasiWeb.Models
 @model OrdeerListViewModel
@@ -61,60 +62,68 @@
                 <tbody>
                     @foreach (MenuOrderHeaderModel info in Model.MenuOrderHeaderModelList)
                     {
-                    <tr>
+                        <tr>
 
-                        <td>@info.MenuOrderHeader.OrderDate.ToString("yyyy/MM/dd") @*@info.MenuOrderHeader.UId*@</td>
-                        <td>
-                            @if (info.MenuOrderItemDetailList != null)
-                            {
-                                foreach (MenuOrderItemDetail det in info.MenuOrderItemDetailList)
+                            <td>@info.MenuOrderHeader.OrderDate.ToString("yyyy/MM/dd") @*@info.MenuOrderHeader.UId*@</td>
+                            <td>
+                                @if (info.MenuOrderItemDetailList != null)
                                 {
-                                    @det.MenuItem.Name<br />
+                                    foreach (MenuOrderItemDetail det in info.MenuOrderItemDetailList)
+                                    {
+                                        @det.MenuItem.Name<br />
 
+                                    }
                                 }
-                            }
 
-                        </td>
-                        @*<td>@info.MenuOrderOfficer.UserId</td>*@
-                        <td>
-                            @if (info.MenuOrderItemDetailList != null)
-                            {
-                                foreach (MenuOrderItemDetail det in info.MenuOrderItemDetailList)
+                            </td>
+                            @*<td>
+                                @foreach (MenuOrderOfficer off in info.MenuOrderOfficerList)
                                 {
-                                    <span>@det.Qty.ToString("00")&nbsp; @det.MenuItem.MeasurementUnit.Unit</span><br />
+                                    <p>
+                                        @off.UserBase.UserName
 
+                                    </p>
                                 }
-                            }
-                        </td>
-                        @*<td>@info.MenuOrderHeader.Location</td>*@
-                        <td style="text-align:right">
-                            @if (info.F140Header != null)
-                            {
-                                <span> @info.TotalAmount.ToString("00.00")</span>
-                            }
+                            </td>*@
+                            <td>
+                                @if (info.MenuOrderItemDetailList != null)
+                                {
+                                    foreach (MenuOrderItemDetail det in info.MenuOrderItemDetailList)
+                                    {
+                                        <span>@det.Qty.ToString("00")&nbsp; @det.MenuItem.MeasurementUnit.Unit</span><br />
 
-                        </td>
+                                    }
+                                }
+                            </td>
+                            @*<td>@info.MenuOrderHeader.Location</td>*@
+                            <td style="text-align:right">
+                                @if (info.F140Header != null)
+                                {
+                                    <span> @info.TotalAmount.ToString("00.00")</span>
+                                }
+
+                            </td>
 
 
-                        <td><a href="@Url.Content("~/Order/OfficerList/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Officer List</a></td>
-                        <td><a href="@Url.Content("~/Order/MenuCreate/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Detail</a></td>
-                        <td>
-                            @if (info.F140Header != null)
-                            {
-                                <a href="@Url.Content("~/Menu/F140Detail/")@info.F140Header.UId" class="btn btn-primary px-3">F140 Detail</a>
-                            }
+                            <td><a href="@Url.Content("~/Order/OfficerList/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Officer List</a></td>
+                            <td><a href="@Url.Content("~/Order/MenuCreate/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Detail</a></td>
+                            <td>
+                                @if (info.F140Header != null)
+                                {
+                                    <a href="@Url.Content("~/Menu/F140Detail/")@info.F140Header.UId" class="btn btn-primary px-3">F140 Detail</a>
+                                }
 
-                        </td>
-                        <td>
-                            @if (info.F140Header != null)
-                            {
-                                <a href="@Url.Content("~/Order/FinalizePayment/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Payment</a>
-                            }
+                            </td>
+                            <td>
+                                @if (info.F140Header != null)
+                                {
+                                    <a href="@Url.Content("~/Order/FinalizePayment/")@info.MenuOrderHeader.UId" class="btn btn-primary px-3">Payment</a>
+                                }
 
-                        </td>
-                        <td><a href="@Url.Content("~/Order/DeleteOrder/")@info.MenuOrderHeader.UId" class=""><img src="~/Asset/img/remove.png" width="20" /></a></td>
-                        @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
-                    </tr>
+                            </td>
+                            <td><a href="@Url.Content("~/Order/DeleteOrder/")@info.MenuOrderHeader.UId" class=""><img src="~/Asset/img/remove.png" width="20" /></a></td>
+                            @*<td class="btn_dlt_order"><img src="~/Asset/img/remove.png" width="40"   /></td>*@
+                        </tr>
                     }
                 </tbody>
             </table>
@@ -126,10 +135,10 @@
 <script src="~/Asset/js/dataTables.bootstrap4.min.js"></script>
 <script>
     $(document).ready(function () {
-    
+
         $('#example').DataTable({
-        order: [[0, 'desc']],
-    });
+            order: [[0, 'desc']],
+        });
     });
 
 </script>

@@ -82,10 +82,10 @@ namespace AlfasiWeb.Models
         public MenuOrderHeader MenuOrderHeader { get; set; }
         public F140Header F140Header { get; set; }
         public List<MenuOrderItemDetail> MenuOrderItemDetailList { get; set; }
-        public MenuOrderOfficer MenuOrderOfficer{ get; set; }
+        public List<MenuOrderOfficer> MenuOrderOfficerList{ get; set; }
         public decimal TotalAmount { get; set; }
         public PaymentInfo PaymentInfo { get; set; }
-        //public List<MenuDetailItemOfficerModel> DeliveredMenuOrderList { get; set; }
+        public List<MenuDetailItemOfficerModel> DeliveredMenuOrderList { get; set; }
     }
 
 
