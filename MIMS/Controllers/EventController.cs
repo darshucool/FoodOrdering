@@ -101,36 +101,61 @@ namespace MIMS.Controllers
         }
         public ActionResult AddCount()
         {
-            OfficerAddProfile profile = new OfficerAddProfile();
-            return View(profile);
+            EventCount oEventCount = new EventCount();
+            return View(oEventCount);
+        }
+        public ActionResult OutCount()
+        {
+            EventCount oEventCount = new EventCount();
+            return View(oEventCount);
         }
         [HttpPost]
         public ActionResult AddCount(FormCollection Form)
         {
-            OfficerAddProfile profile = new OfficerAddProfile();
+            EventCount oEventCount = new EventCount();
             try
             {
-                UserAccount user = GetCurrentUser();
-                TryUpdateModel(profile);
-                var filter = _userAccountService.GetDefaultSpecification();
-                filter = filter.And(p => p.ServiceNo == profile.ServiceNo).And(p => p.Active == true);
-                UserAccount account = _userAccountService.GetBy(filter);
-                if (account != null)
-                {
-                    UserAccount updateacc = _userAccountService.GetByKey(account.Id);
-                    updateacc.LocationUId = user.LocationUId;
-                    DataContext.SaveChanges();
-                }
-                TempData[ViewDataKeys.Message] = new SuccessMessage("Officer successfully added");
+                
+                TryUpdateModel(oEventCount);
+                oEventCount.Type = 1;
+                oEventCount.EffectiveDate = DateTime.Now;
+                oEventCount.Active = true;
+                _eventCountService.Add(oEventCount);
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Count successfully added");
 
-                return RedirectToAction("OfficerList");
+                return RedirectToAction("AddCount");
             }
             catch (Exception)
             {
 
                 throw;
             }
-            return View(profile);
+            return View(oEventCount);
+        }
+        [HttpPost]
+        public ActionResult OutCount(FormCollection Form)
+        {
+            EventCount oEventCount = new EventCount();
+            try
+            {
+
+                TryUpdateModel(oEventCount);
+                oEventCount.Type = 2;
+                oEventCount.EffectiveDate = DateTime.Now;
+                oEventCount.Active = true;
+                _eventCountService.Add(oEventCount);
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Count successfully added");
+
+                return RedirectToAction("OutCount");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(oEventCount);
         }
     }
 }

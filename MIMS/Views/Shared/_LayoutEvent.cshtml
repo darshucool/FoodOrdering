@@ -1,0 +1,410 @@
+﻿@using MIMS.Helpers
+@using AlfasiWeb.Models
+@using Dinota.Domain.User
+@{
+    //UserAccount account = Html.GetCurrentUserInfo();
+    
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="@Url.Content("~/Asset/image/png")" href="img/fav.png">
+    <title>Childrens Day</title> 
+
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Asset/vendor/slick/slick.min.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Asset/vendor/slick/slick-theme.min.css")">
+
+    <link href="@Url.Content("~/Asset/vendor/icons/feather.css")" rel="stylesheet" type="text/css">
+
+    <link href="@Url.Content("~/Asset/vendor/bootstrap/css/bootstrap.min.css")" rel="stylesheet">
+
+    <link href="@Url.Content("~/Asset/css/style.css")" rel="stylesheet">
+
+    <link href="@Url.Content("~/Asset/vendor/sidebar/demo.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Asset/css/dataTables.bootstrap4.min.css")" rel="stylesheet">
+    <style>
+  .insufficient-stock {
+    background-color: #fba6a8 !important;
+  }
+</style>
+    
+</head>
+<body class="fixed-bottom-bar">
+    <header class="section-header">
+        <section class="header-main shadow-sm bg-white">
+            <div class="container">
+                <div class="row align-items-center">
+                    
+                </div>
+
+            </div>
+
+        </section>
+
+    </header>
+    @RenderBody()
+    <footer class="section-footer border-top bg-dark">
+
+        <section class="footer-copyright border-top py-3 bg-light">
+            <div class="container d-flex align-items-center">
+                <p class="mb-0">© 2022 No 1 Information Technology Wing. All rights reserved </p>
+
+            </div>
+        </section>
+    </footer>
+    <nav id="main-nav">
+        <ul class="second-nav">
+           
+             
+            <li><a href="@Url.Content("~/Event/AddCount")"><i class="feather-list mr-2"></i>In Count</a></li>
+            <li><a href="@Url.Content("~/Event/OutCount")"><i class="feather-list mr-2"></i>Out Count</a></li>
+                <li><a href="@Url.Content("~/Report/ChartSummary")"><i class="feather-list mr-2"></i>Summary</a></li>
+               
+            
+        </ul>
+
+    </nav>
+
+    
+
+    <script type="457a562786498bfc8c87c2bf-text/javascript" src="@Url.Content("~/Asset/vendor/bootstrap/js/bootstrap.bundle.min.js")"></script>
+
+    <script type="457a562786498bfc8c87c2bf-text/javascript" src="@Url.Content("~/Asset/vendor/slick/slick.min.js")"></script>
+
+    <script type="457a562786498bfc8c87c2bf-text/javascript" src="@Url.Content("~/Asset/vendor/sidebar/hc-offcanvas-nav.js")"></script>
+
+    <script type="457a562786498bfc8c87c2bf-text/javascript" src="@Url.Content("~/Asset/js/osahan.js")"></script>
+    <script src="@Url.Content("~/Asset/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js")" data-cf-settings="457a562786498bfc8c87c2bf-|49" defer=""></script>
+    <script defer="" src="@Url.Content("~/Asset/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194")" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"72a8dc1c29b0b305","version":"2022.6.0","r":1,"token":"dd471ab1978346bbb991feaa79e6ce5c","si":100}' crossorigin="anonymous"></script>
+    <script src="@Url.Content("~/Asset/js/sweetalert.min.js")"></script>
+
+    @if (ViewContext.RouteData.Values["Controller"].ToString() == "Menu" && ViewContext.RouteData.Values["Action"].ToString() == "AddIngridient")
+    {
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    }
+    
+
+    <script>
+
+        $('#IngriedientUId').change(function () {
+            var selectedIngriedientUId = $(this).val();
+            $.ajax({
+                url: '/Item/GetMeasurementUnit',
+                type: 'GET',
+                dataType: 'json',
+                data: { ingriedientUId: selectedIngriedientUId },
+                success: function (response) {
+                    $('#ing_measure_unit').text(response.Unit);
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log('Error: ' + errorThrown);
+                }
+            });
+        });
+
+
+        function AssignOrderValue(value1) {
+
+            $("#menuorderid").val(value1);
+        }
+        function AssignEventValue(value1) {
+            $("#eventuid").val(value1);
+        }
+        function AssignEventValue2(value1) {
+            $("#eventuid2").val(value1);
+        }
+        /*document.getElementById("delete_Row").style.display = "none";*/
+
+        function addRow() {
+            var kcount = $('#kidscount').val();
+            kcount = parseInt(kcount);
+            var i = $('#kidrowcount').val();
+
+            if (kcount > 0) {
+                $('#delete_Row').fadeIn();
+                for (let i = 1; i <= kcount; i++) {
+
+                    var $new_row = '<tr><td><input type="number" name="kidno' + i + '" value="' + i + '" class="form-control" readonly required/></td><td><select name="kidage' + i + '" class="form-control" required><option value>-- age --</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option></select></td><td><select  name="kidveg' + i + '" class="form-control" required><option value>-- Veg/Non Veg --</option><option value="Non-Veg">Non-Veg</option><option value="Veg">Veg</option></select></td></tr>';
+
+                    $('#kidstbody').append($new_row);
+                    $('#kidrowcount').val(i);
+                }
+                document.getElementById("add_Row").style.display = "none";
+            }
+        }
+        function addRow_val() {
+            var kcount = $('#kidscount').val();
+            kcount = parseInt(kcount);
+            var i = $('#kidrowcount').val();
+
+            if (kcount > 0) {
+                $('#delete_Row_btn').fadeIn();
+                for (let i = 1; i <= kcount; i++) {
+
+                    var $new_row = '<tr><td><input type="number" name="kidno_' + i + '" value="' + i + '" class="form-control" readonly required/></td><td><select name="kidage_' + i + '" class="form-control" required><option value>-- age --</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option></select></td><td><select  name="kidveg_' + i + '" class="form-control" required><option value>-- Veg/Non Veg --</option><option value="Non-Veg">Non-Veg</option><option value="Veg">Veg</option></select></td></tr>';
+
+                    $('#kidstbody').append($new_row);
+                    $('#kidrowcount').val(i);
+                }
+                document.getElementById("add_Row").style.display = "none";
+            }
+        }
+        function removeRow_val() {
+            document.getElementById("delete_Row_btn").style.display = "none";
+            $('#kidstbody').empty();
+            $('#kidrowcount').val(0);
+            $('#kidscount').val(0);
+            $('#add_Row').fadeIn();
+        }
+        function removeRow() {
+            document.getElementById("delete_Row").style.display = "none";
+            $('#kidstbody').empty();
+            $('#kidrowcount').val(0);
+            $('#kidscount').val(0);
+            $('#add_Row').fadeIn();
+        }
+        $(document).ready(function () {
+            $('#IsGuestNonVeg1').fadeOut();
+            $('#IsGuestNonVeg2').fadeOut();
+        });
+        function getGuestNovVeg() {
+            var count = $("#memcount").val();
+            count = parseInt(count);
+
+            if (count > 0) {
+                $('#IsGuestNonVeg1').fadeIn();
+                $('#IsGuestNonVeg2').fadeIn();
+            }
+            else {
+                $('#IsGuestNonVeg1').fadeOut();
+                $('#IsGuestNonVeg2').fadeOut();
+            }
+        }
+        function getGuestCount() {
+            var count = $("#memcount").val();
+            var rank = $("#RankVal").val();
+            rank = parseInt(rank);
+            count = parseInt(count);
+
+            if (rank == 27) {
+
+                if (count > 4) {
+                    alert("you are not allowed to enter more than 4 guests");
+                    $("#memcount").empty();
+                    $("#memcount").val(4);
+                }
+                else if (count <= 4) {
+                    $("#memcount").val(count);
+                }
+            }
+            else if (rank == 10) {
+                if (count > 4) {
+                    alert("you are not allowed to enter more than 4 guests");
+                    $("#memcount").empty();
+                    $("#memcount").val(4);
+                }
+                else if (count <= 4) {
+                    $("#memcount").val(count);
+                }
+            }
+            else if (rank == 147) {
+                if (count > 4) {
+                    alert("you are not allowed to enter more than 4 guests");
+                    $("#memcount").empty();
+                    $("#memcount").val(4);
+                }
+                else if (count <= 4) {
+                    $("#memcount").val(count);
+                }
+            }
+            else if (rank >= 28 && rank <= 44) {
+
+                if (count > 2) {
+                    alert("you are not allowed to enter more than 2 guests");
+                    $("#memcount").empty();
+                    $("#memcount").val(2);
+                }
+                else if (count <= 2) {
+                    $("#memcount").val(count);
+                }
+            }
+
+        }
+        function roomFunction() {
+            var val = $('#delilocation').val();
+            if (val == "Room") {
+
+                var $new_row2 = '<input type="number" placeholder="Enter Room no" name="roomno" id="roomno"  class="form-control" required/>';
+                $('#roomoption').append($new_row2);
+            }
+            else {
+                $('#roomoption').empty();
+                $('#roomno').remove();
+            }
+        }
+        function changeSpouseState1() {
+
+            $('#spousevegnon1').fadeIn();
+            $('#spousevegnon2').fadeIn();
+            $('#IsSpouseAlcohol2').fadeIn();
+            $('#IsSpouseAlcohol1').fadeIn();
+            $('#IsSpouseNonVeg1').fadeIn();
+            $('#IsSpouseNonVeg2').fadeIn();
+
+        }
+        function changeOMTState1() {
+
+            $('#IsOMTVeg1').fadeIn();
+            $('#IsOMTVeg2').fadeIn();
+        }
+        function changeSpouseState2() {
+
+            $('#spousevegnon1').fadeOut();
+            $('#spousevegnon2').fadeOut();
+            $('#IsSpouseAlcohol2').fadeOut();
+            $('#IsSpouseAlcohol1').fadeOut();
+            $('#IsSpouseNonVeg1').fadeOut();
+            $('#IsSpouseNonVeg2').fadeOut();
+        }
+        function changeNonVegState1() {
+
+            $('#IsNonVeg1').fadeIn();
+            $('#IsNonVeg2').fadeIn();
+        }
+        function changeNonVegState2() {
+
+            $('#IsNonVeg1').fadeOut();
+            $('#IsNonVeg2').fadeOut();
+        }
+        function changeNonSpouseVegState1() {
+
+            $('#IsSpouseNonVeg1').fadeIn();
+            $('#IsSpouseNonVeg2').fadeIn();
+        }
+        function changeNonSpouseVegState2() {
+
+            $('#IsSpouseNonVeg1').fadeOut();
+            $('#IsSpouseNonVeg2').fadeOut();
+        }
+        function changeOMTState2() {
+
+            $('#IsOMTVeg1').fadeOut();
+            $('#IsOMTVeg2').fadeOut();
+            $('#IsValet1').fadeIn();
+            $('#IsValet2').fadeIn();
+
+        }
+
+        function hideParticipateBtn() {
+
+            //$('#pbtn1').fadeOut();
+            //$('#pbtn2').fadeOut();
+        }
+        function changeVehileNo1() {
+
+            //$('#vehiclenodiv1').fadeOut();
+            //$('#vehiclenodiv2').fadeOut();
+        }
+        window.onload = function () {
+            ChangeValletParking1();
+        };
+
+        function ChangeValletParking1() {
+            $('#IsValet1').fadeOut();
+            $('#IsValet2').fadeOut();
+            $('#IsTransport1').fadeOut();
+            $('#IsTransport2').fadeOut();
+        }
+        function changeValetState1() {
+            $('#IsTransport1').fadeOut();
+            $('#IsTransport2').fadeOut();
+        }
+        function changeValetState2() {
+            $('#IsTransport1').fadeIn();
+            $('#IsTransport2').fadeIn();
+        }
+        function hideVehicleNo() {
+            alert("");
+            $('#vehiclenodiv1').fadeOut();
+            $('#vehiclenodiv2').fadeOut();
+            document.getElementById("IsTransport1").style.display = "none";
+            document.getElementById("IsTransport2").style.display = "none";
+            document.getElementById("IsChanging1").style.display = "none";
+            document.getElementById("IsChanging2").style.display = "none";
+        }
+        //$(document).ready(function () {
+        //    alert($("#RankVal").val());
+        //    var rank = $("#RankVal").val();
+        //    rank = parseInt(rank);
+
+        //    if (rank != 27 && rank != 10) {
+        //        $('#participateBtn').fadeOut();
+        //        $('#notparticipateBtn').fadeOut();
+        //    }
+        //});
+
+
+        function isNumberKey(txt, evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode == 46) {
+                //Check if the text already contains the . character
+                if (txt.value.indexOf('.') === -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                if (charCode > 31 &&
+                    (charCode < 48 || charCode > 57))
+                    return false;
+            }
+            return true;
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Input change event handler
+            $("body").on("input", ".quantity-input", function () {
+                var ingredientId = $(this).data("ingredient-id");
+                var quantity = parseFloat($(this).val()) || 0;
+
+                // Update the total quantity in the first table
+                $(this).closest("tr").find(".total-quantity").text(quantity);
+
+                // Update the total quantity in the second table
+                var totalQty = 0;
+                $("#table1 tr[data-ingredient-id='" + ingredientId + "']").each(function () {
+                    var rowQty = parseFloat($(this).find(".quantity-input").val()) || 0;
+                    totalQty += rowQty;
+                });
+                $("#table2 tr[data-ingredient-id='" + ingredientId + "'] .total-qty").text(totalQty);
+
+                // Update the insufficient-stock class
+                var stockQty = parseFloat($("#table2 tr[data-ingredient-id='" + ingredientId + "'] .current-stock-qty").text()) || 0;
+                if (totalQty > stockQty) {
+                    $("#table1 tr[data-ingredient-id='" + ingredientId + "']").addClass("insufficient-stock");
+                    $("#table2 tr[data-ingredient-id='" + ingredientId + "']").addClass("insufficient-stock");
+                } else {
+                    $("#table1 tr[data-ingredient-id='" + ingredientId + "']").removeClass("insufficient-stock");
+                    $("#table2 tr[data-ingredient-id='" + ingredientId + "']").removeClass("insufficient-stock");
+                }
+            });
+        });
+        $(document).ready(function () {
+            $('#example2').DataTable();
+        });
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -13,9 +13,9 @@ namespace Dinota.Domain.EventCount
         public int Count { set; get; } 
         public DateTime EffectiveDate { set; get; }
         public int Type { set; get; }
-        public int LocationId { set; get; }
+        //public int LocationId { set; get; }
         public bool Active { set; get; }
-        public virtual SLAFLocation.SLAFLocation SLAFLocation { get; set; }
+        //public virtual SLAFLocation.SLAFLocation SLAFLocation { get; set; }
 
     }
 }

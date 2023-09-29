@@ -25,6 +25,19 @@ namespace AlfasiWeb.Models
         public bool IsEnable { get; set; }
         public string dateInfo { get; set; }
     }
+
+    public class EventReportSummary {
+        public int Incount { get; set; }
+        public int Outcount { get; set; }
+        public int Pendingcount { get; set; }
+        public List<EntrySummary> EntrySummaryList { get; set; }
+    }
+
+    public class EntrySummary {
+        public string Time { get; set; }
+        public int Incount { get; set; }
+        public int Outcount { get; set; }
+    }
     public class DailySaleReportModel {
 
         public bool IsSet { get; set; }

@@ -173,19 +173,19 @@ namespace MIMS.Controllers
                 {
                     MenuDetailItemOfficerModel mod = new MenuDetailItemOfficerModel();
                     mod.MenuOrderItemDetail = detail;
-                    if (detail.Status == (int)DataStruct.MenuOrderItemStatus.Pending)
+                    if (detail.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Pending)
                     {
                         PendingMenuOrderList.Add(mod);
                     }
-                    else if (detail.Status == (int)DataStruct.MenuOrderItemStatus.Accepted)
+                    else if (detail.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Accepted)
                     {
                         CompleteMenuOrderList.Add(mod);
                     }
-                    else if (detail.Status == (int)DataStruct.MenuOrderItemStatus.Delivered)
+                    else if (detail.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Delivered)
                     {
                         DeliveredMenuOrderList.Add(mod);
                     }
-                    else if (detail.Status == (int)DataStruct.MenuOrderItemStatus.Cancel)
+                    else if (detail.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Cancel)
                     {
                         CancelledMenuOrderList.Add(mod);
                     }
@@ -1825,21 +1825,27 @@ namespace MIMS.Controllers
         }
         public ActionResult F140Detail(int id)
         {
+            MenuF140Model model = new MenuF140Model();
             List<F140Data> F140DataList = new List<F140Data>();
             try
             {
+                F140Header header = _f140HeaderService.GetByKey(id);
+                var filterO = _menuOrderOfficerService.GetDefaultSpecification();
+                filterO = filterO.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == header.MenuOrderId);
+                List<MenuOrderOfficer> MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filterO, p => p.CreationDate).ToList();
+                model.MenuOrderOfficerList = MenuOrderOfficerList;
                 UserAccount account = GetCurrentUser();
                 var filter = _f140DataService.GetDefaultSpecification();
                 filter = filter.And(p=>p.Active==true).And(p=>p.F140HeaderUId== id);
                 F140DataList = _f140DataService.GetCollection(filter,p=>p.CreationDate).ToList();
-                
+                model.F140DataList = F140DataList;
             }
             catch (Exception)
             {
                
                 throw;
             }
-            return View(F140DataList);
+            return View(model);
         }
 
         [HttpPost]

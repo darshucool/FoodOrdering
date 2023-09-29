@@ -836,6 +836,9 @@
     <Content Include="Views\Order\SearchItem.cshtml" />
     <Content Include="Views\Event\AddCount.cshtml" />
     <Content Include="Views\Report\ChartSummary.cshtml" />
+    <Content Include="Views\Shared\_LayoutEvent.cshtml" />
+    <Content Include="Views\Event\OutCount.cshtml" />
+    <Content Include="Views\Order\AddOfficerList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

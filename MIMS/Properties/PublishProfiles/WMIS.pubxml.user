@@ -9,7 +9,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <LastUsedPlatform>Any CPU</LastUsedPlatform>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>F:\PUB\OMMS</_PublishTargetUrl>
-    <History>True|2023-09-13T11:24:25.1740160Z;True|2023-09-12T17:35:32.8814133+05:30;True|2023-09-04T15:25:49.3556043+05:30;True|2023-09-04T15:06:17.2563659+05:30;True|2023-09-01T16:49:18.0431373+05:30;True|2023-09-01T16:33:16.9429897+05:30;False|2023-09-01T16:28:45.9427603+05:30;False|2023-09-01T16:27:15.3096120+05:30;False|2023-09-01T16:24:54.2115737+05:30;False|2023-09-01T16:24:19.4938438+05:30;False|2023-09-01T16:22:58.2773593+05:30;False|2023-09-01T16:22:37.1956845+05:30;True|2023-09-01T11:39:27.7925023+05:30;True|2023-08-31T10:17:59.5734088+05:30;False|2023-07-31T08:18:19.9291876+05:30;False|2023-07-31T08:17:59.9067752+05:30;False|2023-07-31T08:15:04.7955757+05:30;False|2023-07-31T08:14:12.8612824+05:30;False|2023-07-31T08:13:50.2234959+05:30;False|2023-07-31T08:13:20.3005513+05:30;False|2023-07-31T08:12:05.3521734+05:30;True|2023-07-13T13:15:22.5540550+05:30;True|2023-07-07T05:25:58.1466706+05:30;True|2023-07-07T04:41:18.5228880+05:30;True|2023-07-06T14:56:36.8819653+05:30;True|2023-06-12T09:27:48.8417412+05:30;True|2022-09-06T17:45:14.6421333+05:30;True|2022-09-05T17:05:04.2547170+05:30;True|2022-09-05T14:10:05.8691191+05:30;True|2022-09-02T16:18:28.3666445+05:30;False|2022-09-02T16:14:45.7016984+05:30;True|2022-09-02T11:34:04.0638678+05:30;True|2022-09-02T10:23:40.6073483+05:30;True|2022-09-02T09:05:08.1934733+05:30;True|2022-08-30T14:13:04.8168580+05:30;True|2022-08-30T12:49:45.9491409+05:30;True|2022-08-30T12:38:59.6786535+05:30;True|2022-08-30T11:54:46.6339995+05:30;</History>
+    <History>True|2023-09-28T12:50:17.3799960Z;True|2023-09-28T14:35:58.2981112+05:30;True|2023-09-28T13:01:57.8215794+05:30;True|2023-09-28T12:26:12.1909294+05:30;True|2023-09-13T16:54:25.1740160+05:30;True|2023-09-12T17:35:32.8814133+05:30;True|2023-09-04T15:25:49.3556043+05:30;True|2023-09-04T15:06:17.2563659+05:30;True|2023-09-01T16:49:18.0431373+05:30;True|2023-09-01T16:33:16.9429897+05:30;False|2023-09-01T16:28:45.9427603+05:30;False|2023-09-01T16:27:15.3096120+05:30;False|2023-09-01T16:24:54.2115737+05:30;False|2023-09-01T16:24:19.4938438+05:30;False|2023-09-01T16:22:58.2773593+05:30;False|2023-09-01T16:22:37.1956845+05:30;True|2023-09-01T11:39:27.7925023+05:30;True|2023-08-31T10:17:59.5734088+05:30;False|2023-07-31T08:18:19.9291876+05:30;False|2023-07-31T08:17:59.9067752+05:30;False|2023-07-31T08:15:04.7955757+05:30;False|2023-07-31T08:14:12.8612824+05:30;False|2023-07-31T08:13:50.2234959+05:30;False|2023-07-31T08:13:20.3005513+05:30;False|2023-07-31T08:12:05.3521734+05:30;True|2023-07-13T13:15:22.5540550+05:30;True|2023-07-07T05:25:58.1466706+05:30;True|2023-07-07T04:41:18.5228880+05:30;True|2023-07-06T14:56:36.8819653+05:30;True|2023-06-12T09:27:48.8417412+05:30;True|2022-09-06T17:45:14.6421333+05:30;True|2022-09-05T17:05:04.2547170+05:30;True|2022-09-05T14:10:05.8691191+05:30;True|2022-09-02T16:18:28.3666445+05:30;False|2022-09-02T16:14:45.7016984+05:30;True|2022-09-02T11:34:04.0638678+05:30;True|2022-09-02T10:23:40.6073483+05:30;True|2022-09-02T09:05:08.1934733+05:30;True|2022-08-30T14:13:04.8168580+05:30;True|2022-08-30T12:49:45.9491409+05:30;True|2022-08-30T12:38:59.6786535+05:30;True|2022-08-30T11:54:46.6339995+05:30;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -4856,10 +4856,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/28/2021 18:59:04</publishTime>
     </File>
     <File Include="bin/AlfasiWeb.dll">
-      <publishTime>09/17/2023 18:49:43</publishTime>
+      <publishTime>09/29/2023 15:13:59</publishTime>
     </File>
     <File Include="bin/AlfasiWeb.pdb">
-      <publishTime>09/17/2023 18:49:43</publishTime>
+      <publishTime>09/29/2023 15:13:59</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>08/21/2023 10:26:11</publishTime>
@@ -4880,28 +4880,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/24/2012 13:52:52</publishTime>
     </File>
     <File Include="bin/DinotaCore.dll">
-      <publishTime>09/17/2023 18:49:40</publishTime>
+      <publishTime>09/29/2023 15:13:56</publishTime>
     </File>
     <File Include="bin/DinotaCore.pdb">
-      <publishTime>09/17/2023 18:49:40</publishTime>
+      <publishTime>09/29/2023 15:13:56</publishTime>
     </File>
     <File Include="bin/DinotaDataAccess.dll">
-      <publishTime>09/17/2023 18:49:42</publishTime>
+      <publishTime>09/29/2023 15:13:57</publishTime>
     </File>
     <File Include="bin/DinotaDataAccess.pdb">
-      <publishTime>09/17/2023 18:49:42</publishTime>
+      <publishTime>09/29/2023 15:13:57</publishTime>
     </File>
     <File Include="bin/DinotaDomain.dll">
-      <publishTime>09/17/2023 18:49:41</publishTime>
+      <publishTime>09/29/2023 15:13:56</publishTime>
     </File>
     <File Include="bin/DinotaDomain.pdb">
-      <publishTime>09/17/2023 18:49:41</publishTime>
+      <publishTime>09/29/2023 15:13:56</publishTime>
     </File>
     <File Include="bin/DinotaSecurity.dll">
-      <publishTime>09/17/2023 18:49:41</publishTime>
+      <publishTime>09/29/2023 15:13:57</publishTime>
     </File>
     <File Include="bin/DinotaSecurity.pdb">
-      <publishTime>09/17/2023 18:49:41</publishTime>
+      <publishTime>09/29/2023 15:13:57</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.AspNet.dll">
       <publishTime>08/21/2023 10:26:06</publishTime>
@@ -5977,6 +5977,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/DrawingRegistry/SheetMenu.cshtml">
       <publishTime>06/28/2021 18:59:06</publishTime>
     </File>
+    <File Include="Views/Event/AddCount.cshtml">
+      <publishTime>09/28/2023 12:18:13</publishTime>
+    </File>
+    <File Include="Views/Event/OutCount.cshtml">
+      <publishTime>09/28/2023 12:18:54</publishTime>
+    </File>
     <File Include="Views/ExternalHome/Index.cshtml">
       <publishTime>06/28/2021 18:59:06</publishTime>
     </File>
@@ -6269,7 +6275,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/21/2021 15:16:20</publishTime>
     </File>
     <File Include="Views/Menu/AddEvent.cshtml">
-      <publishTime>08/21/2023 10:26:02</publishTime>
+      <publishTime>09/28/2023 12:18:49</publishTime>
     </File>
     <File Include="Views/Menu/AddIngridient.cshtml">
       <publishTime>08/21/2023 10:26:02</publishTime>
@@ -6293,7 +6299,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/16/2023 14:56:53</publishTime>
     </File>
     <File Include="Views/Menu/F140Detail.cshtml">
-      <publishTime>09/11/2023 14:27:38</publishTime>
+      <publishTime>09/29/2023 14:43:37</publishTime>
     </File>
     <File Include="Views/Menu/HQKOT.cshtml">
       <publishTime>08/21/2023 10:26:02</publishTime>
@@ -6317,7 +6323,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2023 10:26:02</publishTime>
     </File>
     <File Include="Views/Menu/MenuOrderList.cshtml">
-      <publishTime>09/13/2023 14:50:32</publishTime>
+      <publishTime>09/18/2023 09:36:24</publishTime>
     </File>
     <File Include="Views/Menu/MenuRegister.cshtml">
       <publishTime>08/21/2023 10:26:02</publishTime>
@@ -6329,7 +6335,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2023 10:26:02</publishTime>
     </File>
     <File Include="Views/Menu/MyOrders.cshtml">
-      <publishTime>09/11/2023 14:26:58</publishTime>
+      <publishTime>09/28/2023 18:18:50</publishTime>
     </File>
     <File Include="Views/Menu/OrderBOCDeduct.cshtml">
       <publishTime>08/21/2023 10:26:02</publishTime>
@@ -6382,6 +6388,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Order/AddIngridient.cshtml">
       <publishTime>08/21/2023 10:26:02</publishTime>
     </File>
+    <File Include="Views/Order/AddOfficerList.cshtml">
+      <publishTime>09/28/2023 18:07:16</publishTime>
+    </File>
     <File Include="Views/Order/AddToMenuItem.cshtml">
       <publishTime>08/21/2023 10:26:02</publishTime>
     </File>
@@ -6389,7 +6398,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/01/2023 15:45:30</publishTime>
     </File>
     <File Include="Views/Order/MenuCreate.cshtml">
-      <publishTime>08/21/2023 10:26:02</publishTime>
+      <publishTime>09/28/2023 17:59:48</publishTime>
     </File>
     <File Include="Views/Order/MenuOrder.cshtml">
       <publishTime>08/21/2023 10:26:02</publishTime>
@@ -6398,7 +6407,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/04/2023 15:25:29</publishTime>
     </File>
     <File Include="Views/Order/OrderList.cshtml">
-      <publishTime>09/17/2023 18:49:19</publishTime>
+      <publishTime>09/29/2023 15:03:37</publishTime>
     </File>
     <File Include="Views/Order/OrderRegister.cshtml">
       <publishTime>08/21/2023 10:26:02</publishTime>
@@ -6413,7 +6422,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2023 10:26:02</publishTime>
     </File>
     <File Include="Views/Order/SearchItem.cshtml">
-      <publishTime>09/11/2023 14:27:38</publishTime>
+      <publishTime>09/28/2023 09:51:18</publishTime>
     </File>
     <File Include="Views/Order/_CreateEditOrderHeader.cshtml">
       <publishTime>08/21/2023 10:26:02</publishTime>
@@ -6501,6 +6510,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/ReferenceData/_CreateOrEdit.cshtml">
       <publishTime>08/21/2023 10:26:02</publishTime>
+    </File>
+    <File Include="Views/Report/ChartSummary.cshtml">
+      <publishTime>09/28/2023 16:54:48</publishTime>
     </File>
     <File Include="Views/Report/DailySalesSummary.cshtml">
       <publishTime>08/21/2023 10:26:02</publishTime>
@@ -6668,7 +6680,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2023 10:26:02</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>09/16/2023 12:18:53</publishTime>
+      <publishTime>09/28/2023 12:47:54</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutEvent.cshtml">
+      <publishTime>09/28/2023 12:15:36</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutLogin.cshtml">
       <publishTime>08/21/2023 10:26:02</publishTime>

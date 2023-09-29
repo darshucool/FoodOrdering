@@ -9,7 +9,7 @@
     ViewBag.Title = "MenuOrderList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<meta http-equiv="Refresh" content="10">
+<meta http-equiv="Refresh" content="20">
 <div class="d-none">
     <div class="bg-primary border-bottom p-3 d-flex align-items-center">
         <a class="toggle togglew toggle-2" href="#"><span></span></a>
@@ -57,7 +57,8 @@
                                             <img alt="#" src="@Url.Content("~/Asset/img/menu/" + ord.MenuOrderItemDetail.MenuItem.ImgName + ".jpg")" class="img-fluid order_img rounded">
                                         </div>
                                         <div>
-                                            <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuOrderItemDetail.MenuItem.Name</a></p>
+                                            <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuOrderItemDetail.MenuItem.Name</a>
+                                            <br/><small>Order No: @ord.MenuOrderItemDetail.MenuOrderHeader.UId.ToString("00000")</small></p>
                                             <p>
                                                 Quantity :
                                                
@@ -78,8 +79,9 @@
                                             @*<p class="mb-0 small"><a href="status_onprocess.html">View Details</a></p>*@
                                         </div>
                                         <div class="ml-auto">
-                                            <p class="bg-dark text-white py-1 px-2 rounded small mb-1">Processing</p>
+                                            <p class="bg-dark text-white py-1 px-2 rounded small mb-1">Accpeted</p>
                                             <p class="small font-weight-bold text-center"><i class="feather-clock"></i> @ord.MenuOrderItemDetail.CreationDate</p>
+                                            <a href="@Url.Content("~/Order/AddOfficerList/")@ord.MenuOrderItemDetail.MenuOrderHeader.UId" class="btn-info" style="padding:5px;border-radius:5px;background-color:#bd4b75"> Add Officers </a>
                                         </div>
 
                                     </div>
@@ -103,7 +105,7 @@
                                             <img alt="#" src="@Url.Content("~/Asset/img/menu/" + ord.MenuOrderItemDetail.MenuItem.ImgName + ".jpg")" class="img-fluid order_img rounded">
                                         </div>
                                         <div>
-                                            <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuOrderItemDetail.MenuItem.Name</a></p>
+                                            <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuOrderItemDetail.MenuItem.Name</a><br /><small>Order No: @ord.MenuOrderItemDetail.MenuOrderHeader.UId.ToString("00000")</small></p>
                                             <p>
                                                 Quantity :
 
@@ -111,7 +113,7 @@
 
                                             </p>
 
-                                           
+
                                             <p>
                                                 <b>Location</b> : @ord.MenuOrderItemDetail.MenuOrderHeader.Location
                                                 <br />
@@ -120,15 +122,16 @@
                                                 </b> : @ord.MenuOrderItemDetail.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy") @ord.MenuOrderItemDetail.MenuOrderHeader.Time
                                                 <br />
                                                 <b> Remark</b> : @ord.MenuOrderItemDetail.Remark
-                                                @{ 
-                                                    decimal LKRPrice =new CustomDataBaseManger().GetOrderF140Amount(ord.MenuOrderItemDetail.UId);
-                                                    }
+                                                @{
+                                                    decimal LKRPrice = new CustomDataBaseManger().GetOrderF140Amount(ord.MenuOrderItemDetail.UId);
+                                                }
                                                 @*<p>LKR @LKRPrice</p>*@
                                             </p>
                                         </div>
                                         <div class="ml-auto">
                                             <p class="bg-dark text-white py-1 px-2 rounded small mb-1">Delivered</p>
                                             <p class="small font-weight-bold text-center"><i class="feather-clock"></i> @ord.MenuOrderItemDetail.MenuOrderHeader.CreationDate</p>
+                                        @*<a href="@Url.Content("~/Order/AddOfficerList/")@ord.MenuOrderItemDetail.MenuOrderHeader.UId" class="btn-info" style="padding:5px;border-radius:5px;background-color:#bd4b75"> Add Officers </a>*@
                                         </div>
 
                                     </div>
@@ -153,14 +156,14 @@
                                                 <img alt="#" src="@Url.Content("~/Asset/img/menu/" + ord.MenuOrderItemDetail.MenuItem.ImgName + ".jpg")" class="img-fluid order_img rounded">
                                             </div>
                                             <div>
-                                                <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuOrderItemDetail.MenuItem.Name</a></p>
+                                                <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuOrderItemDetail.MenuItem.Name</a><br /><small>Order No: @ord.MenuOrderItemDetail.MenuOrderHeader.UId.ToString("00000")</small></p>
                                                 <p>
                                                     Quantity :
 
                                                     <span> @ord.MenuOrderItemDetail.Qty  @ord.MenuOrderItemDetail.MenuItem.MeasurementUnit.Unit</span>
 
                                                 </p>
-                                                
+
                                                 @*<p class="mb-0 small"><a href="status_onprocess.html">View Details</a></p>*@
                                                 <p>
                                                     <b>Location</b> : @ord.MenuOrderItemDetail.MenuOrderHeader.Location
@@ -179,6 +182,7 @@
                                                 
 
                                                 <p class="small font-weight-bold text-center"><i class="feather-clock"></i> @ord.MenuOrderItemDetail.CreationDate</p>
+                                                <a href="@Url.Content("~/Order/AddOfficerList/")@ord.MenuOrderItemDetail.MenuOrderHeader.UId" class="btn-info" style="padding:5px;border-radius:5px;background-color:#bd4b75"> Add Officers </a>
                                             </div>
 
                                         </div>
@@ -207,7 +211,7 @@
                                             <img alt="#" src="@Url.Content("~/Asset/img/menu/" + ord.MenuOrderItemDetail.MenuItem.ImgName + ".jpg")" class="img-fluid order_img rounded">
                                         </div>
                                         <div>
-                                            <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuOrderItemDetail.MenuItem.Name</a></p>
+                                            <p class="mb-0 font-weight-bold"><a href="restaurant.html" class="text-dark">@ord.MenuOrderItemDetail.MenuItem.Name</a><br /><small>Order No: @ord.MenuOrderItemDetail.MenuOrderHeader.UId.ToString("00000")</small></p>
                                             <p>
                                                 Quantity :
 

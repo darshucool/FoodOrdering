@@ -30,6 +30,7 @@ using Dinota.Domain.F140Data;
 using Dinota.Domain.MenuItemDetail;
 using AlfasiWeb;
 using MIMS.Models;
+using Dinota.Domain.EventCount;
 
 namespace MIMS.Controllers
 {
@@ -55,8 +56,9 @@ namespace MIMS.Controllers
         private readonly MenuItemDetailService _menuItemDetailService;
         private readonly F140HeaderService _f140HeaderService;
         private readonly F140DataService _f140DataService;
+        private readonly EventCountService _eventCountService;
 
-        public ReportController(IDomainContext dataContext, F140DataService f140DataService, F140HeaderService f140HeaderService, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuOrderOfficerService menuOrderOfficerService, MenuOrderItemDetailService menuOrderItemDetailService, MenuOrderHeaderService menuOrderHeaderService, MenuItemService menuItemService, BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, MeasurementUnitService measurementUnitService, IngredientInfoService ingredientInfoService, UserAccountService userAccountService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
+        public ReportController(IDomainContext dataContext, EventCountService eventCountService, F140DataService f140DataService, F140HeaderService f140HeaderService, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuOrderOfficerService menuOrderOfficerService, MenuOrderItemDetailService menuOrderItemDetailService, MenuOrderHeaderService menuOrderHeaderService, MenuItemService menuItemService, BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, MeasurementUnitService measurementUnitService, IngredientInfoService ingredientInfoService, UserAccountService userAccountService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
             : base(dataContext)
         {
             _divisionService = divisionService;
@@ -77,6 +79,7 @@ namespace MIMS.Controllers
             _menuItemDetailService = menuItemDetailService;
             _f140HeaderService = f140HeaderService;
             _f140DataService = f140DataService;
+            _eventCountService = eventCountService;
         }
         // [AuthorizeUserAccessLevel()]
         public ActionResult SLAFLocationSummary()
@@ -299,8 +302,36 @@ namespace MIMS.Controllers
         }
         public ActionResult ChartSummary()
         {
-            DailySaleReportModel model = new DailySaleReportModel();
-            model.IsSet = false;
+            EventReportSummary model = new EventReportSummary();
+            var filter = _eventCountService.GetDefaultSpecification();
+            filter = filter.And(p => p.Active == true);
+            List<EventCount> EventCountList= _eventCountService.GetCollection(filter, p => p.CreationDate).ToList();
+            model.Incount = EventCountList.Where(p => p.Type == 1).Sum(p=>p.Count);
+            model.Outcount = EventCountList.Where(p => p.Type == 2).Sum(p=>p.Count);
+            model.Pendingcount = model.Incount - model.Outcount;
+            List<EntrySummary> EntrySummaryLis = new List<EntrySummary>();
+            int ToHour = DateTime.Now.Hour;
+            int StartHour = 6;
+            EntrySummary sum0 = new EntrySummary();
+            sum0.Time = "6";
+            sum0.Incount = 0;
+            sum0.Outcount = 0;
+            EntrySummaryLis.Add(sum0);
+            for (int i= StartHour;i<= ToHour; i++)
+            {
+                EntrySummary sum = new EntrySummary();
+                DateTime FromDate = DateTime.Now.Date.AddTicks(1).AddHours(i);
+                DateTime ToDate = DateTime.Now.Date.AddTicks(1).AddHours(i+1);
+                var filterSum = _eventCountService.GetDefaultSpecification();
+                filterSum = filterSum.And(p => p.Active == true).And(p=>p.EffectiveDate>= FromDate).And(p=>p.EffectiveDate<=ToDate);
+                List<EventCount> EventCountSumList= _eventCountService.GetCollection(filterSum, p => p.CreationDate).ToList();
+                sum.Incount= EventCountSumList.Where(p => p.Type == 1).Sum(p => p.Count);
+                sum.Outcount= EventCountSumList.Where(p => p.Type == 2).Sum(p => p.Count);
+                sum.Time = (i + 1).ToString();
+                EntrySummaryLis.Add(sum);
+            }
+            model.EntrySummaryList = EntrySummaryLis;
+            //model.IsSet = false;
             return View(model);
         }
 

@@ -263,10 +263,16 @@ namespace MIMS.Controllers
                 List<MenuOrderHeader> MenuOrderHeaderList = _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p=>p.OrderDate).Take(80).ToList();
                 foreach (MenuOrderHeader order in MenuOrderHeaderList.OrderBy(p => p.OrderDate))
                 {
+
                     MenuOrderHeaderModel mod = new MenuOrderHeaderModel();
+                    var filtero = _menuOrderOfficerService.GetDefaultSpecification();
+                    filtero = filtero.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == order.UId);
+                    List<MenuOrderOfficer> MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filtero, p => p.CreationDate).ToList();
+                    mod.MenuOrderOfficerList = MenuOrderOfficerList;
                     mod.MenuOrderHeader = order;
                     if (order.Status > (int)DataStruct.MenuOrderItemStatus.Accepted)
                     {
+                        
                         var filter140 = _f140HeaderService.GetDefaultSpecification();
                         filter140 = filter140.And(p => p.Active == true).And(p => p.MenuOrderId == order.UId);
                         List<F140Header> oF140HeaderList = _f140HeaderService.GetCollection(filter140, p => p.CreationDate).OrderByDescending(p => p.UId).ToList();
@@ -858,7 +864,35 @@ namespace MIMS.Controllers
             return View();
         }
 
+        [AllowAnonymous]
+        public ActionResult AddOfficerToOrder(int officerId, int orderId)
+        {
+            try
+            {
+                UserAccount account = _userAccountService.GetByKey(officerId);
+                MenuOrderOfficer off = new MenuOrderOfficer();
+                off.UserId = officerId;
+                off.Active = true;
+                off.MeanuOrderHeaderUId = orderId;
+                _menuOrderOfficerService.Add(off);
+                DataContext.SaveChanges();
 
+                MenuOrderHeader header = _menuOrderHeaderService.GetByKey(orderId);
+                int OfficerCount = header.OfficerCount;
+                OfficerCount = OfficerCount + 1;
+                header.OfficerCount = OfficerCount;
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Officer successfully added.");
+
+                return RedirectToAction("AddOfficerList", new { id = orderId });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();
+        }
         public ActionResult RemoveOfficer(int officerId, int orderId)
         {
             try
@@ -883,7 +917,30 @@ namespace MIMS.Controllers
             }
             return View();
         }
+        public ActionResult RemoveOfficerFromOrder(int officerId, int orderId)
+        {
+            try
+            {
+                MenuOrderOfficer officer = _menuOrderOfficerService.GetByKey(officerId);
+                officer.Active = false;
+                DataContext.SaveChanges();
 
+                MenuOrderHeader header = _menuOrderHeaderService.GetByKey(orderId);
+                int officerCount = header.OfficerCount;
+                officerCount = officerCount - 1;
+                header.OfficerCount = officerCount;
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Officer removed successfully.");
+
+                return RedirectToAction("AddOfficerList", new { id = orderId });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();
+        }
         public ActionResult DeleteOrder(int id)
         {
             try
@@ -1047,7 +1104,28 @@ namespace MIMS.Controllers
             }
             return View();
         }
+        public ActionResult AddOfficerList(int id)
+        {
+            OfficerMenuOrderModel model = new OfficerMenuOrderModel();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                var filterO = _menuOrderOfficerService.GetDefaultSpecification();
+                filterO = filterO.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == id);
+                model.MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filterO, p => p.CreationDate).ToList();
 
+                var filterU = _userAccountService.GetDefaultSpecification();
+                filterU = filterU.And(p => p.Active == true).And(p => p.LocationUId == account.LocationUId);
+                model.UserAccountList = _userAccountService.GetCollection(filterU, p => p.CreationDate).ToList();
+                model.MenuOrderId = id;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
+        }
         public ActionResult OfficerList(int id)
         {
             OfficerMenuOrderModel model = new OfficerMenuOrderModel();

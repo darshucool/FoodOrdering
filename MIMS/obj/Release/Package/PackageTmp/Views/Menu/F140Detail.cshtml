@@ -2,13 +2,14 @@
 @using MIMS.Helpers
 @using Dinota.Security
 @using Dinota.Domain.F140Data
-@using Dinota.Domain.MenuOrder
+@using Dinota.Domain.MenuOrderOfficer
 @using AlfasiWeb.Models
-@model List<F140Data>
+@model MenuF140Model
 @{
     ViewBag.Title = "MenuOrderList";
     Layout = "~/Views/Shared/_Layout.cshtml";
     decimal Total = 0;
+    int i = 0;
 }
 <div class="d-none">
     <div class="bg-primary border-bottom p-3 d-flex align-items-center">
@@ -16,48 +17,64 @@
         <h4 class="font-weight-bold m-0 text-white">F.140 Detail</h4>
     </div>
 </div>
-<div class="container position-relative">
+<div class="container position-relative"><button id="print" onclick="PrintElem('printDiv');" style="float:right">Print</button>
     <div class="py-5 osahan-profile row">
-
-        <div class="col-md-12 mb-3">
+       
+        <div class="col-md-12 mb-3" id="printDiv">
+            
             <div class="rounded shadow-sm p-4 bg-white">
-                <h5 class="mb-4">F.140</h5>
+                <h4 class="mb-4">F.140</h4>
+                <span>
+                    <p class="mb-4">
+                        @*<b>Ordered By</b>:*@
+                        @foreach (MenuOrderOfficer off in Model.MenuOrderOfficerList)
+                        {
+                            @off.UserBase.UserName<span>&nbsp;</span>@off.UserBase.Rank.Name<span>&nbsp;</span>@off.UserBase.Name
+                            i++;
+                            if (i < Model.MenuOrderOfficerList.Count)
+                            {
+                                <span>,</span>
+                            }
+                        }
+                    </p>
+                </span>
+
                 <div id="edit_profile">
                     <div>
-                      
-                            
-                            <table width="100%" cellpadding="10"cellspacing="10" border="1">
-                                <tr>
-                                    <td><b>Menu Item</b></td>
-                                    <td><b>Ingredient</b></td>
-                                    <td><b>Ingredient Qty</b></td>
-                                    <td><b>Unit</b></td>
-                                    <td><b>Amount</b></td>
-                                </tr>
-                                @foreach (F140Data detail in Model)
+
+
+                        <table width="100%" cellpadding="10" cellspacing="10" border="1" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td><b>Menu Item</b></td>
+                                <td><b>Ingredient</b></td>
+                                <td><b>Ingredient Qty</b></td>
+                                <td><b>Unit</b></td>
+                                <td style="text-align:right"><b>Amount</b></td>
+                            </tr>
+                            @foreach (F140Data detail in Model.F140DataList)
+                            {
+                                if (detail.Qty > 0 && detail.Amount > 0)
                                 {
-                                    if (detail.Qty > 0&& detail.Amount>0)
-                                    {
-                                        Total += detail.Amount;
-                                        <tr>
-                                            <td>@detail.MenuItem.Name</td>
-                                            <td>@detail.IngredientInfo.ItemName</td>
-                                            <td>@detail.Qty</td>
-                                            <td>@detail.MeasurementUnit.Unit</td>
-                                            <td>@detail.Amount</td>
-                                          
-                                        </tr>
-                                    }
+                                    Total += detail.Amount;
+                                    <tr>
+                                        <td>@detail.MenuItem.Name</td>
+                                        <td>@detail.IngredientInfo.ItemName</td>
+                                        <td>@detail.Qty</td>
+                                        <td>@detail.MeasurementUnit.Unit</td>
+                                        <td style="text-align:right">@detail.Amount</td>
+
+                                    </tr>
                                 }
+                            }
                             <tr>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td><b>TOTAL</b></td>
-                                <td><b>@Total</b></td>
+                                <td style="text-align:right"><b>@Total</b></td>
                             </tr>
-                            </table>
-                            
+                        </table>
+
                     </div>
 
                 </div>
@@ -65,4 +82,23 @@
         </div>
     </div>
 </div>
+<script>
+    function PrintElem(elem) {
+        
+        var mywindow = window.open('', 'PRINT', 'height=800,width=1000');
 
+        mywindow.document.write('<html><head><title>F140 Summary</title>');
+        mywindow.document.write('</head><body >');
+        
+        mywindow.document.write(document.getElementById(elem).innerHTML);
+        mywindow.document.write('</body></html>');
+
+        mywindow.document.close(); // necessary for IE >= 10
+        mywindow.focus(); // necessary for IE >= 10*/
+
+        mywindow.print();
+        mywindow.close();
+
+        return true;
+    }
+</script>

@@ -1032,10 +1032,10 @@ G:\WRJJ\MIMS\FoodOrdering\MIMS\bin\DotNetOpenAuth.OAuth.Consumer.xml
 G:\WRJJ\MIMS\FoodOrdering\MIMS\bin\DotNetOpenAuth.OAuth.xml
 G:\WRJJ\MIMS\FoodOrdering\MIMS\bin\DotNetOpenAuth.OpenId.xml
 G:\WRJJ\MIMS\FoodOrdering\MIMS\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
-G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.AssemblyReference.cache
 G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\AlfasiWeb.Properties.Resources.resources
 G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.GenerateResource.cache
-G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.CoreCompileInputs.cache
-G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.CopyComplete
 G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\AlfasiWeb.dll
 G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\AlfasiWeb.pdb
+G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.AssemblyReference.cache
+G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.CoreCompileInputs.cache
+G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.CopyComplete

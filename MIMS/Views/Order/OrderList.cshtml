@@ -49,7 +49,7 @@
                     <tr>
                         <th>Date</th>
                         <th>Menu Item</th>
-                        @*<th>Ordered By</th>*@
+                        <th>Ordered By</th>
                         <th>Qty</th>
                         <th>Total Amount</th>
                         <th></th>
@@ -70,21 +70,20 @@
                                 {
                                     foreach (MenuOrderItemDetail det in info.MenuOrderItemDetailList)
                                     {
-                                        @det.MenuItem.Name<br />
+                                        @det.MenuItem.Name<br/>
 
                                     }
                                 }
 
                             </td>
-                            @*<td>
-                                @foreach (MenuOrderOfficer off in info.MenuOrderOfficerList)
+                            <td>
+                                @if (info.MenuOrderOfficerList.Count > 0)
                                 {
-                                    <p>
-                                        @off.UserBase.UserName
-
-                                    </p>
+                                    @info.MenuOrderOfficerList[0].UserBase.UserName
+                                    @*<span> </span>@info.MenuOrderOfficerList[0].UserBase.Rank.Name<span> </span>@info.MenuOrderOfficerList[0].UserBase.Name*@
                                 }
-                            </td>*@
+
+                            </td>
                             <td>
                                 @if (info.MenuOrderItemDetailList != null)
                                 {
