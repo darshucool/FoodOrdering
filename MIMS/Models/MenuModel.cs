@@ -17,6 +17,7 @@ using Dinota.Domain.PaymentInfo;
 using Dinota.Domain.SetMenuDetail;
 using Dinota.Domain.SetMenuHeader;
 using Dinota.Domain.User;
+using Dinota.Domain.IngredientBOC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -156,5 +157,7 @@ namespace AlfasiWeb.Models
     public class MenuF140Model {
         public List<F140Data> F140DataList { get; set; }
         public List<MenuOrderOfficer> MenuOrderOfficerList { get; set; }
+        public List<IngredientBOC> IngredientBOCList { get; set; }
+
     }
 }

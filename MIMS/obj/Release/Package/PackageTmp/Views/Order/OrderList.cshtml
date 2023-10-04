@@ -77,11 +77,15 @@
 
                             </td>
                             <td>
-                                @if (info.MenuOrderOfficerList.Count > 0)
+                                @if (info.MenuOrderOfficerList != null)
                                 {
-                                    @info.MenuOrderOfficerList[0].UserBase.UserName
-                                    @*<span> </span>@info.MenuOrderOfficerList[0].UserBase.Rank.Name<span> </span>@info.MenuOrderOfficerList[0].UserBase.Name*@
+                                    if (info.MenuOrderOfficerList.Count > 0)
+                                    {
+                                        @info.MenuOrderOfficerList[0].UserBase.UserName
+                                        @*<span> </span>@info.MenuOrderOfficerList[0].UserBase.Rank.Name<span> </span>@info.MenuOrderOfficerList[0].UserBase.Name*@
+                                    }
                                 }
+
 
                             </td>
                             <td>

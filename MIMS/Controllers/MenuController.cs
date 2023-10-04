@@ -1839,6 +1839,17 @@ namespace MIMS.Controllers
                 filter = filter.And(p=>p.Active==true).And(p=>p.F140HeaderUId== id);
                 F140DataList = _f140DataService.GetCollection(filter,p=>p.CreationDate).ToList();
                 model.F140DataList = F140DataList;
+                var filterI = _ingredientBOCService.GetDefaultSpecification();
+                //filterI = filterI.And(p => p.Active == true).And(p => p.IngredientUId == header.);
+                //List<IngredientBOC> ingredientBOCList = _ingredientBOCService.GetCollection(filterI, p => p.CreationDate).ToList();
+                //model.IngredientBOCList = ingredientBOCList;
+                //foreach (F140Data var in F140DataList)
+                //{
+                //    if (var.IngridientUId == I)
+                //    {
+
+                //    }
+                //}
             }
             catch (Exception)
             {
