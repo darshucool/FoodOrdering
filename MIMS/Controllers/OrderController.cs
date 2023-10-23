@@ -1030,7 +1030,7 @@ namespace MIMS.Controllers
             try
             {
                 var filterU = _userAccountService.GetDefaultSpecification();
-                filterU = filterU.And(p => p.Active == true).And(p => p.LivingStatus == 1).And(p => p.LocationUId == user.LocationUId);
+                filterU = filterU.And(p => p.Active == true).And(p => p.LivingStatus == 1).And(p => p.LocationUId == user.LocationUId).And(p => p.RankUId != 148);
                 List<UserAccount> UserAccountList = _userAccountService.GetCollection(filterU, p => p.CreationDate).ToList();
                 foreach (UserAccount account in UserAccountList)
                 {
@@ -1066,7 +1066,7 @@ namespace MIMS.Controllers
             try
             {
                 var filterU = _userAccountService.GetDefaultSpecification();
-                filterU = filterU.And(p => p.Active == true).And(p => p.LocationUId == user.LocationUId);
+                filterU = filterU.And(p => p.Active == true).And(p => p.LocationUId == user.LocationUId).And(p => p.RankUId != 148);
                 List<UserAccount> UserAccountList = _userAccountService.GetCollection(filterU, p => p.CreationDate).ToList();
                 int OfficerCount = 0;
                 MenuOrderHeader header = _menuOrderHeaderService.GetByKey(id);
