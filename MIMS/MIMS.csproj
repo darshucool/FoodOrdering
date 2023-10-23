@@ -839,6 +839,7 @@
     <Content Include="Views\Shared\_LayoutEvent.cshtml" />
     <Content Include="Views\Event\OutCount.cshtml" />
     <Content Include="Views\Order\AddOfficerList.cshtml" />
+    <Content Include="Views\Menu\AcceptedMenuOrderList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

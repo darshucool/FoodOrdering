@@ -48,6 +48,15 @@ namespace AlfasiWeb.Models
         public List<MenuOrderViewModel> CancelledViewMenuOrderList { get; set; }
         public List<MenuOrderViewModel> DeliveredViewMenuOrderList { get; set; }
     }
+
+    public class AcceptedMenuOrderModel
+    {
+        public List<MenuDetailItemOfficerModel> CompleteMenuOrderList { get; set; }
+
+        public List<MenuOrderViewModel> CompleteViewMenuOrderList { get; set; }
+
+    }
+
     public class MenuDetailItemOfficerModel {
         public MenuOrderItemDetail MenuOrderItemDetail { get; set; }
         public List<MenuOrderOfficer> MenuOrderOfficerList { get; set; }

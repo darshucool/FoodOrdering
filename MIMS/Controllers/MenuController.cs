@@ -898,6 +898,45 @@ namespace MIMS.Controllers
             return View(model);
         }
 
+        public ActionResult AcceptedMenuOrderList()
+        {
+
+            AcceptedMenuOrderModel model = new AcceptedMenuOrderModel();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                var filter = _menuOrderItemDetailService.GetDefaultSpecification();
+                
+                DateTime EffectiveDate = DateTime.Now;
+                DateTime FromDate = EffectiveDate.Date;
+                DateTime ToDate = EffectiveDate.Date.AddDays(1).AddTicks(-1);
+                var filterC = _menuOrderItemDetailService.GetDefaultSpecification();
+                List<MenuDetailItemOfficerModel> CompleteMenuOrderList = new List<MenuDetailItemOfficerModel>();
+                filterC = filterC.And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Accepted);
+                filterC = filterC.And(p => p.Active == true).And(p => p.MenuOrderHeader.LocationUId == account.LocationUId);
+                List<MenuOrderItemDetail> CompleteMenuItemList = _menuOrderItemDetailService.GetCollection(filterC, p => p.CreationDate).OrderBy(p => p.MenuOrderHeader.OrderDate).ToList();
+
+                foreach (MenuOrderItemDetail item in CompleteMenuItemList)
+                {
+                    MenuDetailItemOfficerModel det = new MenuDetailItemOfficerModel();
+                    det.MenuOrderItemDetail = item;
+                    var filterO = _menuOrderOfficerService.GetDefaultSpecification();
+                    filterO = filterO.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == item.MeanuOrderHeaderUId);
+                    det.MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filterO, p => p.CreationDate).ToList();
+                    CompleteMenuOrderList.Add(det);
+                }
+                model.CompleteMenuOrderList = CompleteMenuOrderList;
+                
+            }
+            catch (Exception)
+            {
+                TempData[ViewDataKeys.Message] = new FailMessage("You need to login again");
+                return RedirectToAction("Login", "Account");
+            }
+
+            return View(model);
+        }
+
         public ActionResult HQKOT()
         {
             MenuOrderModel model = new MenuOrderModel();
@@ -1839,8 +1878,8 @@ namespace MIMS.Controllers
                 filter = filter.And(p=>p.Active==true).And(p=>p.F140HeaderUId== id);
                 F140DataList = _f140DataService.GetCollection(filter,p=>p.CreationDate).ToList();
                 model.F140DataList = F140DataList;
-                var filterI = _ingredientBOCService.GetDefaultSpecification();
-                //filterI = filterI.And(p => p.Active == true).And(p => p.IngredientUId == header.);
+                //var filterI = _ingredientBOCService.GetDefaultSpecification();
+                //filterI = filterI.And(p => p.Active == true).And(p => p.IngredientUId == );
                 //List<IngredientBOC> ingredientBOCList = _ingredientBOCService.GetCollection(filterI, p => p.CreationDate).ToList();
                 //model.IngredientBOCList = ingredientBOCList;
                 //foreach (F140Data var in F140DataList)
