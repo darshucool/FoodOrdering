@@ -1104,6 +1104,44 @@ namespace MIMS.Controllers
             }
             return View();
         }
+
+        public ActionResult AddOfficerCadets(int id)
+        {
+            UserAccount user = new UserAccount();
+            user = GetCurrentUser();
+
+            try
+            {
+                var filterU = _userAccountService.GetDefaultSpecification();
+                filterU = filterU.And(p => p.Active == true).And(p => p.RankUId == 148).And(p => p.LocationUId == user.LocationUId);
+                List<UserAccount> UserAccountList = _userAccountService.GetCollection(filterU, p => p.CreationDate).ToList();
+                foreach (UserAccount account in UserAccountList)
+                {
+                    MenuOrderOfficer off = new MenuOrderOfficer();
+                    off.UserId = account.Id;
+                    off.Active = true;
+                    off.MeanuOrderHeaderUId = id;
+                    _menuOrderOfficerService.Add(off);
+                    DataContext.SaveChanges();
+
+                    MenuOrderHeader header = _menuOrderHeaderService.GetByKey(id);
+                    int OfficerCount = header.OfficerCount;
+                    OfficerCount = OfficerCount + 1;
+                    header.OfficerCount = OfficerCount;
+                    DataContext.SaveChanges();
+                }
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Officer Cadets are successfully added.");
+
+                return RedirectToAction("OfficerList", new { id = id });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();
+        }
+
         public ActionResult AddOfficerList(int id)
         {
             OfficerMenuOrderModel model = new OfficerMenuOrderModel();
