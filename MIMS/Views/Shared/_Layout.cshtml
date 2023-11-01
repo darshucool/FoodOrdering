@@ -147,12 +147,32 @@
             }*@
                 <li><a href="@Url.Content("~/Menu/EventIndex")"><i class="feather-list mr-2"></i>Event List</a></li>
                 <li><a href="@Url.Content("~/News/Index")"><i class="feather-list mr-2"></i>News List</a></li>
+                <li><a href="@Url.Content("~/Menu/MessBill")"><i class="feather-list mr-2"></i>Mess Bill</a></li>
+                <li><a href="@Url.Content("~/Menu/BarBill")"><i class="feather-list mr-2"></i>Bar Bill</a></li>
                 <li><a href="@Url.Content("~/Account/ChangePassword")"><i class="feather-list mr-2"></i>Change Password</a></li>
                 <li><a href="@Url.Content("~/Account/LogOff")"><i class="feather-list mr-2"></i>Logoff</a></li>
             }
+
+            else if (account.UserTypeId == 3)
+            {
+                <li><a href="@Url.Content("~/Home/Index")"><i class="feather-home mr-2"></i>Homepage</a></li>
+                <li><a href="@Url.Content("~/Menu/MyOrders")"><i class="feather-list mr-2"></i>My Orders</a></li>
+                @*if (account.LocationUId == 18)
+            {
+                <li><a href="@Url.Content("~/Menu/EventHomeRma")"><i class="feather-list mr-2"></i>Event List</a></li>
+            }*@
+                <li><a href="@Url.Content("~/Menu/EventIndex")"><i class="feather-list mr-2"></i>Event List</a></li>
+                <li><a href="@Url.Content("~/News/Index")"><i class="feather-list mr-2"></i>News List</a></li>
+                <li><a href="@Url.Content("~/Menu/MessBill")"><i class="feather-list mr-2"></i>Mess Bill</a></li>
+                <li><a href="@Url.Content("~/Menu/BarBill")"><i class="feather-list mr-2"></i>Bar Bill</a></li>
+                @*<li><a href="@Url.Content("~/Officer/AddOfficerRequest/")@account.Id"><i class="feather-list mr-2"></i>Attach Meal In</a></li>*@
+                <li><a href="@Url.Content("~/Account/ChangePassword")"><i class="feather-list mr-2"></i>Change Password</a></li>
+                <li><a href="@Url.Content("~/Account/LogOff")"><i class="feather-list mr-2"></i>Logoff</a></li>
+            }
+
             else if (account.UserTypeId == 2 || account.UserTypeId == 4 || account.UserTypeId == 5)
             {
-                
+
                 <li>
                     <a href="#"><i class="feather-list mr-2"></i>Orders</a>
                     <ul>
@@ -205,21 +225,7 @@
                 <li><a href="@Url.Content("~/Account/ChangePassword")"><i class="feather-list mr-2"></i>Change Password</a></li>
                 <li><a href="@Url.Content("~/Account/LogOff")"><i class="feather-list mr-2"></i>Logoff</a></li>
             }
-            else if (account.UserTypeId == 3)
-            {
-                <li><a href="@Url.Content("~/Home/Index")"><i class="feather-home mr-2"></i>Homepage</a></li>
-                <li><a href="@Url.Content("~/Menu/MyOrders")"><i class="feather-list mr-2"></i>My Orders</a></li>
-                @*if (account.LocationUId == 18)
-            {
-                <li><a href="@Url.Content("~/Menu/EventHomeRma")"><i class="feather-list mr-2"></i>Event List</a></li>
-            }*@
-                <li><a href="@Url.Content("~/Menu/EventIndex")"><i class="feather-list mr-2"></i>Event List</a></li>
-                <li><a href="@Url.Content("~/News/Index")"><i class="feather-list mr-2"></i>News List</a></li>
-                <li><a href="@Url.Content("~/Menu/MessBill")"><i class="feather-list mr-2"></i>Mess Bill</a></li>
-                @*<li><a href="@Url.Content("~/Officer/AddOfficerRequest/")@account.Id"><i class="feather-list mr-2"></i>Attach Meal In</a></li>*@
-                <li><a href="@Url.Content("~/Account/ChangePassword")"><i class="feather-list mr-2"></i>Change Password</a></li>
-                <li><a href="@Url.Content("~/Account/LogOff")"><i class="feather-list mr-2"></i>Logoff</a></li>
-            }
+
         </ul>
 
     </nav>

@@ -840,6 +840,7 @@
     <Content Include="Views\Event\OutCount.cshtml" />
     <Content Include="Views\Order\AddOfficerList.cshtml" />
     <Content Include="Views\Menu\AcceptedMenuOrderList.cshtml" />
+    <Content Include="Views\Menu\BarBill.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

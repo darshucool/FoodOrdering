@@ -18,6 +18,7 @@ using Dinota.Domain.UserPermission;
 using Dinota.Domain.UserType;
 using System.Collections.Generic;
 using Dinota.Domain.Division;
+using Dinota.Domain.BarRecovery;
 
 namespace MIMS.Controllers
 {
@@ -31,10 +32,14 @@ namespace MIMS.Controllers
         private readonly UserAccountService _userAccountService;
         private readonly UserTypeService _userTypeService;
         private readonly DivisionService _divisionService;
+        private readonly BarRecoveryService _barRecoveryService;
+
         private readonly ICryptoProvider _cryptoProvider;
 
-        public UsersController(UserBaseService userService, DivisionService divisionService, UserTypeService userTypeService, PageObjectService pageObjectService, UserPermissionService userPermissionService, AdminUserService adminUserService, UserAccountService userAccountService,
-           IDomainContext domainContext, ICryptoProvider cryptoProvider)
+        public UsersController(UserBaseService userService, DivisionService divisionService, UserTypeService userTypeService, 
+            PageObjectService pageObjectService, UserPermissionService userPermissionService, AdminUserService adminUserService, 
+            UserAccountService userAccountService, BarRecoveryService barRecoveryService,
+            IDomainContext domainContext, ICryptoProvider cryptoProvider)
             : base(domainContext)
         {
             _userService = userService;
@@ -45,6 +50,7 @@ namespace MIMS.Controllers
             _pageObjectService = pageObjectService;
             _userTypeService = userTypeService;
             _divisionService = divisionService;
+           
         }
 
         [DinotaAuthorize(FunctionalAreas.Users, SetPermission = true)]

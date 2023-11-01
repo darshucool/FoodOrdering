@@ -1,4 +1,5 @@
 ﻿using Dinota.Core.Data;
+using Dinota.Domain.User;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -14,7 +15,7 @@ namespace Dinota.Domain.MenuOrderHeader
      
         public DateTime EffectiveDate { set; get; }
         public DateTime OrderDate { set; get; }
-      public int LocationUId { get; set; }
+        public int LocationUId { get; set; }
         public string Time { set; get; }
         public string Location { set; get; }
         public bool Active { set; get; }
@@ -23,5 +24,8 @@ namespace Dinota.Domain.MenuOrderHeader
         public int MenuHeaderType { get; set; }
         public decimal F140TotalAmt { get; set; }
         public int PaymentMethod { get; set; }
+        public int? CreatedUserId { get; set; }
+
+        public virtual UserBase UserBase { get; set; }
     }
 }

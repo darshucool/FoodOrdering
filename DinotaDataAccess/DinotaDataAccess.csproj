@@ -59,6 +59,8 @@
     <Compile Include="AutofacModule.cs" />
     <Compile Include="AlertNotify\AlertNotifyMap.cs" />
     <Compile Include="AlertNotify\AlertNotifyRepo.cs" />
+    <Compile Include="BarRecovery\BarRecoveryMap.cs" />
+    <Compile Include="BarRecovery\BarRecoveryRepo.cs" />
     <Compile Include="PaymentInfo\PaymentInfoMap.cs" />
     <Compile Include="PaymentInfo\PaymentInfoRepo.cs" />
     <Compile Include="SetMenuDetail\SetMenuDetailMap.cs" />

@@ -18,6 +18,7 @@ using Dinota.Domain.SetMenuDetail;
 using Dinota.Domain.SetMenuHeader;
 using Dinota.Domain.User;
 using Dinota.Domain.IngredientBOC;
+using Dinota.Domain.BarRecovery;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -159,5 +160,11 @@ namespace AlfasiWeb.Models
         public List<MenuOrderOfficer> MenuOrderOfficerList { get; set; }
         public List<IngredientBOC> IngredientBOCList { get; set; }
 
+    }
+
+    public class BarBillModel
+    {
+        public List<BarRecovery> BarRecoveryList { get; set; }
+        public List<UserAccount> UserAccountList { get; set; }
     }
 }

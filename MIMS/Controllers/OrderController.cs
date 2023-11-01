@@ -295,7 +295,7 @@ namespace MIMS.Controllers
                 model.MenuOrderHeaderModelList = MenuOrderHeaderModelList;
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 throw;
@@ -330,6 +330,7 @@ namespace MIMS.Controllers
                 header.PaymentMethod = (int)DataStruct.PaymentMethod.Credit;
                 header.OfficerCount = 0;
                 header.LocationUId = account.LocationUId;
+                header.CreatedUserId = account.Id;
                 _menuOrderHeaderService.Add(header);
                 DataContext.SaveChanges();
                 TempData[ViewDataKeys.Message] = new SuccessMessage("Order created. Add menu items");

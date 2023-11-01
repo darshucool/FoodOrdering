@@ -41,6 +41,7 @@ using AlfasiWeb;
 using Dinota.Domain.IngredientInfo;
 using Dinota.Domain.AlertNotify;
 using System.Media;
+using Dinota.Domain.BarRecovery;
 
 namespace MIMS.Controllers
 {
@@ -70,7 +71,18 @@ namespace MIMS.Controllers
         private readonly MenuOrderOfficerService _menuOrderOfficerService;
         private readonly IngredientInfoService _ingredientInfoService;
         private readonly AlertNotifyService _alertNotifyService;
-        public MenuController(IDomainContext dataContext, AlertNotifyService alertNotifyService, IngredientInfoService ingredientInfoService, MenuOrderOfficerService menuOrderOfficerService, MenuOrderItemDetailService menuOrderItemDetailService, MenuOrderHeaderService menuOrderHeaderService, BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, F140HeaderService f140HeaderService, F140DataService f140DataService, MenuItemDetailService menuItemDetailService, MenuPackageService menuPackageService, MenuMultiOptionService menuMultiOptionService, MeasurementUnitService measurementUnitService, MenuOptionService menuOptionService, EventAttendanceService eventAttendanceService, EventParticipationKidService eventParticipationKidService, EventParticipationService eventParticipationService, EventService eventService, MenuOrderService menuOrderService, MenuItemService menuItemService, MenuCategoryService menuCategoryService, UserAccountService userAccountService)
+        private readonly BarRecoveryService _barRecoveryService;
+
+        public MenuController(IDomainContext dataContext, AlertNotifyService alertNotifyService, IngredientInfoService ingredientInfoService, MenuOrderOfficerService menuOrderOfficerService, 
+                                            MenuOrderItemDetailService menuOrderItemDetailService, MenuOrderHeaderService menuOrderHeaderService, 
+                                            BOCTransactionService bOCTransactionService, IngredientBOCService ingredientBOCService, 
+                                            F140HeaderService f140HeaderService, F140DataService f140DataService, MenuItemDetailService menuItemDetailService, 
+                                            MenuPackageService menuPackageService, MenuMultiOptionService menuMultiOptionService, 
+                                            MeasurementUnitService measurementUnitService, MenuOptionService menuOptionService, 
+                                            EventAttendanceService eventAttendanceService, EventParticipationKidService eventParticipationKidService, 
+                                            EventParticipationService eventParticipationService, EventService eventService,
+                                            MenuOrderService menuOrderService, MenuItemService menuItemService, MenuCategoryService menuCategoryService, 
+                                            UserAccountService userAccountService, BarRecoveryService barRecoveryService)
             : base(dataContext)
         {
             _userAccountService = userAccountService;
@@ -96,6 +108,7 @@ namespace MIMS.Controllers
             _menuOrderOfficerService = menuOrderOfficerService;
             _ingredientInfoService = ingredientInfoService;
             _alertNotifyService = alertNotifyService;
+            _barRecoveryService = barRecoveryService;
         }
         //[AuthorizeUserAccessLevel()]
         public ActionResult MenuItemIndex(int id)
@@ -1164,6 +1177,7 @@ namespace MIMS.Controllers
                 oheader.EffectiveDate = DateTime.Now;
                 oheader.MenuHeaderType = (int)DataStruct.MenuHeaderType.Casual;
                 oheader.LocationUId = account.LocationUId;
+                oheader.CreatedUserId = account.Id;
                 _menuOrderHeaderService.Add(oheader);
                 DataContext.SaveChanges();
                 MenuOrderItemDetail detail = new MenuOrderItemDetail();
@@ -1788,6 +1802,22 @@ namespace MIMS.Controllers
                 throw;
             }
             return View(model);
+        }
+        public ActionResult BarBill()
+        {
+            List<BarRecovery> BarRecoveryLIst = new List<BarRecovery>();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                var filter = _barRecoveryService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p => p.UserId == account.Id);
+                BarRecoveryLIst = _barRecoveryService.GetCollection(filter, p => p.CreationDate).ToList();
+            }
+            catch (Exception )
+            {
+                throw;
+            }
+            return View(BarRecoveryLIst);
         }
         
         [HttpPost]
@@ -3099,6 +3129,49 @@ namespace MIMS.Controllers
             }
             return View();
         }
+
+        public ActionResult BarRecoveryUserUpdate()
+        {
+            BarBillModel model = new BarBillModel();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                
+
+                var filterR = _barRecoveryService.GetDefaultSpecification();
+                filterR = filterR.And(p => p.Active == true);
+                List<BarRecovery> BarRecoveryList = _barRecoveryService.GetCollection(filterR, p => p.CreationDate).ToList();
+                model.BarRecoveryList = BarRecoveryList;
+
+                foreach (BarRecovery rec in model.BarRecoveryList)
+                {
+                    //BarRecovery oBill = _barRecoveryService.GetByKey(rec.UId);
+                    if (rec.UserId is null)
+                    {
+                        var filterU = _userAccountService.GetDefaultSpecification();
+                        filterU = filterU.And(p => p.Active == true).And(p => p.ServiceNo == rec.ServiceNo);
+                        List<UserAccount> UserAccountList = _userAccountService.GetCollection(filterU, p => p.CreationDate).ToList();
+                        model.UserAccountList = UserAccountList;
+                        if (UserAccountList.Count > 0)
+                        {
+                            BarRecovery rec1 = _barRecoveryService.GetByKey(rec.UId);
+                            rec1.UserId = UserAccountList[0].Id;
+                            DataContext.SaveChanges();
+
+                        }
+
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return View();
+        
+        }
+
         public ActionResult PackageList(int id)
         {
             MenuPackageEditModel model = new MenuPackageEditModel();

@@ -1,0 +1,76 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.BarRecovery
+@using AlfasiWeb.Models
+@model List<BarRecovery>
+@{
+    ViewBag.Title = "BarBill";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    DateTime firstDay;
+    DateTime lastDay;
+
+    if (TempData.ContainsKey("FirstDay") && TempData.ContainsKey("LastDay"))
+    {
+        firstDay = (DateTime)TempData["FirstDay"];
+        lastDay = (DateTime)TempData["LastDay"];
+    }
+    else
+    {
+        DateTime currentDate = DateTime.Today;
+        firstDay = new DateTime(currentDate.Year, currentDate.Month, 1);
+        lastDay = firstDay.AddMonths(1).AddDays(-1);
+    }
+
+    string formattedDate = firstDay.ToString("yyyy MMMM");
+
+}
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Bar Bill Summary</h4>
+    </div>
+</div>
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+
+        <div class="col-md-12 mb-3">
+            <div class="rounded shadow-sm p-4 bg-white">
+                <h5 class="mb-4">Bar Bill Summary</h5>
+                <div id="edit_profile">
+                    <div>
+                      
+                       
+
+                            <table width="100%" cellpadding="10" cellspacing="10" border="1">
+                                <tr>
+                                    <td><b>Year</b></td>
+                                    <td><b>Month</b></td>
+                                    <td><b>Cash Amount</b></td>
+                                    <td><b>Card Payment Amount</b></td>
+                                    <td><b>Credit Amount</b></td>
+                                   
+                                </tr>
+                                @foreach (BarRecovery recovery in Model)
+                                { 
+                            <tr>
+                                <td>@recovery.Year</td>
+                                <td>@recovery.Month</td>
+                                <td>@recovery.CashAmnt</td>
+                                <td>@recovery.VisaMasterAmnt</td>
+                                <td>@recovery.CreditAmnt</td>
+                            </tr>
+                                }
+                                
+
+                            </table>
+                           
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
