@@ -3162,13 +3162,13 @@ namespace MIMS.Controllers
 
                     }
                 }
+                return RedirectToAction("BarBill");
 
             }
             catch (Exception)
             {
                 throw;
             }
-            return View();
         
         }
 

@@ -26,6 +26,7 @@ using Dinota.Domain.MenuOrderOfficer;
 using AlfasiWeb;
 using Dinota.Domain.MenuOrderHeader;
 using Dinota.Domain.MenuOrderItemDetail;
+using Dinota.Domain.Rank;
 
 namespace MIMS.Controllers
 {
@@ -48,8 +49,14 @@ namespace MIMS.Controllers
         private readonly MenuOrderOfficerService _menuOrderOfficerService;
         private readonly MenuOrderHeaderService _menuOrderHeaderService;
         private readonly MenuOrderItemDetailService _menuOrderItemDetailService;
+        private readonly RankService _rankService;
 
-        public OfficerController(IDomainContext dataContext, MenuOrderItemDetailService menuOrderItemDetailService, MenuOrderHeaderService menuOrderHeaderService, MenuOrderOfficerService menuOrderOfficerService, PaymentMethodService paymentMethodService, MenuItemService menuItemService, OfficerRequestService officerRequestService, UserStatusService userStatusService, UserAccountService userAccountService, RoomNoService roomNoService, RoomInfoService roomInfoService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService)
+        public OfficerController(IDomainContext dataContext, MenuOrderItemDetailService menuOrderItemDetailService, 
+            MenuOrderHeaderService menuOrderHeaderService, MenuOrderOfficerService menuOrderOfficerService, 
+            PaymentMethodService paymentMethodService, MenuItemService menuItemService, OfficerRequestService officerRequestService, 
+            UserStatusService userStatusService, UserAccountService userAccountService, RoomNoService roomNoService, 
+            RoomInfoService roomInfoService, SLAFLocationService SLAFLocationService, FuelTypeService fuelTypeService, 
+            DistrictService districtService, UserTypeService userTypeService, DivisionService divisionService, RankService rankService)
             : base(dataContext)
         {
             _divisionService = divisionService;
@@ -67,6 +74,7 @@ namespace MIMS.Controllers
             _menuOrderOfficerService = menuOrderOfficerService;
             _menuOrderHeaderService = menuOrderHeaderService;
             _menuOrderItemDetailService =menuOrderItemDetailService;
+            _rankService = rankService;
 
         }
         // [AuthorizeUserAccessLevel()]
@@ -146,10 +154,27 @@ namespace MIMS.Controllers
             }
 
         }
+        public void BindRankList()
+        {
+            try
+            {
+                var filter = _rankService.GetDefaultSpecification().And(s => s.Active == true); ;
+                var RankList = _rankService.GetCollection(filter, d => d.UId);
+                SelectList list = new SelectList(RankList, "UId", "Name");
+                ViewData[ViewDataKeys.RankList] = list;
+            }
+            catch (Exception ex)
+            {
+                TempData[ViewDataKeys.Message] = new FailMessage(ex.Message.ToString());
+
+            }
+
+        }
         public ActionResult UpdateStatus(int id)
         {
             UserAccount account = _userAccountService.GetByKey(id);
             BindUserStatusList();
+            BindRankList();
             return View(account);
         }
         [HttpPost]
@@ -350,7 +375,7 @@ namespace MIMS.Controllers
                 UserAccount account = GetCurrentUser();
                 var filter = _userAccountService.GetDefaultSpecification();
                 filter = filter.And(p => p.Active == true).And(p=>p.LocationUId==account.LocationUId);
-                List<UserAccount> UserAccountList = _userAccountService.GetCollection(filter, p => p.CreationDate).ToList();
+                List<UserAccount> UserAccountList = _userAccountService.GetCollection(filter, p => p.CreationDate).OrderBy(p => p.RankUId).ToList();
                 foreach(UserAccount acc in UserAccountList)
                 {
                     decimal Amount = 0;
@@ -387,6 +412,71 @@ namespace MIMS.Controllers
                 throw;
             }
             return View(ModelList); 
+        }
+
+        public ActionResult OfficerRecoveryListNew()
+        {
+            List<OffcerRecoveryList> ModelList = new List<OffcerRecoveryList>();
+            try
+            {
+                DateTime date = DateTime.Now;
+                var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+                var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+                UserAccount account = GetCurrentUser();
+                var filter = _userAccountService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p => p.LocationUId >= 0).And(p => p.UserMode == null);
+                List<UserAccount> UserAccountList = _userAccountService.GetCollection(filter, p => p.CreationDate).OrderBy(p => p.RankUId).ToList();
+                foreach (UserAccount acc in UserAccountList)
+                {
+                    decimal Amount = 0;
+                    OffcerRecoveryList off = new OffcerRecoveryList();                    
+                    var filterOS = _menuOrderOfficerService.GetDefaultSpecification();
+                    filterOS = filterOS.And(p => p.Active == true).And(p => p.UserId == acc.Id).And(p => p.MenuOrderHeader.LocationUId == account.LocationUId)
+                                        .And(p => p.MenuOrderHeader.Status == (int)DataStruct.MenuOrderItemStatus.Delivered)
+                                        .And(p => p.MenuOrderHeader.OrderDate >= firstDayOfMonth).And(p => p.MenuOrderHeader.OrderDate <= lastDayOfMonth);
+                    List<MenuOrderOfficer> MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filterOS, p => p.CreationDate).ToList();
+                    foreach (MenuOrderOfficer head in MenuOrderOfficerList)
+                    {
+                        MenuOrderHeaderDetailModel det = new MenuOrderHeaderDetailModel();
+                        MenuOrderHeader header = _menuOrderHeaderService.GetByKey(head.MeanuOrderHeaderUId);
+                        var filterO = _menuOrderOfficerService.GetDefaultSpecification();
+                        filterO = filterO.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == head.MeanuOrderHeaderUId);
+                        List<MenuOrderOfficer> TotalOfficerList = _menuOrderOfficerService.GetCollection(filterO, p => p.CreationDate).ToList();
+                        if (TotalOfficerList.Count == 1)
+                        {
+                            Amount += header.F140TotalAmt;
+                        }
+                        else if (TotalOfficerList.Count > 1)
+                        {
+                            decimal TotAmt = header.F140TotalAmt;
+                            decimal IndivisualAmt = TotAmt / TotalOfficerList.Count;
+                            Amount += IndivisualAmt;
+                        }
+
+                    }
+                    off.oUserAccount = acc;
+                    off.MessBill = Amount;
+                    if (acc.LocationUId == account.LocationUId)
+                    {
+                        ModelList.Add(off);
+                    }
+                    else if (Amount > 0)
+                    {
+                        ModelList.Add(off);
+                    }
+                    else 
+                    {
+                        //TempData[ViewDataKeys.Message] = new SuccessMessage("Check the list " + acc.UserName);
+                        //return RedirectToAction("OfficerRecoveryListNew");
+                    }
+                    
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            return View(ModelList);
         }
     }
 }

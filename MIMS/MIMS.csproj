@@ -304,10 +304,12 @@
     <Compile Include="ViewDataKeys.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Asset\calltoattention.wav" />
     <Content Include="Asset\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js" />
     <Content Include="Asset\cdn-cgi\scripts\7d0fa10a\cloudflare-static\rocket-loader.min.js" />
     <Content Include="Asset\css\dataTables.bootstrap4.min.css" />
     <Content Include="Asset\css\style.css" />
+    <Content Include="Asset\ding.mp3" />
     <Content Include="Asset\img\appstore.png" />
     <Content Include="Asset\img\axis.png" />
     <Content Include="Asset\img\bg.mp4" />
@@ -323,6 +325,40 @@
     <Content Include="Asset\img\icons\Steak.png" />
     <Content Include="Asset\img\location.png" />
     <Content Include="Asset\img\logo_web.png" />
+    <Content Include="Asset\img\menucat\1.jpg" />
+    <Content Include="Asset\img\menucat\2.jpg" />
+    <Content Include="Asset\img\menucat\3.jpg" />
+    <Content Include="Asset\img\menucat\4.jpg" />
+    <Content Include="Asset\img\menu\1.jpg" />
+    <Content Include="Asset\img\menu\10.jpg" />
+    <Content Include="Asset\img\menu\11.jpg" />
+    <Content Include="Asset\img\menu\12.jpg" />
+    <Content Include="Asset\img\menu\13.jpg" />
+    <Content Include="Asset\img\menu\14.jpg" />
+    <Content Include="Asset\img\menu\15.jpg" />
+    <Content Include="Asset\img\menu\16.jpg" />
+    <Content Include="Asset\img\menu\17.jpg" />
+    <Content Include="Asset\img\menu\18.jpg" />
+    <Content Include="Asset\img\menu\19.jpg" />
+    <Content Include="Asset\img\menu\2.jpg" />
+    <Content Include="Asset\img\menu\20.jpg" />
+    <Content Include="Asset\img\menu\21.jpg" />
+    <Content Include="Asset\img\menu\22.jpg" />
+    <Content Include="Asset\img\menu\23.jpg" />
+    <Content Include="Asset\img\menu\24.jpg" />
+    <Content Include="Asset\img\menu\25.jpg" />
+    <Content Include="Asset\img\menu\26.jpg" />
+    <Content Include="Asset\img\menu\27.jpg" />
+    <Content Include="Asset\img\menu\28.jpg" />
+    <Content Include="Asset\img\menu\29.jpg" />
+    <Content Include="Asset\img\menu\3.jpg" />
+    <Content Include="Asset\img\menu\4.jpg" />
+    <Content Include="Asset\img\menu\5.jpg" />
+    <Content Include="Asset\img\menu\6.jpg" />
+    <Content Include="Asset\img\menu\7.jpg" />
+    <Content Include="Asset\img\menu\8.jpg" />
+    <Content Include="Asset\img\menu\9.jpg" />
+    <Content Include="Asset\img\menu\event.jpg" />
     <Content Include="Asset\img\mess\hqofficermess.png" />
     <Content Include="Asset\img\offers.png" />
     <Content Include="Asset\img\playmarket.png" />
@@ -338,6 +374,7 @@
     <Content Include="Asset\img\pro2.jpg" />
     <Content Include="Asset\img\pro3.jpg" />
     <Content Include="Asset\img\pro4.jpg" />
+    <Content Include="Asset\img\profile.png" />
     <Content Include="Asset\img\remove.png" />
     <Content Include="Asset\img\reviewer1.png" />
     <Content Include="Asset\img\reviewer2.png" />
@@ -348,6 +385,10 @@
     <Content Include="Asset\img\sales1.png" />
     <Content Include="Asset\img\sales2.png" />
     <Content Include="Asset\img\sales3.png" />
+    <Content Include="Asset\img\sliderimg\1.jpg" />
+    <Content Include="Asset\img\sliderimg\2.jpg" />
+    <Content Include="Asset\img\sliderimg\3.jpg" />
+    <Content Include="Asset\img\sliderimg\4.jpg" />
     <Content Include="Asset\img\starter1.jpg" />
     <Content Include="Asset\img\starter2.jpg" />
     <Content Include="Asset\img\starter3.jpg" />
@@ -364,8 +405,10 @@
     <Content Include="Asset\img\user\1.jpg" />
     <Content Include="Asset\js\dataTables.bootstrap4.min.js" />
     <Content Include="Asset\js\jquery-3.5.1.js" />
+    <Content Include="Asset\js\jquery-3.6.0.min.js" />
     <Content Include="Asset\js\jquery.dataTables.min.js" />
     <Content Include="Asset\js\osahan.js" />
+    <Content Include="Asset\js\sweetalert.min.js" />
     <Content Include="Asset\vendor\bootstrap\css\bootstrap.min.css" />
     <Content Include="Asset\vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Asset\vendor\icons\feather.css" />
@@ -841,6 +884,7 @@
     <Content Include="Views\Order\AddOfficerList.cshtml" />
     <Content Include="Views\Menu\AcceptedMenuOrderList.cshtml" />
     <Content Include="Views\Menu\BarBill.cshtml" />
+    <Content Include="Views\Officer\OfficerRecoveryListNew.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

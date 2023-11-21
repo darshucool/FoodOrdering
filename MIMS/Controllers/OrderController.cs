@@ -259,7 +259,7 @@ namespace MIMS.Controllers
             {
                 UserAccount account = GetCurrentUser();
                 var filter = _menuOrderHeaderService.GetDefaultSpecification();
-                filter = filter.And(p => p.Active == true).And(p=>p.LocationUId== account.LocationUId);
+                filter = filter.And(p => p.Active == true).And(p=>p.LocationUId== account.LocationUId).And(p=>p.Status!=(int)DataStruct.MenuOrderItemStatus.Cancel);
                 List<MenuOrderHeader> MenuOrderHeaderList = _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p=>p.OrderDate).Take(80).ToList();
                 foreach (MenuOrderHeader order in MenuOrderHeaderList.OrderBy(p => p.OrderDate))
                 {
