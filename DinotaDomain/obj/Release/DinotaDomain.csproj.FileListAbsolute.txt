@@ -345,3 +345,15 @@ G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.pdb
 G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.AssemblyReference.cache
 G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.CoreCompileInputs.cache
 G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.CopyComplete
+F:\SLAF Projects\FoodOrdering\DinotaDomain\bin\Release\DinotaDomain.dll
+F:\SLAF Projects\FoodOrdering\DinotaDomain\bin\Release\DinotaDomain.pdb
+F:\SLAF Projects\FoodOrdering\DinotaDomain\bin\Release\DinotaCore.dll
+F:\SLAF Projects\FoodOrdering\DinotaDomain\bin\Release\System.ComponentModel.DataAnnotations.dll
+F:\SLAF Projects\FoodOrdering\DinotaDomain\bin\Release\DinotaCore.pdb
+F:\SLAF Projects\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.AssemblyReference.cache
+F:\SLAF Projects\FoodOrdering\DinotaDomain\obj\Release\Dinota.Domain.Properties.Resources.resources
+F:\SLAF Projects\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.GenerateResource.cache
+F:\SLAF Projects\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.CoreCompileInputs.cache
+F:\SLAF Projects\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.csproj.CopyComplete
+F:\SLAF Projects\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.dll
+F:\SLAF Projects\FoodOrdering\DinotaDomain\obj\Release\DinotaDomain.pdb

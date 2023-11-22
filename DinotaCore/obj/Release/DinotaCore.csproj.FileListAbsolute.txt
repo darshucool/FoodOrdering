@@ -202,3 +202,14 @@ G:\WRJJ\MIMS\FoodOrdering\DinotaCore\obj\Release\DinotaCore.pdb
 G:\WRJJ\MIMS\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.AssemblyReference.cache
 G:\WRJJ\MIMS\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CoreCompileInputs.cache
 G:\WRJJ\MIMS\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CopyComplete
+F:\SLAF Projects\FoodOrdering\DinotaCore\bin\Release\DinotaCore.dll
+F:\SLAF Projects\FoodOrdering\DinotaCore\bin\Release\DinotaCore.pdb
+F:\SLAF Projects\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.Common.dll
+F:\SLAF Projects\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+F:\SLAF Projects\FoodOrdering\DinotaCore\bin\Release\Microsoft.ReportViewer.WebForms.DLL
+F:\SLAF Projects\FoodOrdering\DinotaCore\bin\Release\System.ComponentModel.DataAnnotations.dll
+F:\SLAF Projects\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.AssemblyReference.cache
+F:\SLAF Projects\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CoreCompileInputs.cache
+F:\SLAF Projects\FoodOrdering\DinotaCore\obj\Release\DinotaCore.csproj.CopyComplete
+F:\SLAF Projects\FoodOrdering\DinotaCore\obj\Release\DinotaCore.dll
+F:\SLAF Projects\FoodOrdering\DinotaCore\obj\Release\DinotaCore.pdb

@@ -1219,13 +1219,13 @@ namespace MIMS.Controllers
                 oMenuOrderOfficer.UserId = account.Id;
                 _menuOrderOfficerService.Add(oMenuOrderOfficer);
                 DataContext.SaveChanges();
-                TempData[ViewDataKeys.Message] = new SuccessMessage("Successfully added to the Order");
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Successfully added the Order");
                 return RedirectToAction("MenuItemIndex", new { id = item.MenuCategoryUId });
             }
             catch (Exception)
             {
-                TempData[ViewDataKeys.Message] = new FailMessage("You need to login again");
-                return RedirectToAction("Login", "Account");
+                TempData[ViewDataKeys.Message] = new FailMessage("Check Details");
+                return RedirectToAction("OrderMenu");
             }
             return View();
         }

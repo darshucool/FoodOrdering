@@ -29,22 +29,46 @@
 
                             <div class="form-group">
                                 <label for="exampleInputName1">Officer Status</label>
-                                @Html.DropDownListFor(model => model.LivingStatus, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.UserStatusList], "-- Select User Status  --", new { @class = "full-width form-control", @required = "true" })
+                                @Html.DropDownListFor(model => model.LivingStatus, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.UserStatusList], "-- Select User Status  --", new { @class = "full-width form-control", @required = "false" })
                                 @Html.ValidationMessageFor(m => m.LivingStatus, null, new { @class = "help-inline" })
 
                             </div>
                             <div><h6>Existing Whatsapp Number</h6> @Model.Telephone1</div>
-                            <br/>
+                            <br />
                             <div class="form-group">
                                 <label for="exampleInputName1">Whatsapp Number</label>
                                 @Html.TextBoxFor(m => m.Telephone1, new { @placeholder = "Enter WhatsApp Number", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true" })
                                 @Html.ValidationMessageFor(m => m.Telephone1, "")
 
                             </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Rank</label>
+                                @Html.DropDownListFor(model => model.RankUId, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.RankList], "-- Select Rank  --", new { @class = "full-width form-control", @required = "true" })
+                                @Html.ValidationMessageFor(m => m.RankUId, null, new { @class = "help-inline" })
 
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
                             </div>
+
+                            @*<div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                            </div>*@
+
+                            if (Model.Id == 0)
+                            {
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                </div>
+
+                            }
+                            else
+                            {
+                                <div class="form-group">
+                                    <label for="exampleInputName1">Active</label>
+                                    @Html.CheckBoxFor(m => m.Active)
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-block">Update</button>
+                                </div>
+                            }
                         }
                     </div>
 

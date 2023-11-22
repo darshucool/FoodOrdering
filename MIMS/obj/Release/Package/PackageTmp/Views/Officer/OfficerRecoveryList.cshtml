@@ -5,70 +5,70 @@
 @using Dinota.Domain.MenuItemDetail
 @using AlfasiWeb.Models
 @model  List<OffcerRecoveryList>
-    @{
-        ViewBag.Title = "MenuOrderList";
-        Layout = "~/Views/Shared/_Layout.cshtml";
-    }
-    <div class="d-none">
-        <div class="bg-primary border-bottom p-3 d-flex align-items-center">
-            <a class="toggle togglew toggle-2" href="#"><span></span></a>
-            <h4 class="font-weight-bold m-0 text-white">Mess Bill List</h4>
+@{
+    ViewBag.Title = "MenuOrderList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Mess Bill List</h4>
+    </div>
+</div>
+
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+        <p style="font-size:16px;"><b>Mess Bill List</b></p>
+        <div class="col-md-12 mb-3">
+            <div class="clearfix"></div>
+            @Html.Message()
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+
+                        <th>Service No</th>
+                        <th>Name</th>
+                        <th>Living Status</th>
+                        <th>Total Bill Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (OffcerRecoveryList ord in Model)
+                    {
+
+                        <tr>
+                            <td>@ord.oUserAccount.UserName</td>
+                            <td>
+                                @if (ord.oUserAccount.Rank != null)
+                                {
+                                    <span>@ord.oUserAccount.Rank.Name</span>
+                                }
+                                @ord.oUserAccount.Name
+                            </td>
+                            <td style="text-align:right">
+                                @if (ord.oUserAccount.UserStatus != null)
+                                {
+                                    @ord.oUserAccount.UserStatus.Status
+                                }
+                            </td>
+                            <td style="text-align:right">
+                                Rs.  @ord.MessBill.ToString("00.00")
+
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
         </div>
     </div>
-    <section class="py-4 osahan-main-body">
-        <div class="container">
-            <div class="row">
-
-                <div class="tab-content col-md-12" id="myTabContent">
-                    <div class="tab-pane fade show active" id="progress" role="tabpanel" aria-labelledby="progress-tab">
-                        <div class="order-body">
-
-                            <p style="font-size:16px;"><b>Mess Bill List</p>
-                            <table class="table table-striped table-bordered" style="width:100%">
-                                <thead>
-                                    <tr>
-
-                                        <th>Ingridient Name</th>
-
-                                        <th>Qty</th>
-                                        <th>BOC Value</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (OffcerRecoveryList ord in Model)
-                                    {
-                                       
-                                        <tr>
-                                            <td>@ord.oUserAccount.UserName</td>
-                                            <td>@if (ord.oUserAccount.Rank!=null)
-                                            {
-                                                <span>@ord.oUserAccount.Rank.Name</span>
-                                            }
-                                            @ord.oUserAccount.Name
-                                            </td>
-                                            <td style="text-align:right">@if (ord.oUserAccount.UserStatus != null)
-                                            {
-                                                @ord.oUserAccount.UserStatus.Status
-                                            }
-                                          </td>
-                                            <td style="text-align:right">
-                                                Rs.  @ord.MessBill.ToString("00.00")
-
-                                            </td>
-
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-
-
-
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
+</div>
+<script src="~/Asset/js/jquery-3.5.1.js"></script>
+<script src="~/Asset/js/jquery.dataTables.min.js"></script>
+<script src="~/Asset/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>

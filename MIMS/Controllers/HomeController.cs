@@ -144,7 +144,7 @@ namespace MIMS.Controllers
                 {
                     if (account.LocationUId == 18)
                     {
-                        return RedirectToAction("OrderList", "Order");
+                        return RedirectToAction("MenuOrderList", "Menu");
                     }
                     else
                     {
