@@ -46,6 +46,8 @@ using Dinota.DataAccces.SetMenuDetail;
 using Dinota.DataAccces.PaymentInfo;
 using Dinota.DataAccces.EventCount;
 using Dinota.DataAccces.BarRecovery;
+using Dinota.DataAccces.MainCourseMealHeader;
+
 
 namespace Dinota.DataAccces.Context
 {
@@ -104,6 +106,8 @@ namespace Dinota.DataAccces.Context
             modelBuilder.Configurations.Add(new PaymentInfoMap());
             modelBuilder.Configurations.Add(new EventCountMap());
             modelBuilder.Configurations.Add(new BarRecoveryMap());
+            modelBuilder.Configurations.Add(new MainCourseMealHeaderMap());
+
 
         }
     }

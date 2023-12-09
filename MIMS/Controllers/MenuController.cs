@@ -786,7 +786,8 @@ namespace MIMS.Controllers
         {
             try
             {
-                var filter = _menuCategoryService.GetDefaultSpecification().And(s => s.Active == true).And(p=>p.SLAFLocationUId==id);
+                var filter = _menuCategoryService.GetDefaultSpecification().And(s => s.Active == true).And(p=>p.SLAFLocationUId==id)
+                                                                            .And(p=> p.Name != "Main Course Meals");
                 var TypeList = _menuCategoryService.GetCollection(filter, d => d.UId);
                 SelectList list = new SelectList(TypeList, "UId", "Name");
                 ViewData[ViewDataKeys.MenuCategoryList] = list;
@@ -1750,6 +1751,23 @@ namespace MIMS.Controllers
             }
             return View(model);
         }
+        public ActionResult BarBill()
+        {
+            List<BarRecovery> BarRecoveryLIst = new List<BarRecovery>();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                var filter = _barRecoveryService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p => p.UserId == account.Id);
+                BarRecoveryLIst = _barRecoveryService.GetCollection(filter, p => p.CreationDate).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return View(BarRecoveryLIst);
+        }
+
         public ActionResult MessBill()
         {
             MessBillModel model = new MessBillModel();
@@ -1803,22 +1821,7 @@ namespace MIMS.Controllers
             }
             return View(model);
         }
-        public ActionResult BarBill()
-        {
-            List<BarRecovery> BarRecoveryLIst = new List<BarRecovery>();
-            try
-            {
-                UserAccount account = GetCurrentUser();
-                var filter = _barRecoveryService.GetDefaultSpecification();
-                filter = filter.And(p => p.Active == true).And(p => p.UserId == account.Id);
-                BarRecoveryLIst = _barRecoveryService.GetCollection(filter, p => p.CreationDate).ToList();
-            }
-            catch (Exception )
-            {
-                throw;
-            }
-            return View(BarRecoveryLIst);
-        }
+        
         
         [HttpPost]
         public ActionResult MyF140Data()
@@ -1847,8 +1850,6 @@ namespace MIMS.Controllers
 
                 decimal Amount = 0;
 
-             
-
                 UserAccount account = GetCurrentUser();
                 List<MenuOrderHeaderDetailModel> MenuOrderHeaderList = new List<MenuOrderHeaderDetailModel>();
                
@@ -1860,9 +1861,17 @@ namespace MIMS.Controllers
                     MenuOrderHeaderDetailModel det = new MenuOrderHeaderDetailModel();
                     MenuOrderHeader header = _menuOrderHeaderService.GetByKey(head.MeanuOrderHeaderUId);
                     det.MenuOrderHeader = header;
+
                     var filter140 = _f140HeaderService.GetDefaultSpecification();
-                    filter140 = filter140.And(p => p.Active == true).And(p => p.MenuOrderId == header.UId);
-                    F140Header oF140Header = _f140HeaderService.GetBy(filter140);
+                    filter140 = filter140.And(p => p.MenuOrderId == header.UId).And(p => p.Active == true);
+                    List<F140Header> oF140HeaderList = _f140HeaderService.GetCollection(filter140, p => p.CreationDate).OrderByDescending(p => p.UId).ToList();
+                    if (oF140HeaderList.Count > 0)
+                    {
+                        int id = oF140HeaderList[0].UId;
+                        F140Header oF140Header = _f140HeaderService.GetByKey(id);
+                        det.F140Header = oF140Header;
+                    }
+
                     var filterO = _menuOrderOfficerService.GetDefaultSpecification();
                     filterO = filterO.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == header.UId);
                     List<MenuOrderOfficer> TotalOfficerList = _menuOrderOfficerService.GetCollection(filterO, p => p.CreationDate).ToList();
@@ -1876,7 +1885,7 @@ namespace MIMS.Controllers
                         decimal IndivisualAmt = TotAmt / TotalOfficerList.Count;
                         det.MyAmount = IndivisualAmt;
                     }
-                    det.F140Header = oF140Header;
+                    
                     var filterMD = _menuOrderItemDetailService.GetDefaultSpecification();
                     filterMD = filterMD.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == header.UId);
                     List<MenuOrderItemDetail> MenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterMD, p => p.CreationDate).ToList();
@@ -1887,8 +1896,8 @@ namespace MIMS.Controllers
             }
             catch (Exception)
             {
-               
-                throw;
+                TempData[ViewDataKeys.Message] = new FailMessage("Please Contact Administrator");
+                return RedirectToAction("MessBill");
             }
             return View(model);
         }
@@ -3087,7 +3096,7 @@ namespace MIMS.Controllers
             UserAccount account = GetCurrentUser();
             List<MenuItem> MenuItemList = new List<MenuItem>();
             var filter = _menuItemService.GetDefaultSpecification();
-            filter = filter.And(p => p.Active == true).And(p=>p.SLAFLocationUId==account.LocationUId);
+            filter = filter.And(p => p.SLAFLocationUId == account.LocationUId).And(p => p.Active == true);
             MenuItemList = _menuItemService.GetCollection(filter, p => p.CreationDate).ToList();
             return View(MenuItemList);
         }

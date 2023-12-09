@@ -65,6 +65,8 @@
     <Compile Include="PaymentInfo\PaymentInfoRepo.cs" />
     <Compile Include="SetMenuDetail\SetMenuDetailMap.cs" />
     <Compile Include="SetMenuDetail\SetMenuDetailRepo.cs" />
+    <Compile Include="MainCourseMealHeader\MainCourseMealHeaderMap.cs" />
+    <Compile Include="MainCourseMealHeader\MainCourseMealHeaderRepo.cs" />
     <Compile Include="SetMenuHeader\SetMenuHeaderMap.cs" />
     <Compile Include="SetMenuHeader\SetMenuHeaderRepo.cs" />
     <Compile Include="MenuOrderExtraItemDetail\MenuOrderExtraItemDetailMap.cs" />

@@ -68,6 +68,9 @@
     <Compile Include="SetMenuDetail\ISetMenuDetailRepo.cs" />
     <Compile Include="SetMenuDetail\SetMenuDetail.cs" />
     <Compile Include="SetMenuDetail\SetMenuDetailService.cs" />
+    <Compile Include="MainCourseMealHeader\IMainCourseMealHeaderRepo.cs" />
+    <Compile Include="MainCourseMealHeader\MainCourseMealHeader.cs" />
+    <Compile Include="MainCourseMealHeader\MainCourseMealHeaderService.cs" />
     <Compile Include="SetMenuHeader\ISetMenuHeaderRepo.cs" />
     <Compile Include="SetMenuHeader\SetMenuHeader.cs" />
     <Compile Include="SetMenuHeader\SetMenuHeaderService.cs" />

@@ -62,6 +62,7 @@ namespace AlfasiWeb
             Duty = 1,
             Casual = 2
         };
+        
         public enum MainCourse
         {
             Rma_Breakfast = 30,
@@ -74,6 +75,25 @@ namespace AlfasiWeb
             Rma_Lunch_veg = 178,
             Rma_Dinner_veg = 180
         };
+
+        public enum MainCourseMeal
+        {
+            Breakfast = 1,
+            Breakfast_diet = 2,
+            Breakfast_veg = 3,
+            Breakfast_cadet = 4,
+
+            Lunch = 6,
+            Lunch_diet = 7,
+            Lunch_veg = 8,
+            Lunch_cadet = 9,
+
+            Dinner = 11,
+            Dinner_diet = 12,
+            Dinner_veg = 13,
+            Dinner_cadet = 14
+        };
+
         public enum PaymentMethod
         {
             Credit = 1,
