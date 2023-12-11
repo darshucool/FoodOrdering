@@ -69,7 +69,7 @@ namespace MIMS.Controllers
                     else
                     {
                         
-                            return RedirectToAction("MasterMenu", "Home", new { archive = 0 });
+                        return RedirectToAction("MasterMenu", "Home", new { archive = 0 });
                         
                     }
                        

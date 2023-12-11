@@ -118,29 +118,7 @@ namespace MIMS.Controllers
             try
             {
                 UserAccount account = GetCurrentUser();
-                model.SLAFLocationUId = account.LocationUId;
-                var filterF = _menuOrderService.GetDefaultSpecification();
-                filterF = filterF.And(p => p.Active == true).And(p=>p.SLAFLocationUId==account.LocationUId);
-                model.MenuOrderList = _menuOrderService.GetCollection(filterF, p => p.CreationDate).OrderByDescending(p => p.UId).Take(3).ToList();
-
-
-                var filterP = _menuOrderService.GetDefaultSpecification();
-                filterP = filterP.And(p => p.Active == true).And(p => p.UserId == account.Id).And(p => p.SLAFLocationUId == account.LocationUId);
-                model.PastOrderList = _menuOrderService.GetCollection(filterP, p => p.CreationDate).OrderByDescending(p => p.UId).Take(5).ToList();
-
-                var filterFav = _menuFavoriteService.GetDefaultSpecification();
-                filterFav = filterFav.And(p => p.Active == true).And(p => p.UserId == account.Id);
-                model.MenuFavoriteList = _menuFavoriteService.GetCollection(filterFav, p => p.CreationDate).OrderByDescending(p => p.UId).Take(5).ToList();
-
-                var filterAN = _alertNotifyService.GetDefaultSpecification();
-                filterAN = filterAN.And(p => p.Active == true).And(p => p.UserId == account.Id).And(p=>p.Status==10);
-                model.AlertNotifyList = _alertNotifyService.GetCollection(filterAN, p => p.CreationDate).OrderByDescending(p => p.UId).ToList();
-                //var filterT = _fuelDrawInfoService.GetDefaultSpecification();
-                //filterT = filterT.And(p => p.Active == true);
-                //model.DrawQty = _fuelDrawInfoService.GetCollection(filterF, p => p.CreationDate).ToList().Sum(p=>p.DrawQty);
-
-
-                if (account.UserTypeId == 2|| account.UserTypeId == 4|| account.UserTypeId == 5)
+                if (account.UserTypeId == 2 || account.UserTypeId == 4 || account.UserTypeId == 5)
                 {
                     if (account.LocationUId == 18)
                     {
@@ -153,6 +131,33 @@ namespace MIMS.Controllers
 
 
                 }
+
+                else
+                {
+                    model.SLAFLocationUId = account.LocationUId;
+                    var filterF = _menuOrderService.GetDefaultSpecification();
+                    filterF = filterF.And(p => p.SLAFLocationUId == account.LocationUId).And(p => p.Active == true);
+                    model.MenuOrderList = _menuOrderService.GetCollection(filterF, p => p.CreationDate).OrderByDescending(p => p.UId).Take(3).ToList();
+
+
+                    var filterP = _menuOrderService.GetDefaultSpecification();
+                    filterP = filterP.And(p => p.UserId == account.Id).And(p => p.SLAFLocationUId == account.LocationUId).And(p => p.Active == true);
+                    model.PastOrderList = _menuOrderService.GetCollection(filterP, p => p.CreationDate).OrderByDescending(p => p.UId).Take(5).ToList();
+
+                    var filterFav = _menuFavoriteService.GetDefaultSpecification();
+                    filterFav = filterFav.And(p => p.UserId == account.Id).And(p => p.Active == true);
+                    model.MenuFavoriteList = _menuFavoriteService.GetCollection(filterFav, p => p.CreationDate).OrderByDescending(p => p.UId).Take(5).ToList();
+
+                    var filterAN = _alertNotifyService.GetDefaultSpecification();
+                    filterAN = filterAN.And(p => p.UserId == account.Id).And(p => p.Status == 10).And(p => p.Active == true);
+                    model.AlertNotifyList = _alertNotifyService.GetCollection(filterAN, p => p.CreationDate).OrderByDescending(p => p.UId).ToList();
+
+                    //var filterT = _fuelDrawInfoService.GetDefaultSpecification();
+                    //filterT = filterT.And(p => p.Active == true);
+                    //model.DrawQty = _fuelDrawInfoService.GetCollection(filterF, p => p.CreationDate).ToList().Sum(p=>p.DrawQty);
+
+                }
+                
             }
             catch (Exception)
             {
