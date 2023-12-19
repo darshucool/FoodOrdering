@@ -261,7 +261,7 @@ namespace MIMS.Controllers
                 DateTime FromDate = model.EffectiveDate.Date;
                 DateTime ToDate = model.EffectiveDate.Date.AddDays(1).AddTicks(-1);
                 var filter = _menuOrderHeaderService.GetDefaultSpecification();
-                filter = filter.And(p => p.Active == true).And(p => p.OrderDate >= FromDate).And(p => p.OrderDate <= ToDate).And(p => p.LocationUId == account.LocationUId);
+                filter = filter.And(p => p.LocationUId == account.LocationUId).And(p => p.OrderDate >= FromDate).And(p => p.OrderDate <= ToDate).And(p => p.Active == true).And(p => p.OrderDate >= FromDate).And(p => p.OrderDate <= ToDate);
                 List<MenuOrderHeader> MenuOrderHeaderList = _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p => p.OrderDate).Take(100).ToList();
                 foreach (MenuOrderHeader order in MenuOrderHeaderList)
                 {
@@ -271,23 +271,23 @@ namespace MIMS.Controllers
                     if (order.Status > (int)DataStruct.MenuOrderItemStatus.Accepted)
                     {
                         var filter140 = _f140HeaderService.GetDefaultSpecification();
-                        filter140 = filter140.And(p => p.Active == true).And(p => p.MenuOrderId == order.UId);
+                        filter140 = filter140.And(p => p.MenuOrderId == order.UId).And(p => p.Active == true);
                         List<F140Header> oF140HeaderList = _f140HeaderService.GetCollection(filter140, p => p.CreationDate).OrderByDescending(p => p.UId).ToList();
                         if (oF140HeaderList.Count > 0)
                         {
                             mod.F140Header = oF140HeaderList[0];
                             var filterD = _f140DataService.GetDefaultSpecification();
                             int id = oF140HeaderList[0].UId;
-                            filterD = filterD.And(p => p.Active == true).And(p => p.F140HeaderUId == id);
+                            filterD = filterD.And(p => p.F140HeaderUId == id).And(p => p.Active == true);
                             List<F140Data> F140DataList = _f140DataService.GetCollection(filterD, p => p.CreationDate).ToList();
                             mod.TotalAmount = F140DataList.Sum(p => p.Amount);
                         }
                         var filterOD = _menuOrderItemDetailService.GetDefaultSpecification();
-                        filterOD = filterOD.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == order.UId);
+                        filterOD = filterOD.And(p => p.MeanuOrderHeaderUId == order.UId).And(p => p.Active == true);
                         List<MenuOrderItemDetail> MenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterOD, p => p.CreationDate).ToList();
                         mod.MenuOrderItemDetailList = MenuOrderItemDetailList;
                         var filterO = _menuOrderOfficerService.GetDefaultSpecification();
-                        filterO = filterO.And(p => p.Active == true).And(p => p.MeanuOrderHeaderUId == order.UId);
+                        filterO = filterO.And(p => p.MeanuOrderHeaderUId == order.UId).And(p => p.Active == true);
                         mod.MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filterO, p => p.CreationDate).ToList();
 
                     }
