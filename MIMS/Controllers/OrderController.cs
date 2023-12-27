@@ -209,12 +209,7 @@ namespace MIMS.Controllers
                 List<MenuOrderHeader> MenuOrderHeaderList = _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p=>p.OrderDate).Take(10).ToList();
                 foreach (MenuOrderHeader order in MenuOrderHeaderList)
                 {
-
-                    MenuOrderHeaderModel mod = new MenuOrderHeaderModel();
-                    var filtero = _menuOrderOfficerService.GetDefaultSpecification();
-                    filtero = filtero.And(p => p.MeanuOrderHeaderUId == order.UId).And(p => p.Active == true);
-                    List<MenuOrderOfficer> MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filtero, p => p.CreationDate).ToList();
-                    mod.MenuOrderOfficerList = MenuOrderOfficerList;
+                    MenuOrderHeaderModel mod = new MenuOrderHeaderModel(); 
                     mod.MenuOrderHeader = order;
                     if (order.Status > (int)DataStruct.MenuOrderItemStatus.Accepted)
                     {
@@ -235,6 +230,10 @@ namespace MIMS.Controllers
                         filterOD = filterOD.And(p => p.MeanuOrderHeaderUId == order.UId).And(p => p.Active == true);
                         List<MenuOrderItemDetail> MenuOrderItemDetailList = _menuOrderItemDetailService.GetCollection(filterOD, p => p.CreationDate).ToList();
                         mod.MenuOrderItemDetailList = MenuOrderItemDetailList;
+                        var filtero = _menuOrderOfficerService.GetDefaultSpecification();
+                        filtero = filtero.And(p => p.MeanuOrderHeaderUId == order.UId).And(p => p.Active == true);
+                        List<MenuOrderOfficer> MenuOrderOfficerList = _menuOrderOfficerService.GetCollection(filtero, p => p.CreationDate).ToList();
+                        mod.MenuOrderOfficerList = MenuOrderOfficerList;
                     }
                     MenuOrderHeaderModelList.Add(mod);
                 }
@@ -263,6 +262,7 @@ namespace MIMS.Controllers
                 var filter = _menuOrderHeaderService.GetDefaultSpecification();
                 filter = filter.And(p => p.LocationUId == account.LocationUId).And(p => p.OrderDate >= FromDate).And(p => p.OrderDate <= ToDate).And(p => p.Active == true).And(p => p.OrderDate >= FromDate).And(p => p.OrderDate <= ToDate);
                 List<MenuOrderHeader> MenuOrderHeaderList = _menuOrderHeaderService.GetCollection(filter, p => p.CreationDate).OrderByDescending(p => p.OrderDate).Take(100).ToList();
+                
                 foreach (MenuOrderHeader order in MenuOrderHeaderList)
                 {
                     MenuOrderHeaderModel mod = new MenuOrderHeaderModel();
