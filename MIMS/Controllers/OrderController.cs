@@ -218,15 +218,15 @@ namespace MIMS.Controllers
                     mod.MenuOrderHeader = order;
                     if (order.Status > (int)DataStruct.MenuOrderItemStatus.Accepted)
                     {
-                        
+
                         var filter140 = _f140HeaderService.GetDefaultSpecification();
                         filter140 = filter140.And(p => p.MenuOrderId == order.UId).And(p => p.Active == true);
                         List<F140Header> oF140HeaderList = _f140HeaderService.GetCollection(filter140, p => p.CreationDate).OrderByDescending(p => p.UId).ToList();
                         if (oF140HeaderList.Count > 0)
                         {
                             mod.F140Header = oF140HeaderList[0];
-                            var filterD = _f140DataService.GetDefaultSpecification();
                             int id = oF140HeaderList[0].UId;
+                            var filterD = _f140DataService.GetDefaultSpecification();
                             filterD = filterD.And(p => p.F140HeaderUId == id).And(p => p.Active == true);
                             List<F140Data> F140DataList = _f140DataService.GetCollection(filterD, p => p.CreationDate).ToList();
                             mod.TotalAmount = F140DataList.Sum(p => p.Amount);
