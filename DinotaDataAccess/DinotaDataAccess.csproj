@@ -61,6 +61,10 @@
     <Compile Include="AlertNotify\AlertNotifyRepo.cs" />
     <Compile Include="BarRecovery\BarRecoveryMap.cs" />
     <Compile Include="BarRecovery\BarRecoveryRepo.cs" />
+    <Compile Include="SupplierInvoice\SupplierInvoiceMap.cs" />
+    <Compile Include="SupplierInvoice\SupplierInvoiceRepo.cs" />
+    <Compile Include="Supplier\SupplierMap.cs" />
+    <Compile Include="Supplier\SupplierRepo.cs" />
     <Compile Include="PaymentInfo\PaymentInfoMap.cs" />
     <Compile Include="PaymentInfo\PaymentInfoRepo.cs" />
     <Compile Include="SetMenuDetail\SetMenuDetailMap.cs" />

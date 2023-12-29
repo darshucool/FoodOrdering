@@ -62,6 +62,12 @@
     <Compile Include="BarRecovery\IBarRecoveryRepo.cs" />
     <Compile Include="BarRecovery\BarRecovery.cs" />
     <Compile Include="BarRecovery\BarRecoveryService.cs" />
+    <Compile Include="SupplierInvoice\SupplierInvoice.cs" />
+    <Compile Include="SupplierInvoice\SupplierInvoiceRepo.cs" />
+    <Compile Include="SupplierInvoice\SupplierInvoiceService.cs" />
+    <Compile Include="Supplier\Supplier.cs" />
+    <Compile Include="Supplier\SupplierRepo.cs" />
+    <Compile Include="Supplier\SupplierService.cs" />
     <Compile Include="PaymentInfo\PaymentInfo.cs" />
     <Compile Include="PaymentInfo\PaymentInfoService.cs" />
     <Compile Include="PaymentInfo\IPaymentInfoRepo.cs" />
