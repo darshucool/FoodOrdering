@@ -15,8 +15,9 @@ namespace Dinota.Domain.Supplier
         
         public string Name { set; get; }
         public string Address { set; get; }
+        public string ContactNo { set; get; }
         
-     
+     public int LocationUId { get; set; }
         public bool Active { set; get; }
        
     
