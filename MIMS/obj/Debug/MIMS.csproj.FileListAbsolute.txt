@@ -1036,7 +1036,6 @@ G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\AlfasiWeb.Properties.Resources.resource
 G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.GenerateResource.cache
 G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\AlfasiWeb.dll
 G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\AlfasiWeb.pdb
-G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.AssemblyReference.cache
-G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.CoreCompileInputs.cache
-G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\MIMS.csproj.CopyComplete
 G:\WRJJ\MIMS\FoodOrdering\MIMS\obj\Debug\MIMS.csprojResolveAssemblyReference.cache
+G:\WRJJ\MIMS\FoodOrdering\MIMS\bin\Microsoft.ReportViewer.Common.dll
+G:\WRJJ\MIMS\FoodOrdering\MIMS\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll

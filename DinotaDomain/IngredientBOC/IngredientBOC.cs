@@ -23,7 +23,7 @@ namespace Dinota.Domain.IngredientBOC
         public bool Active { set; get; }
         public int TransactionType { get; set; }
         public DateTime EffectiveDate { get; set; }
-
+        public int? SupplierInvoiceId { get; set; }
         public virtual IngredientInfo.IngredientInfo IngredientInfo { get; set; }
         public virtual MeasurementUnit.MeasurementUnit MeasurementUnit { get; set; }
     }

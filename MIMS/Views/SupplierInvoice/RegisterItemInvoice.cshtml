@@ -1,0 +1,135 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.SupplierInvoice
+@using Dinota.Domain.IngredientBOC
+@using Dinota.Domain.Event
+@using AlfasiWeb.Models
+@model SupplierInvoiceModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Add Ingriedients </h4>
+    </div>
+</div>
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+
+        <div class="col-md-12 mb-3">
+            @Html.Message()
+
+            @using (Html.BeginForm("RegisterItemInvoice", "SupplierInvoice", new { id=Model.SupplierInvoice.UId}, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+            {
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputName1">Supplier</label>
+                            @Html.TextBoxFor(m => m.SupplierInvoice.Supplier.Name, new { @placeholder = "Enter Address", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @Readonly = "" })
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputName1">Date</label>
+                            @Html.TextBoxFor(m => m.SupplierInvoice.EffectiveDate, new { @placeholder = "Enter Address", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @Readonly = "" })
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputName1">Select Ingridient</label>
+                            @Html.DropDownListFor(model => model.ItemId, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.IngredientInfoList], "-- Select Item  --", new { @class = "full-width form-control", @required = "true" })
+                            @Html.ValidationMessageFor(m => m.ItemId, null, new { @class = "help-inline" })
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputName1">Enter Qty</label>
+                            @Html.TextBoxFor(m => m.Qty, new { @placeholder = "Enter Address", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @type = "number" })
+                            @Html.ValidationMessageFor(m => m.Qty, "")
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputName1">Unit Price</label>
+                            @Html.TextBoxFor(m => m.UnitPrice, new { @placeholder = "Enter Address", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @type = "number" })
+                            @Html.ValidationMessageFor(m => m.UnitPrice, "")
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputName1">Tax</label>
+                            @Html.TextBoxFor(m => m.SupplierInvoice.Tax, new { @placeholder = "Enter Address", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @type = "number" })
+                            @Html.ValidationMessageFor(m => m.UnitPrice, "")
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputName1">Discount</label>
+                            @Html.TextBoxFor(m => m.SupplierInvoice.Discount, new { @placeholder = "Enter Address", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @type = "number" })
+                            @Html.ValidationMessageFor(m => m.Discount, "")
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputName1">SubTotal</label>
+                          @Html.TextBoxFor(m => m.SubTotal, new { @placeholder = "Enter Address", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @type = "number" })
+                        @Html.ValidationMessageFor(m => m.SubTotal, "")
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputName1">Grand Total</label>
+                            @Html.TextBoxFor(m => m.SupplierInvoice.GrandTotal, new { @placeholder = "Enter Address", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @type = "number" })
+                            @Html.ValidationMessageFor(m => m.GrandTotal, "")
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" name="btnAdd" value="ADDITEM" class="btn btn-primary btn-block">Add Ingridient</button>
+                </div>
+                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Qty</th>
+                            <th>Unit of Measurment</th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (IngredientBOC info in Model.IngredientBOCList)
+                        {
+                            <tr>
+                                <td>@info.IngredientInfo.ItemName</td>
+                                <td>@info.Qty.ToString("00.00")</td>
+                                <td>@info.MeasurementUnit.Unit</td>
+
+                                <td><a href="@Url.Content("~/SupplierInvoice/DeleteItem/")@info.UId" class="btn btn-primary px-3">Delete</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+</div>
+<script src="~/Asset/js/jquery-3.5.1.js"></script>
+<script src="~/Asset/js/jquery.dataTables.min.js"></script>
+<script src="~/Asset/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>

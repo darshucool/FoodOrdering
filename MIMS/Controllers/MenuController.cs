@@ -3155,7 +3155,7 @@ namespace MIMS.Controllers
                 foreach (BarRecovery rec in model.BarRecoveryList)
                 {
                     //BarRecovery oBill = _barRecoveryService.GetByKey(rec.UId);
-                    if (rec.UserId is null)
+                    if (rec.UserId==null)
                     {
                         var filterU = _userAccountService.GetDefaultSpecification();
                         filterU = filterU.And(p => p.Active == true).And(p => p.ServiceNo == rec.ServiceNo);

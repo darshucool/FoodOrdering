@@ -14,7 +14,8 @@ namespace Dinota.DataAccces.SupplierInvoice
             ToTable("SupplierInvoice");
             HasKey(refData => refData.UId);
             Property(refData => refData.UId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-          
+            HasRequired(f => f.Supplier).WithMany().HasForeignKey(f => f.SupplierUId);
+
         }
     }
 }

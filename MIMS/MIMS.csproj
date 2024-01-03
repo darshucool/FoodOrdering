@@ -238,6 +238,8 @@
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginsController.cs" />
+    <Compile Include="Controllers\SupplierInvoiceController.cs" />
+    <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DataStruct.cs" />
     <Compile Include="Global.asax.cs">
@@ -885,6 +887,16 @@
     <Content Include="Views\Menu\AcceptedMenuOrderList.cshtml" />
     <Content Include="Views\Menu\BarBill.cshtml" />
     <Content Include="Views\Officer\OfficerRecoveryListNew.cshtml" />
+    <Content Include="Views\Supplier\Edit.cshtml" />
+    <Content Include="Views\Supplier\Index.cshtml" />
+    <Content Include="Views\Supplier\Register.cshtml" />
+    <Content Include="Views\Supplier\_CreateEdit.cshtml" />
+    <Content Include="Views\SupplierInvoice\_CreateEdit.cshtml" />
+    <Content Include="Views\SupplierInvoice\Edit.cshtml" />
+    <Content Include="Views\SupplierInvoice\Index.cshtml" />
+    <Content Include="Views\SupplierInvoice\Register.cshtml" />
+    <Content Include="Views\SupplierInvoice\CreateInvoice.cshtml" />
+    <Content Include="Views\SupplierInvoice\RegisterItemInvoice.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

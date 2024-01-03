@@ -17,10 +17,10 @@ namespace Dinota.Domain.SupplierInvoice
         public decimal Discount { set; get; }
         public decimal SubTotal { set; get; }
         public decimal GrandTotal { set; get; }
-        
-     
+        public int LocationUId { get; set; }
+
         public bool Active { set; get; }
        
-    
+    public virtual Supplier.Supplier Supplier { get; set; }
     }
 }

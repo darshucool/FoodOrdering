@@ -1,4 +1,6 @@
 ﻿
+using Dinota.Domain.IngredientBOC;
+using Dinota.Domain.SupplierInvoice;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,5 +33,19 @@ namespace AlfasiWeb.Models
         public string Type { get; set; }
         public int IsExist { get; set; }
     }
-   
+    public class CustomList {
+        public int UId { get; set; }
+        public string Name { get; set; }
+    }
+
+    public class SupplierInvoiceModel
+    {
+        public SupplierInvoice SupplierInvoice { get; set; }
+        public List<IngredientBOC> IngredientBOCList { get; set; }
+
+        public int ItemId { get; set; }
+        public decimal Qty { get; set; }
+        public decimal UnitPrice { get; set; }
+        public decimal TotalPrice { get; set; }
+    }
 }
