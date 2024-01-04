@@ -249,11 +249,13 @@ namespace MIMS.Controllers
                     IngredientBOC oIngredientBOC = new IngredientBOC();
                     oIngredientBOC.IngredientUId = int.Parse(Form["ItemId"].ToString());
                     oIngredientBOC.Qty = decimal.Parse(Form["Qty"].ToString());
+                    oIngredientBOC.Price = decimal.Parse(Form["UnitPrice"].ToString());
                     oIngredientBOC.SupplierInvoiceId = id;
                     oIngredientBOC.EffectiveDate = oSupplierInvoice.EffectiveDate;
                     IngredientInfo oIngredientInfo = _ingredientInfoService.GetByKey(oIngredientBOC.IngredientUId);
                     oIngredientBOC.UnitId = oIngredientInfo.MeasurementUnitUId;
                     oIngredientBOC.Active = true;
+                    
                     oIngredientBOC.TotalPrice = oIngredientBOC.Qty * oIngredientBOC.Price;
                     oIngredientBOC.TransactionType = (int)DataStruct.BOCTransactionType.BOC;
                     oIngredientBOC.SLAFLocationUId = account.LocationUId;
@@ -262,9 +264,25 @@ namespace MIMS.Controllers
 
                     return RedirectToAction("RegisterItemInvoice", new { id = oSupplierInvoice.UId });
                 }
-                
+                else if (btnAdd == "COMPLETE")
+                {
+                    var filter = _ingredientBOCService.GetDefaultSpecification();
+                    filter = filter.And(p => p.Active == true).And(p => p.SupplierInvoiceId == oSupplierInvoice.UId);
+                    List<IngredientBOC> IngredientBOCList = _ingredientBOCService.GetCollection(filter, p => p.CreationDate).ToList();
+                    
+                    decimal Tax = decimal.Parse(Form["SupplierInvoice.Tax"].ToString());
+                    decimal Discount = decimal.Parse(Form["SupplierInvoice.Discount"].ToString());
+                    decimal SubTotal = decimal.Parse(Form["SupplierInvoice.SubTotal"].ToString());
+                    decimal GrandTotal = (SubTotal + Tax) - Discount;
+                    SupplierInvoice oSupplierInvoiceuUpdate = _supplierInvoiceService.GetByKey(id);
+                    oSupplierInvoiceuUpdate.Discount = Discount;
+                    oSupplierInvoiceuUpdate.Tax = Tax;
+                    oSupplierInvoiceuUpdate.GrandTotal = GrandTotal;
+                    oSupplierInvoiceuUpdate.SubTotal = SubTotal;
+                    DataContext.SaveChanges();
 
-               
+                    return RedirectToAction("Index");
+                }
             }
             catch (Exception)
             {
@@ -280,12 +298,25 @@ namespace MIMS.Controllers
             try
             {
                 oSupplierInvoice = _supplierInvoiceService.GetByKey(id);
-                model.SupplierInvoice = oSupplierInvoice;
+               
                 BindItemList(oSupplierInvoice.LocationUId);
                 var filter = _ingredientBOCService.GetDefaultSpecification();
                 filter = filter.And(p => p.Active == true).And(p => p.SupplierInvoiceId == oSupplierInvoice.UId);
                 List<IngredientBOC> IngredientBOCList = _ingredientBOCService.GetCollection(filter, p => p.CreationDate).ToList();
                 model.IngredientBOCList = IngredientBOCList;
+                decimal SubTotal = 0;
+                decimal GrandTotal = 0;
+                decimal Tax = 0;
+                decimal Discount = 0;
+                foreach (IngredientBOC boc in IngredientBOCList)
+                {
+                    SubTotal += boc.Qty * boc.Price;
+                   
+                }
+                oSupplierInvoice.SubTotal = SubTotal;
+                oSupplierInvoice.GrandTotal = (SubTotal - Discount) + Tax;
+
+                model.SupplierInvoice = oSupplierInvoice;
             }
             catch (Exception)
             {
@@ -301,6 +332,28 @@ namespace MIMS.Controllers
             filter = filter.And(p=>p.Active==true).And(p=>p.LocationUId== account.LocationUId);
             List<SupplierInvoice> SupplierList = _supplierInvoiceService.GetCollection(filter, p => p.CreationDate).ToList();
             return View(SupplierList);
+        }
+        public ActionResult View(int id)
+        {
+            SupplierInvoiceModel model = new SupplierInvoiceModel();
+            SupplierInvoice oSupplierInvoice = new SupplierInvoice();
+            try
+            {
+                oSupplierInvoice = _supplierInvoiceService.GetByKey(id);
+
+                BindItemList(oSupplierInvoice.LocationUId);
+                var filter = _ingredientBOCService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p => p.SupplierInvoiceId == oSupplierInvoice.UId);
+                List<IngredientBOC> IngredientBOCList = _ingredientBOCService.GetCollection(filter, p => p.CreationDate).ToList();
+                model.IngredientBOCList = IngredientBOCList;
+                model.SupplierInvoice = oSupplierInvoice;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
         }
     }
 }

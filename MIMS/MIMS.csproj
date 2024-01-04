@@ -897,6 +897,7 @@
     <Content Include="Views\SupplierInvoice\Register.cshtml" />
     <Content Include="Views\SupplierInvoice\CreateInvoice.cshtml" />
     <Content Include="Views\SupplierInvoice\RegisterItemInvoice.cshtml" />
+    <Content Include="Views\SupplierInvoice\View.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
