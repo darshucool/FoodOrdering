@@ -1,0 +1,49 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.SubscriptionFee
+@using Dinota.Domain.Event
+@using AlfasiWeb.Models
+@model SubscriptionFee
+@{
+    ViewBag.Title = "_CreateEdit";
+}
+
+
+<div class="form-group">
+    <label for="exampleInputName1">Category Name</label>
+    @Html.TextBoxFor(m => m.Category, new { @placeholder = "Enter Category", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true",@Required= "true" })
+    @Html.ValidationMessageFor(m => m.Category, "")
+</div>
+<div class="form-group">
+    <label for="exampleInputName1">Subscription Fee</label>
+    @Html.TextBoxFor(m => m.Fee, new { @placeholder = "Enter Address", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true",@type="number" })
+    @Html.ValidationMessageFor(m => m.Fee, "")
+</div>
+
+@if (Model.UId == 0)
+{
+
+    <div class="form-group">
+        <label for="exampleInputName1">Active</label>
+        @Html.CheckBoxFor(m => m.Active)
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </div>
+
+
+}
+else
+{
+    <div class="form-group">
+        <label for="exampleInputName1">Active</label>
+        @Html.CheckBoxFor(m => m.Active)
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-block">Update</button>
+    </div>
+}
+
+
+

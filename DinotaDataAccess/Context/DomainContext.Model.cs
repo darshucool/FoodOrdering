@@ -49,6 +49,7 @@ using Dinota.DataAccces.BarRecovery;
 using Dinota.DataAccces.MainCourseMealHeader;
 using Dinota.DataAccces.Supplier;
 using Dinota.DataAccces.SupplierInvoice;
+using Dinota.DataAccces.SubscriptionFee;
 
 namespace Dinota.DataAccces.Context
 {
@@ -110,7 +111,7 @@ namespace Dinota.DataAccces.Context
             modelBuilder.Configurations.Add(new MainCourseMealHeaderMap());
             modelBuilder.Configurations.Add(new SupplierMap());
             modelBuilder.Configurations.Add(new SupplierInvoiceMap());
-
+            modelBuilder.Configurations.Add(new SubscriptionFeeMap());
 
         }
     }

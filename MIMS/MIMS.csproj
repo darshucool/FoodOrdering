@@ -238,6 +238,7 @@
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginsController.cs" />
+    <Compile Include="Controllers\SubscriptionController.cs" />
     <Compile Include="Controllers\SupplierInvoiceController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -898,6 +899,10 @@
     <Content Include="Views\SupplierInvoice\CreateInvoice.cshtml" />
     <Content Include="Views\SupplierInvoice\RegisterItemInvoice.cshtml" />
     <Content Include="Views\SupplierInvoice\View.cshtml" />
+    <Content Include="Views\Subscription\_CreateEdit.cshtml" />
+    <Content Include="Views\Subscription\Edit.cshtml" />
+    <Content Include="Views\Subscription\Index.cshtml" />
+    <Content Include="Views\Subscription\Register.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

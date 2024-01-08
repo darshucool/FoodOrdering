@@ -248,9 +248,6 @@ G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\bin\Release\DinotaCore.pdb
 G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\bin\Release\DinotaDomain.pdb
 G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.dll
 G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.pdb
-G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csproj.AssemblyReference.cache
-G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csproj.CoreCompileInputs.cache
-G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csproj.CopyComplete
 F:\SLAF Projects\FoodOrdering\DinotaSecurity\bin\Release\DinotaSecurity.dll
 F:\SLAF Projects\FoodOrdering\DinotaSecurity\bin\Release\DinotaSecurity.pdb
 F:\SLAF Projects\FoodOrdering\DinotaSecurity\bin\Release\DinotaCore.dll
@@ -262,3 +259,4 @@ F:\SLAF Projects\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csproj.C
 F:\SLAF Projects\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csproj.CopyComplete
 F:\SLAF Projects\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.dll
 F:\SLAF Projects\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.pdb
+G:\WRJJ\MIMS\FoodOrdering\DinotaSecurity\obj\Release\DinotaSecurity.csprojResolveAssemblyReference.cache

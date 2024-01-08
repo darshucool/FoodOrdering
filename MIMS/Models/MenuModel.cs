@@ -144,6 +144,10 @@ namespace AlfasiWeb.Models
     {
         public UserAccount oUserAccount { get; set; }
         public decimal MessBill { get; set; }
+
+        public decimal Barbill { get; set; }
+        public decimal Subscription { get; set; }
+        public decimal total { get; set; }
     }
 
     public class SetMenuModel { 

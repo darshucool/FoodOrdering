@@ -27,6 +27,8 @@ using AlfasiWeb;
 using Dinota.Domain.MenuOrderHeader;
 using Dinota.Domain.MenuOrderItemDetail;
 using Dinota.Domain.Rank;
+using Dinota.Domain.BarRecovery;
+using Dinota.Domain.SubscriptionFee;
 
 namespace MIMS.Controllers
 {
@@ -49,9 +51,11 @@ namespace MIMS.Controllers
         private readonly MenuOrderOfficerService _menuOrderOfficerService;
         private readonly MenuOrderHeaderService _menuOrderHeaderService;
         private readonly MenuOrderItemDetailService _menuOrderItemDetailService;
+        private readonly BarRecoveryService _barRecoveryService;
+        private readonly SubscriptionFeeService _subscriptionFeeService;
         private readonly RankService _rankService;
 
-        public OfficerController(IDomainContext dataContext, MenuOrderItemDetailService menuOrderItemDetailService, 
+        public OfficerController(IDomainContext dataContext, SubscriptionFeeService subscriptionFeeService, BarRecoveryService barRecoveryService, MenuOrderItemDetailService menuOrderItemDetailService, 
             MenuOrderHeaderService menuOrderHeaderService, MenuOrderOfficerService menuOrderOfficerService, 
             PaymentMethodService paymentMethodService, MenuItemService menuItemService, OfficerRequestService officerRequestService, 
             UserStatusService userStatusService, UserAccountService userAccountService, RoomNoService roomNoService, 
@@ -75,7 +79,8 @@ namespace MIMS.Controllers
             _menuOrderHeaderService = menuOrderHeaderService;
             _menuOrderItemDetailService =menuOrderItemDetailService;
             _rankService = rankService;
-
+            _barRecoveryService = barRecoveryService;
+            _subscriptionFeeService = subscriptionFeeService;
         }
         // [AuthorizeUserAccessLevel()]
 
@@ -404,6 +409,21 @@ namespace MIMS.Controllers
                         
                     }
                     off.MessBill = Amount;
+                    var filterB = _barRecoveryService.GetDefaultSpecification();
+                    filterB = filterB.And(p=>p.Active==true).And(p => p.Year == firstDayOfMonth.Year).And(p => p.Month == firstDayOfMonth.Month).And(p => p.UserId == acc.Id);
+                    BarRecovery recovery = _barRecoveryService.GetBy(filterB);
+                    if (recovery != null)
+                    {
+                        off.Barbill = recovery.CreditAmnt;
+                    }
+                    else
+                    {
+                        off.Barbill = 0;
+                    }
+                    var filterS = _subscriptionFeeService.GetDefaultSpecification();
+                    filterS = filterS.And(p => p.Active == true).And(p=>p.LocationId== account.LocationUId);
+                    List<SubscriptionFee> SubscriptionFeeList = _subscriptionFeeService.GetCollection(filterS, p => p.CreationDate).ToList();
+                    off.Subscription = SubscriptionFeeList.Sum(p=>p.Fee);
                     ModelList.Add(off);
                 }
             }

@@ -61,7 +61,24 @@ namespace MIMS.Controllers
         }
         // [AuthorizeUserAccessLevel()]
 
-
+        public ActionResult DeleteItem(int id)
+        {
+            IngredientBOC oIngredientBOC = new IngredientBOC();
+            try
+            {
+                oIngredientBOC=_ingredientBOCService.GetByKey(id);
+                oIngredientBOC.Active = false;
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Successfully Removed");
+                return RedirectToAction("RegisterItemInvoice", new { id = oIngredientBOC.SupplierInvoiceId });
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            return View();
+        }
 
         public void BindSupplierList(int LocationUId)
         {
@@ -222,6 +239,7 @@ namespace MIMS.Controllers
                 oSupplierInvoice.LocationUId = account.LocationUId;
                 oSupplierInvoice.Tax = 0;
                 oSupplierInvoice.Active = true;
+                oSupplierInvoice.Status = 10;
                 _supplierInvoiceService.Add(oSupplierInvoice);
                 DataContext.SaveChanges();
 
@@ -279,6 +297,7 @@ namespace MIMS.Controllers
                     oSupplierInvoiceuUpdate.Tax = Tax;
                     oSupplierInvoiceuUpdate.GrandTotal = GrandTotal;
                     oSupplierInvoiceuUpdate.SubTotal = SubTotal;
+                    oSupplierInvoiceuUpdate.Status = 20;
                     DataContext.SaveChanges();
 
                     return RedirectToAction("Index");

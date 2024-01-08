@@ -26,7 +26,8 @@
                         <th>Name</th>
                         <th>Date</th>
                         <th>Grand Total</th>
-                        
+                        <th>Status</th>
+                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -37,8 +38,18 @@
                         <td>@info.Supplier.Name</td>
                         <td>@info.EffectiveDate.ToString("dd/MM/yyyy")</td>
                         <td>@info.GrandTotal.ToString("00")</td>
+                        @if (info.Status == 20)
+                        {
+                            <td>Completed</td>
+                        }
+                        else
+                        {
+                            <td>Pending</td>
+                        }
+                        <td>@info.GrandTotal.ToString("00")</td>
                         
-                        <td><a href="@Url.Content("~/SupplierInvoice/View/")@info.UId" class="btn btn-primary px-3">Edit</a></td>
+                        <td><a href="@Url.Content("~/SupplierInvoice/RegisterItemInvoice/")@info.UId" class="btn btn-primary px-3">Edit</a></td>
+                        <td><a href="@Url.Content("~/SupplierInvoice/View/")@info.UId" class="btn btn-primary px-3">View</a></td>
                     </tr>
             }
                 </tbody>

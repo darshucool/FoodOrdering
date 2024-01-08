@@ -18,6 +18,7 @@ namespace Dinota.Domain.SupplierInvoice
         public decimal SubTotal { set; get; }
         public decimal GrandTotal { set; get; }
         public int LocationUId { get; set; }
+        public int Status { get; set; }
 
         public bool Active { set; get; }
        

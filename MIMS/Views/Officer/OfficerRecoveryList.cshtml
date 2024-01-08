@@ -29,7 +29,10 @@
                         <th>Service No</th>
                         <th>Name</th>
                         <th>Living Status</th>
-                        <th>Total Bill Amount</th>
+                        <th>Mess Bill Amount (Rs.)</th>
+                        <th>Bar Bill Amount (Rs.)</th>
+                        <th>Subscriptions Amount (Rs.)</th>
+                        <th>Total Bill Amount (Rs.)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,10 +55,24 @@
                                 }
                             </td>
                             <td style="text-align:right">
-                                Rs.  @ord.MessBill.ToString("00.00")
+                                @ord.MessBill.ToString("00.00")
 
                             </td>
+                            <td style="text-align:right">
+                               @ord.Barbill.ToString("00.00")
 
+                            </td>
+                            <td style="text-align:right">
+                                @ord.Subscription.ToString("00.00")
+
+                            </td>
+                            @{ 
+                                decimal total = ord.MessBill + ord.Barbill + ord.Subscription;
+                                }
+                            <td style="text-align:right">
+                                @total.ToString("00.00")
+
+                            </td>
                         </tr>
                     }
                 </tbody>
