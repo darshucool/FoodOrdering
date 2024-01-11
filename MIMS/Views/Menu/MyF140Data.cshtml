@@ -38,7 +38,8 @@
                                     if(detail.MyAmount>0)
                                     { 
                                         <tr>
-                                            <td>@detail.F140Header.EffectiveDate.ToString("dd/MM/yyyy")</td>
+                                            @*<td>@detail.F140Header.EffectiveDate.ToString("dd/MM/yyyy")</td>*@
+                                            <td>@detail.MenuOrderHeader.OrderDate.ToString("dd/MM/yyyy")</td>
                                             <td>
                                                 @foreach (MenuOrderItemDetail menu in detail.MenuOrderItemDetailList)
                                                 {

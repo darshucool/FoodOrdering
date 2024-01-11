@@ -372,4 +372,6 @@ G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Debug\Dinota.Domain.Properties.Resour
 G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.GenerateResource.cache
 G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.dll
 G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.pdb
-G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csprojResolveAssemblyReference.cache
+G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.AssemblyReference.cache
+G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.CoreCompileInputs.cache
+G:\WRJJ\MIMS\FoodOrdering\DinotaDomain\obj\Debug\DinotaDomain.csproj.CopyComplete

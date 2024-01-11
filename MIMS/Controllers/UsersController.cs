@@ -70,6 +70,25 @@ namespace MIMS.Controllers
             return userAccount;
 
         }
+
+        [AuthorizeUserAccessLevel()]
+        public ActionResult AdminUserList()
+        {
+            List<UserAccount> UserAccountList = new List<UserAccount>();
+            try
+            {
+                var filter = _userAccountService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true);
+                UserAccountList = _userAccountService.GetCollection(filter, p => p.CreationDate).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(UserAccountList);
+        }
+
         public ActionResult UserList()
         {
             List<UserAccount> UserAccountList = new List<UserAccount>();
@@ -604,23 +623,7 @@ namespace MIMS.Controllers
             }
 
         }
-        [AuthorizeUserAccessLevel()]
-        public ActionResult UserList()
-        {
-            List<UserAccount> UserAccountList = new List<UserAccount>();
-            try
-            {
-                var filter = _userAccountService.GetDefaultSpecification();
-                filter = filter.And(p => p.Active == true);
-                UserAccountList = _userAccountService.GetCollection(filter, p => p.CreationDate).ToList();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            return View(UserAccountList);
-        }
+        
         [AuthorizeUserAccessLevel()]
         public ActionResult EditMember(int id)
         {
