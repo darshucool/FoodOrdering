@@ -52,7 +52,41 @@ namespace MIMS.Controllers
             _divisionService = divisionService;
            
         }
+        private UserAccount GetCurrentUser()
+        {
+            UserAccount userAccount = new UserAccount();
+            try
+            {
+                string userName = HttpContext.User.Identity.Name;
+                var filter = _userAccountService.GetDefaultSpecification();
+                filter = filter.And(s => s.UserName == userName).And(p => p.Active == true);
+                userAccount = _userAccountService.GetBy(filter);
 
+            }
+            catch (Exception)
+            {
+
+            }
+            return userAccount;
+
+        }
+        public ActionResult UserList()
+        {
+            List<UserAccount> UserAccountList = new List<UserAccount>();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                var filter = _userAccountService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p => p.LocationUId == account.LocationUId);
+                UserAccountList = _userAccountService.GetCollection(filter, p => p.CreationDate).ToList();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            return View(UserAccountList);
+        }
         [DinotaAuthorize(FunctionalAreas.Users, SetPermission = true)]
         public ActionResult Index(UserSearchModel userSearchModel, byte typeenum = 1)
         {
