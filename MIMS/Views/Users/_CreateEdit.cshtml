@@ -8,80 +8,102 @@
     ViewBag.Title = "_CreateEdit";
 }
 
+
+<div class="form-group">
+    <label for="emailInput" class="col-sm-3 control-label">Service Number</label>
+    <div class="col-sm-8">
+        @Html.TextBoxFor(m => m.UserName, new { @placeholder = "", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true" ,@required = "required"})
+        @Html.ValidationMessageFor(m => m.UserName, "")
+
+    </div>
+</div>
+
 <div class="form-group">
     <label for="emailInput" class="col-sm-3 control-label">Full Name</label>
     <div class="col-sm-8">
-           @Html.TextBoxFor(m => m.Name, new { @placeholder = "Enter Full Name",@data_rule_required="true",@data_rule_email="true", @class="form-control", @aria_required="true" })
-                @Html.ValidationMessageFor(m => m.Name, "")
-      
-    </div>
-</div>
-<div class="form-group">
-    <label for="nameInput" class="col-sm-3 control-label">User Division</label>
-    <div class="col-sm-8">
-        
-                @Html.DropDownListFor(model => model.DivisionId, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.DivisionList], "-- Select User Division  --", new { @class="form-control select", @style="display: none;", @aria_required="true" })
-                @Html.ValidationMessageFor(m => m.DivisionId, null, new { @class = "help-inline" })
+        @Html.TextBoxFor(m => m.Name, new { @placeholder = "Enter Full Name", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @required = "required" })
+        @Html.ValidationMessageFor(m => m.Name, "")
 
     </div>
 </div>
-<div class="form-group">
-    <label for="nameInput" class="col-sm-3 control-label">User Type</label>
-    <div class="col-sm-8">
-        
-                @Html.DropDownListFor(model => model.UserTypeId, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.UserTypeList], "-- Select User Type  --", new { @class="form-control select", @style="display: none;", @aria_required="true" })
-                @Html.ValidationMessageFor(m => m.UserTypeId, null, new { @class = "help-inline" })
+@*<div class="form-group">
+        <label for="nameInput" class="col-sm-3 control-label">User Division</label>
+        <div class="col-sm-8">
 
+                    @Html.DropDownListFor(model => model.DivisionId, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.DivisionList], "-- Select User Division  --", new { @class="form-control select", @style="display: none;", @aria_required="true" })
+                    @Html.ValidationMessageFor(m => m.DivisionId, null, new { @class = "help-inline" })
+
+        </div>
     </div>
-</div>
+    <div class="form-group">
+        <label for="nameInput" class="col-sm-3 control-label">User Type</label>
+        <div class="col-sm-8">
+
+                    @Html.DropDownListFor(model => model.UserTypeId, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.UserTypeList], "-- Select User Type  --", new { @class="form-control select", @style="display: none;", @aria_required="true" })
+                    @Html.ValidationMessageFor(m => m.UserTypeId, null, new { @class = "help-inline" })
+
+        </div>
+    </div>*@
 <div class="form-group">
     <label for="emailInput" class="col-sm-3 control-label">Contact No</label>
     <div class="col-sm-8">
-           @Html.TextBoxFor(m => m.Telephone1, new { @placeholder = "Enter Contact No",@data_rule_required="true",@data_rule_email="true", @class="form-control", @aria_required="true" })
-                @Html.ValidationMessageFor(m => m.Telephone1, "")
-      
+        @Html.TextBoxFor(m => m.Telephone1, new { @placeholder = "Enter Contact No", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true" })
+        @Html.ValidationMessageFor(m => m.Telephone1, "")
+
     </div>
 </div>
 <div class="form-group">
     <label for="emailInput" class="col-sm-3 control-label">Email</label>
     <div class="col-sm-8">
-           @Html.TextBoxFor(m => m.Email, new { @placeholder = "Enter Email",@data_rule_required="true",@data_rule_email="true", @class="form-control", @aria_required="true" })
-                @Html.ValidationMessageFor(m => m.Email, "")
-      
+        @Html.TextBoxFor(m => m.Email, new { @placeholder = "Enter Email", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true" })
+        @Html.ValidationMessageFor(m => m.Email, "")
+
     </div>
 </div>
+
 <div class="form-group">
+    <label for="emailInput" class="col-sm-3 control-label">User Type (User = 3, Duty Caterer = 5)</label>
+    <div class="col-sm-8">
+        @Html.TextBoxFor(m => m.UserTypeId, new { @placeholder = "Enter User Type Number", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @required = "required" })
+        @Html.ValidationMessageFor(m => m.UserTypeId, "")
+
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="nameInput" class="col-sm-3 control-label">SLAF Location</label>
+    <div class="col-sm-8">
+
+        @Html.DropDownListFor(model => model.LocationUId, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.SLAFLocationList], "-- Select SLAf Location  --", new { @class = "form-control select", @style = "display: none;", @aria_required = "true", @required = "required" })
+        @Html.ValidationMessageFor(m => m.LocationUId, null, new { @class = "help-inline" })
+
+    </div>
+</div>
+@*<div class="form-group">
     <label for="emailInput" class="col-sm-3 control-label">NIC No</label>
     <div class="col-sm-8">
-           @Html.TextBoxFor(m => m.NIC, new { @placeholder = "Enter NIC",@data_rule_required="true",@data_rule_email="true", @class="form-control", @aria_required="true" })
-                @Html.ValidationMessageFor(m => m.NIC, "")
-      
+        @Html.TextBoxFor(m => m.NIC, new { @placeholder = "Enter NIC", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true" })
+        @Html.ValidationMessageFor(m => m.NIC, "")
+
     </div>
-</div>
- @if (Model.Id == 0)
-            {
-<div class="form-group">
-    <label for="emailInput" class="col-sm-3 control-label">Username</label>
-    <div class="col-sm-8">
-           @Html.TextBoxFor(m => m.UserName, new { @placeholder = "",@data_rule_required="true",@data_rule_email="true", @class="form-control", @aria_required="true" })
-                @Html.ValidationMessageFor(m => m.UserName, "")
-      
-    </div>
-</div>
- }
+</div>*@
 @if (Model.Id == 0)
-        {
-<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">Submit</button>
+{
+    
+}
+@if (Model.Id == 0)
+{
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
     </div>
-</div>
 }
 else
 {
     <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">Update</button>
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
     </div>
-</div>
 }

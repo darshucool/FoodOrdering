@@ -70,6 +70,8 @@
                                 <i class="feather-search h6 mr-2 mb-0"></i> <span>Search</span>
                                 </div>
                                 </a>*@
+
+
                             @if (account.UserTypeId == 3)
                             {
                                 <a href="@Url.Content("~/Home/Profile/")" class="widget-header mr-4 text-white btn bg-dark m-none">
@@ -101,7 +103,7 @@
                             {
                                 <a href="@Url.Content("~/Menu/MyOrders")" class="widget-header mr-4 text-dark">
                                     <div class="icon d-flex align-items-center">
-                                        <i class="feather-shopping-cart h6 mr-2 mb-0">0 Order</i><span>Orders</span>
+                                        <i class="feather-shopping-cart h6 mr-2 mb-0"></i><span>Orders</span>
                                     </div>
                                 </a>
                             }
@@ -140,6 +142,13 @@
     </footer>
     <nav id="main-nav">
         <ul class="second-nav">
+            @if (account.UserName == "admin")
+            {
+                <li><a href="@Url.Content("~/Users/RegisterMember")"><i class="feather-home mr-2"></i>Register Member</a></li>
+
+            }
+
+
             @if (account.UserTypeId == 1)
             {
                 <li><a href="@Url.Content("~/Home/MasterMenu")"><i class="feather-home mr-2"></i>Homepage</a></li>

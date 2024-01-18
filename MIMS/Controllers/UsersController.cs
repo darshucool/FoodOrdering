@@ -19,6 +19,10 @@ using Dinota.Domain.UserType;
 using System.Collections.Generic;
 using Dinota.Domain.Division;
 using Dinota.Domain.BarRecovery;
+using Dinota.Domain.SLAFLocation;
+using Dinota.Domain.Rank;
+
+
 
 namespace MIMS.Controllers
 {
@@ -33,12 +37,17 @@ namespace MIMS.Controllers
         private readonly UserTypeService _userTypeService;
         private readonly DivisionService _divisionService;
         private readonly BarRecoveryService _barRecoveryService;
+        private readonly SLAFLocationService _sLAFLocationService;
+        private readonly RankService _rankService;
+
+
 
         private readonly ICryptoProvider _cryptoProvider;
 
         public UsersController(UserBaseService userService, DivisionService divisionService, UserTypeService userTypeService, 
             PageObjectService pageObjectService, UserPermissionService userPermissionService, AdminUserService adminUserService, 
-            UserAccountService userAccountService, BarRecoveryService barRecoveryService,
+            UserAccountService userAccountService, BarRecoveryService barRecoveryService, SLAFLocationService sLAFLocationService,
+            RankService rankService,
             IDomainContext domainContext, ICryptoProvider cryptoProvider)
             : base(domainContext)
         {
@@ -50,6 +59,8 @@ namespace MIMS.Controllers
             _pageObjectService = pageObjectService;
             _userTypeService = userTypeService;
             _divisionService = divisionService;
+            _sLAFLocationService = sLAFLocationService;
+            _rankService = rankService;
            
         }
         private UserAccount GetCurrentUser()
@@ -537,13 +548,14 @@ namespace MIMS.Controllers
             }
             return RedirectToAction("UserRoleList", "DivisionInfo", new { id = type.DivisionId});
         }
-        [AuthorizeUserAccessLevel()]
+
+        //[AuthorizeUserAccessLevel()]
         public ActionResult RegisterMember()
         {
             UserAccount oUserAccount = new UserAccount();
             //BindAppointmentList();
-            BindDivisionList();
-            BindUserTypeList();
+            //BindDivisionList();
+            BindSlafLocationList();
             return View(oUserAccount);
         }
         [HttpPost]
@@ -551,6 +563,9 @@ namespace MIMS.Controllers
         {
             UserAccount oUserAccount = new UserAccount();
             UserAccount checkUserAccount = new UserAccount();
+
+            BindSlafLocationList();
+
             try
             {
                 TryUpdateModel(oUserAccount);
@@ -570,7 +585,7 @@ namespace MIMS.Controllers
                     _userAccountService.Add(oUserAccount);
                     DataContext.SaveChanges();
                     TempData[ViewDataKeys.Message] = new SuccessMessage("Successfully Created.");
-                    return RedirectToAction("UserList");
+                    return RedirectToAction("RegisterMember");
                 }
             }
             catch (Exception)
@@ -582,6 +597,7 @@ namespace MIMS.Controllers
 
             return View(oUserAccount);
         }
+
         [HttpPost]
         public ActionResult ShowUserType(int DivisionVal)
         {
@@ -607,6 +623,41 @@ namespace MIMS.Controllers
             }
 
         }
+
+        public void BindSlafLocationList()
+        {
+            try
+            {
+                var filter = _sLAFLocationService.GetDefaultSpecification().And(s => s.Active == true);
+                var TypeList = _sLAFLocationService.GetCollection(filter, d => d.UId);
+                SelectList list = new SelectList(TypeList, "UId", "Name");
+                ViewData[ViewDataKeys.SLAFLocationList] = list;
+            }
+            catch (Exception ex)
+            {
+                TempData[ViewDataKeys.Message] = new FailMessage(ex.Message.ToString());
+
+            }
+
+        }
+
+        public void BindRankList()
+        {
+            try
+            {
+                var filter = _.GetDefaultSpecification().And(s => s.Active == true);
+                var TypeList = _sLAFLocationService.GetCollection(filter, d => d.UId);
+                SelectList list = new SelectList(TypeList, "UId", "Name");
+                ViewData[ViewDataKeys.SLAFLocationList] = list;
+            }
+            catch (Exception ex)
+            {
+                TempData[ViewDataKeys.Message] = new FailMessage(ex.Message.ToString());
+
+            }
+
+        }
+
         public void BindUserTypeList()
         {
             try
