@@ -61,6 +61,8 @@
     <Compile Include="AlertNotify\AlertNotifyRepo.cs" />
     <Compile Include="BarRecovery\BarRecoveryMap.cs" />
     <Compile Include="BarRecovery\BarRecoveryRepo.cs" />
+    <Compile Include="UserPermissionGroup\UserPermissionGroupMap.cs" />
+    <Compile Include="UserPermissionGroup\UserPermissionGroupRepo.cs" />
     <Compile Include="SubscriptionFee\SubscriptionFeeMap.cs" />
     <Compile Include="SubscriptionFee\SubscriptionFeeRepo.cs" />
     <Compile Include="SupplierInvoice\SupplierInvoiceMap.cs" />

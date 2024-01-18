@@ -11,6 +11,7 @@ using Dinota.Domain.User;
 using Dinota.Domain.PageObject;
 using Dinota.Domain.UserPermission;
 using MIMS.Models;
+using Dinota.Domain.UserPermissionGroup;
 
 namespace MIMS.Helpers
 {
@@ -77,6 +78,28 @@ namespace MIMS.Helpers
                 throw;
             }
             return status;
+        }
+        public List<UserPermissionGroup> GroupFunctionList(int UserTypeId)
+        {
+            List<UserPermissionGroup> list = new List<UserPermissionGroup>();
+            try
+            {
+                string sql = "SELECT UserPermissionGroup.* where UserTypeUId = '" + UserTypeId + "' and Active='TRUE'";
+                DataTable dt = SelectData(sql);
+                foreach (DataRow row in dt.Rows)
+                {
+                    UserPermissionGroup group = new UserPermissionGroup();
+                    group.UserArea = row["Name"].ToString();
+                    group.UId = int.Parse(row["UId"].ToString());
+                    list.Add(group);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return list;
         }
         public List<SessionNaviModel> SelectPermittedNavigation(int UserTypeId)
         {

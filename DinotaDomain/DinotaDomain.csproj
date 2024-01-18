@@ -62,6 +62,9 @@
     <Compile Include="BarRecovery\IBarRecoveryRepo.cs" />
     <Compile Include="BarRecovery\BarRecovery.cs" />
     <Compile Include="BarRecovery\BarRecoveryService.cs" />
+    <Compile Include="UserPermissionGroup\UserPermissionGroup.cs" />
+    <Compile Include="UserPermissionGroup\UserPermissionGroupService.cs" />
+    <Compile Include="UserPermissionGroup\IUserPermissionGroupRepo.cs" />
     <Compile Include="SubscriptionFee\SubscriptionFee.cs" />
     <Compile Include="SubscriptionFee\SubscriptionFeeService.cs" />
     <Compile Include="SubscriptionFee\ISubscriptionFeeRepo.cs" />

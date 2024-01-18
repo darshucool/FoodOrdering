@@ -50,6 +50,7 @@ using Dinota.DataAccces.MainCourseMealHeader;
 using Dinota.DataAccces.Supplier;
 using Dinota.DataAccces.SupplierInvoice;
 using Dinota.DataAccces.SubscriptionFee;
+using Dinota.DataAccces.UserPermissionGroup;
 
 namespace Dinota.DataAccces.Context
 {
@@ -112,7 +113,7 @@ namespace Dinota.DataAccces.Context
             modelBuilder.Configurations.Add(new SupplierMap());
             modelBuilder.Configurations.Add(new SupplierInvoiceMap());
             modelBuilder.Configurations.Add(new SubscriptionFeeMap());
-
+  modelBuilder.Configurations.Add(new UserPermissionGroupMap());
         }
     }
 }

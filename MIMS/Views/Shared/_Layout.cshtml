@@ -1,10 +1,14 @@
 ﻿@using MIMS.Helpers
 @using AlfasiWeb.Models
+@using Dinota.Domain.UserPermissionGroup
 @using Dinota.Domain.User
+
 @{
     //UserAccount account = Html.GetCurrentUserInfo();
-    List<SessionNaviModel> SessionNaviModelList = new List<SessionNaviModel>();
     UserAccount account = Html.GetCurrentUserInfo();
+    List<SessionNaviModel> SessionNaviModelList = new List<SessionNaviModel>();
+    List<UserPermissionGroup> GroupFunctionList = new CustomDataBaseManger().GroupFunctionList(account.UserTypeId);
+
     if (account == null)
     {
         Response.Redirect("~/Account/Login");
@@ -18,7 +22,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="@Url.Content("~/Asset/image/png")" href="img/fav.png">
-    <title>Officers' Mess @account.SLAFLocation.Name</title> 
+    <title>Officers' Mess @account.SLAFLocation.Name</title>
 
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Asset/vendor/slick/slick.min.css")">
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Asset/vendor/slick/slick-theme.min.css")">
@@ -32,14 +36,14 @@
     <link href="@Url.Content("~/Asset/vendor/sidebar/demo.css")" rel="stylesheet">
     <link href="@Url.Content("~/Asset/css/dataTables.bootstrap4.min.css")" rel="stylesheet">
     <style>
-  .insufficient-stock {
-    background-color: #fba6a8 !important;
-  }
-</style>
-    
+        .insufficient-stock {
+            background-color: #fba6a8 !important;
+        }
+    </style>
+
 </head>
 <body class="fixed-bottom-bar">
-    <header class="section-header" >
+    <header class="section-header">
         <section class="header-main shadow-sm bg-white">
             <div class="container" style=" min-height: 80px">
                 <div class="row align-items-center" style="padding-top :10px; padding-bottom: 10px">
@@ -49,7 +53,7 @@
                         </a>
                     </div>
                     <div class="col-3">
-                        
+
                         <p style="float: right; font-weight: bold; font-size: 16px; padding-top: 10px; color: #0f46a8">
                             @if (account.SLAFLocation != null)
                             {
@@ -59,7 +63,7 @@
                         </p>
                     </div>
                     @*<div class="col-1 d-flex align-items-center m-none">
-                    </div>*@
+                        </div>*@
 
                     <div class="col-8">
                         <div class="d-flex align-items-center justify-content-end pr-5">
@@ -145,9 +149,9 @@
                 <li><a href="@Url.Content("~/Home/MasterMenu")"><i class="feather-home mr-2"></i>Homepage</a></li>
                 <li><a href="@Url.Content("~/Menu/MyOrders")"><i class="feather-list mr-2"></i>My Orders</a></li>
                 @*if (account.LocationUId == 18)
-            {
-                <li><a href="@Url.Content("~/Menu/EventHomeRma")"><i class="feather-list mr-2"></i>Event List</a></li>
-            }*@
+                    {
+                        <li><a href="@Url.Content("~/Menu/EventHomeRma")"><i class="feather-list mr-2"></i>Event List</a></li>
+                    }*@
                 <li><a href="@Url.Content("~/Menu/EventIndex")"><i class="feather-list mr-2"></i>Event List</a></li>
                 <li><a href="@Url.Content("~/News/Index")"><i class="feather-list mr-2"></i>News List</a></li>
                 <li><a href="@Url.Content("~/Menu/MessBill")"><i class="feather-list mr-2"></i>Mess Bill</a></li>
@@ -161,9 +165,9 @@
                 <li><a href="@Url.Content("~/Home/MasterMenu")"><i class="feather-home mr-2"></i>Homepage</a></li>
                 <li><a href="@Url.Content("~/Menu/MyOrders")"><i class="feather-list mr-2"></i>My Orders</a></li>
                 @*if (account.LocationUId == 18)
-            {
-                <li><a href="@Url.Content("~/Menu/EventHomeRma")"><i class="feather-list mr-2"></i>Event List</a></li>
-            }*@
+                    {
+                        <li><a href="@Url.Content("~/Menu/EventHomeRma")"><i class="feather-list mr-2"></i>Event List</a></li>
+                    }*@
                 <li><a href="@Url.Content("~/Menu/EventIndex")"><i class="feather-list mr-2"></i>Event List</a></li>
                 <li><a href="@Url.Content("~/News/Index")"><i class="feather-list mr-2"></i>News List</a></li>
                 <li><a href="@Url.Content("~/Menu/MessBill")"><i class="feather-list mr-2"></i>Mess Bill</a></li>
