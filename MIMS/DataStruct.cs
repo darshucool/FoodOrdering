@@ -14,6 +14,10 @@ namespace AlfasiWeb
             MEDICAL = 2,
             EDUCATIONAL = 4
         };
+
+        public enum UserFunction { 
+            
+        }
         public enum ServiceStatus
         {
             KIA = 0,
