@@ -5,16 +5,16 @@ using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
 
-namespace Dinota.DataAccces.UserType
+namespace Dinota.DataAccces.UserArea
 {
-    public class UserTypeMap : EntityTypeConfiguration<Domain.UserType.UserType>
+    public class UserAreaMap : EntityTypeConfiguration<Domain.UserArea.UserArea>
     {
-        public UserTypeMap()
+        public UserAreaMap()
         {
-            ToTable("UserType");
+            ToTable("UserArea");
             HasKey(refData => refData.UId);
             Property(refData => refData.UId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            //HasRequired(f => f.Division).WithMany().HasForeignKey(f => f.DivisionId);
+          
         }
     }
 }

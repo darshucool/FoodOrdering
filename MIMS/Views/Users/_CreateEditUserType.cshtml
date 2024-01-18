@@ -1,0 +1,37 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using AlfasiWeb.Models
+@using Dinota.Domain.UserType
+@model UserType
+@{
+    ViewBag.Title = "_CreateEdit";
+}
+
+
+<div class="form-group">
+    <label for="emailInput" class="col-sm-3 control-label">User Type</label>
+    <div class="col-sm-8">
+        @Html.TextBoxFor(m => m.Name, new { @placeholder = "", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true" ,@required = "required"})
+        @Html.ValidationMessageFor(m => m.Name, "")
+
+    </div>
+</div>
+
+
+@if (Model.UId == 0)
+{
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+}
+else
+{
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </div>
+}

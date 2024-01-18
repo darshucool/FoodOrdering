@@ -21,8 +21,7 @@ using Dinota.Domain.Division;
 using Dinota.Domain.BarRecovery;
 using Dinota.Domain.SLAFLocation;
 using Dinota.Domain.Rank;
-
-
+using Dinota.Domain.UserArea;
 
 namespace MIMS.Controllers
 {
@@ -39,6 +38,7 @@ namespace MIMS.Controllers
         private readonly BarRecoveryService _barRecoveryService;
         private readonly SLAFLocationService _sLAFLocationService;
         private readonly RankService _rankService;
+        private readonly UserAreaService _userAreaService;
 
 
 
@@ -47,7 +47,7 @@ namespace MIMS.Controllers
         public UsersController(UserBaseService userService, DivisionService divisionService, UserTypeService userTypeService, 
             PageObjectService pageObjectService, UserPermissionService userPermissionService, AdminUserService adminUserService, 
             UserAccountService userAccountService, BarRecoveryService barRecoveryService, SLAFLocationService sLAFLocationService,
-            RankService rankService,
+            RankService rankService, UserAreaService userAreaService,
             IDomainContext domainContext, ICryptoProvider cryptoProvider)
             : base(domainContext)
         {
@@ -61,7 +61,9 @@ namespace MIMS.Controllers
             _divisionService = divisionService;
             _sLAFLocationService = sLAFLocationService;
             _rankService = rankService;
-           
+            _userAreaService = userAreaService;
+
+
         }
         private UserAccount GetCurrentUser()
         {
@@ -116,6 +118,23 @@ namespace MIMS.Controllers
                 throw;
             }
             return View(UserAccountList);
+        }
+        public ActionResult UserTypeList()
+        {
+            List<UserType> UserTypeList = new List<UserType>();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                var filter = _userTypeService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p => p.LocationUId == account.LocationUId);
+                UserTypeList = _userTypeService.GetCollection(filter, p => p.CreationDate).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(UserTypeList);
         }
         [DinotaAuthorize(FunctionalAreas.Users, SetPermission = true)]
         public ActionResult Index(UserSearchModel userSearchModel, byte typeenum = 1)
@@ -546,7 +565,7 @@ namespace MIMS.Controllers
 
                 TempData[ViewDataKeys.Message] = new FailMessage(ex.Message);
             }
-            return RedirectToAction("UserRoleList", "DivisionInfo", new { id = type.DivisionId});
+            return RedirectToAction("UserRoleList", "DivisionInfo");
         }
 
         //[AuthorizeUserAccessLevel()]
@@ -597,12 +616,91 @@ namespace MIMS.Controllers
 
             return View(oUserAccount);
         }
+        public ActionResult RegisterUserType()
+        {
+            //UserAccount account = GetCurrentUser();
+            UserType type = new UserType();
+            
+            return View(type);
+        }
+        public ActionResult EditUserType(int id)
+        {
+            UserType type = new UserType();
+            try
+            {
+                type = _userTypeService.GetByKey(id);
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+            return View(type);
+        }
+        [HttpPost]
+        public ActionResult EditUserType(FormCollection Form, int id)
+        {
+            UserType type = new UserType();
+            try
+            {
+                type = _userTypeService.GetByKey(id);
+                TryUpdateModel(type);
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("User Type successfully updated");
+                return RedirectToAction("UserTypeList", "Users");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(type);
+        }
+        [HttpPost]
+        public ActionResult RegisterUserType(FormCollection Form)
+        {
+            UserAccount account = GetCurrentUser();
+            UserType type = new UserType();
+            try
+            {
+                TryUpdateModel(type);
+                type.LocationUId = account.LocationUId;
+                type.Active = true;
+                _userTypeService.Add(type);
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("User Type successfully created");
+                return RedirectToAction("UserTypeList", "Users");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
+            return View(type);
+        }
+
+        public ActionResult PermissionList()
+        {
+            List<UserArea> UserAreaList = new List<UserArea>();
+            try
+            {
+                var filter = _userAreaService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true);
+                UserAreaList = _userAreaService.GetCollection(filter, p => p.CreationDate).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(UserAreaList);
+        }
         [HttpPost]
         public ActionResult ShowUserType(int DivisionVal)
         {
             var filter = _userTypeService.GetDefaultSpecification();
-            filter = filter.And(p => p.Active == true).And(p => p.DivisionId == DivisionVal);
+            filter = filter.And(p => p.Active == true).And(p => p.LocationUId == DivisionVal);
             List<UserType> lst = _userTypeService.GetCollection(filter, p => p.CreationDate).ToList();
             return Json(lst, JsonRequestBehavior.AllowGet);
 
@@ -645,7 +743,7 @@ namespace MIMS.Controllers
         {
             try
             {
-                var filter = _.GetDefaultSpecification().And(s => s.Active == true);
+                var filter = _sLAFLocationService.GetDefaultSpecification().And(s => s.Active == true);
                 var TypeList = _sLAFLocationService.GetCollection(filter, d => d.UId);
                 SelectList list = new SelectList(TypeList, "UId", "Name");
                 ViewData[ViewDataKeys.SLAFLocationList] = list;

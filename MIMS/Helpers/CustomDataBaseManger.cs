@@ -84,7 +84,7 @@ namespace MIMS.Helpers
             List<UserPermissionGroup> list = new List<UserPermissionGroup>();
             try
             {
-                string sql = "SELECT UserPermissionGroup.* where UserTypeUId = '" + UserTypeId + "' and Active='TRUE'";
+                string sql = "SELECT * from UserPermissionGroup where UserTypeUId = '" + UserTypeId + "' and Active='TRUE'";
                 DataTable dt = SelectData(sql);
                 foreach (DataRow row in dt.Rows)
                 {

@@ -3,19 +3,15 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace Dinota.Domain.UserType
+namespace Dinota.Domain.UserArea
 {
-    public class UserType : Entity
+    public class UserArea : Entity
     {
         
         public int UId { get; set; }
-      
-        [Required]
+       
         [Display(Name = "Name")]
         public string Name { set; get; }
-        public int LocationUId { set; get; }
         public bool Active { set; get; }
-        //public virtual Division.Division Division { get; set; }
-
     }
 }

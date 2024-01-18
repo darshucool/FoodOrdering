@@ -903,6 +903,10 @@
     <Content Include="Views\Subscription\Edit.cshtml" />
     <Content Include="Views\Subscription\Index.cshtml" />
     <Content Include="Views\Subscription\Register.cshtml" />
+    <Content Include="Views\Users\UserTypeList.cshtml" />
+    <Content Include="Views\Users\RegisterUserType.cshtml" />
+    <Content Include="Views\Users\_CreateEditUserType.cshtml" />
+    <Content Include="Views\Users\EditUserType.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

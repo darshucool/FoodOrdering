@@ -101,7 +101,7 @@ namespace MIMS.Controllers
             {
               
                 var filter = _userTypeService.GetDefaultSpecification();
-                filter = filter.And(p => p.DivisionId == id).And(p=>p.Active==true);
+                //filter = filter.And(p => p.DivisionId == id).And(p=>p.Active==true);
                 UserTypeList = _userTypeService.GetCollection(filter, p => p.CreationDate).ToList();
                 TempData["DivisionName"] = _divisionService.GetByKey(id).Name;
                 TempData["DivisionId"] = _divisionService.GetByKey(id).UId;
@@ -119,8 +119,8 @@ namespace MIMS.Controllers
         {
             UserType oUserType = new UserType();
             oUserType = _userTypeService.GetByKey(id);
-            TempData["DivisionName"] = _divisionService.GetByKey(oUserType.DivisionId).Name;
-            TempData["DivisionId"] = _divisionService.GetByKey(oUserType.DivisionId).UId;
+            //TempData["DivisionName"] = _divisionService.GetByKey(oUserType.DivisionId).Name;
+            //TempData["DivisionId"] = _divisionService.GetByKey(oUserType.DivisionId).UId;
             return View(oUserType);
         }
         
@@ -132,13 +132,13 @@ namespace MIMS.Controllers
             try
             {
                 TryUpdateModel(oUserType);
-                TempData["DivisionName"] = _divisionService.GetByKey(oUserType.DivisionId).Name;
-                TempData["DivisionId"] = _divisionService.GetByKey(oUserType.DivisionId).UId;
+                //TempData["DivisionName"] = _divisionService.GetByKey(oUserType.DivisionId).Name;
+                //TempData["DivisionId"] = _divisionService.GetByKey(oUserType.DivisionId).UId;
                 if (ModelState.IsValid)
                 {
                     DataContext.SaveChanges();
                     TempData[ViewDataKeys.Message] = new SuccessMessage("Successfully updated");
-                    return RedirectToAction("UserRoleList", "DivisionInfo", new { id = oUserType.DivisionId });
+                    //return RedirectToAction("UserRoleList", "DivisionInfo", new { id = oUserType.DivisionId });
                 }
                 else
                 {
@@ -156,9 +156,9 @@ namespace MIMS.Controllers
         public ActionResult RegisterUserType(int id)
         {
             UserType oUserType = new UserType();
-            oUserType.DivisionId = id;
-            TempData["DivisionName"] = _divisionService.GetByKey(id).Name;
-            TempData["DivisionId"] = _divisionService.GetByKey(id).UId;
+            //oUserType.DivisionId = id;
+            //TempData["DivisionName"] = _divisionService.GetByKey(id).Name;
+            //TempData["DivisionId"] = _divisionService.GetByKey(id).UId;
             return View(oUserType);
         }
         [HttpPost]
@@ -168,16 +168,16 @@ namespace MIMS.Controllers
             try
             {
                 TryUpdateModel(oUserType);
-                oUserType.DivisionId = oUserType.DivisionId;
-                TempData["DivisionName"] = _divisionService.GetByKey(oUserType.DivisionId).Name;
-                TempData["DivisionId"] = _divisionService.GetByKey(oUserType.DivisionId).UId;
+                //oUserType.DivisionId = oUserType.DivisionId;
+                //TempData["DivisionName"] = _divisionService.GetByKey(oUserType.DivisionId).Name;
+                //TempData["DivisionId"] = _divisionService.GetByKey(oUserType.DivisionId).UId;
                 if (ModelState.IsValid)
                 {
                     oUserType.Active = true;
                     _userTypeService.Add(oUserType);
                     DataContext.SaveChanges();
                     TempData[ViewDataKeys.Message] = new SuccessMessage("Successfully added");
-                    return RedirectToAction("UserRoleList", "DivisionInfo", new { id = oUserType.DivisionId });
+                    return RedirectToAction("UserRoleList", "DivisionInfo", new { id = oUserType.LocationUId });
                 }
                 else
                 {

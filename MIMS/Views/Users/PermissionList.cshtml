@@ -1,0 +1,72 @@
+﻿@using MIMS.Helpers
+@using Dinota.Domain.UserArea
+@using Dinota.Security.Membership
+@model List<UserArea>
+@{
+    ViewBag.Title = "ProfileList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">User Area List</h4>
+    </div>
+</div>
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+
+
+        <header id="header">
+            <h3>User Area List</h3>
+
+        </header>
+
+
+        <div class="col-md-12 mb-3">
+            <div class="col-md-12 mb-3">
+                <a href="@Url.Content("~/Users/RegisterArea/")" class="btn btn-primary" style="float: right">
+                    <i class="zmdi zmdi-plus"></i> Create User Area
+
+                </a>
+            </div>
+            <br />
+            @Html.Message()
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th class="col-xs-2">User Area</th>
+
+
+
+                        
+                        <th class="col-xs-2"></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (UserArea emp in Model)
+                    {
+                        <tr>
+
+
+                            <td>@emp.Name</td>
+
+
+                            <td><a href="@Url.Content("~/Users/EditUserArea/")@emp.UId" class="btn btn-primary">Edit</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Asset/js/jquery-3.5.1.js"></script>
+<script src="~/Asset/js/jquery.dataTables.min.js"></script>
+<script src="~/Asset/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>
