@@ -616,6 +616,13 @@ namespace MIMS.Controllers
 
             return View(oUserAccount);
         }
+        public ActionResult RegisterArea()
+        {
+            //UserAccount account = GetCurrentUser();
+            UserArea area = new UserArea();
+
+            return View(area);
+        }
         public ActionResult RegisterUserType()
         {
             //UserAccount account = GetCurrentUser();
@@ -637,6 +644,20 @@ namespace MIMS.Controllers
             }
             return View(type);
         }
+        public ActionResult EditUserArea(int id)
+        {
+            UserArea area = new UserArea();
+            try
+            {
+                area = _userAreaService.GetByKey(id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(area);
+        }
         [HttpPost]
         public ActionResult EditUserType(FormCollection Form, int id)
         {
@@ -655,6 +676,25 @@ namespace MIMS.Controllers
                 throw;
             }
             return View(type);
+        }
+        [HttpPost]
+        public ActionResult EditUserArea(FormCollection Form, int id)
+        {
+            UserArea area = new UserArea();
+            try
+            {
+                area = _userAreaService.GetByKey(id);
+                TryUpdateModel(area);
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("User Area successfully updated");
+                return RedirectToAction("UserAreaList", "Users");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(area);
         }
         [HttpPost]
         public ActionResult RegisterUserType(FormCollection Form)
@@ -679,7 +719,29 @@ namespace MIMS.Controllers
            
             return View(type);
         }
+        [HttpPost]
+        public ActionResult RegisterArea(FormCollection Form)
+        {
+            UserAccount account = GetCurrentUser();
+            UserArea area = new UserArea();
+            try
+            {
+                TryUpdateModel(area);
+                //type.LocationUId = account.LocationUId;
+                area.Active = true;
+                _userAreaService.Add(area);
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("User Area successfully created");
+                return RedirectToAction("PermissionList", "Users");
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+
+            return View(area);
+        }
         public ActionResult PermissionList()
         {
             List<UserArea> UserAreaList = new List<UserArea>();
@@ -815,6 +877,20 @@ namespace MIMS.Controllers
                 throw;
             }
             return View(account);
+        }
+        public ActionResult PermissionUpdate(int id)
+        {
+
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();
         }
     }
 }
