@@ -22,6 +22,7 @@ using Dinota.Domain.BarRecovery;
 using Dinota.Domain.SLAFLocation;
 using Dinota.Domain.Rank;
 using Dinota.Domain.UserArea;
+using AlfasiWeb.Models;
 
 namespace MIMS.Controllers
 {
@@ -575,11 +576,13 @@ namespace MIMS.Controllers
             //BindAppointmentList();
             //BindDivisionList();
             BindSlafLocationList();
+            BindUserTypeList();
             return View(oUserAccount);
         }
         [HttpPost]
         public ActionResult RegisterMember(FormCollection Form)
         {
+            UserAccount acc = GetCurrentUser();
             UserAccount oUserAccount = new UserAccount();
             UserAccount checkUserAccount = new UserAccount();
 
@@ -600,6 +603,9 @@ namespace MIMS.Controllers
                 {
                     
                     oUserAccount.Active = true;
+                    oUserAccount.LocationUId = acc.LocationUId;
+                    oUserAccount.ServiceNo = acc.UserName;
+                    oUserAccount.UserMode = 1;
                     oUserAccount.PasswordHash = _cryptoProvider.HashPassword("password");
                     _userAccountService.Add(oUserAccount);
                     DataContext.SaveChanges();
@@ -801,6 +807,8 @@ namespace MIMS.Controllers
 
         }
 
+        
+
         public void BindRankList()
         {
             try
@@ -835,7 +843,7 @@ namespace MIMS.Controllers
 
         }
         
-        [AuthorizeUserAccessLevel()]
+       // [AuthorizeUserAccessLevel()]
         public ActionResult EditMember(int id)
         {
             UserAccount account = new UserAccount();
@@ -878,19 +886,37 @@ namespace MIMS.Controllers
             }
             return View(account);
         }
-        public ActionResult PermissionUpdate(int id)
+        public ActionResult UserPermission(int id)
         {
-
+            UserPermissionModel model = new UserPermissionModel();
             try
             {
-
+                var filter = _userAreaService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true);
+                model.UserAreaList = _userAreaService.GetCollection(filter, p => p.CreationDate).ToList();
             }
             catch (Exception)
             {
 
                 throw;
             }
-            return View();
+            return View(model);
+        }
+        public ActionResult PermissionUpdate(int id)
+        {
+            UserPermissionModel model = new UserPermissionModel();
+            try
+            {
+                var filter = _userAreaService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true);
+                model.UserAreaList = _userAreaService.GetCollection(filter, p => p.CreationDate).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
         }
     }
 }

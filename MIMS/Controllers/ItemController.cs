@@ -119,6 +119,69 @@ namespace MIMS.Controllers
             }
             return View(info);   
          }
+        public void BindIngriendientList(int id)
+        {
+            try
+            {
+                var filter = _ingredientInfoService.GetDefaultSpecification().And(s => s.Active == true).And(p => p.LocationUId == id);
+                var TypeList = _ingredientInfoService.GetCollection(filter, d => d.UId);
+                SelectList list = new SelectList(TypeList, "UId", "ItemName");
+                ViewData[ViewDataKeys.IngredientInfoList] = list;
+            }
+            catch (Exception ex)
+            {
+                TempData[ViewDataKeys.Message] = new FailMessage(ex.Message.ToString());
+
+            }
+
+        }
+        public ActionResult ItemStockDetailSummary()
+        {
+           
+            ItemDetailModel model = new ItemDetailModel();
+            try
+            {
+                UserAccount account = GetCurrentUser();
+                BindIngriendientList(account.LocationUId);
+                StockSummaryModel detailmodel = new StockSummaryModel();
+               
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult ItemStockDetailSummary(FormCollection Form)
+        {
+            ItemDetailModel model = new ItemDetailModel();
+            try
+            {
+                TryUpdateModel(model);
+                UserAccount account = GetCurrentUser();
+                BindIngriendientList(account.LocationUId);
+                IngredientInfo info = _ingredientInfoService.GetByKey(model.IngridientId);
+                StockSummaryModel detailmodel = new StockSummaryModel();
+                detailmodel.IngredientInfo = info;
+                var filter = _ingredientBOCService.GetDefaultSpecification();
+                filter = filter.And(p => p.Active == true).And(p => p.IngredientUId == model.IngridientId);
+                List<IngredientBOC> IngredientBOCList = _ingredientBOCService.GetCollection(filter, p => p.CreationDate).ToList();
+                detailmodel.IngredientBOCList = IngredientBOCList;
+                var filterTr = _bOCTransactionService.GetDefaultSpecification();
+                filterTr = filterTr.And(p => p.Active == true).And(p => p.IngredientBOC.IngredientUId == model.IngridientId).And(p => p.MenuOrderHeader.Active == true).And(p => p.MenuOrderHeader.Status > (int)DataStruct.MenuOrderItemStatus.Pending).And(p => p.MenuOrderHeader.Status < (int)DataStruct.MenuOrderItemStatus.Cancel);
+                List<BOCTransaction> BOCTransactionList = _bOCTransactionService.GetCollection(filterTr, p => p.CreationDate).ToList();
+                detailmodel.BOCTransactionList = BOCTransactionList;
+                model.StockSummaryModel = detailmodel;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
+        }
         public ActionResult ItemStockSummary(int id)
         {
             StockSummaryModel model = new StockSummaryModel();

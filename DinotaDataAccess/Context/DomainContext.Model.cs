@@ -52,6 +52,7 @@ using Dinota.DataAccces.SupplierInvoice;
 using Dinota.DataAccces.SubscriptionFee;
 using Dinota.DataAccces.UserPermissionGroup;
 using Dinota.DataAccces.UserArea;
+using Dinota.DataAccces.UserTrn;
 
 namespace Dinota.DataAccces.Context
 {
@@ -115,7 +116,8 @@ namespace Dinota.DataAccces.Context
             modelBuilder.Configurations.Add(new SupplierInvoiceMap());
             modelBuilder.Configurations.Add(new SubscriptionFeeMap());
   modelBuilder.Configurations.Add(new UserPermissionGroupMap());
-            modelBuilder.Configurations.Add(new UserAreaMap());
+            modelBuilder.Configurations.Add(new UserAreaMap()); 
+            modelBuilder.Configurations.Add(new UserTrnMap());
         }
     }
 }

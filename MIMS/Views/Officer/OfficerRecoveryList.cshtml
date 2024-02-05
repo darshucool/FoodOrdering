@@ -4,7 +4,7 @@
 @using Dinota.Domain.MenuCategory
 @using Dinota.Domain.MenuItemDetail
 @using AlfasiWeb.Models
-@model  List<OffcerRecoveryList>
+@model  OfficerMessBillModel
 @{
     ViewBag.Title = "MenuOrderList";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -31,49 +31,61 @@
                         <th>Living Status</th>
                         <th>Mess Bill Amount (Rs.)</th>
                         <th>Bar Bill Amount (Rs.)</th>
-                        <th>Subscriptions Amount (Rs.)</th>
+                        <th>Welfare shop amount (Rs.)</th>
+                        @foreach (string s in Model.SubcritionHeading)
+                        {
+                            <th>@s</th>
+                        }
+                        @*<th>Subscriptions Amount (Rs.)</th>*@
                         <th>Total Bill Amount (Rs.)</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (OffcerRecoveryList ord in Model)
+                    @foreach (OffcerRecoveryList ord in Model.OffcerRecoveryList)
                     {
 
-                        <tr>
-                            <td>@ord.oUserAccount.UserName</td>
-                            <td>
-                                @if (ord.oUserAccount.Rank != null)
-                                {
-                                    <span>@ord.oUserAccount.Rank.Name</span>
-                                }
-                                @ord.oUserAccount.Name
-                            </td>
-                            <td style="text-align:right">
-                                @if (ord.oUserAccount.UserStatus != null)
-                                {
-                                    @ord.oUserAccount.UserStatus.Status
-                                }
-                            </td>
-                            <td style="text-align:right">
-                                @ord.MessBill.ToString("00.00")
+                    <tr>
+                        <td>@ord.oUserAccount.UserName</td>
+                        <td>
+                            @if (ord.oUserAccount.Rank != null)
+                            {
+                                <span>@ord.oUserAccount.Rank.Name</span>
+                            }
+                            @ord.oUserAccount.Name
+                        </td>
+                        <td style="text-align:right">
+                            @if (ord.oUserAccount.UserStatus != null)
+                            {
+                                @ord.oUserAccount.UserStatus.Status
+                            }
+                        </td>
+                        <td style="text-align:right">
+                            @ord.MessBill.ToString("00.00")
 
-                            </td>
-                            <td style="text-align:right">
-                               @ord.Barbill.ToString("00.00")
+                        </td>
+                        <td style="text-align:right">
+                            @ord.Barbill.ToString("00.00")
 
-                            </td>
-                            <td style="text-align:right">
-                                @ord.Subscription.ToString("00.00")
+                        </td>
+                        <td style="text-align:right">
+                            @ord.WelfareshopBill.ToString("00.00")
 
-                            </td>
-                            @{ 
-                                decimal total = ord.MessBill + ord.Barbill + ord.Subscription;
-                                }
+                        </td>
+                        @foreach (decimal d in ord.SubcritionAmount)
+                        {
                             <td style="text-align:right">
-                                @total.ToString("00.00")
-
+                                @d.ToString("00.00")
                             </td>
-                        </tr>
+                        }
+
+                        @{
+                            decimal total = ord.MessBill + ord.Barbill + ord.Subscription;
+                        }
+                        <td style="text-align:right">
+                            @total.ToString("00.00")
+
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>

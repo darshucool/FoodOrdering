@@ -25,7 +25,7 @@
                 <div id="edit_profile">
                     <div>
                         @Html.Message()
-                        @using (Html.BeginForm("RegisterUserArea", "Users", null, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+                        @using (Html.BeginForm("RegisterArea", "Users", null, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
                         {
                             @Html.Partial("_CreateEditUserArea", Model)
                         }

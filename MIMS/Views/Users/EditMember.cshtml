@@ -7,49 +7,79 @@
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    
+
 }
 
-<div id="content_wrapper" class="card-overlay">
-    <div id="header_wrapper" class="header-md ">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <header id="header">
-                        <h1>Edit User Account</h1>
-                        <ol class="breadcrumb">
-                            <li><a href="@Url.Content("~/Home/Index")">Dashboard</a></li>
-                            <li><a href="javascript:void(0)">User Account</a></li>
-                        </ol>
-                    </header>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="content" class="container">
-
-        <div class="content-body">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="card">
-                        <header class="card-heading ">
-                            <h2 class="card-title">Edit User Account</h2>
+@*<div id="content_wrapper" class="card-overlay">
+        <div id="header_wrapper" class="header-md ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <header id="header">
+                            <h1>Register User Account</h1>
+                            <ol class="breadcrumb">
+                                <li><a href="@Url.Content("~/Home/Index")">Dashboard</a></li>
+                                <li><a href="javascript:void(0)">User Account</a></li>
+                            </ol>
                         </header>
-                        <div class="card-body">
-                            @Html.Message()
-                            @using (Html.BeginForm("EditMember", "Users", new { id=Model.Id}, FormMethod.Post, new { @class = "form-horizontal" }))
-                            {
-                                @Html.Partial("_CreateEdit", Model)
-                                        
-                            }
-
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div id="content" class="container">
+
+            <div class="content-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="card">
+                            <header class="card-heading ">
+                                <h2 class="card-title">Regiter User Account</h2>
+                            </header>
+                            <div class="card-body">
+                                @Html.Message()
+                                @using (Html.BeginForm("RegisterMember", "Users", null, FormMethod.Post, new { @class = "form-horizontal" }))
+                                {
+                                    @Html.Partial("_CreateEdit", Model)
+
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
+        </div>
+    </div>*@
+
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">Register Memeber</h4>
+    </div>
+</div>
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+
+        <div class="col-md-12 mb-3">
+            <div class="rounded shadow-sm p-4 bg-white">
+                <a href="@Url.Content("~/Users/UserList")" class="btn btn-primary px-3 " style="float:right">Back</a>
+                <h5 class="mb-4">Register Memeber</h5>
+                <hr />
+                <div id="edit_profile">
+                    <div>
+                        @Html.Message()
+                        @using (Html.BeginForm("EditMember", "Users", new { id=Model.Id}, FormMethod.Post, new { @class = "form-horizontal" }))
+                        {
+                            @Html.Partial("_CreateEdit", Model)
+
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

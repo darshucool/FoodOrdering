@@ -139,16 +139,25 @@ namespace AlfasiWeb.Models
         public string Unit { get; set; }
         public string PresentStock { get; set; }
     }
-
+    public class OfficerMessBillModel { 
+    public List<OffcerRecoveryList> OffcerRecoveryList { get; set; }
+        public List<string> SubcritionHeading { get; set; }
+    }
     public class OffcerRecoveryList
     {
         public UserAccount oUserAccount { get; set; }
         public decimal MessBill { get; set; }
+        public decimal WelfareshopBill { get; set; }
 
         public decimal Barbill { get; set; }
+
+       
+        public List<decimal> SubcritionAmount { get; set; }
         public decimal Subscription { get; set; }
         public decimal total { get; set; }
     }
+
+    
 
     public class SetMenuModel { 
         public SetMenuHeader SetMenuHeader { get; set; }

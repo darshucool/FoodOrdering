@@ -29,6 +29,7 @@ using Dinota.Domain.MenuOrderItemDetail;
 using Dinota.Domain.Rank;
 using Dinota.Domain.BarRecovery;
 using Dinota.Domain.SubscriptionFee;
+using Dinota.Domain.UserTrn;
 
 namespace MIMS.Controllers
 {
@@ -54,8 +55,9 @@ namespace MIMS.Controllers
         private readonly BarRecoveryService _barRecoveryService;
         private readonly SubscriptionFeeService _subscriptionFeeService;
         private readonly RankService _rankService;
+        private readonly UserTrnService _userTrnService;
 
-        public OfficerController(IDomainContext dataContext, SubscriptionFeeService subscriptionFeeService, BarRecoveryService barRecoveryService, MenuOrderItemDetailService menuOrderItemDetailService, 
+        public OfficerController(IDomainContext dataContext, UserTrnService userTrnService, SubscriptionFeeService subscriptionFeeService, BarRecoveryService barRecoveryService, MenuOrderItemDetailService menuOrderItemDetailService, 
             MenuOrderHeaderService menuOrderHeaderService, MenuOrderOfficerService menuOrderOfficerService, 
             PaymentMethodService paymentMethodService, MenuItemService menuItemService, OfficerRequestService officerRequestService, 
             UserStatusService userStatusService, UserAccountService userAccountService, RoomNoService roomNoService, 
@@ -81,6 +83,7 @@ namespace MIMS.Controllers
             _rankService = rankService;
             _barRecoveryService = barRecoveryService;
             _subscriptionFeeService = subscriptionFeeService;
+            _userTrnService = userTrnService;
         }
         // [AuthorizeUserAccessLevel()]
 
@@ -135,6 +138,14 @@ namespace MIMS.Controllers
             return userAccount;
 
         }
+        public ActionResult StatusHistory(int id)
+        {
+            List<UserTrn> UserTrnList = new List<UserTrn>();
+            var filter = _userTrnService.GetDefaultSpecification();
+            filter = filter.And(p => p.Active == true).And(p => p.Active == true);
+            UserTrnList = _userTrnService.GetCollection(filter, p => p.CreationDate).ToList();
+            return View(UserTrnList);
+        }
         public ActionResult OfficerList()
         {
             UserAccount account = GetCurrentUser();
@@ -185,10 +196,25 @@ namespace MIMS.Controllers
         [HttpPost]
         public ActionResult UpdateStatus(FormCollection Form,int id)
         {
+            int LivingStatus = 0;
+
             UserAccount account = _userAccountService.GetByKey(id);
+            LivingStatus = account.LivingStatus;
             BindUserStatusList();
             TryUpdateModel(account);
+            
             DataContext.SaveChanges();
+            if (account.LivingStatus != LivingStatus) {
+                UserTrn trn = new UserTrn();
+                trn.EffectiveDate = DateTime.Now;
+                trn.Active = true;
+                trn.StatusId = account.LivingStatus;
+                trn.UserId = account.Id;
+                _userTrnService.Add(trn);
+                DataContext.SaveChanges();
+            }
+           
+            
             TempData[ViewDataKeys.Message] = new SuccessMessage("Officer Status successfully updated");
 
             return RedirectToAction("OfficerList");
@@ -371,6 +397,7 @@ namespace MIMS.Controllers
         }
         public ActionResult OfficerRecoveryList()
         {
+            OfficerMessBillModel model = new OfficerMessBillModel();
             List<OffcerRecoveryList> ModelList = new List<OffcerRecoveryList>();
             try
             {
@@ -381,8 +408,11 @@ namespace MIMS.Controllers
                 var filter = _userAccountService.GetDefaultSpecification();
                 filter = filter.And(p => p.Active == true).And(p=>p.LocationUId==account.LocationUId);
                 List<UserAccount> UserAccountList = _userAccountService.GetCollection(filter, p => p.CreationDate).OrderBy(p => p.RankUId).ToList();
-                foreach(UserAccount acc in UserAccountList)
+                int i = 0;
+                List<string> SubcritionHeading = new List<string>();
+                foreach (UserAccount acc in UserAccountList)
                 {
+                    i++;
                     decimal Amount = 0;
                     OffcerRecoveryList off = new OffcerRecoveryList();
                     off.oUserAccount = acc;
@@ -406,11 +436,11 @@ namespace MIMS.Controllers
                             decimal IndivisualAmt = TotAmt / TotalOfficerList.Count;
                             Amount += IndivisualAmt;
                         }
-                        
+
                     }
                     off.MessBill = Amount;
                     var filterB = _barRecoveryService.GetDefaultSpecification();
-                    filterB = filterB.And(p=>p.Active==true).And(p => p.Year == firstDayOfMonth.Year).And(p => p.Month == firstDayOfMonth.Month).And(p => p.UserId == acc.Id);
+                    filterB = filterB.And(p => p.Active == true).And(p => p.Year == firstDayOfMonth.Year).And(p => p.Month == firstDayOfMonth.Month).And(p => p.UserId == acc.Id);
                     BarRecovery recovery = _barRecoveryService.GetBy(filterB);
                     if (recovery != null)
                     {
@@ -420,18 +450,48 @@ namespace MIMS.Controllers
                     {
                         off.Barbill = 0;
                     }
+                    off.WelfareshopBill = 0;
                     var filterS = _subscriptionFeeService.GetDefaultSpecification();
-                    filterS = filterS.And(p => p.Active == true).And(p=>p.LocationId== account.LocationUId);
+                    filterS = filterS.And(p => p.Active == true).And(p => p.LocationId == account.LocationUId);
                     List<SubscriptionFee> SubscriptionFeeList = _subscriptionFeeService.GetCollection(filterS, p => p.CreationDate).ToList();
-                    off.Subscription = SubscriptionFeeList.Sum(p=>p.Fee);
+                    List<decimal> SubcritionAmount = new List<decimal>();
+
+                    if (i == 1)
+                    {
+
+
+                        foreach (SubscriptionFee feecat in SubscriptionFeeList)
+                        {
+                            string s = feecat.Category;
+                            decimal amt = feecat.Fee;
+                            SubcritionHeading.Add(s);
+                            SubcritionAmount.Add(amt);
+                        }
+                    }
+                    else
+                    {
+                        foreach (SubscriptionFee feecat in SubscriptionFeeList)
+                        {
+                            string s = feecat.Category;
+                            decimal amt = feecat.Fee;
+                            SubcritionAmount.Add(amt);
+                        }
+                    }
+
+                    off.Subscription = SubscriptionFeeList.Sum(p => p.Fee);
+                    off.SubcritionAmount = SubcritionAmount;
                     ModelList.Add(off);
+                    
                 }
+                model.SubcritionHeading = SubcritionHeading;
+                model.OffcerRecoveryList = ModelList;
+
             }
             catch (Exception)
             {
                 throw;
             }
-            return View(ModelList); 
+            return View(model); 
         }
 
         public ActionResult OfficerRecoveryListNew()

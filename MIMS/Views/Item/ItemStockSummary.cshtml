@@ -43,7 +43,13 @@
                                 @info.CreationDate.ToShortDateString()
 
                         </td>
-                        <td>@info.Qty @info.MeasurementUnit.Unit</td>
+                            <td>
+                                @info.Qty
+                                                    @if (info.MeasurementUnit != null)
+                                                    {
+                                                        @info.MeasurementUnit.Unit
+                                                    }
+                                                </td>
                         <td>@info.Price</td>
                         <td>@info.TotalPrice</td>
                     </tr>

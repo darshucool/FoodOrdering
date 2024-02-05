@@ -48,4 +48,10 @@ namespace AlfasiWeb.Models
         public decimal UnitPrice { get; set; }
         public decimal TotalPrice { get; set; }
     }
+
+    public class BOCSummaryModel { 
+        public DateTime FromDate { get; set; }
+        public DateTime ToDate { get; set; }
+        public List<IngredientBOC> IngredientBOCList { get; set; }
+    }
 }

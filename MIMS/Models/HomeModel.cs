@@ -11,6 +11,7 @@ using Dinota.Domain.MenuItem;
 using Dinota.Domain.MenuOrder;
 using Dinota.Domain.MenuOrderItemDetail;
 using Dinota.Domain.MenuOrderOfficer;
+using Dinota.Domain.UserArea;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,6 +76,12 @@ namespace AlfasiWeb.Models
         public EventParticipation EventParticipation { get; set; }
         public List<EventParticipationKid> EventParticipationKidList { get; set; }
     }
+    public class ItemDetailModel { 
+        public DateTime FromDate { get; set; }
+        public DateTime ToDate { get; set; }
+        public int IngridientId { get; set; }
+        public StockSummaryModel StockSummaryModel { get; set; }
+    }
     public class StockSummaryModel {
         public IngredientInfo IngredientInfo { get; set; }
         public List<IngredientBOC> IngredientBOCList { get; set; }
@@ -82,5 +89,10 @@ namespace AlfasiWeb.Models
     }
     public class MenuSearchModel {
         public List<MenuItem> MenuItemList { get; set; }
+    }
+
+    public class UserPermissionModel { 
+        public List<UserArea> UserAreaList { get; set; }
+
     }
 }

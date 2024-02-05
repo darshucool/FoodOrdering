@@ -911,6 +911,10 @@
     <Content Include="Views\Users\RegisterArea.cshtml" />
     <Content Include="Views\Users\_CreateEditUserArea.cshtml" />
     <Content Include="Views\Users\EditUserArea.cshtml" />
+    <Content Include="Views\Officer\StatusHistory.cshtml" />
+    <Content Include="Views\SupplierInvoice\BOCSummary.cshtml" />
+    <Content Include="Views\Users\UserPermission.cshtml" />
+    <Content Include="Views\Item\ItemStockDetailSummary.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

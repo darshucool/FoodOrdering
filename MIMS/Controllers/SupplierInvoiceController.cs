@@ -158,6 +158,54 @@ namespace MIMS.Controllers
             }
             return View(info);
         }
+        public ActionResult BOCSummary()
+        {
+            BOCSummaryModel model = new BOCSummaryModel();
+            try
+            {
+                model.FromDate = DateTime.Now;
+                model.ToDate = DateTime.Now;
+                model.IngredientBOCList = new List<IngredientBOC>();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult BOCSummary(FormCollection Form)
+        {
+            BOCSummaryModel model = new BOCSummaryModel();
+            try
+            {
+                TryUpdateModel(model);
+                DateTime FromDate = model.FromDate.Date;
+                DateTime ToDAte = model.ToDate.Date.AddDays(1).AddTicks(-1) ;
+                List<IngredientBOC> IngredientBOCList = new List<IngredientBOC>();
+
+                var filter = _supplierInvoiceService.GetDefaultSpecification();
+                filter = filter.And(p => p.EffectiveDate >= FromDate).And(p => p.EffectiveDate <= ToDAte);
+                List<SupplierInvoice> SupplierInvoiceList = _supplierInvoiceService.GetCollection(filter, p => p.CreationDate).ToList();
+                foreach (SupplierInvoice invoice in SupplierInvoiceList)
+                {
+                    var filterS = _ingredientBOCService.GetDefaultSpecification();
+                    filterS = filterS.And(p => p.EffectiveDate >= FromDate).And(p => p.EffectiveDate <= ToDAte);
+                    List<IngredientBOC> SupplierInvoiceIngredientBOCList = _ingredientBOCService.GetCollection(filterS, p => p.CreationDate).ToList();
+                    IngredientBOCList.AddRange(SupplierInvoiceIngredientBOCList);
+
+                }
+             
+                model.IngredientBOCList = IngredientBOCList;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(model);
+        }
         public ActionResult Register()
         {
             Supplier info = new Supplier();
@@ -352,6 +400,7 @@ namespace MIMS.Controllers
             List<SupplierInvoice> SupplierList = _supplierInvoiceService.GetCollection(filter, p => p.CreationDate).ToList();
             return View(SupplierList);
         }
+        
         public ActionResult View(int id)
         {
             SupplierInvoiceModel model = new SupplierInvoiceModel();

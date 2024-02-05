@@ -1,0 +1,96 @@
+﻿@using MIMS
+@using MIMS.Helpers
+@using Dinota.Security
+@using Dinota.Domain.SupplierInvoice
+@using Dinota.Domain.IngredientBOC
+@using AlfasiWeb.Models
+@model BOCSummaryModel
+@{
+    ViewBag.Title = "RoomInfoRegister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-none">
+    <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="font-weight-bold m-0 text-white">BOC Summary</h4>
+    </div>
+</div>
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+
+        <div class="col-md-12 mb-3">
+            <div class="rounded shadow-sm p-4 bg-white">
+                <h5 class="mb-4">BOC Summary</h5>
+                <div id="edit_profile">
+                    <div>
+                        @Html.Message()
+                        @using (Html.BeginForm("BOCSummary", "SupplierInvoice", null, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+                        {
+
+                            <div class="form-group">
+                                <label for="exampleInputName1">From Date</label>
+                                @Html.TextBoxFor(m => m.FromDate, new { @placeholder = "Enter Address", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @type = "date" })
+                                @Html.ValidationMessageFor(m => m.FromDate, "")
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">To Date</label>
+                                @Html.TextBoxFor(m => m.ToDate, new { @placeholder = "Enter Address", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @Required = "true", @type = "date" })
+                                @Html.ValidationMessageFor(m => m.ToDate, "")
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                            </div>
+                        }
+                    </div>
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+
+                                <th>Ingriedient Item</th>
+                                <th>Date</th>
+                                <th>Qty</th>
+                                <th>Unit</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (IngredientBOC info in Model.IngredientBOCList)
+                            {
+                            <tr>
+
+                                <td>@info.IngredientInfo.ItemName</td>
+                                <td>@info.CreationDate.ToString("dd/MM/yyyy")</td>
+                                <td>@info.Qty</td>
+                                <td>
+                                    @if (info.MeasurementUnit != null)
+                                    {
+                                        @info.MeasurementUnit.Unit
+                                    }
+                                </td>
+
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@if (Model.IngredientBOCList.Count > 0)
+{
+
+
+<div class="container position-relative">
+    <div class="py-5 osahan-profile row">
+       
+        <div class="col-md-12 mb-3">
+
+            
+        </div>
+    </div>
+</div>
+}

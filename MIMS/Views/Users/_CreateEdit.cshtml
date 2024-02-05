@@ -62,15 +62,16 @@
 </div>
 
 <div class="form-group">
-    <label for="emailInput" class="col-sm-3 control-label">User Type (User = 3, Duty Caterer = 5)</label>
-    <div class="col-sm-8">
-        @Html.TextBoxFor(m => m.UserTypeId, new { @placeholder = "Enter User Type Number", @data_rule_required = "true", @data_rule_email = "true", @class = "form-control", @aria_required = "true", @required = "required" })
-        @Html.ValidationMessageFor(m => m.UserTypeId, "")
+    <label for="exampleInputName1">Select User Type</label>
+    @Html.DropDownListFor(model => model.UserTypeId, (IEnumerable<SelectListItem>)ViewData[MIMS.ViewDataKeys.UserTypeList], "-- Select User Type  --", new { @class = "full-width form-control", @required = "true" })
+    @Html.ValidationMessageFor(m => m.UserTypeId, null, new { @class = "help-inline" })
 
-    </div>
+
+
+
 </div>
 
-<div class="form-group">
+@*<div class="form-group">
     <label for="nameInput" class="col-sm-3 control-label">SLAF Location</label>
     <div class="col-sm-8">
 
@@ -78,7 +79,7 @@
         @Html.ValidationMessageFor(m => m.LocationUId, null, new { @class = "help-inline" })
 
     </div>
-</div>
+</div>*@
 @*<div class="form-group">
     <label for="emailInput" class="col-sm-3 control-label">NIC No</label>
     <div class="col-sm-8">
