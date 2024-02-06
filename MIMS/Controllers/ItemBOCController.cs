@@ -152,6 +152,36 @@ namespace MIMS.Controllers
             }
             return View(oIngredientBOC);
         }
+
+        [HttpPost]
+        public ActionResult IngredientBOCRegister(FormCollection Form)
+        {
+            IngredientBOC oIngredientBOC = new IngredientBOC();
+            try
+            {
+
+                TryUpdateModel(oIngredientBOC);
+
+
+
+                oIngredientBOC.Active = true;
+                oIngredientBOC.TotalPrice = oIngredientBOC.Qty * oIngredientBOC.Price;
+                oIngredientBOC.TransactionType = (int)DataStruct.BOCTransactionType.BOC;
+                _ingredientBOCService.Add(oIngredientBOC);
+                DataContext.SaveChanges();
+                TempData[ViewDataKeys.Message] = new SuccessMessage("Successfully Saved");
+                return RedirectToAction("IngredientBOCRegister", new { oIngredientBOC.IngredientUId });
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View(oIngredientBOC);
+        }
+
         public ActionResult IngredientCRVRegister(int id)
         {
             IngredientBOC oIngredientBOC = new IngredientBOC();
@@ -171,34 +201,7 @@ namespace MIMS.Controllers
             }
             return View(oIngredientBOC);
         }
-        [HttpPost]
-        public ActionResult IngredientBOCRegister(FormCollection Form)
-        {
-            IngredientBOC oIngredientBOC = new IngredientBOC();
-            try
-            {
-                
-                TryUpdateModel(oIngredientBOC);
-                
-
-
-                oIngredientBOC.Active = true;
-                oIngredientBOC.TotalPrice = oIngredientBOC.Qty * oIngredientBOC.Price;
-                oIngredientBOC.TransactionType = (int)DataStruct.BOCTransactionType.BOC;
-                _ingredientBOCService.Add(oIngredientBOC);
-                DataContext.SaveChanges();
-                TempData[ViewDataKeys.Message] = new SuccessMessage("Successfully Saved");
-                    return RedirectToAction("IngredientBOCRegister", new { oIngredientBOC.IngredientUId});
-                
-                
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            return View(oIngredientBOC);
-        }
+        
         [HttpPost]
         public ActionResult IngredientCRVRegister(FormCollection Form)
         {

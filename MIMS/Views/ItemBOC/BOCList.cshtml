@@ -35,15 +35,15 @@
                     <tbody>
                         @foreach (IngredientBOC info in Model)
                         {
-                            <tr>
+                        <tr>
 
-                                <td>@info.EffectiveDate.ToString("dd/MM/yyyy")</td>
-                                <td>@info.IngredientInfo.ItemName</td>
-                                <td>@info.MeasurementUnit.Unit</td>
-                                <td>@info.Qty</td>
-                                <td>@info.Price</td>
-                                <td><a href="@Url.Content("~/ItemBOC/IngredientBOCEdit/")@info.UId" class="btn btn-primary px-3">Edit</a></td>
-                            </tr>
+                            <td>@info.EffectiveDate.ToString("dd/MM/yyyy")</td>
+                            <td>@info.IngredientInfo.ItemName</td>
+                            <td>@info.MeasurementUnit.Unit</td>
+                            <td>@info.Qty</td>
+                            <td>@info.Price</td>
+                            <td><a href="@Url.Content("~/ItemBOC/IngredientBOCEdit/")@info.UId" class="btn btn-primary px-3">Edit</a></td>
+                        </tr>
                         }
                     </tbody>
                 </table>

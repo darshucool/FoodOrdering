@@ -163,16 +163,28 @@ namespace MIMS.Controllers
                 UserAccount account = GetCurrentUser();
                 BindIngriendientList(account.LocationUId);
                 IngredientInfo info = _ingredientInfoService.GetByKey(model.IngridientId);
+                DateTime FromDate = model.FromDate;
+                DateTime ToDate = model.ToDate;
+
+                TempData["FromDate"] = FromDate;
+                TempData["ToDate"] = ToDate;
+
                 StockSummaryModel detailmodel = new StockSummaryModel();
                 detailmodel.IngredientInfo = info;
+
                 var filter = _ingredientBOCService.GetDefaultSpecification();
-                filter = filter.And(p => p.Active == true).And(p => p.IngredientUId == model.IngridientId);
+                filter = filter.And(p => p.Active == true).And(p => p.IngredientUId == model.IngridientId).And(p => p.CreationDate >= FromDate).And(p => p.CreationDate <= ToDate);
                 List<IngredientBOC> IngredientBOCList = _ingredientBOCService.GetCollection(filter, p => p.CreationDate).ToList();
                 detailmodel.IngredientBOCList = IngredientBOCList;
+
                 var filterTr = _bOCTransactionService.GetDefaultSpecification();
-                filterTr = filterTr.And(p => p.Active == true).And(p => p.IngredientBOC.IngredientUId == model.IngridientId).And(p => p.MenuOrderHeader.Active == true).And(p => p.MenuOrderHeader.Status > (int)DataStruct.MenuOrderItemStatus.Pending).And(p => p.MenuOrderHeader.Status < (int)DataStruct.MenuOrderItemStatus.Cancel);
+                filterTr = filterTr.And(p => p.Active == true).And(p => p.IngredientBOC.IngredientUId == model.IngridientId)
+                                    .And(p => p.MenuOrderHeader.Active == true).And(p => p.MenuOrderHeader.Status > (int)DataStruct.MenuOrderItemStatus.Pending)
+                                    .And(p => p.MenuOrderHeader.Status < (int)DataStruct.MenuOrderItemStatus.Cancel)
+                                    .And(p => p.EffectiveDate >= FromDate).And(p => p.EffectiveDate <= ToDate);
                 List<BOCTransaction> BOCTransactionList = _bOCTransactionService.GetCollection(filterTr, p => p.CreationDate).ToList();
                 detailmodel.BOCTransactionList = BOCTransactionList;
+
                 model.StockSummaryModel = detailmodel;
             }
             catch (Exception)
